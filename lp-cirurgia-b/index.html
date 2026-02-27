@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Negativa de Plano de Saúde | Barphoff</title>
+    <meta name="description"
+        content="Teve sua cirurgia ou tratamento negado pelo plano de saúde? Fale agora com nossa equipe para uma orientação jurídica rápida e focada.">
+    <!-- Canonical tag apontando para si mesma para evitar duplicidade genérica -->
+    <link rel="canonical" href="https://www.barphoff.com/lp-cirurgia-b" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Minimalista (Mobile-First) */
+        :root {
+            --primary: #0f172a;
+            --cta-green: #10b981;
+            --cta-hover: #059669;
+            --bg-light: #f8fafc;
+            --text: #334155;
+            --white: #ffffff;
+            --radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            /* Foco total no meio do funil e mobile */
+            margin: 0 auto;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .bullets {
+            text-align: left;
+            margin-bottom: 2.5rem;
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+        }
+
+        .bullets ul {
+            list-style: none;
+        }
+
+        .bullets li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-weight: 600;
+            /* Destaque para escaneabilidade */
+            color: var(--primary);
+        }
+
+        .bullets li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--cta-green);
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background-color: var(--cta-green);
+            color: var(--white);
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: var(--radius);
+            transition: background-color 0.2s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--cta-hover);
+        }
+
+        .disclaimer {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- INÍCIO DO PLACEHOLDER DE CONTEÚDO (MANTIDO CONFORME SOLICITADO) -->
+        <!-- CONTENT_PLACEHOLDER -->
+
+        <h1>[Headline Principal Focada na Dor]</h1>
+        <p class="subtitle">[Subtítulo de apoio confirmando a especialidade e agilidade na resposta.]</p>
+
+        <div class="bullets">
+            <ul>
+                <li>[Benefício 1 ou Situação Atendida]</li>
+                <li>[Benefício 2 ou Situação Atendida]</li>
+                <li>[Benefício 3 ou Diferencial do Escritório]</li>
+            </ul>
+        </div>
+
+        <!-- FIM DO PLACEHOLDER DE CONTEÚDO -->
+
+        <!-- CTA Principal com atributos para Tracking -->
+        <!-- Substitua o link do href pelo link do WhatsApp real -->
+        <a href="#" id="cta-whatsapp" data-event="whatsapp_click" class="btn">
+            Falar no WhatsApp Agora
+        </a>
+
+        <p class="disclaimer">
+            Atendimento online em todo o Brasil. Casos urgentes são priorizados.
+        </p>
+    </div>
+
+    <!-- Script leve para tracking do evento (Simulando uma Tag) -->
+    <script>
+        document.getElementById('cta-whatsapp').addEventListener('click', function (e) {
+            // Se tiver GTM instalado futuramente, pode disparar o dataLayer aqui:
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': this.getAttribute('data-event'),
+                'button_id': this.getAttribute('id')
+            });
+            console.log('Evento de Tracking Disparado: ' + this.getAttribute('data-event'));
+        });
+    </script>
+</body>
+
+</html>
