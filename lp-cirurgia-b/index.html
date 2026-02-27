@@ -12,7 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* CSS Minimalista (Mobile-First) */
@@ -23,6 +23,7 @@
             --bg-light: #f8fafc;
             --text: #334155;
             --white: #ffffff;
+            --border: #e2e8f0;
             --radius: 8px;
         }
 
@@ -45,7 +46,7 @@
             /* Foco total no meio do funil e mobile */
             margin: 0 auto;
             padding: 3rem 0;
-            text-align: center;
+            text-align: left;
         }
 
         h1 {
@@ -56,38 +57,81 @@
             font-weight: 700;
         }
 
+        h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
         p.subtitle {
             font-size: 1.1rem;
             margin-bottom: 2rem;
             color: var(--text);
         }
 
-        .bullets {
-            text-align: left;
-            margin-bottom: 2.5rem;
+        .bullets,
+        .box-section {
+            margin-bottom: 2rem;
             background: var(--bg-light);
             padding: 1.5rem;
             border-radius: var(--radius);
         }
 
-        .bullets ul {
+        .bullets ul,
+        .box-section ul {
             list-style: none;
         }
 
-        .bullets li {
+        .bullets li,
+        .box-section li {
             margin-bottom: 0.75rem;
             position: relative;
             padding-left: 1.5rem;
-            font-weight: 600;
-            /* Destaque para escaneabilidade */
+            font-weight: 500;
             color: var(--primary);
+            line-height: 1.5;
         }
 
-        .bullets li:before {
+        .bullets li:before,
+        .box-section li:before {
             content: "✓";
             position: absolute;
             left: 0;
             color: var(--cta-green);
+            font-weight: 700;
+        }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: my-counter;
+        }
+
+        .steps-list li {
+            counter-increment: my-counter;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .steps-list li::before {
+            content: counter(my-counter) " ";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            background-color: var(--primary);
+            color: var(--white);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
         }
 
         .btn {
@@ -102,16 +146,53 @@
             border-radius: var(--radius);
             transition: background-color 0.2s;
             text-align: center;
+            margin-bottom: 1rem;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
             background-color: var(--cta-hover);
         }
 
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .final-cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .final-cta h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .final-cta div {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
         .disclaimer {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #94a3b8;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -119,44 +200,98 @@
 <body>
 
     <div class="container">
-        <!-- INÍCIO DO PLACEHOLDER DE CONTEÚDO (MANTIDO CONFORME SOLICITADO) -->
-        <!-- CONTENT_PLACEHOLDER -->
 
-        <h1>[Headline Principal Focada na Dor]</h1>
-        <p class="subtitle">[Subtítulo de apoio confirmando a especialidade e agilidade na resposta.]</p>
+        <h1 style="text-align: center;">Plano de saúde negou cirurgia ou procedimento indicado pelo seu médico?</h1>
+        <p class="subtitle" style="text-align: center;">Solicite uma avaliação jurídica do seu caso e orientação sobre
+            medidas cabíveis em situações de negativa de cobertura.</p>
 
-        <div class="bullets">
+        <!-- Substitua o link do href pelo link do WhatsApp real -->
+        <a href="#" id="cta-whatsapp" data-event="whatsapp_click" class="btn">
+            Enviar negativa no WhatsApp
+        </a>
+
+        <div class="bullets" style="margin-top: 2rem;">
             <ul>
-                <li>[Benefício 1 ou Situação Atendida]</li>
-                <li>[Benefício 2 ou Situação Atendida]</li>
-                <li>[Benefício 3 ou Diferencial do Escritório]</li>
+                <li>Triagem e orientação jurídica inicial</li>
+                <li>Checklist de documentos para análise</li>
+                <li>Atendimento online (cada caso é individual)</li>
             </ul>
         </div>
 
-        <!-- FIM DO PLACEHOLDER DE CONTEÚDO -->
+        <h2>Situações comuns</h2>
+        <div class="box-section">
+            <ul>
+                <li>Cirurgia negada (eletiva ou com urgência)</li>
+                <li>Próteses/órteses e materiais cirúrgicos (quando indicado)</li>
+                <li>Exames pré-operatórios recusados</li>
+                <li>Falta de rede credenciada dentro do prazo</li>
+            </ul>
+        </div>
 
-        <!-- CTA Principal com atributos para Tracking -->
-        <!-- Substitua o link do href pelo link do WhatsApp real -->
-        <a href="#" id="cta-whatsapp" data-event="whatsapp_click" class="btn">
-            Falar no WhatsApp Agora
-        </a>
+        <h2>Como funciona</h2>
+        <div class="box-section">
+            <ol class="steps-list">
+                <li>Você envia a negativa/protocolo</li>
+                <li>Você envia pedido/relatório médico</li>
+                <li>Fazemos a triagem e análise inicial</li>
+                <li>Orientamos as medidas cabíveis (administrativas e/ou judiciais, quando aplicável)</li>
+            </ol>
+        </div>
 
-        <p class="disclaimer">
-            Atendimento online em todo o Brasil. Casos urgentes são priorizados.
-        </p>
+        <h2>Documentos que agilizam</h2>
+        <div class="box-section">
+            <ul>
+                <li>Negativa por escrito, e-mail, print ou protocolo</li>
+                <li>Relatório/pedido médico (com justificativa)</li>
+                <li>Carteirinha do plano + documento do titular</li>
+                <li>Exames relevantes (se houver)</li>
+            </ul>
+        </div>
+
+        <h2>Dúvidas Frequentes</h2>
+        <div class="faq-item">
+            <strong>"Preciso da negativa por escrito?"</strong>
+            <span>Ajuda, mas protocolo/prints também servem.</span>
+        </div>
+        <div class="faq-item">
+            <strong>"Quanto tempo demora?"</strong>
+            <span>Varia por caso e tribunal. Não garantimos prazo.</span>
+        </div>
+        <div class="faq-item" style="border-bottom: none;">
+            <strong>"Vocês atendem online?"</strong>
+            <span>Sim.</span>
+        </div>
+
+        <div class="final-cta">
+            <h2>Recebeu uma negativa?</h2>
+            <div>Clique no WhatsApp e envie:<br>NEGATIVA + RELATÓRIO MÉDICO + CARTEIRINHA.</div>
+
+            <a href="#" id="cta-whatsapp-final" data-event="whatsapp_click" class="btn">
+                Enviar negativa no WhatsApp
+            </a>
+
+            <p class="disclaimer">
+                Atendimento online em todo o Brasil.<br>Casos urgentes são priorizados.
+            </p>
+        </div>
+
     </div>
 
     <!-- Script leve para tracking do evento (Simulando uma Tag) -->
     <script>
-        document.getElementById('cta-whatsapp').addEventListener('click', function (e) {
-            // Se tiver GTM instalado futuramente, pode disparar o dataLayer aqui:
+        function trackWhatsappClick(e) {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
                 'event': this.getAttribute('data-event'),
                 'button_id': this.getAttribute('id')
             });
             console.log('Evento de Tracking Disparado: ' + this.getAttribute('data-event'));
-        });
+        }
+
+        document.getElementById('cta-whatsapp').addEventListener('click', trackWhatsappClick);
+        if (document.getElementById('cta-whatsapp-final')) {
+            document.getElementById('cta-whatsapp-final').addEventListener('click', trackWhatsappClick);
+        }
     </script>
 </body>
 
