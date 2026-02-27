@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barphoff — Advocacia em Direito da Saúde</title>
-    <meta name="description" content="Atuação nacional. Orientação jurídica e análise individual para casos de negativa de cobertura por planos de saúde.">
-    
+    <meta name="description"
+        content="Atuação nacional. Orientação jurídica e análise individual para casos de negativa de cobertura por planos de saúde.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <script>
         // DataLayer Placeholder (Sem libs externas)
         window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        
+        function gtag() { dataLayer.push(arguments); }
+
         function trackEvent(eventName, eventParams) {
             console.log('Tracking Event:', eventName, eventParams);
             gtag('event', eventName, eventParams);
@@ -43,7 +45,7 @@
         function form_submit(event) {
             event.preventDefault();
             trackEvent('form_submit', { form_id: 'avaliacao-form' });
-            
+
             const btn = document.getElementById('submitBtn');
             const originalText = btn.innerText;
             btn.innerText = 'Enviando...';
@@ -78,15 +80,42 @@
             --radius-lg: 1rem;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { font-family: 'Inter', sans-serif; background-color: var(--white); color: var(--primary); line-height: 1.6; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        img { max-width: 100%; height: auto; display: block; border-radius: var(--radius-md); object-fit: cover; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--primary);
+            line-height: 1.6;
+        }
 
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
 
         /* Buttons */
         .btn {
@@ -103,132 +132,670 @@
             text-align: center;
             gap: 0.5rem;
         }
-        .btn-green { background-color: var(--cta-green); color: var(--white); }
-        .btn-green:hover { background-color: var(--cta-hover); }
-        .btn-outline { background-color: transparent; border: 2px solid var(--primary); color: var(--primary); }
-        .btn-outline:hover { background-color: var(--primary); color: var(--white); }
-        .btn-block { width: 100%; }
+
+        .btn-green {
+            background-color: var(--cta-green);
+            color: var(--white);
+        }
+
+        .btn-green:hover {
+            background-color: var(--cta-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
 
         /* Header */
-        header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid var(--border); z-index: 50; padding: 1rem 0; }
-        .header-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); letter-spacing: -0.5px; }
-        .btn-header { display: none; }
-        @media (min-width: 640px) { .btn-header { display: inline-flex; } }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid var(--border);
+            z-index: 50;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .btn-header {
+            display: none;
+        }
+
+        @media (min-width: 640px) {
+            .btn-header {
+                display: inline-flex;
+            }
+        }
 
         /* Hero */
-        .hero { padding: 8rem 0 4rem; background-color: var(--bg-light); }
-        .hero-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
-        .hero-text h1 { font-size: 2.25rem; line-height: 1.2; margin-bottom: 1.25rem; font-weight: 700; color: var(--primary); letter-spacing: -0.025em; }
-        .hero-text p { font-size: 1.125rem; color: var(--secondary); margin-bottom: 2rem; }
-        .cta-group { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
-        .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
-        .chip { background: var(--white); border: 1px solid var(--border); padding: 0.375rem 0.75rem; border-radius: 2rem; font-size: 0.875rem; color: var(--secondary); font-weight: 500; }
-        
+        .hero {
+            padding: 8rem 0 4rem;
+            background-color: var(--bg-light);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.25rem;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .chip {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 0.375rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
         @media (min-width: 768px) {
-            .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
-            .hero-text h1 { font-size: 2.75rem; }
-            .cta-group { flex-direction: row; }
+            .hero-grid {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.75rem;
+            }
+
+            .cta-group {
+                flex-direction: row;
+            }
+        }
+
+        /* Authority Bar */
+        .authority-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--primary-light);
+        }
+
+        .authority-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .authority-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .authority-item svg {
+            color: var(--cta-green);
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 640px) {
+            .authority-grid {
+                grid-template-columns: repeat(2, 1fr);
+                justify-content: start;
+                text-align: left;
+            }
+
+            .authority-item {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .authority-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         /* Sections */
-        .section { padding: 5rem 0; }
-        .section-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 1rem; color: var(--primary); letter-spacing: -0.025em; }
-        .section-subtitle { text-align: center; color: var(--secondary); font-size: 1.125rem; max-width: 700px; margin: 0 auto 3.5rem; }
-        
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--secondary);
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
+        }
+
         /* Grid Situations */
-        .grid-cards { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-        .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: flex-start; gap: 1rem; text-align: left; }
-        .card:hover { border-color: var(--cta-green); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-        .card-icon { width: 40px; height: 40px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--primary); }
-        .card-content h3 { font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem; }
-        .card-content p { font-size: 0.875rem; color: var(--secondary); }
-        
-        @media (min-width: 640px) { .grid-cards { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
-        @media (min-width: 1024px) { .grid-cards { grid-template-columns: repeat(4, 1fr); } }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .card:hover {
+            border-color: var(--cta-green);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary);
+        }
+
+        .card-content h3 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-content p {
+            font-size: 0.875rem;
+            color: var(--secondary);
+        }
+
+        @media (min-width: 640px) {
+            .grid-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-cards {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
 
         /* Timeline */
-        .timeline { max-width: 800px; margin: 0 auto; position: relative; }
-        .timeline::before { content: ''; position: absolute; left: 24px; top: 0; height: 100%; width: 2px; background: var(--border); }
-        .timeline-step { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; position: relative; }
-        .timeline-step:last-child { margin-bottom: 0; }
-        .step-number { width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: var(--white); display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; position: relative; z-index: 2; border: 4px solid var(--white); font-size: 1.125rem; }
-        .step-content { background: var(--white); border: 1px solid var(--border); padding: 1.5rem; border-radius: var(--radius-lg); flex-grow: 1; box-shadow: var(--shadow-sm); }
-        .step-content h3 { font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 600; }
-        .step-content p { color: var(--secondary); }
-        .timeline-disclaimer { text-align: center; margin-top: 3rem; font-size: 0.875rem; color: var(--secondary); background: rgba(15,23,42,0.05); padding: 1.25rem; border-radius: var(--radius-md); font-weight: 600; }
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .timeline-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+            border: 4px solid var(--white);
+            font-size: 1.125rem;
+        }
+
+        .step-content {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            flex-grow: 1;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .step-content p {
+            color: var(--secondary);
+        }
+
+        .timeline-disclaimer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.875rem;
+            color: var(--secondary);
+            background: rgba(15, 23, 42, 0.05);
+            padding: 1.25rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+        }
 
         @media (max-width: 639px) {
-            .timeline::before { left: 20px; }
-            .step-number { width: 40px; height: 40px; font-size: 1rem; }
+            .timeline::before {
+                left: 20px;
+            }
+
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
         }
 
         /* Split Layouts (Como funciona / Documentos) */
-        .split-layout { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
-        @media (min-width: 768px) { .split-layout { grid-template-columns: 1fr 1fr; } }
-        
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .split-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         /* Documentos */
-        .checklist { margin-top: 1.5rem; }
-        .checklist li { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; font-size: 1.05rem; background: var(--bg-light); padding: 1rem; border-radius: var(--radius-md); }
-        .checklist-icon { width: 24px; height: 24px; color: var(--cta-green); flex-shrink: 0; }
-        .lgpd-note { margin-top: 2rem; font-size: 0.875rem; color: var(--secondary); display: flex; gap: 0.75rem; padding: 1rem; background: #fdf8f6; border-radius: var(--radius-md); }
+        .checklist {
+            margin-top: 1.5rem;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+        }
+
+        .checklist-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--cta-green);
+            flex-shrink: 0;
+        }
+
+        .lgpd-note {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: var(--secondary);
+            display: flex;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: #fdf8f6;
+            border-radius: var(--radius-md);
+        }
 
         /* Map Section */
-        .map-section { background-color: var(--primary); color: var(--white); text-align: center; }
-        .map-section .section-title { color: var(--white); }
-        .map-section .section-subtitle { color: #cbd5e1; }
-        .map-container { max-width: 700px; margin: 0 auto; padding: 2rem; background: rgba(255,255,255,0.05); border-radius: var(--radius-lg); }
+        .map-section {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .map-section .section-title {
+            color: var(--white);
+        }
+
+        .map-section .section-subtitle {
+            color: #cbd5e1;
+        }
+
+        .map-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-lg);
+        }
 
         /* FAQ */
-        .faq-list { max-width: 800px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
-        .faq-item { border-bottom: 1px solid var(--border); }
-        .faq-item:last-child { border-bottom: none; }
-        .faq-question { width: 100%; text-align: left; padding: 1.5rem; font-size: 1.125rem; font-weight: 600; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--primary); }
-        .faq-answer { padding: 0 1.5rem 1.5rem; color: var(--secondary); display: none; line-height: 1.7; }
-        .faq-item.active .faq-answer { display: block; }
-        .faq-icon { transition: transform 0.2s; flex-shrink: 0; width: 24px; height: 24px; color: var(--secondary); }
-        .faq-item.active .faq-icon { transform: rotate(180deg); color: var(--primary); }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--secondary);
+            display: none;
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.2s;
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: var(--secondary);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
 
         /* Form Modal / Section */
-        .form-section { background-color: var(--bg-light); }
-        .form-container { max-width: 600px; margin: 0 auto; background: var(--white); padding: 2.5rem 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 1px solid var(--border); }
-        .form-header { text-align: center; margin-bottom: 2rem; }
-        .form-header h2 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .form-header p { color: var(--secondary); font-size: 0.95rem; }
-        .form-group { margin-bottom: 1.25rem; }
-        .form-label { display: block; font-weight: 500; margin-bottom: 0.5rem; font-size: 0.875rem; color: var(--primary); }
-        .form-control { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); font-family: inherit; font-size: 1rem; background: var(--white); transition: border-color 0.2s; }
-        .form-control:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.05); }
-        textarea.form-control { resize: vertical; min-height: 100px; }
-        .checkbox-group { display: flex; gap: 0.75rem; align-items: flex-start; margin: 1.5rem 0; }
-        .checkbox-group input { margin-top: 0.25rem; width: 1rem; height: 1rem; }
-        .checkbox-label { font-size: 0.875rem; color: var(--secondary); line-height: 1.5; }
-        .checkbox-label a { text-decoration: underline; }
-        .success-msg { display: none; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; padding: 2rem; border-radius: var(--radius-md); text-align: center; }
-        .success-msg h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-        .success-msg p { font-size: 0.95rem; }
+        .form-section {
+            background-color: var(--bg-light);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 1rem;
+            background: var(--white);
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.05);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin: 1.5rem 0;
+        }
+
+        .checkbox-group input {
+            margin-top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .checkbox-label {
+            font-size: 0.875rem;
+            color: var(--secondary);
+            line-height: 1.5;
+        }
+
+        .checkbox-label a {
+            text-decoration: underline;
+        }
+
+        .success-msg {
+            display: none;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .success-msg h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-msg p {
+            font-size: 0.95rem;
+        }
 
         /* Final CTA */
-        .final-cta { text-align: center; }
-        .final-cta .cta-group { justify-content: center; margin-top: 2.5rem; }
+        .final-cta {
+            text-align: center;
+        }
+
+        .final-cta .cta-group {
+            justify-content: center;
+            margin-top: 2.5rem;
+        }
 
         /* Footer */
-        footer { background-color: var(--primary); color: var(--white); padding: 4rem 0 2rem; }
-        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 3rem; }
-        .footer-brand { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.5px; }
-        .footer-compliance { font-size: 0.875rem; color: #94a3b8; margin-top: 1.5rem; max-width: 400px; line-height: 1.7; }
-        .footer-compliance strong { color: var(--white); }
-        .footer-links h4 { font-size: 1rem; margin-bottom: 1rem; font-weight: 600; }
-        .footer-links ul { display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem; color: #cbd5e1; }
-        .footer-links a:hover { color: var(--white); }
-        .footer-bottom { border-top: 1px solid var(--primary-light); padding-top: 2rem; text-align: center; font-size: 0.875rem; color: #94a3b8; display: flex; flex-direction: column; gap: 1rem; }
-        
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-compliance {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            margin-top: 1.5rem;
+            max-width: 400px;
+            line-height: 1.7;
+        }
+
+        .footer-compliance strong {
+            color: var(--white);
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: #cbd5e1;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--primary-light);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #94a3b8;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
         @media (min-width: 768px) {
-            .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
-            .footer-bottom { flex-direction: row; justify-content: space-between; }
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- 1) Header -->
@@ -236,7 +803,7 @@
         <div class="container header-content">
             <div class="logo">Barphoff</div>
             <button class="btn btn-green btn-header" onclick="click_whatsapp()">
-                Falar no WhatsApp
+                Enviar documentos no WhatsApp
             </button>
         </div>
     </header>
@@ -246,12 +813,21 @@
         <div class="container hero-grid">
             <div class="hero-text">
                 <h1>Plano de saúde negou cobertura? Entenda seus próximos passos.</h1>
-                <p>Atuação nacional em Direito da Saúde. Análise jurídica individual para casos de negativa de cirurgia, internação, home care, medicamento e outras coberturas.</p>
-                
-                <div class="cta-group">
-                    <a href="#avaliacao" class="btn btn-green">Solicitar avaliação inicial</a>
-                    <button class="btn btn-outline" onclick="click_whatsapp()">Falar no WhatsApp</button>
+                <p>Atuação nacional em Direito da Saúde. Análise jurídica individual para casos de negativa de cirurgia,
+                    internação, home care, medicamento e outras coberturas.</p>
+
+                <div class="cta-group" style="margin-bottom: 0.5rem;">
+                    <button class="btn btn-green" onclick="click_whatsapp()">Enviar negativa e documentos no
+                        WhatsApp</button>
                 </div>
+                <p
+                    style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 500;">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Retorno no horário comercial. Casos urgentes são priorizados.
+                </p>
 
                 <div class="chips">
                     <span class="chip">Cirurgia</span>
@@ -263,20 +839,63 @@
             </div>
             <div>
                 <!-- Imagem REAL: pessoa preocupada lendo negativa do plano no celular (sem dramatização extrema). -->
-                <img src="https://placehold.co/600x450/e2e8f0/64748b?text=Pessoa+preocupada+lendo+negativa+no+celular" alt="Pessoa lendo documento de negativa de cobertura" width="600" height="450">
+                <img src="assets/hero_image.png" alt="Pessoa lendo documento de negativa de cobertura" width="600"
+                    height="450">
             </div>
         </div>
     </section>
+
+    <!-- 2.5) Authority Bar -->
+    <div class="authority-bar">
+        <div class="container authority-grid">
+            <div class="authority-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3">
+                    </path>
+                </svg>
+                <span>Atuação em Direito da Saúde</span>
+            </div>
+            <div class="authority-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                    </path>
+                </svg>
+                <span>Atendimento nacional online</span>
+            </div>
+            <div class="authority-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>[Inserir Anos] de Atuação</span>
+            </div>
+            <div class="authority-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.95 11.95 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                    </path>
+                </svg>
+                <span>OAB/UF [Seu Número]</span>
+            </div>
+        </div>
+    </div>
 
     <!-- 3) Situações Atendidas -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">Situações atendidas</h2>
-            <p class="section-subtitle">Identifique seu caso. Cada situação demanda estratégias e medidas cabíveis específicas.</p>
-            
+            <p class="section-subtitle">Identifique seu caso. Cada situação demanda estratégias e medidas cabíveis
+                específicas.</p>
+
             <div class="grid-cards">
                 <div class="card" onclick="select_situation('Cirurgia negada')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg></div>
+                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4">
+                            </path>
+                        </svg></div>
                     <div class="card-content">
                         <h3>Cirurgia negada</h3>
                         <p>Recusa de procedimentos prescritos pelo seu médico.</p>
@@ -284,7 +903,12 @@
                 </div>
 
                 <div class="card" onclick="select_situation('Internação/UTI negada')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg></div>
+                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                            </path>
+                        </svg></div>
                     <div class="card-content">
                         <h3>Internação/UTI negada</h3>
                         <p>Negativa em casos de urgência, emergência ou carência.</p>
@@ -292,7 +916,12 @@
                 </div>
 
                 <div class="card" onclick="select_situation('Home care negado')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></div>
+                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                            </path>
+                        </svg></div>
                     <div class="card-content">
                         <h3>Home care negado</h3>
                         <p>Negativa de internação domiciliar recomendada.</p>
@@ -300,7 +929,12 @@
                 </div>
 
                 <div class="card" onclick="select_situation('Medicamento de alto custo negado')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg></div>
+                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                            </path>
+                        </svg></div>
                     <div class="card-content">
                         <h3>Medicamento alto custo</h3>
                         <p>Recusa baseada em rol da ANS ou uso off-label.</p>
@@ -308,7 +942,11 @@
                 </div>
 
                 <div class="card" onclick="select_situation('Tratamento contínuo interrompido')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg></div>
                     <div class="card-content">
                         <h3>Tratamento contínuo interrompido</h3>
                         <p>Suspensão abrupta de terapias essenciais.</p>
@@ -316,7 +954,12 @@
                 </div>
 
                 <div class="card" onclick="select_situation('Reembolso negado/limitado')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg></div>
                     <div class="card-content">
                         <h3>Reembolso negado/limitado</h3>
                         <p>Limitação indevida ou recusa injustificada.</p>
@@ -324,7 +967,12 @@
                 </div>
 
                 <div class="card" onclick="select_situation('Descredenciamento de hospital/serviço')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg></div>
+                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636">
+                            </path>
+                        </svg></div>
                     <div class="card-content">
                         <h3>Descredenciamento de hospital/serviço</h3>
                         <p>Retirada da rede credenciada durante o tratamento.</p>
@@ -332,14 +980,18 @@
                 </div>
 
                 <div class="card" onclick="select_situation('Cancelamento do plano')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></div>
+                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg></div>
                     <div class="card-content">
                         <h3>Cancelamento do plano</h3>
                         <p>Rescisão unilateral pela operadora.</p>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
@@ -348,7 +1000,7 @@
         <div class="container split-layout">
             <div>
                 <h2 class="section-title" style="text-align: left;">Como funciona</h2>
-                
+
                 <div class="timeline">
                     <div class="timeline-step">
                         <div class="step-number">01</div>
@@ -381,7 +1033,8 @@
             </div>
             <div>
                 <!-- Imagem REAL: imagem/ilustração de checklist/fluxo. -->
-                <img src="https://placehold.co/500x600/e2e8f0/64748b?text=Checklist+Fluxo+de+Trabalho" alt="Processo de avaliação">
+                <img src="https://placehold.co/500x600/e2e8f0/64748b?text=Checklist+Fluxo+de+Trabalho"
+                    alt="Processo de avaliação">
             </div>
         </div>
     </section>
@@ -391,26 +1044,36 @@
         <div class="container split-layout">
             <div style="order: 2;">
                 <h2 class="section-title" style="text-align: left;">Documentos que agilizam a avaliação</h2>
-                
+
                 <ul class="checklist">
                     <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
                         <span>Negativa do plano (protocolo/print)</span>
                     </li>
                     <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
                         <span>Pedido/relatório médico</span>
                     </li>
                     <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
                         <span>Carteirinha do plano</span>
                     </li>
                     <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
                         <span>Exames/receituário (quando aplicável)</span>
                     </li>
                     <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
                         <span>Boletos/reembolso (se for o caso)</span>
                     </li>
                 </ul>
@@ -421,7 +1084,8 @@
             </div>
             <div style="order: 1;">
                 <!-- Imagem REAL: imagem de documentos organizados + celular. -->
-                <img src="https://placehold.co/500x600/e2e8f0/64748b?text=Documentos+Organizados+%2B+Celular" alt="Documentações">
+                <img src="assets/doc_image.png" alt="Documentações"
+                    style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
             </div>
         </div>
     </section>
@@ -430,11 +1094,13 @@
     <section class="section map-section">
         <div class="container">
             <h2 class="section-title">Atendimento nacional</h2>
-            <p class="section-subtitle">Realizamos atendimento online para todo o Brasil. Urgências são priorizadas conforme o caso.</p>
-            
+            <p class="section-subtitle">Realizamos atendimento online para todo o Brasil. Urgências são priorizadas
+                conforme o caso.</p>
+
             <div class="map-container">
                 <!-- Imagem REAL: mapa do Brasil minimalista. -->
-                <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Mapa+do+Brasil+Minimalista" alt="Mapa do Brasil" style="margin: 0 auto;">
+                <img src="https://placehold.co/600x400/1e293b/94a3b8?text=Mapa+do+Brasil+Minimalista"
+                    alt="Mapa do Brasil" style="margin: 0 auto;">
             </div>
         </div>
     </section>
@@ -444,7 +1110,8 @@
         <div class="container split-layout">
             <div>
                 <!-- Imagem REAL: imagem discreta de atendimento/consultoria. -->
-                <img src="https://placehold.co/500x600/e2e8f0/64748b?text=Imagem+Discreta+Atendimento" alt="Consultoria e Atendimento">
+                <img src="https://placehold.co/500x600/e2e8f0/64748b?text=Imagem+Discreta+Atendimento"
+                    alt="Consultoria e Atendimento">
             </div>
             <div>
                 <h2 class="section-title" style="text-align: left;">Dúvidas Frequentes</h2>
@@ -453,58 +1120,93 @@
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
                             Preciso da negativa por escrito?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                stroke-width="2">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                        <div class="faq-answer">É recomendável, mas protocolos de atendimento, e-mails ou prints de conversas também podem ser avaliados.</div>
+                        <div class="faq-answer">É recomendável, mas protocolos de atendimento, e-mails ou prints de
+                            conversas também podem ser avaliados.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
                             Plano pode negar cirurgia indicada pelo médico?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                stroke-width="2">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                        <div class="faq-answer">Muitas vezes entende-se que cabe ao médico do paciente definir o tratamento. A recusa deve ser baseada em justificativa técnica que pode ser contestada.</div>
+                        <div class="faq-answer">Muitas vezes entende-se que cabe ao médico do paciente definir o
+                            tratamento. A recusa deve ser baseada em justificativa técnica que pode ser contestada.
+                        </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
                             O que é tutela de urgência?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                stroke-width="2">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                        <div class="faq-answer">Trata-se de uma medida jurídica solicitada ao juiz de forma imediata quando a espera pelo fim do processo pode causar dano grave à saúde.</div>
+                        <div class="faq-answer">Trata-se de uma medida jurídica solicitada ao juiz de forma imediata
+                            quando a espera pelo fim do processo pode causar dano grave à saúde.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
                             Atendem meu estado?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                stroke-width="2">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                        <div class="faq-answer">Sim, nossa atuação é nacional, prestamos atendimento online e protocolamos ações em todos os tribunais do Brasil.</div>
+                        <div class="faq-answer">Sim, nossa atuação é nacional, prestamos atendimento online e
+                            protocolamos ações em todos os tribunais do Brasil.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
                             Quais documentos aceleram a análise?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                stroke-width="2">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                        <div class="faq-answer">Relatório médico bem fundamentado, comprovante da negativa, contrato e carteirinha aceleram nossa triagem.</div>
+                        <div class="faq-answer">Relatório médico bem fundamentado, comprovante da negativa, contrato e
+                            carteirinha aceleram nossa triagem.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
                             Autogestão é diferente?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                stroke-width="2">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                        <div class="faq-answer">Planos de autogestão possuem regras específicas e não respondem estritamente ao Código de Defesa do Consumidor, mas ainda devem obediência à saúde do paciente e a normativas contratuais.</div>
+                        <div class="faq-answer">Planos de autogestão possuem regras específicas e não respondem
+                            estritamente ao Código de Defesa do Consumidor, mas ainda devem obediência à saúde do
+                            paciente e a normativas contratuais.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
                             Reembolso: quando faz sentido avaliar?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                stroke-width="2">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                        <div class="faq-answer">Quando a recusa ao reembolso violar os limites contratuais ou não houver disponibilidade na rede credenciada dentro do prazo legal.</div>
+                        <div class="faq-answer">Quando a recusa ao reembolso violar os limites contratuais ou não houver
+                            disponibilidade na rede credenciada dentro do prazo legal.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)">
                             Quanto tempo leva?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                stroke-width="2">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
-                        <div class="faq-answer">O prazo varia integralmente dependendo do judiciário de cada estado e da complexidade do caso. Urgências podem ser apreciadas inicialmente em horas ou dias, mas não garantimos prazos.</div>
+                        <div class="faq-answer">O prazo varia integralmente dependendo do judiciário de cada estado e da
+                            complexidade do caso. Urgências podem ser apreciadas inicialmente em horas ou dias, mas não
+                            garantimos prazos.</div>
                     </div>
                 </div>
             </div>
@@ -515,16 +1217,22 @@
     <section class="section form-section" id="avaliacao">
         <div class="container split-layout align-start">
             <div class="final-cta">
-                <h2 class="section-title" style="text-align: left;">Recebeu uma negativa? Solicite uma avaliação inicial do seu caso.</h2>
-                <p class="section-subtitle" style="text-align: left; margin-bottom: 2rem;">Atendimento nacional. Orientação jurídica com análise individual.</p>
-                
-                <!-- Imagem REAL: imagem de pessoa aliviada com orientação (sem prometer resultado). -->
-                <img src="https://placehold.co/600x400/e2e8f0/64748b?text=Pessoa+aliviada+recebendo+orientacao" alt="Pessoa aliviada" style="margin-bottom: 2rem;">
+                <h2 class="section-title" style="text-align: left;">Recebeu uma negativa? Solicite uma avaliação inicial
+                    do seu caso.</h2>
+                <p class="section-subtitle" style="text-align: left; margin-bottom: 2rem;">Atendimento nacional.
+                    Orientação jurídica com análise individual.</p>
 
-                <div class="cta-group">
-                    <button class="btn btn-green btn-block" onclick="click_whatsapp()">Falar no WhatsApp</button>
-                    <button class="btn btn-outline btn-block" onclick="click_call()">Ligar agora</button>
+                <!-- Imagem REAL: imagem de pessoa aliviada com orientação (sem prometer resultado). -->
+                <img src="assets/relief_image.png" alt="Pessoa aliviada"
+                    style="margin-bottom: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+
+                <div class="cta-group" style="margin-bottom: 1rem;">
+                    <button class="btn btn-green btn-block" onclick="click_whatsapp()">Enviar negativa e documentos no
+                        WhatsApp</button>
                 </div>
+                <p style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 2rem; font-weight: 500;">
+                    Retorno no horário comercial. Casos urgentes são priorizados conforme triagem.
+                </p>
             </div>
 
             <div class="form-container">
@@ -538,7 +1246,7 @@
                         <label for="nome" class="form-label">Nome Completo</label>
                         <input type="text" id="nome" class="form-control" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="whatsapp" class="form-label">WhatsApp</label>
                         <input type="tel" id="whatsapp" class="form-control" placeholder="(00) 00000-0000" required>
@@ -564,13 +1272,15 @@
 
                     <div class="form-group">
                         <label for="mensagem" class="form-label">Mensagem curta (Opcional)</label>
-                        <textarea id="mensagem" class="form-control" placeholder="Resuma a negativa do plano..."></textarea>
+                        <textarea id="mensagem" class="form-control"
+                            placeholder="Resuma a negativa do plano..."></textarea>
                     </div>
 
                     <div class="checkbox-group">
                         <input type="checkbox" id="lgpd" required>
                         <label for="lgpd" class="checkbox-label">
-                            Declaro que aceito enviar meus dados de acordo com a <a href="#">Política de Privacidade</a> e <a href="#">Termos de Uso</a>.
+                            Declaro que aceito enviar meus dados de acordo com a <a href="#">Política de Privacidade</a>
+                            e <a href="#">Termos de Uso</a>.
                         </label>
                     </div>
 
@@ -591,10 +1301,12 @@
             <div>
                 <div class="footer-brand">
                     <!-- Imagem REAL: logo/símbolo simples no rodapé. -->
-                    <img src="https://placehold.co/200x60/1e293b/ffffff?text=Logo+Barphoff" alt="Logo Barphoff" style="margin-bottom: 1rem;">
+                    <img src="https://placehold.co/200x60/1e293b/ffffff?text=Logo+Barphoff" alt="Logo Barphoff"
+                        style="margin-bottom: 1rem;">
                     Barphoff — Advocacia
                 </div>
-                <p class="footer-compliance">Conteúdo informativo. Cada caso exige análise individual. Não há garantia de resultado.</p>
+                <p class="footer-compliance">Conteúdo informativo. Cada caso exige análise individual. Não há garantia
+                    de resultado.</p>
             </div>
             <div class="footer-links">
                 <h4>Atuação</h4>
@@ -616,4 +1328,5 @@
         </div>
     </footer>
 </body>
+
 </html>
