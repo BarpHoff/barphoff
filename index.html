@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barphoff — Advocacia em Direito da Saúde</title>
     <meta name="description"
-        content="Atuação nacional. Orientação jurídica e análise individual para casos de negativa de cobertura por planos de saúde.">
+        content="Plano de saúde negou cirurgia ou tratamento? Atendimento jurídico nacional para negativa de cirurgia, cirurgia robótica, medicamentos oncológicos e doenças autoimunes. Análise individual pelo WhatsApp.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script>
-        // DataLayer Placeholder (Sem libs externas)
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
 
@@ -22,43 +21,15 @@
             gtag('event', eventName, eventParams);
         }
 
-        // JS Events OBRIGATÓRIOS
         function click_whatsapp() {
             trackEvent('click_whatsapp', { method: 'whatsapp' });
             window.open('https://wa.me/5511000000000?text=Ol%C3%A1%2C%20gostaria%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20sobre%20negativa%20de%20plano%20de%20sa%C3%BAde.', '_blank');
         }
 
-        function click_call() {
-            trackEvent('click_call', { method: 'phone' });
-            window.location.href = 'tel:+5511000000000';
-        }
-
-        function select_situation(situationName) {
-            trackEvent('select_situation', { situation: situationName });
-            const selectField = document.getElementById('situation');
-            if (selectField) {
-                selectField.value = situationName;
-            }
-            document.getElementById('avaliacao-form').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function form_submit(event) {
-            event.preventDefault();
-            trackEvent('form_submit', { form_id: 'avaliacao-form' });
-
-            const btn = document.getElementById('submitBtn');
-            const originalText = btn.innerText;
-            btn.innerText = 'Enviando...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                document.getElementById('avaliacao-form').style.display = 'none';
-                document.getElementById('success-message').style.display = 'block';
-            }, 1000);
-        }
-
         function toggleFaq(button) {
             const item = button.parentElement;
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(i => { if (i !== item) i.classList.remove('active'); });
             item.classList.toggle('active');
         }
     </script>
@@ -80,11 +51,7 @@
             --radius-lg: 1rem;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -93,14 +60,8 @@
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
         img {
             max-width: 100%;
@@ -122,7 +83,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.875rem 1.75rem;
+            padding: 0.9rem 1.75rem;
             border-radius: var(--radius-md);
             font-weight: 600;
             font-size: 1rem;
@@ -136,25 +97,31 @@
         .btn-green {
             background-color: var(--cta-green);
             color: var(--white);
+            box-shadow: 0 2px 8px rgba(16,185,129,0.25);
         }
 
         .btn-green:hover {
             background-color: var(--cta-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(16,185,129,0.35);
         }
 
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
+        .btn-block { width: 100%; }
+
+        /* WhatsApp icon inline */
+        .waba-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
         }
 
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-
-        .btn-block {
-            width: 100%;
+        /* Microcopy */
+        .microcopy {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-top: 0.75rem;
+            font-weight: 500;
         }
 
         /* Header */
@@ -166,7 +133,8 @@
             background: rgba(255, 255, 255, 0.98);
             border-bottom: 1px solid var(--border);
             z-index: 50;
-            padding: 1rem 0;
+            padding: 0.875rem 0;
+            backdrop-filter: blur(8px);
         }
 
         .header-content {
@@ -176,25 +144,21 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary);
             letter-spacing: -0.5px;
         }
 
-        .btn-header {
-            display: none;
-        }
+        .btn-header { display: none; }
 
         @media (min-width: 640px) {
-            .btn-header {
-                display: inline-flex;
-            }
+            .btn-header { display: inline-flex; }
         }
 
         /* Hero */
         .hero {
-            padding: 8rem 0 4rem;
+            padding: 8rem 0 4.5rem;
             background-color: var(--bg-light);
         }
 
@@ -206,24 +170,22 @@
         }
 
         .hero-text h1 {
-            font-size: 2.25rem;
-            line-height: 1.2;
+            font-size: 2.1rem;
+            line-height: 1.22;
             margin-bottom: 1.25rem;
             font-weight: 700;
             color: var(--primary);
-            letter-spacing: -0.025em;
+            letter-spacing: -0.03em;
         }
 
-        .hero-text p {
-            font-size: 1.125rem;
+        .hero-text .subtitle {
+            font-size: 1.1rem;
             color: var(--secondary);
             margin-bottom: 2rem;
+            line-height: 1.7;
         }
 
-        .cta-group {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .cta-wrap {
             margin-bottom: 2rem;
         }
 
@@ -237,97 +199,178 @@
         .chip {
             background: var(--white);
             border: 1px solid var(--border);
-            padding: 0.375rem 0.75rem;
+            padding: 0.35rem 0.75rem;
             border-radius: 2rem;
-            font-size: 0.875rem;
+            font-size: 0.825rem;
             color: var(--secondary);
             font-weight: 500;
         }
 
         @media (min-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1.1fr 0.9fr;
-            }
-
-            .hero-text h1 {
-                font-size: 2.75rem;
-            }
-
-            .cta-group {
-                flex-direction: row;
-            }
+            .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
+            .hero-text h1 { font-size: 2.65rem; }
         }
 
         /* Authority Bar */
         .authority-bar {
             background-color: var(--primary);
             color: var(--white);
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--primary-light);
+            padding: 1.35rem 0;
         }
 
         .authority-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
-            text-align: left;
+            gap: 1.25rem;
         }
 
         .authority-item {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
-            font-size: 0.95rem;
+            gap: 0.65rem;
+            font-size: 0.9rem;
             font-weight: 500;
         }
 
-        .authority-item svg {
-            color: var(--cta-green);
-            flex-shrink: 0;
-        }
+        .authority-item svg { color: var(--cta-green); flex-shrink: 0; }
 
         @media (min-width: 640px) {
-            .authority-grid {
-                grid-template-columns: repeat(2, 1fr);
-                justify-content: start;
-                text-align: left;
-            }
-
-            .authority-item {
-                justify-content: flex-start;
-            }
+            .authority-grid { grid-template-columns: repeat(2, 1fr); }
+            .authority-item { justify-content: flex-start; }
         }
 
         @media (min-width: 1024px) {
-            .authority-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
+            .authority-grid { grid-template-columns: repeat(4, 1fr); }
         }
 
         /* Sections */
-        .section {
-            padding: 5rem 0;
+        .section { padding: 4.5rem 0; }
+
+        .section-alt { background-color: var(--bg-light); }
+
+        .section-dark {
+            background-color: var(--primary);
+            color: var(--white);
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 1.9rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: var(--primary);
             letter-spacing: -0.025em;
         }
 
+        .section-dark .section-title { color: var(--white); }
+
         .section-subtitle {
             text-align: center;
             color: var(--secondary);
-            font-size: 1.125rem;
-            max-width: 700px;
-            margin: 0 auto 3.5rem;
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
         }
 
-        /* Grid Situations */
+        .section-dark .section-subtitle { color: #cbd5e1; }
+
+        .section-cta {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        /* Steps — Como funciona */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .step-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-text h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* Documentos */
+        .checklist { margin-top: 1.25rem; }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            background: var(--white);
+            padding: 0.875rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+
+        .checklist-icon {
+            width: 22px;
+            height: 22px;
+            color: var(--cta-green);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .docs-note {
+            margin-top: 1.25rem;
+            font-size: 0.875rem;
+            color: var(--secondary);
+            padding: 1rem;
+            background: #fdf8f6;
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--cta-green);
+            line-height: 1.6;
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .split-layout { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Situations */
         .grid-cards {
             display: grid;
             grid-template-columns: 1fr;
@@ -338,13 +381,12 @@
             background: var(--white);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            padding: 1.35rem 1.5rem;
             display: flex;
             align-items: flex-start;
             gap: 1rem;
             text-align: left;
+            transition: all 0.2s ease;
         }
 
         .card:hover {
@@ -353,9 +395,13 @@
             transform: translateY(-2px);
         }
 
+        .card-priority {
+            border-left: 3px solid var(--cta-green);
+        }
+
         .card-icon {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             background: var(--bg-light);
             border-radius: 50%;
             display: flex;
@@ -365,10 +411,15 @@
             color: var(--primary);
         }
 
+        .card-priority .card-icon {
+            background: rgba(16,185,129,0.1);
+            color: var(--cta-green);
+        }
+
         .card-content h3 {
             font-weight: 600;
             font-size: 1rem;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
         }
 
         .card-content p {
@@ -376,180 +427,26 @@
             color: var(--secondary);
         }
 
-        @media (min-width: 640px) {
-            .grid-cards {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-        }
+        @media (min-width: 640px) { .grid-cards { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; } }
+        @media (min-width: 1024px) { .grid-cards { grid-template-columns: repeat(4, 1fr); } }
 
-        @media (min-width: 1024px) {
-            .grid-cards {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* Timeline */
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 24px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background: var(--border);
-        }
-
-        .timeline-step {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-            position: relative;
-        }
-
-        .timeline-step:last-child {
-            margin-bottom: 0;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 2;
-            border: 4px solid var(--white);
-            font-size: 1.125rem;
-        }
-
-        .step-content {
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: var(--radius-lg);
-            flex-grow: 1;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .step-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .step-content p {
-            color: var(--secondary);
-        }
-
-        .timeline-disclaimer {
-            text-align: center;
-            margin-top: 3rem;
-            font-size: 0.875rem;
-            color: var(--secondary);
-            background: rgba(15, 23, 42, 0.05);
-            padding: 1.25rem;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-        }
-
-        @media (max-width: 639px) {
-            .timeline::before {
-                left: 20px;
-            }
-
-            .step-number {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-        }
-
-        /* Split Layouts (Como funciona / Documentos) */
-        .split-layout {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        @media (min-width: 768px) {
-            .split-layout {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* Documentos */
-        .checklist {
-            margin-top: 1.5rem;
-        }
-
-        .checklist li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-            font-size: 1.05rem;
-            background: var(--bg-light);
-            padding: 1rem;
-            border-radius: var(--radius-md);
-        }
-
-        .checklist-icon {
-            width: 24px;
-            height: 24px;
-            color: var(--cta-green);
-            flex-shrink: 0;
-        }
-
-        .lgpd-note {
-            margin-top: 2rem;
-            font-size: 0.875rem;
-            color: var(--secondary);
-            display: flex;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: #fdf8f6;
-            border-radius: var(--radius-md);
-        }
-
-        /* Map Section */
-        .map-section {
-            background-color: var(--primary);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .map-section .section-title {
-            color: var(--white);
-        }
-
-        .map-section .section-subtitle {
-            color: #cbd5e1;
-        }
-
-        .map-container {
+        /* Nacional */
+        .nacional-box {
             max-width: 700px;
             margin: 0 auto;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .nacional-box p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            line-height: 1.7;
         }
 
         /* FAQ */
         .faq-list {
-            max-width: 800px;
+            max-width: 780px;
             margin: 0 auto;
             background: var(--white);
             border: 1px solid var(--border);
@@ -557,19 +454,14 @@
             overflow: hidden;
         }
 
-        .faq-item {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-item:last-child { border-bottom: none; }
 
         .faq-question {
             width: 100%;
             text-align: left;
-            padding: 1.5rem;
-            font-size: 1.125rem;
+            padding: 1.35rem 1.5rem;
+            font-size: 1rem;
             font-weight: 600;
             background: none;
             border: none;
@@ -578,24 +470,24 @@
             justify-content: space-between;
             align-items: center;
             color: var(--primary);
+            gap: 1rem;
         }
 
         .faq-answer {
-            padding: 0 1.5rem 1.5rem;
+            padding: 0 1.5rem 1.35rem;
             color: var(--secondary);
             display: none;
-            line-height: 1.7;
+            line-height: 1.75;
+            font-size: 0.95rem;
         }
 
-        .faq-item.active .faq-answer {
-            display: block;
-        }
+        .faq-item.active .faq-answer { display: block; }
 
         .faq-icon {
             transition: transform 0.2s;
             flex-shrink: 0;
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             color: var(--secondary);
         }
 
@@ -604,716 +496,441 @@
             color: var(--primary);
         }
 
-        /* Form Modal / Section */
-        .form-section {
-            background-color: var(--bg-light);
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .form-header h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-header p {
-            color: var(--secondary);
-            font-size: 0.95rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        .form-label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-size: 0.875rem;
-            color: var(--primary);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            font-family: inherit;
-            font-size: 1rem;
-            background: var(--white);
-            transition: border-color 0.2s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.05);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .checkbox-group {
-            display: flex;
-            gap: 0.75rem;
-            align-items: flex-start;
-            margin: 1.5rem 0;
-        }
-
-        .checkbox-group input {
-            margin-top: 0.25rem;
-            width: 1rem;
-            height: 1rem;
-        }
-
-        .checkbox-label {
-            font-size: 0.875rem;
-            color: var(--secondary);
-            line-height: 1.5;
-        }
-
-        .checkbox-label a {
-            text-decoration: underline;
-        }
-
-        .success-msg {
-            display: none;
-            background: #ecfdf5;
-            border: 1px solid #a7f3d0;
-            color: #065f46;
-            padding: 2rem;
-            border-radius: var(--radius-md);
-            text-align: center;
-        }
-
-        .success-msg h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .success-msg p {
-            font-size: 0.95rem;
-        }
-
         /* Final CTA */
-        .final-cta {
+        .final-cta-section {
+            background-color: var(--bg-light);
             text-align: center;
+            padding: 5rem 0;
         }
 
-        .final-cta .cta-group {
-            justify-content: center;
-            margin-top: 2.5rem;
+        .final-cta-section .section-title { margin-bottom: 1rem; }
+
+        .final-cta-section .lead {
+            color: var(--secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
         }
 
         /* Footer */
         footer {
             background-color: var(--primary);
             color: var(--white);
-            padding: 4rem 0 2rem;
+            padding: 3.5rem 0 2rem;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .footer-brand {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.4px;
         }
 
         .footer-compliance {
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             color: #94a3b8;
-            margin-top: 1.5rem;
-            max-width: 400px;
+            margin-top: 1rem;
+            max-width: 380px;
             line-height: 1.7;
         }
 
-        .footer-compliance strong {
-            color: var(--white);
-        }
-
-        .footer-links h4 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
+        .footer-links h4 { font-size: 0.95rem; margin-bottom: 0.875rem; font-weight: 600; }
 
         .footer-links ul {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.65rem;
             font-size: 0.875rem;
             color: #cbd5e1;
         }
 
-        .footer-links a:hover {
-            color: var(--white);
-        }
+        .footer-links a:hover { color: var(--white); }
 
         .footer-bottom {
             border-top: 1px solid var(--primary-light);
-            padding-top: 2rem;
+            padding-top: 1.75rem;
             text-align: center;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             color: #94a3b8;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
         }
 
         @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: 2fr 1fr 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: row;
-                justify-content: space-between;
-            }
+            .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- 1) Header -->
+    <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">Barphoff</div>
             <button class="btn btn-green btn-header" onclick="click_whatsapp()">
-                Enviar documentos no WhatsApp
+                <svg class="waba-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.855L.057 23.492a.75.75 0 00.914.914l5.637-1.476A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 01-4.964-1.36l-.356-.212-3.69.966.983-3.594-.232-.369A9.75 9.75 0 0112 2.25c5.385 0 9.75 4.365 9.75 9.75S17.385 21.75 12 21.75z"/></svg>
+                Falar no WhatsApp
             </button>
         </div>
     </header>
 
-    <!-- 2) Hero Section -->
+    <!-- 1) Hero -->
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
-                <h1>Plano de saúde negou cobertura? Entenda seus próximos passos.</h1>
-                <p>Atuação nacional em Direito da Saúde. Análise jurídica individual para casos de negativa de cirurgia,
-                    internação, home care, medicamento e outras coberturas.</p>
+                <h1>Plano de saúde negou cirurgia ou tratamento? Entenda os próximos passos do seu caso.</h1>
+                <p class="subtitle">Atendimento jurídico nacional para casos de negativa de cirurgia, cirurgia robótica, medicamentos de alto custo e tratamentos oncológicos. Análise individual com envio inicial pelo WhatsApp.</p>
 
-                <div class="cta-group" style="margin-bottom: 0.5rem;">
-                    <button class="btn btn-green" onclick="click_whatsapp()">Enviar negativa e documentos no
-                        WhatsApp</button>
+                <div class="cta-wrap">
+                    <button class="btn btn-green" onclick="click_whatsapp()" id="hero-cta">
+                        <svg class="waba-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.855L.057 23.492a.75.75 0 00.914.914l5.637-1.476A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 01-4.964-1.36l-.356-.212-3.69.966.983-3.594-.232-.369A9.75 9.75 0 0112 2.25c5.385 0 9.75 4.365 9.75 9.75S17.385 21.75 12 21.75z"/></svg>
+                        Falar no WhatsApp
+                    </button>
+                    <p class="microcopy">Envie a negativa, o protocolo e o relatório médico para uma triagem inicial do caso.</p>
                 </div>
-                <p
-                    style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.5rem; font-weight: 500;">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    Retorno no horário comercial. Casos urgentes são priorizados.
-                </p>
 
                 <div class="chips">
-                    <span class="chip">Cirurgia</span>
-                    <span class="chip">Internação/UTI</span>
-                    <span class="chip">Medicamento alto custo</span>
+                    <span class="chip">Cirurgia robótica</span>
+                    <span class="chip">Oncologia</span>
+                    <span class="chip">Imunoterapia</span>
+                    <span class="chip">Doenças autoimunes</span>
+                    <span class="chip">Medicamentos alto custo</span>
                     <span class="chip">Home care</span>
-                    <span class="chip">Reembolso</span>
                 </div>
             </div>
             <div>
-                <!-- Imagem REAL: pessoa preocupada lendo negativa do plano no celular (sem dramatização extrema). -->
-                <img src="assets/hero_image_v2.png" alt="Pessoa lendo documento de negativa de cobertura" width="600"
-                    height="450"
-                    style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md); object-fit: cover;">
+                <img src="assets/hero_image_v2.png" alt="Pessoa lendo documento de negativa de cobertura de plano de saúde" width="600" height="450"
+                    style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
             </div>
         </div>
     </section>
 
-    <!-- 2.5) Authority Bar -->
+    <!-- Authority Bar -->
     <div class="authority-bar">
         <div class="container authority-grid">
             <div class="authority-item">
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3">
-                    </path>
+                <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
                 </svg>
-                <span>Atuação em Direito da Saúde</span>
+                <span>Advocacia em Direito da Saúde</span>
             </div>
             <div class="authority-item">
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
-                    </path>
+                <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>17+ anos de advocacia</span>
+            </div>
+            <div class="authority-item">
+                <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
                 </svg>
                 <span>Atendimento nacional online</span>
             </div>
             <div class="authority-item">
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                 </svg>
-                <span>[Inserir Anos] de Atuação</span>
-            </div>
-            <div class="authority-item">
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.95 11.95 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                    </path>
-                </svg>
-                <span>OAB/UF [Seu Número]</span>
+                <span>Análise jurídica individual</span>
             </div>
         </div>
     </div>
 
-    <!-- 3) Situações Atendidas -->
-    <section class="section">
+    <!-- 2) Como funciona -->
+    <section class="section section-alt" id="como-funciona">
+        <div class="container">
+            <h2 class="section-title">Como funciona a análise inicial</h2>
+            <p class="section-subtitle">Um processo direto, sem necessidade de deslocamento.</p>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <h3>Você envia a negativa e os documentos</h3>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <div class="step-text">
+                        <h3>Nossa equipe faz a triagem inicial</h3>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <div class="step-text">
+                        <h3>O caso passa por análise jurídica individual</h3>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">4</div>
+                    <div class="step-text">
+                        <h3>Você recebe orientação sobre as medidas cabíveis</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <button class="btn btn-green" onclick="click_whatsapp()" id="como-funciona-cta">
+                    <svg class="waba-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.855L.057 23.492a.75.75 0 00.914.914l5.637-1.476A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 01-4.964-1.36l-.356-.212-3.69.966.983-3.594-.232-.369A9.75 9.75 0 0112 2.25c5.385 0 9.75 4.365 9.75 9.75S17.385 21.75 12 21.75z"/></svg>
+                    Enviar documentos pelo WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3) Documentos -->
+    <section class="section" id="documentos">
+        <div class="container split-layout">
+            <div>
+                <h2 class="section-title" style="text-align:left;">Documentos que agilizam a análise</h2>
+                <p style="color:var(--secondary); margin-bottom:0.5rem; line-height:1.7;">Se você já tiver esses documentos em mãos, a triagem inicial do caso pode ser mais objetiva.</p>
+
+                <ul class="checklist">
+                    <li>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Negativa do plano (documento, e-mail, protocolo ou print)</span>
+                    </li>
+                    <li>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Número de protocolo do atendimento</span>
+                    </li>
+                    <li>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Relatório ou prescrição médica</span>
+                    </li>
+                    <li>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Exames relacionados ao caso</span>
+                    </li>
+                    <li>
+                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Carteirinha ou dados do plano de saúde</span>
+                    </li>
+                </ul>
+
+                <div class="docs-note">
+                    <strong>Em casos de urgência médica,</strong> envie também o laudo ou relatório com a indicação do tratamento.
+                </div>
+
+                <div style="margin-top:1.75rem;">
+                    <button class="btn btn-green" onclick="click_whatsapp()" id="docs-cta">
+                        <svg class="waba-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.855L.057 23.492a.75.75 0 00.914.914l5.637-1.476A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 01-4.964-1.36l-.356-.212-3.69.966.983-3.594-.232-.369A9.75 9.75 0 0112 2.25c5.385 0 9.75 4.365 9.75 9.75S17.385 21.75 12 21.75z"/></svg>
+                        Falar no WhatsApp
+                    </button>
+                    <p class="microcopy" style="margin-top:0.6rem;">Orientamos o envio de documentos de acordo com a LGPD.</p>
+                </div>
+            </div>
+            <div>
+                <img src="assets/doc_image_v2.png" alt="Documentos organizados para análise jurídica"
+                    style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4) Situações atendidas -->
+    <section class="section section-alt" id="situacoes">
         <div class="container">
             <h2 class="section-title">Situações atendidas</h2>
-            <p class="section-subtitle">Identifique seu caso. Cada situação demanda estratégias e medidas cabíveis
-                específicas.</p>
+            <p class="section-subtitle">Cada caso exige análise individual e estratégia específica.</p>
 
             <div class="grid-cards">
-                <div class="card" onclick="select_situation('Cirurgia negada')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4">
-                            </path>
-                        </svg></div>
+
+                <!-- Prioritários -->
+                <div class="card card-priority">
+                    <div class="card-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    </div>
                     <div class="card-content">
                         <h3>Cirurgia negada</h3>
-                        <p>Recusa de procedimentos prescritos pelo seu médico.</p>
+                        <p>Recusa de procedimento cirúrgico prescrito pelo médico.</p>
                     </div>
                 </div>
 
-                <div class="card" onclick="select_situation('Internação/UTI negada')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                            </path>
-                        </svg></div>
+                <div class="card card-priority">
+                    <div class="card-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
                     <div class="card-content">
-                        <h3>Internação/UTI negada</h3>
-                        <p>Negativa em casos de urgência, emergência ou carência.</p>
+                        <h3>Tratamento negado</h3>
+                        <p>Negativa de terapias e tratamentos indicados clinicamente.</p>
                     </div>
                 </div>
 
-                <div class="card" onclick="select_situation('Home care negado')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                            </path>
-                        </svg></div>
+                <div class="card card-priority">
+                    <div class="card-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
                     <div class="card-content">
-                        <h3>Home care negado</h3>
-                        <p>Negativa de internação domiciliar recomendada.</p>
+                        <h3>Cirurgia robótica</h3>
+                        <p>Recusa de procedimento minimamente invasivo com indicação médica.</p>
                     </div>
                 </div>
 
-                <div class="card" onclick="select_situation('Medicamento de alto custo negado')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
-                            </path>
-                        </svg></div>
+                <div class="card card-priority">
+                    <div class="card-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"></path></svg>
+                    </div>
                     <div class="card-content">
-                        <h3>Medicamento alto custo</h3>
+                        <h3>Medicamentos oncológicos, imunoterapia e terapias-alvo</h3>
+                        <p>Negativa de drogas prescritas em contexto oncológico.</p>
+                    </div>
+                </div>
+
+                <!-- Demais -->
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Medicamentos para doenças autoimunes</h3>
                         <p>Recusa baseada em rol da ANS ou uso off-label.</p>
                     </div>
                 </div>
 
-                <div class="card" onclick="select_situation('Tratamento contínuo interrompido')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg></div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    </div>
                     <div class="card-content">
-                        <h3>Tratamento contínuo interrompido</h3>
-                        <p>Suspensão abrupta de terapias essenciais.</p>
+                        <h3>Internação e UTI</h3>
+                        <p>Negativa em situações de urgência, emergência ou carência.</p>
                     </div>
                 </div>
 
-                <div class="card" onclick="select_situation('Reembolso negado/limitado')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                            </path>
-                        </svg></div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
                     <div class="card-content">
-                        <h3>Reembolso negado/limitado</h3>
-                        <p>Limitação indevida ou recusa injustificada.</p>
+                        <h3>Home care</h3>
+                        <p>Negativa de internação domiciliar recomendada clinicamente.</p>
                     </div>
                 </div>
 
-                <div class="card" onclick="select_situation('Descredenciamento de hospital/serviço')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636">
-                            </path>
-                        </svg></div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
                     <div class="card-content">
-                        <h3>Descredenciamento de hospital/serviço</h3>
-                        <p>Retirada da rede credenciada durante o tratamento.</p>
+                        <h3>Reembolso</h3>
+                        <p>Limitação indevida ou recusa injustificada de reembolso.</p>
                     </div>
                 </div>
 
-                <div class="card" onclick="select_situation('Cancelamento do plano')">
-                    <div class="card-icon"><svg width="24" height="24" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12"></path>
-                        </svg></div>
-                    <div class="card-content">
-                        <h3>Cancelamento do plano</h3>
-                        <p>Rescisão unilateral pela operadora.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 4) Como funciona -->
-    <section class="section" style="background-color: var(--bg-light);">
-        <div class="container split-layout">
-            <div>
-                <h2 class="section-title" style="text-align: left;">Como funciona</h2>
-
-                <div class="timeline">
-                    <div class="timeline-step">
-                        <div class="step-number">01</div>
-                        <div class="step-content">
-                            <h3>Triagem</h3>
-                        </div>
-                    </div>
-                    <div class="timeline-step">
-                        <div class="step-number">02</div>
-                        <div class="step-content">
-                            <h3>Documentos essenciais</h3>
-                        </div>
-                    </div>
-                    <div class="timeline-step">
-                        <div class="step-number">03</div>
-                        <div class="step-content">
-                            <h3>Análise e orientação</h3>
-                        </div>
-                    </div>
-                    <div class="timeline-step">
-                        <div class="step-number">04</div>
-                        <div class="step-content">
-                            <h3>Medidas cabíveis</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-disclaimer">
-                    Cada caso exige análise individual; não há promessa de resultado.
-                </div>
-            </div>
-            <div>
-                <!-- Imagem REAL: imagem/ilustração de checklist/fluxo. -->
-                <img src="assets/workflow_image_v2.png" alt="Processo de avaliação"
-                    style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
             </div>
         </div>
     </section>
 
-    <!-- 5) Documentos -->
-    <section class="section">
-        <div class="container split-layout">
-            <div style="order: 2;">
-                <h2 class="section-title" style="text-align: left;">Documentos que agilizam a avaliação</h2>
-
-                <ul class="checklist">
-                    <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Negativa do plano (protocolo/print)</span>
-                    </li>
-                    <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Pedido/relatório médico</span>
-                    </li>
-                    <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Carteirinha do plano</span>
-                    </li>
-                    <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Exames/receituário (quando aplicável)</span>
-                    </li>
-                    <li>
-                        <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span>Boletos/reembolso (se for o caso)</span>
-                    </li>
-                </ul>
-
-                <div class="lgpd-note">
-                    <p>Orientamos o envio de documentos apenas após contato no canal adequado, seguindo a LGPD.</p>
-                </div>
-            </div>
-            <div style="order: 1;">
-                <!-- Imagem REAL: imagem de documentos organizados + celular. -->
-                <img src="assets/doc_image_v2.png" alt="Documentações"
-                    style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-            </div>
-        </div>
-    </section>
-
-    <!-- 6) Atendimento Nacional -->
-    <section class="section map-section">
+    <!-- 5) Atendimento Nacional -->
+    <section class="section section-dark" id="atendimento-nacional">
         <div class="container">
-            <h2 class="section-title">Atendimento nacional</h2>
-            <p class="section-subtitle">Realizamos atendimento online para todo o Brasil. Urgências são priorizadas
-                conforme o caso.</p>
-
-            <div class="map-container">
-                <!-- Imagem REAL: mapa do Brasil minimalista. -->
-                <img src="assets/map_image.png" alt="Mapa do Brasil"
-                    style="margin: 0 auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-            </div>
-        </div>
-    </section>
-
-    <!-- 7) FAQ -->
-    <section class="section" style="background-color: var(--bg-light);">
-        <div class="container split-layout">
-            <div>
-                <!-- Imagem REAL: imagem discreta de atendimento/consultoria. -->
-                <img src="assets/consulting_image.png" alt="Consultoria e Atendimento"
-                    style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-            </div>
-            <div>
-                <h2 class="section-title" style="text-align: left;">Dúvidas Frequentes</h2>
-
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
-                            Preciso da negativa por escrito?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
-                                <path d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">É recomendável, mas protocolos de atendimento, e-mails ou prints de
-                            conversas também podem ser avaliados.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
-                            Plano pode negar cirurgia indicada pelo médico?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
-                                <path d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">Muitas vezes entende-se que cabe ao médico do paciente definir o
-                            tratamento. A recusa deve ser baseada em justificativa técnica que pode ser contestada.
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
-                            O que é tutela de urgência?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
-                                <path d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">Trata-se de uma medida jurídica solicitada ao juiz de forma imediata
-                            quando a espera pelo fim do processo pode causar dano grave à saúde.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
-                            Atendem meu estado?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
-                                <path d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">Sim, nossa atuação é nacional, prestamos atendimento online e
-                            protocolamos ações em todos os tribunais do Brasil.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
-                            Quais documentos aceleram a análise?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
-                                <path d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">Relatório médico bem fundamentado, comprovante da negativa, contrato e
-                            carteirinha aceleram nossa triagem.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
-                            Autogestão é diferente?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
-                                <path d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">Planos de autogestão possuem regras específicas e não respondem
-                            estritamente ao Código de Defesa do Consumidor, mas ainda devem obediência à saúde do
-                            paciente e a normativas contratuais.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
-                            Reembolso: quando faz sentido avaliar?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
-                                <path d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">Quando a recusa ao reembolso violar os limites contratuais ou não houver
-                            disponibilidade na rede credenciada dentro do prazo legal.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" onclick="toggleFaq(this)">
-                            Quanto tempo leva?
-                            <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
-                                <path d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">O prazo varia integralmente dependendo do judiciário de cada estado e da
-                            complexidade do caso. Urgências podem ser apreciadas inicialmente em horas ou dias, mas não
-                            garantimos prazos.</div>
-                    </div>
+            <div class="nacional-box">
+                <h2 class="section-title">Atendimento jurídico nacional</h2>
+                <p>A BarpHoff atende casos em todo o Brasil, com análise individual e contato inicial pelo WhatsApp.</p>
+                <p>Você pode enviar a documentação sem precisar de deslocamento inicial.</p>
+                <div style="margin-top:2rem;">
+                    <img src="assets/map_image.png" alt="Mapa do Brasil — atendimento nacional"
+                        style="margin: 0 auto; border-radius: var(--radius-lg); opacity:0.9; max-width:480px; width:100%;">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 8) CTA / 9) Form -->
-    <section class="section form-section" id="avaliacao">
-        <div class="container split-layout align-start">
-            <div class="final-cta">
-                <h2 class="section-title" style="text-align: left;">Recebeu uma negativa? Solicite uma avaliação inicial
-                    do seu caso.</h2>
-                <p class="section-subtitle" style="text-align: left; margin-bottom: 2rem;">Atendimento nacional.
-                    Orientação jurídica com análise individual.</p>
+    <!-- 6) FAQ -->
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <h2 class="section-title">Dúvidas frequentes</h2>
+            <p class="section-subtitle">Respostas objetivas sobre os casos mais comuns.</p>
 
-                <!-- Imagem REAL: imagem de pessoa aliviada com orientação (sem prometer resultado). -->
-                <img src="assets/relief_image_v2.png" alt="Pessoa aliviada"
-                    style="margin-bottom: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
-
-                <div class="cta-group" style="margin-bottom: 1rem;">
-                    <button class="btn btn-green btn-block" onclick="click_whatsapp()">Enviar negativa e documentos no
-                        WhatsApp</button>
-                </div>
-                <p style="font-size: 0.9rem; color: var(--secondary); margin-bottom: 2rem; font-weight: 500;">
-                    Retorno no horário comercial. Casos urgentes são priorizados conforme triagem.
-                </p>
-            </div>
-
-            <div class="form-container">
-                <div class="form-header">
-                    <h2>Formulário de Contato</h2>
-                    <p>Preencha os dados e entramos em contato.</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)" id="faq-1">
+                        Preciso ter a negativa por escrito?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">É recomendável. Negativas formais facilitam a análise. Ainda assim, protocolos de atendimento, prints ou e-mails do plano também podem ser avaliados conforme o contexto.</div>
                 </div>
 
-                <form id="avaliacao-form" onsubmit="form_submit(event)">
-                    <div class="form-group">
-                        <label for="nome" class="form-label">Nome Completo</label>
-                        <input type="text" id="nome" class="form-control" required>
-                    </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)" id="faq-2">
+                        Quais documentos ajudam na análise?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">A negativa do plano, o número de protocolo, o relatório ou prescrição médica e os exames relacionados ao caso são os documentos que mais agilizam a triagem inicial.</div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="whatsapp" class="form-label">WhatsApp</label>
-                        <input type="tel" id="whatsapp" class="form-control" placeholder="(00) 00000-0000" required>
-                    </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)" id="faq-3">
+                        Atendem meu estado?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">Sim. A atuação é nacional. O atendimento inicial é feito de forma online, e os casos podem ser protocolados em tribunais de todo o Brasil.</div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="email" class="form-label">E-mail</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)" id="faq-4">
+                        O plano pode negar cirurgia indicada pelo médico?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">Entende-se que a definição do tratamento cabe ao médico assistente. A negativa pelo plano deve ser fundamentada tecnicamente e pode ser contestada. Cada caso exige análise individual.</div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="estado" class="form-label">Estado</label>
-                        <select id="estado" class="form-control" required>
-                            <option value="">Selecione...</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="OUTROS">Outro Estado / DF</option>
-                        </select>
-                    </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)" id="faq-5">
+                        Já paguei particular. Ainda vale avaliar?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">Depende das circunstâncias. Em alguns casos, despesas realizadas por conta do paciente em razão de negativa do plano podem ser objeto de análise. É necessário avaliar a documentação específica.</div>
+                </div>
 
-                    <input type="hidden" id="situation" name="situation" value="">
-
-                    <div class="form-group">
-                        <label for="mensagem" class="form-label">Mensagem curta (Opcional)</label>
-                        <textarea id="mensagem" class="form-control"
-                            placeholder="Resuma a negativa do plano..."></textarea>
-                    </div>
-
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="lgpd" required>
-                        <label for="lgpd" class="checkbox-label">
-                            Declaro que aceito enviar meus dados de acordo com a <a href="#">Política de Privacidade</a>
-                            e <a href="#">Termos de Uso</a>.
-                        </label>
-                    </div>
-
-                    <button type="submit" id="submitBtn" class="btn btn-green btn-block">Enviar Solicitação</button>
-                </form>
-
-                <div id="success-message" class="success-msg">
-                    <h3>Solicitação recebida!</h3>
-                    <p>Nossa equipe fará a triagem inicial e entrará em contato em breve.</p>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)" id="faq-6">
+                        O que é tutela de urgência?
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">É uma medida jurídica solicitada ao juiz de forma imediata quando a espera pelo resultado do processo pode causar dano grave à saúde. Sua aplicação depende da análise do caso concreto.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 10) Rodapé -->
+    <!-- 7) CTA Final -->
+    <section class="final-cta-section" id="contato">
+        <div class="container">
+            <h2 class="section-title">Recebeu a negativa? Envie os documentos para uma triagem inicial do caso.</h2>
+            <p class="lead">Nossa equipe pode analisar o caso de forma individual a partir das informações enviadas no WhatsApp.</p>
+
+            <button class="btn btn-green" onclick="click_whatsapp()" id="final-cta"
+                style="font-size:1.1rem; padding:1rem 2.25rem;">
+                <svg class="waba-icon" viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.855L.057 23.492a.75.75 0 00.914.914l5.637-1.476A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 01-4.964-1.36l-.356-.212-3.69.966.983-3.594-.232-.369A9.75 9.75 0 0112 2.25c5.385 0 9.75 4.365 9.75 9.75S17.385 21.75 12 21.75z"/></svg>
+                Falar no WhatsApp
+            </button>
+            <p class="microcopy" style="margin-top:1rem; font-size:0.875rem;">Atendimento de segunda a sexta, das 8h às 17h.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container footer-grid">
             <div>
                 <div class="footer-brand">
-                    <!-- Imagem REAL: logo/símbolo simples no rodapé. -->
                     <img src="assets/logo_barphoff.png" alt="Logo Barphoff"
-                        style="height: 60px; max-width: 200px; margin-bottom: 1rem; border-radius: 4px;">
+                        style="height:52px; max-width:180px; margin-bottom:0.875rem; border-radius:4px;">
                     Barphoff — Advocacia
                 </div>
-                <p class="footer-compliance">Conteúdo informativo. Cada caso exige análise individual. Não há garantia
-                    de resultado.</p>
+                <p class="footer-compliance">Conteúdo informativo. Cada caso exige análise individual. Não há garantia de resultado.</p>
             </div>
             <div class="footer-links">
                 <h4>Atuação</h4>
                 <ul>
                     <li>Atendimento nacional</li>
-                    <li>Online</li>
+                    <li>Online — sem deslocamento</li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -1328,6 +945,6 @@
             <span>&copy; 2026 Barphoff. Todos os direitos reservados.</span>
         </div>
     </footer>
-</body>
 
+</body>
 </html>
