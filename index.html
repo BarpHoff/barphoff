@@ -234,8 +234,6 @@
             width: auto;
             max-width: 280px;
             max-height: 48px;
-            /* clareia a logo para contraste no fundo vinho */
-            filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(320deg) brightness(1.4);
             opacity: 1;
             transition: opacity 0.2s ease;
             display: block;
@@ -357,7 +355,7 @@
         .hero-img-wrapper {
             position: relative;
             width: 100%;
-            max-width: none;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -513,7 +511,8 @@
             width: 100%;
             height: 100%;
             min-height: 400px;
-            background: #122138;
+            background: url('assets/relief_image_v2.png') no-repeat center center;
+            background-size: cover;
             border-radius: var(--radius-xl);
             position: relative;
             overflow: hidden;
@@ -747,7 +746,8 @@
             width: 100%;
             border-radius: var(--radius-xl);
             min-height: 500px;
-            background: linear-gradient(160deg, var(--primary-light) 0%, var(--bg-dark) 100%);
+            background: linear-gradient(160deg, rgba(90, 26, 34, 0.4) 0%, rgba(42, 10, 15, 0.8) 100%), url('assets/consulting_image.png') no-repeat center center;
+            background-size: cover;
             border: 1px solid rgba(196, 169, 125, .2);
             display: flex;
             align-items: center;
@@ -1388,7 +1388,7 @@
                     <!-- Foto real das advogadas -->
                     <img src="assets/foto_equipe.png"
                         alt="Advogadas da Barp Hoff Costa - Especialistas em Direito da Saude"
-                        style="width:100%; height:auto; display:block;"
+                        style="width:100%; max-width: 800px; height:auto; display:block; margin: 0 auto; transform: scale(1.35); transform-origin: bottom center;"
                         loading="eager">
 
 
@@ -1554,10 +1554,7 @@
             </div>
 
             <div class="story-visual">
-                <div class="story-image">
-                    <!-- TODO: substituir por imagem emocional forte e condizente com a dor/espera/dúvida ou escritório trabalhando a fundo. Fundo escurecido -->
-                    <span style="opacity:0.8; letter-spacing:0.04em; text-align:center; padding:2rem;">( Imagem
-                        Storytelling <br> Paciente ou Especialista em foco )</span>
+                <div class="story-image" role="img" aria-label="Análise de documentos do paciente">
                 </div>
             </div>
         </div>
@@ -1758,9 +1755,7 @@
     <section class="section about-section" id="sobre">
         <div class="container about-grid">
             <div class="story-visual">
-                <div class="about-image">
-                    <!-- TODO: inserir Imagem Autoridade/Escritorio ampla -->
-                    <span style="opacity:0.8; letter-spacing:0.04em;">( Foto Escritório / Ambiente Profissional )</span>
+                <div class="about-image" role="img" aria-label="Escritório Barp Hoff Costa">
                 </div>
             </div>
 
