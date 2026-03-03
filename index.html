@@ -60,18 +60,24 @@
         :root {
             --bg: #ffffff;
             --bg-warm: #f7f5f2;
+            --bg-dark: #070e17;
             --primary: #0a1628;
+            --primary-light: #122138;
             --text: #0a1628;
-            --muted: #6b7280;
+            --text-light: #e2e8f0;
+            --muted: #6b7fa0;
             --accent: #c4a97d;
             --wa: #10b981;
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 18px;
-            --shadow-sm: 0 6px 18px rgba(10, 22, 40, .08);
+            --radius-xl: 24px;
+            --shadow-sm: 0 6px 18px rgba(10, 22, 40, .06);
             --shadow-md: 0 14px 40px rgba(10, 22, 40, .12);
+            --shadow-premium: 0 30px 60px rgba(0, 0, 0, 0.25);
             --border: rgba(10, 22, 40, .10);
-            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-light: rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -220,10 +226,21 @@
             }
         }
 
-        /* Hero */
+        /* Hero Premium Dark */
         .hero {
-            padding: 7.5rem 0 4rem;
-            background-color: var(--bg-warm);
+            padding: 9rem 0 5rem;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--primary) 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(196, 169, 125, 0.12) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .hero-grid {
@@ -256,24 +273,26 @@
 
         .hero-text h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 2rem;
+            font-size: 2.25rem;
             line-height: 1.15;
             margin-bottom: 1.25rem;
             font-weight: 700;
-            color: var(--primary);
+            color: #ffffff;
             letter-spacing: -0.02em;
         }
 
         .hero-text .subtitle {
-            font-size: 1.05rem;
-            color: var(--secondary);
+            font-size: 1.1rem;
+            color: #a8b5c8;
             margin-bottom: 2rem;
             line-height: 1.7;
-            max-width: 500px;
+            max-width: 540px;
         }
 
         .cta-wrap {
             margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
         }
 
         .badges {
@@ -284,122 +303,197 @@
             align-items: center;
         }
 
-        .badge {
+        .badge-dark {
             display: inline-flex;
-            background: rgba(196, 169, 125, .12);
-            border: 1px solid rgba(196, 169, 125, .35);
-            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-light);
+            padding: 8px 14px;
             border-radius: var(--radius-sm);
             font-size: 0.85rem;
-            color: var(--primary);
+            color: var(--text-light);
             font-weight: 500;
         }
 
-        /* Hero Panel (Editorial Card) */
-        .hero-panel {
-            background: var(--bg);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-            border-top: 4px solid var(--accent);
-            box-shadow: var(--shadow-md);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .panel-badge {
+        /* Professional Image & Floating Card (Hero) */
+        .hero-visual {
+            position: relative;
             display: flex;
             align-items: center;
-            gap: 0.85rem;
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--primary);
-            padding: 1rem 1.25rem;
-            background: var(--bg-warm);
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-            font-family: 'Outfit', sans-serif;
+            justify-content: center;
         }
 
-        .panel-badge svg {
+        .hero-img-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .pro-photo-placeholder {
+            width: 100%;
+            height: 580px;
+            border-radius: var(--radius-xl);
+            background: linear-gradient(to top, var(--bg-dark), transparent), #1a2436;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-premium);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .floating-auth-card {
+            position: absolute;
+            bottom: -30px;
+            left: 20px;
+            right: 20px;
+            background: rgba(7, 14, 23, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(196, 169, 125, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+        }
+
+        .auth-point {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+            color: #fff;
+        }
+
+        .auth-point svg {
             color: var(--accent);
             flex-shrink: 0;
         }
 
-        .hero-panel {
-            padding: 3rem 2.5rem;
-            gap: 1.5rem;
+        .auth-point strong {
+            display: block;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+
+        .auth-point span {
+            display: block;
+            font-size: 0.825rem;
+            color: #a8b5c8;
         }
 
         @media (min-width: 768px) {
             .hero {
-                padding: 10rem 0 6rem;
+                padding: 11rem 0 8rem;
             }
 
             .hero-grid {
-                grid-template-columns: 1.15fr 0.85fr;
-                min-height: 520px;
+                grid-template-columns: 1.1fr 0.9fr;
+                min-height: 600px;
+                gap: 5rem;
             }
 
             .hero-text h1 {
-                font-size: 2.7rem;
+                font-size: 3rem;
             }
 
-            .hero-img-panel {
-                min-height: 540px;
-                border-radius: var(--radius-xl);
+            .floating-auth-card {
+                left: -50px;
+                right: auto;
+                bottom: 40px;
+                padding: 1.75rem 2rem;
+                min-width: 320px;
             }
         }
 
-        /* Authority Bar */
-        .authority-bar-wrap {
-            background-color: var(--bg-warm);
-            padding-bottom: 3rem;
+        /* Storytelling Emotional Section */
+        .storytelling-section {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            position: relative;
         }
 
-        .authority-grid {
+        .storytelling-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1rem;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-            padding: 1.5rem;
-        }
-
-        .authority-item {
-            display: flex;
+            gap: 3rem;
             align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            font-size: 0.95rem;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            color: var(--primary);
         }
 
-        .authority-item svg {
+        .storytelling-content h2 {
+            color: #ffffff;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .storytelling-content p {
+            color: #a8b5c8;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-alert-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .story-alert-card h4 {
+            font-family: 'Outfit', sans-serif;
             color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .story-alert-card ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .story-alert-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .story-alert-card li svg {
+            color: var(--wa);
+            margin-top: 2px;
             flex-shrink: 0;
         }
 
-        @media (min-width: 1024px) {
-            .authority-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0;
-            }
+        .story-image {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            background: #122138;
+            border-radius: var(--radius-xl);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+        }
 
-            .authority-item {
-                border-right: 1px solid var(--border);
-                justify-content: center;
-                padding: 0 1rem;
-            }
-
-            .authority-item:last-child {
-                border-right: none;
+        @media (min-width: 768px) {
+            .storytelling-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 5rem;
             }
         }
 
@@ -572,26 +666,79 @@
         }
 
         .step-num {
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            background: var(--bg-warm);
+            background: var(--bg);
             color: var(--accent);
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px rgba(196, 169, 125, .4);
+            box-shadow: 0 0 0 2px var(--bg-warm), 0 0 0 4px rgba(196, 169, 125, .4);
+            margin-bottom: 0.5rem;
         }
 
         .step-text h3 {
-            font-size: 0.975rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            line-height: 1.45;
+            line-height: 1.35;
             color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-text p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* Sobre o Escritorio */
+        .about-section {
+            background-color: var(--bg-dark);
+            color: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: var(--radius-xl);
+            min-height: 500px;
+            background: linear-gradient(0deg, rgba(10, 22, 40, 0.8) 0%, transparent 100%), #122138;
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .about-content h2 {
+            text-align: left;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: #a8b5c8;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 0.9fr 1.1fr;
+                gap: 5rem;
+            }
         }
 
         /* Documentos */
@@ -1047,86 +1194,73 @@
                         </svg>
                         Falar no WhatsApp
                     </button>
-                    <p class="microcopy">Envie a negativa, o protocolo e o relatório médico para uma triagem inicial do
-                        caso.</p>
+                    <p class="microcopy" style="color:#a8b5c8;">Envie a negativa, o protocolo e o relatório médico para
+                        uma triagem inicial do caso.</p>
                 </div>
 
                 <div class="badges">
-                    <span class="badge">Cirurgia robótica</span>
-                    <span class="badge">Oncologia</span>
-                    <span class="badge">Imunoterapia</span>
-                    <span class="badge">Doenças autoimunes</span>
-                    <span class="badge">Medicamentos alto custo</span>
-                    <span class="badge">Home care</span>
+                    <span class="badge-dark">Cirurgia robótica</span>
+                    <span class="badge-dark">Oncologia</span>
+                    <span class="badge-dark">Imunoterapia</span>
+                    <span class="badge-dark">Doenças autoimunes</span>
+                    <span class="badge-dark">Medicamentos alto custo</span>
+                    <span class="badge-dark">Home care</span>
                 </div>
             </div>
-            <div>
-                <div class="hero-panel">
-                    <div class="panel-badge">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        17+ anos de advocacia
+
+            <div class="hero-visual">
+                <div class="hero-img-wrapper">
+                    <!-- TODO: substituir por foto profissional da advogada/sócia na vertical com contexto nobre (fundo escuro neutro) -->
+                    <div class="pro-photo-placeholder">
+                        <span style="opacity:0.8; letter-spacing:0.04em;">( Foto Profissional )</span>
                     </div>
-                    <div class="panel-badge">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
-                            </path>
-                        </svg>
-                        Atendimento nacional online
-                    </div>
-                    <div class="panel-badge">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                            </path>
-                        </svg>
-                        Análise jurídica individual
+
+                    <!-- Floating Authority Card -->
+                    <div class="floating-auth-card">
+                        <div class="auth-point">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <strong>17+ anos</strong>
+                                <span>de advocacia</span>
+                            </div>
+                        </div>
+                        <div class="auth-point">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                </path>
+                            </svg>
+                            <div>
+                                <strong>Direito da Saúde</strong>
+                                <span>Atendimento nacional</span>
+                            </div>
+                        </div>
+                        <div class="auth-point">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                </path>
+                            </svg>
+                            <div>
+                                <strong>Análise individual</strong>
+                                <span>Estratégia personalizada</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Authority Bar -->
-    <div class="authority-bar-wrap">
-        <div class="container">
-            <div class="authority-grid">
-                <div class="authority-item">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <span>17+ anos em Direito da Saúde</span>
-                </div>
-                <div class="authority-item">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
-                        </path>
-                    </svg>
-                    <span>Atendimento nacional online</span>
-                </div>
-                <div class="authority-item">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                        </path>
-                    </svg>
-                    <span>Análise jurídica individual</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Seção de Vídeo -->
     <section class="section" id="video">
         <div class="container" style="max-width: 960px;">
-            <h2 class="section-title">Veja em 45s como funciona</h2>
-            <p class="section-subtitle">Uma explicação direta sobre o envio da negativa, triagem inicial e próximos
-                passos — com análise individual.</p>
+            <h2 class="section-title">Relatos de casos e experiências reais</h2>
+            <p class="section-subtitle">Entenda diretamente de quem já enfrentou recusas do plano de saúde como a
+                atuação jurídica pode abrir caminhos para resoluções eficazes.</p>
 
             <div class="video-wrapper">
                 <!-- TODO: VIDEO_URL -->
@@ -1167,45 +1301,85 @@
     <section class="section section-alt" id="como-funciona">
         <div class="container">
             <h2 class="section-title">Como funciona a análise inicial</h2>
-            <p class="section-subtitle">Um processo direto, sem necessidade de deslocamento.</p>
+            <p class="section-subtitle">Um processo direto, seguro e sem necessidade de deslocamento inicial.</p>
 
-            <div class="steps-grid">
+            <div class="steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
                 <div class="step-card">
                     <div class="step-num">1</div>
                     <div class="step-text">
-                        <h3>Você envia a negativa e os documentos</h3>
+                        <h3>Envio da negativa</h3>
+                        <p>Você compartilha o documento do bloqueio, laudos e exames para iniciarmos a avaliação do seu
+                            cenário.</p>
                     </div>
                 </div>
                 <div class="step-card">
                     <div class="step-num">2</div>
                     <div class="step-text">
-                        <h3>Nossa equipe faz a triagem inicial</h3>
+                        <h3>Triagem inicial</h3>
+                        <p>Nossa equipe faz uma verificação de viabilidade jurídica com base nas normas da ANS e da
+                            legislação vigente.</p>
                     </div>
                 </div>
                 <div class="step-card">
                     <div class="step-num">3</div>
                     <div class="step-text">
-                        <h3>O caso passa por análise jurídica individual</h3>
-                    </div>
-                </div>
-                <div class="step-card">
-                    <div class="step-num">4</div>
-                    <div class="step-text">
-                        <h3>Você recebe orientação sobre as medidas cabíveis</h3>
+                        <h3>Análise jurídica individual</h3>
+                        <p>Apresentamos a orientação profissional clara sobre os próximos passos e as medidas cabíveis
+                            no seu caso.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="section-cta">
-                <button class="btn btn-green" onclick="click_whatsapp()" id="como-funciona-cta">
-                    <svg class="waba-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                        <path
-                            d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.855L.057 23.492a.75.75 0 00.914.914l5.637-1.476A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 01-4.964-1.36l-.356-.212-3.69.966.983-3.594-.232-.369A9.75 9.75 0 0112 2.25c5.385 0 9.75 4.365 9.75 9.75S17.385 21.75 12 21.75z" />
-                    </svg>
-                    Enviar documentos pelo WhatsApp
-                </button>
+    <!-- 2.5) Storytelling Section -->
+    <section class="section storytelling-section">
+        <div class="container storytelling-grid">
+            <div class="storytelling-content">
+                <h2>Por que muitos pacientes ficam sem saber como agir após a negativa?</h2>
+                <p>Receber uma negativa do plano de saúde em um momento delicado gera frustração e dúvidas. A falta de
+                    informação clara sobre seus direitos muitas vezes faz com que pacientes tomem decisões precipitadas
+                    movidos pela urgência do tratamento.</p>
+                <p>Nossa análise jurídica existe justamente para oferecer clareza: entender a recusa, verificar as
+                    brechas e agir com estratégia.</p>
+
+                <div class="story-alert-card">
+                    <h4>Erros comuns após a recusa:</h4>
+                    <ul>
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                                </path>
+                            </svg>
+                            Esperar demais achando que o plano vai "mudar de ideia" sozinho.
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                                </path>
+                            </svg>
+                            Pagar particular ou interromper o tratamento sem antes buscar orientação jurídica.
+                        </li>
+                        <li>
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                                </path>
+                            </svg>
+                            Aceitar justificativas superficiais de call centers.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="story-visual">
+                <div class="story-image">
+                    <!-- TODO: substituir por imagem emocional forte e condizente com a dor/espera/dúvida ou escritório trabalhando a fundo. Fundo escurecido -->
+                    <span style="opacity:0.8; letter-spacing:0.04em; text-align:center; padding:2rem;">( Imagem
+                        Storytelling <br> Paciente ou Especialista em foco )</span>
+                </div>
             </div>
         </div>
     </section>
@@ -1401,13 +1575,32 @@
         </div>
     </section>
 
-    <!-- 5) Atendimento Nacional -->
-    <section class="section nacional-section" id="atendimento-nacional">
-        <div class="container">
-            <div class="nacional-box">
-                <h2 class="section-title">Atendimento jurídico nacional</h2>
-                <p>A BarpHoff atende casos em todo o Brasil, com análise individual e contato inicial pelo WhatsApp.</p>
-                <p>Você pode enviar a documentação sem precisar de deslocamento inicial.</p>
+    <!-- 5) Sobre o Escritório -->
+    <section class="section about-section" id="sobre">
+        <div class="container about-grid">
+            <div class="story-visual">
+                <div class="about-image">
+                    <!-- TODO: inserir Imagem Autoridade/Escritorio ampla -->
+                    <span style="opacity:0.8; letter-spacing:0.04em;">( Foto Escritório / Ambiente Profissional )</span>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <h2>Escritório especialista, atuação direcionada.</h2>
+                <p>Nossa fundadora e equipe reúnem <strong>mais de 17 anos de experiência</strong> dedicados quase
+                    exclusivamente à defesa de pacientes contra as seguradoras de saúde. Já superamos centenas de
+                    entraves complexos relacionados a tratamentos de alto custo.</p>
+                <p>Com sede centralizada e atendimento inteiramente online, advogamos para <strong>pacientes de todo o
+                        Brasil</strong>. Não importa a sua localização, a análise inicial dos exames e do protocolo de
+                    negativa é feita com a mesma precisão e velocidade.</p>
+
+                <div style="margin-top: 2rem;">
+                    <div
+                        style="font-family: 'Outfit', sans-serif; font-size:1.15rem; color:var(--accent); margin-bottom:0.5rem;">
+                        Cinthia BarpHoff</div>
+                    <div style="font-size:0.9rem; color:#a8b5c8;">Advogada Especialista em Direito da Saúde | OAB-XX
+                        00000</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1514,11 +1707,13 @@
     </section>
 
     <!-- 7) CTA Final -->
-    <section class="final-cta-section" id="contato">
-        <div class="container">
-            <h2 class="section-title">Recebeu a negativa? Envie os documentos para uma triagem inicial do caso.</h2>
-            <p class="lead">Nossa equipe pode analisar o caso de forma individual a partir das informações enviadas no
-                WhatsApp.</p>
+    <section class="final-cta-section" id="contato"
+        style="background-color: var(--bg-dark); color: #fff; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container" style="position:relative; z-index:2;">
+            <h2 class="section-title" style="color: #fff;">Recebeu a negativa? Envie os documentos para uma triagem
+                inicial do caso.</h2>
+            <p class="lead" style="color: #a8b5c8;">Nossa equipe pode analisar o caso de forma individual a partir das
+                informações enviadas no WhatsApp.</p>
 
             <button class="btn btn-green" onclick="click_whatsapp()" id="final-cta"
                 style="font-size:1rem; padding:1.1rem 2.5rem;">
