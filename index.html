@@ -225,12 +225,21 @@
         }
 
         .logo {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--accent);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 44px;
+            width: auto;
+            /* inverte a logo escura para ficar branca/visivel sobre fundo vinho */
+            filter: brightness(0) invert(1);
+            opacity: 0.92;
+            transition: opacity 0.2s ease;
+        }
+
+        .logo img:hover {
+            opacity: 1;
         }
 
         .btn-header {
@@ -1180,7 +1189,12 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <div class="logo">Barphoff</div>
+            <div class="logo">
+                <a href="/">
+                    <img src="assets/logo_barphoff.png" alt="Barphoff Advocacia Especializada" height="44"
+                        loading="eager">
+                </a>
+            </div>
             <button class="btn btn-green btn-header" onclick="click_whatsapp()">
                 <svg class="waba-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -1752,9 +1766,9 @@
         <div class="container footer-grid">
             <div>
                 <div class="footer-brand">
-                    <img src="assets/logo_barphoff.png" alt="Logo Barphoff" width="180" height="52" loading="lazy"
-                        style="height:52px; max-width:180px; margin-bottom:0.875rem; border-radius:4px; object-fit:contain;">
-                    Barphoff — Advocacia
+                    <img src="assets/logo_barphoff.png" alt="Barphoff Advocacia Especializada"
+                        style="height:48px; width:auto; filter:brightness(0) invert(1); opacity:0.85; margin-bottom:1rem; display:block;"
+                        loading="lazy">
                 </div>
                 <p class="footer-compliance">Conteúdo informativo. Cada caso exige análise individual. Não há garantia
                     de resultado.</p>
