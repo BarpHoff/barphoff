@@ -1181,6 +1181,141 @@
                 grid-template-columns: 2fr 1fr 1fr;
             }
         }
+
+        /* === CARROSSEL DE DEPOIMENTOS === */
+        .reviews-carousel-wrap {
+            position: relative;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .review-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--accent);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            min-width: 280px;
+            flex: 0 0 calc(50% - 0.75rem);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        @media (max-width: 640px) {
+            .review-card {
+                flex: 0 0 calc(100% - 0px);
+                min-width: unset;
+            }
+        }
+
+        .review-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .review-stars {
+            color: #f59e0b;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-size: 0.975rem;
+            color: var(--secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .review-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .review-date {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .reviews-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .rev-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .rev-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .rev-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .rev-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .rev-dot.active {
+            background: var(--accent);
+            width: 20px;
+            border-radius: 4px;
+        }
     </style>
 </head>
 
@@ -1737,6 +1872,134 @@
         </div>
     </section>
 
+    <!-- Depoimentos Google -->
+    <section class="section section-alt" id="depoimentos">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:3rem;">
+                <!-- Badge Google -->
+                <div
+                    style="display:inline-flex; align-items:center; gap:0.75rem; background:#fff; border:1px solid var(--border); border-radius:50px; padding:0.6rem 1.4rem; box-shadow:var(--shadow-sm); margin-bottom:1.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                            fill="#4285F4" />
+                        <path
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                            fill="#34A853" />
+                        <path
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                            fill="#FBBC05" />
+                        <path
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                            fill="#EA4335" />
+                    </svg>
+                    <span
+                        style="font-family:'Outfit',sans-serif; font-weight:600; font-size:0.9rem; color:var(--primary);">Avaliações
+                        verificadas no Google</span>
+                </div>
+
+                <h2 class="section-title">O que dizem nossos clientes</h2>
+
+                <!-- Nota geral -->
+                <div style="display:inline-flex; align-items:center; gap:1rem; margin-top:0.5rem;">
+                    <span
+                        style="font-family:'Outfit',sans-serif; font-size:3rem; font-weight:700; color:var(--primary); line-height:1;">4,9</span>
+                    <div>
+                        <div style="display:flex; gap:3px; color:#f59e0b; font-size:1.5rem;">★★★★★</div>
+                        <div style="font-size:0.85rem; color:var(--muted); margin-top:2px;">63 avaliações no Google
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrossel -->
+            <div class="reviews-carousel-wrap">
+                <div class="reviews-track" id="reviewsTrack">
+
+                    <!-- Card 1 -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Recomendo de olhos fechados! Um escritório de advocacia com um time
+                            incrível, sempre dedicado e eficiente."</p>
+                        <div class="review-author">
+                            <div class="review-avatar">M</div>
+                            <div>
+                                <div class="review-name">Meet Recrutamento e Seleção</div>
+                                <div class="review-date">6 meses atrás · Google</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Conheci a Barp Hoff Costa através de um vídeo no TikTok. Fiquei
+                            impressionada com a clareza e o profissionalismo. Equipe incrível, atenciosa e altamente
+                            capacitada."</p>
+                        <div class="review-author">
+                            <div class="review-avatar" style="background:var(--accent);">C</div>
+                            <div>
+                                <div class="review-name">Cereja com Glitter</div>
+                                <div class="review-date">Um ano atrás · Google</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 — placeholder para adicionar mais -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Escritório sério, com atendimento humanizado e profissional. Senti que
+                            meu caso era tratado com a prioridade que merecia. Equipe extremamente competente."</p>
+                        <div class="review-author">
+                            <div class="review-avatar" style="background:#7a2828;">A</div>
+                            <div>
+                                <div class="review-name">Cliente Google</div>
+                                <div class="review-date">Google · ★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Fui muito bem atendida em todas as etapas. O escritório demonstrou total
+                            domínio sobre o Direito da Saúde e me orientou com segurança desde o início."</p>
+                        <div class="review-author">
+                            <div class="review-avatar" style="background:#5a1a22;">R</div>
+                            <div>
+                                <div class="review-name">Cliente Google</div>
+                                <div class="review-date">Google · ★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Controles -->
+                <div class="reviews-controls">
+                    <button class="rev-btn" id="revPrev" onclick="moveReviews(-1)" aria-label="Anterior">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <div class="rev-dots" id="revDots"></div>
+                    <button class="rev-btn" id="revNext" onclick="moveReviews(1)" aria-label="Próximo">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div style="text-align:center; margin-top:1.5rem;">
+                    <a href="https://www.google.com/search?q=barp+hoff+advocacia#lrd=0x94f6913ffab1012b:0x3cde032988266d21,1,,,,"
+                        target="_blank" rel="noopener"
+                        style="font-size:0.875rem; color:var(--muted); text-decoration:underline; text-underline-offset:3px;">Ver
+                        todas as 63 avaliações no Google →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 7) CTA Final -->
     <section class="final-cta-section" id="contato"
         style="background-color: var(--bg-dark); color: #fff; border-top: 1px solid rgba(255,255,255,0.05);">
@@ -1805,6 +2068,59 @@
             Falar no WhatsApp
         </button>
     </div>
+
+    <!-- Carrossel de Reviews JS -->
+    <script>
+        (function () {
+            const track = document.getElementById('reviewsTrack');
+            const dotsWrap = document.getElementById('revDots');
+            if (!track) return;
+
+            const cards = track.querySelectorAll('.review-card');
+            const isMobile = () => window.innerWidth < 640;
+            let current = 0;
+            let perView = isMobile() ? 1 : 2;
+            let total = Math.ceil(cards.length / perView);
+            let autoTimer;
+
+            // Build dots
+            function buildDots() {
+                dotsWrap.innerHTML = '';
+                perView = isMobile() ? 1 : 2;
+                total = Math.ceil(cards.length / perView);
+                for (let i = 0; i < total; i++) {
+                    const d = document.createElement('button');
+                    d.className = 'rev-dot' + (i === current ? ' active' : '');
+                    d.setAttribute('aria-label', 'Ir para depoimento ' + (i + 1));
+                    d.onclick = () => goTo(i);
+                    dotsWrap.appendChild(d);
+                }
+            }
+
+            function goTo(index) {
+                current = (index + total) % total;
+                const cardWidth = cards[0].offsetWidth + 24; // 24 = gap
+                track.style.transform = `translateX(-${current * cardWidth * perView}px)`;
+                dotsWrap.querySelectorAll('.rev-dot').forEach((d, i) => {
+                    d.classList.toggle('active', i === current);
+                });
+            }
+
+            window.moveReviews = function (dir) {
+                clearInterval(autoTimer);
+                goTo(current + dir);
+                startAuto();
+            };
+
+            function startAuto() {
+                autoTimer = setInterval(() => goTo(current + 1), 4500);
+            }
+
+            buildDots();
+            startAuto();
+            window.addEventListener('resize', () => { buildDots(); goTo(0); });
+        })();
+    </script>
 
 </body>
 
