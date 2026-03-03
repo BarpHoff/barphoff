@@ -230,9 +230,10 @@
         }
 
         .logo img {
-            height: 52px;
+            height: auto;
             width: auto;
-            max-width: 220px;
+            max-width: 280px;
+            max-height: 48px;
             /* clareia a logo para contraste no fundo vinho */
             filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(320deg) brightness(1.4);
             opacity: 1;
@@ -1383,11 +1384,14 @@
 
             <div class="hero-visual">
                 <div class="hero-img-wrapper">
-                    <!-- TODO: substituir por foto profissional da advogada/sócia na vertical com contexto nobre (fundo escuro neutro) -->
-                    <!-- Foto real das advogadas -->
-                    <img src="assets/foto_equipe.png"
-                        alt="Advogadas da Barp Hoff Costa - Especialistas em Direito da Saúde"
-                        style="width:100%; height:auto; display:block; margin-top: auto;" loading="eager">
+                    <!-- Foto real das advogadas como background -->
+                    <!-- imagem PNG transparente preenche o wrapper de baixo para cima -->
+                    <div style="
+                        width:100%;
+                        min-height:520px;
+                        background: url('assets/foto_equipe.png') center bottom / contain no-repeat;
+                        position:relative;
+                    "></div>
 
                     <!-- Floating Authority Card -->
                     <div class="floating-auth-card">
