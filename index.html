@@ -278,8 +278,8 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3.5rem;
-            align-items: center;
+            gap: 2rem;
+            align-items: flex-end;
         }
 
         .hero-eyebrow {
@@ -357,7 +357,7 @@
         .hero-img-wrapper {
             position: relative;
             width: 100%;
-            max-width: 480px;
+            max-width: none;
             margin: 0 auto;
         }
 
@@ -424,13 +424,14 @@
 
         @media (min-width: 768px) {
             .hero {
-                padding: 11rem 0 8rem;
+                padding: 11rem 0 0;
             }
 
             .hero-grid {
-                grid-template-columns: 1.1fr 0.9fr;
+                grid-template-columns: 1fr 1fr;
                 min-height: 600px;
-                gap: 5rem;
+                gap: 3rem;
+                align-items: flex-end;
             }
 
             .hero-text h1 {
@@ -438,11 +439,11 @@
             }
 
             .floating-auth-card {
-                left: -50px;
+                left: 0;
                 right: auto;
-                bottom: 40px;
-                padding: 1.75rem 2rem;
-                min-width: 320px;
+                bottom: 20px;
+                padding: 1.25rem 1.5rem;
+                min-width: 280px;
             }
         }
 
@@ -1386,14 +1387,14 @@
                 <div class="hero-img-wrapper">
                     <!-- Foto real das advogadas -->
                     <img src="assets/foto_equipe.png"
-                        alt="Advogadas da Barp Hoff Costa - Especialistas em Direito da Saúde" style="
-                            width: 120%;
-                            margin-left: -10%;
-                            height: 600px;
-                            object-fit: cover;
-                            object-position: center top;
-                            display: block;
-                        " loading="eager">
+                        alt="Advogadas da Barp Hoff Costa - Especialistas em Direito da Saude"
+                        style="width:100%; height:auto; display:block;"
+                        loading="eager">
+
+
+
+
+
 
                     <!-- Floating Authority Card -->
                     <div class="floating-auth-card">
