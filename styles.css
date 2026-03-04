@@ -168,6 +168,7 @@ header {
     position: relative;
     width: 100%;
     min-height: 44px;
+    overflow: visible;
 }
 
 @media (max-width: 639px) {
@@ -179,14 +180,16 @@ header {
 .logo {
     display: flex;
     align-items: center;
+    overflow: visible;
 }
 
 .logo img {
-    height: 22px !important;
+    height: 14px !important;
     width: auto !important;
     display: block;
     filter: brightness(0) invert(1);
     opacity: 1;
+    overflow: visible;
 }
 
 .logo img:hover {
@@ -199,7 +202,7 @@ header {
     }
 
     .logo img {
-        height: 18px !important;
+        height: 10px !important;
         width: auto !important;
     }
 }
