@@ -181,9 +181,9 @@ header {
 }
 
 .logo img {
-    height: 18px;
-    width: auto;
-    padding: 2px 0;
+    height: 22px !important;
+    width: auto !important;
+    padding: 0 10px;
     object-fit: contain;
     max-width: 100%;
     opacity: 1;
@@ -202,7 +202,9 @@ header {
     }
 
     .logo img {
-        width: 80px;
+        height: 18px !important;
+        width: auto !important;
+        padding: 0 5px;
     }
 }
 
