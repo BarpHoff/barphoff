@@ -921,18 +921,16 @@
             }
         }
 
-        // ─── Sticky CTA (passive + rAF) ─────────────────────────────────────────
-        let _ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!_ticking) {
-                requestAnimationFrame(() => {
-                    const sticky = document.querySelector('.sticky-cta-mobile');
-                    if (sticky) sticky.classList.toggle('show', window.scrollY > 500);
-                    _ticking = false;
-                });
-                _ticking = true;
+        // ─── Sticky CTA (Passive Scroll) ─────────────────────────────────────────
+        function handleStickyCta() {
+            const sticky = document.querySelector('.sticky-cta-mobile');
+            if (sticky) {
+                const threshold = 650;
+                sticky.classList.toggle('is-visible', window.scrollY >= threshold);
             }
-        }, { passive: true });
+        }
+        window.addEventListener('scroll', handleStickyCta, { passive: true });
+        document.addEventListener('DOMContentLoaded', handleStickyCta);
     </script>
 
     <!-- Carrossel de Reviews JS -->
