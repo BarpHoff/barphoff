@@ -455,8 +455,7 @@ header {
 
     /* 3. HERO */
     .hero {
-        padding-top: 72px;
-        /* header fixo ~56px + 16px respiro */
+        padding-top: 32px;
         padding-bottom: 0;
     }
 
