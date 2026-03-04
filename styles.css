@@ -181,7 +181,7 @@ header {
 }
 
 .logo img {
-    height: 22px !important;
+    height: 18px !important;
     width: auto !important;
     padding: 0 10px;
     object-fit: contain;
@@ -202,7 +202,7 @@ header {
     }
 
     .logo img {
-        height: 18px !important;
+        height: 14px !important;
         width: auto !important;
         padding: 0 5px;
     }
