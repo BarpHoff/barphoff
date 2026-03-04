@@ -181,7 +181,7 @@ header {
 }
 
 .logo img {
-    height: 42px;
+    height: 32px;
     width: auto;
     max-width: 100%;
     opacity: 1;
@@ -200,7 +200,7 @@ header {
     }
 
     .logo img {
-        width: 200px;
+        width: 150px;
     }
 }
 
@@ -447,13 +447,6 @@ header {
     .hero-grid {
         gap: 16px;
         align-items: start;
-    }
-
-    .hero-text h1 {
-        font-size: 34px !important;
-        line-height: 1.15 !important;
-        letter-spacing: -0.02em;
-        margin-bottom: 12px;
     }
 
     .hero-text .microcopy {
