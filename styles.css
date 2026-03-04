@@ -438,15 +438,17 @@ header {
     }
 
     .hero-text h1 {
-        font-size: 30px !important;
-        line-height: 1.25 !important;
+        font-size: 34px !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.02em;
         margin-bottom: 12px;
     }
 
     .hero-text .subtitle {
         font-size: 16px !important;
-        line-height: 1.5 !important;
-        margin-bottom: 20px;
+        line-height: 1.55 !important;
+        margin-bottom: 16px;
+        color: rgba(255, 255, 255, 0.85);
     }
 
     .cta-wrap {
@@ -475,9 +477,12 @@ header {
     }
 
     .badge-dark {
-        padding: 7px 12px;
+        padding: 5px 12px;
         font-size: 13px;
         white-space: normal;
+        background: rgba(196, 169, 125, 0.06);
+        border: 1px solid rgba(196, 169, 125, 0.3);
+        color: var(--accent-warm);
     }
 
     /* 6. IMAGEM HERO — abaixo do texto, height controlado */
