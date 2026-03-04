@@ -232,11 +232,12 @@
         .logo img {
             height: auto;
             width: auto;
-            max-width: 280px;
-            max-height: 48px;
+            max-width: 310px;
+            max-height: 58px;
             opacity: 1;
             transition: opacity 0.2s ease;
             display: block;
+            filter: brightness(1.15) contrast(1.1);
         }
 
         .logo img:hover {
@@ -335,13 +336,25 @@
 
         .badge-dark {
             display: inline-flex;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border-light);
-            padding: 8px 14px;
-            border-radius: var(--radius-sm);
-            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.08);
+            /* slight brightness */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            /* subtle border */
+            padding: 10px 14px;
+            border-radius: 50px;
+            /* pill styling */
+            font-size: 14px;
             color: var(--text-light);
             font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            align-items: center;
         }
 
         /* Professional Image & Floating Card (Hero) */
@@ -350,29 +363,28 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            min-width: 360px;
+            /* garantir largura mínima no desktop */
+        }
+
+        @media (min-width: 1024px) {
+            .hero-visual {
+                min-width: 420px;
+            }
         }
 
         .hero-img-wrapper {
             position: relative;
             width: 100%;
-            max-width: 800px;
             margin: 0 auto;
         }
 
-        .pro-photo-placeholder {
+        .hero-img-wrapper img {
             width: 100%;
-            height: 580px;
-            border-radius: var(--radius-xl);
-            background: linear-gradient(to top, var(--bg-dark) 0%, var(--primary-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(196, 169, 125, 0.5);
-            font-size: 0.85rem;
-            border: 1px solid rgba(196, 169, 125, .2);
-            box-shadow: var(--shadow-premium);
-            overflow: hidden;
-            position: relative;
+            height: auto;
+            object-fit: cover;
+            display: block;
         }
 
         .floating-auth-card {
@@ -692,10 +704,12 @@
             transition: var(--transition);
         }
 
-        .step-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-            border-color: rgba(196, 169, 125, 0.4);
+        @media (hover: hover) and (pointer: fine) {
+            .step-card:hover {
+                box-shadow: var(--shadow-md);
+                transform: translateY(-4px);
+                border-color: rgba(196, 169, 125, 0.4);
+            }
         }
 
         .step-num {
@@ -754,6 +768,83 @@
             justify-content: center;
             color: rgba(196, 169, 125, 0.5);
             font-size: 0.9rem;
+        }
+
+        /* Office Gallery Marquee */
+        .office-gallery {
+            overflow: hidden;
+            width: 100%;
+            border-radius: var(--radius-xl);
+            position: relative;
+            background: var(--bg-dark);
+        }
+
+        .office-gallery .track {
+            display: flex;
+            gap: 16px;
+            width: max-content;
+            animation: office-marquee 35s linear infinite;
+        }
+
+        .office-gallery img {
+            height: 500px;
+            width: auto;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            border: 1px solid rgba(196, 169, 125, 0.2);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .office-gallery .gallery-placeholder {
+            height: 500px;
+            width: 350px;
+            border-radius: var(--radius-md);
+            border: 1px dashed rgba(196, 169, 125, 0.4);
+            background: rgba(196, 169, 125, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        @keyframes office-marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(calc(-50% - 8px));
+                /* 8px to adjust for the gap */
+            }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .office-gallery:hover .track {
+                animation-play-state: paused;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .office-gallery .track {
+                animation: none !important;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                width: 100%;
+                gap: 16px;
+            }
+
+            .office-gallery img,
+            .office-gallery .gallery-placeholder {
+                width: 100%;
+                height: 250px;
+            }
+
+            .office-gallery .track img.duplicate,
+            .office-gallery .track .gallery-placeholder.duplicate {
+                display: none;
+            }
         }
 
         .about-content h2 {
@@ -832,7 +923,7 @@
         }
 
         .docs-img-panel {
-            background-image: url('assets/doc_image_v2.png');
+            background-image: url('assets/doc_image.png');
             background-size: cover;
             background-position: center;
             border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
@@ -876,60 +967,38 @@
             gap: 1rem;
         }
 
-        /* Priority cards — feature size */
+        /* Unified cards — feature size */
         .card {
             background: var(--bg);
             border-radius: var(--radius-lg);
             text-align: left;
             transition: var(--transition);
-        }
-
-        .card-priority {
             border: 1px solid var(--border);
-            border-top: 3px solid var(--accent);
             padding: 24px;
             display: flex;
             align-items: flex-start;
             gap: 1.25rem;
             box-shadow: var(--shadow-sm);
+            cursor: pointer;
         }
 
-        .card-priority:hover {
-            border-color: rgba(196, 169, 125, 0.5);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
-        }
-
-        .card-secondary {
-            border: 1px solid var(--border);
-            padding: 16px;
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            box-shadow: 0 2px 8px rgba(10, 22, 40, .04);
-        }
-
-        .card-secondary:hover {
-            border-color: rgba(196, 169, 125, 0.4);
-            box-shadow: var(--shadow-sm);
-            background: var(--bg-warm);
+        @media (hover: hover) and (pointer: fine) {
+            .card:hover {
+                border-color: rgba(196, 169, 125, 0.5);
+                box-shadow: var(--shadow-md);
+                transform: translateY(-3px);
+            }
         }
 
         .card-icon {
             width: 44px;
             height: 44px;
-            background: var(--bg-light);
+            background: var(--accent-light);
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            color: var(--secondary);
-            border: 1px solid transparent;
-        }
-
-        .card-priority .card-icon {
-            background: var(--accent-light);
             color: var(--accent);
             border: 1px solid var(--accent-border);
         }
@@ -1219,9 +1288,11 @@
             }
         }
 
-        .review-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
+        @media (hover: hover) and (pointer: fine) {
+            .review-card:hover {
+                box-shadow: var(--shadow-md);
+                transform: translateY(-3px);
+            }
         }
 
         .review-stars {
@@ -1320,6 +1391,26 @@
             width: 20px;
             border-radius: 4px;
         }
+
+        /* Animações (Reveal on Scroll) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1), transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
     </style>
 </head>
 
@@ -1369,8 +1460,7 @@
                         </svg>
                         Falar no WhatsApp
                     </button>
-                    <p class="microcopy" style="color:#a8b5c8;">Envie a negativa, o protocolo e o relatório médico para
-                        uma triagem inicial do caso.</p>
+                    <p class="microcopy" style="color:#a8b5c8;">Envie: negativa + protocolo + relatório médico.</p>
                 </div>
 
                 <div class="badges">
@@ -1387,9 +1477,7 @@
                 <div class="hero-img-wrapper">
                     <!-- Foto real das advogadas -->
                     <img src="assets/foto_equipe.png"
-                        alt="Advogadas da Barp Hoff Costa - Especialistas em Direito da Saude"
-                        style="width:100%; max-width: 800px; height:auto; display:block; margin: 0 auto; transform: scale(1.35); transform-origin: bottom center;"
-                        loading="eager">
+                        alt="Advogadas da Barp Hoff Costa - Especialistas em Direito da Saude" loading="eager">
 
 
 
@@ -1441,7 +1529,7 @@
 
     <!-- Seção de Vídeo -->
     <section class="section" id="video">
-        <div class="container" style="max-width: 960px;">
+        <div class="container reveal" style="max-width: 960px;">
             <h2 class="section-title">Relatos de casos e experiências reais</h2>
             <p class="section-subtitle">Entenda diretamente de quem já enfrentou recusas do plano de saúde como a
                 atuação jurídica pode abrir caminhos para resoluções eficazes.</p>
@@ -1478,12 +1566,12 @@
 
     <!-- 2) Como funciona -->
     <section class="section section-alt" id="como-funciona">
-        <div class="container">
+        <div class="container reveal">
             <h2 class="section-title">Como funciona a análise inicial</h2>
             <p class="section-subtitle">Um processo direto, seguro e sem necessidade de deslocamento inicial.</p>
 
             <div class="steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-                <div class="step-card">
+                <div class="step-card reveal">
                     <div class="step-num">1</div>
                     <div class="step-text">
                         <h3>Envio da negativa</h3>
@@ -1491,7 +1579,7 @@
                             cenário.</p>
                     </div>
                 </div>
-                <div class="step-card">
+                <div class="step-card reveal">
                     <div class="step-num">2</div>
                     <div class="step-text">
                         <h3>Triagem inicial</h3>
@@ -1499,7 +1587,7 @@
                             legislação vigente.</p>
                     </div>
                 </div>
-                <div class="step-card">
+                <div class="step-card reveal">
                     <div class="step-num">3</div>
                     <div class="step-text">
                         <h3>Análise jurídica individual</h3>
@@ -1568,7 +1656,7 @@
                 <p style="color:var(--secondary); margin-bottom:0.5rem; line-height:1.7;">Se você já tiver esses
                     documentos em mãos, a triagem inicial do caso pode ser mais objetiva.</p>
 
-                <ul class="checklist">
+                <ul class="checklist reveal">
                     <li>
                         <svg class="checklist-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-width="2.5" d="M5 13l4 4L19 7"></path>
@@ -1626,14 +1714,14 @@
 
     <!-- 4) Situações atendidas -->
     <section class="section" id="situacoes">
-        <div class="container">
+        <div class="container reveal">
             <h2 class="section-title">Situações atendidas</h2>
             <p class="section-subtitle">Cada caso exige análise individual e estratégia específica.</p>
 
             <div class="grid-priority">
 
                 <!-- Prioritários -->
-                <div class="card card-priority">
+                <div class="card reveal" onclick="click_whatsapp()" role="button" tabindex="0">
                     <div class="card-icon">
                         <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4">
@@ -1646,7 +1734,7 @@
                     </div>
                 </div>
 
-                <div class="card card-priority">
+                <div class="card reveal" onclick="click_whatsapp()" role="button" tabindex="0">
                     <div class="card-icon">
                         <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1659,7 +1747,7 @@
                     </div>
                 </div>
 
-                <div class="card card-priority">
+                <div class="card reveal" onclick="click_whatsapp()" role="button" tabindex="0">
                     <div class="card-icon">
                         <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1673,7 +1761,7 @@
                     </div>
                 </div>
 
-                <div class="card card-priority">
+                <div class="card reveal" onclick="click_whatsapp()" role="button" tabindex="0">
                     <div class="card-icon">
                         <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1687,7 +1775,7 @@
                     </div>
                 </div>
 
-                <div class="card card-priority">
+                <div class="card reveal" onclick="click_whatsapp()" role="button" tabindex="0">
                     <div class="card-icon">
                         <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1705,7 +1793,7 @@
 
                 <!-- Demais -->
 
-                <div class="card card-secondary">
+                <div class="card reveal" onclick="click_whatsapp()" role="button" tabindex="0">
                     <div class="card-icon">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1719,7 +1807,7 @@
                     </div>
                 </div>
 
-                <div class="card card-secondary">
+                <div class="card reveal" onclick="click_whatsapp()" role="button" tabindex="0">
                     <div class="card-icon">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1733,7 +1821,7 @@
                     </div>
                 </div>
 
-                <div class="card card-secondary">
+                <div class="card reveal" onclick="click_whatsapp()" role="button" tabindex="0">
                     <div class="card-icon">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1754,26 +1842,74 @@
     <!-- 5) Sobre o Escritório -->
     <section class="section about-section" id="sobre">
         <div class="container about-grid">
-            <div class="story-visual">
-                <div class="about-image" role="img" aria-label="Escritório Barp Hoff Costa">
+            <div class="office-gallery reveal">
+                <div class="track">
+                    <!-- INSERIR_FOTOS_REAIS_AQUI -->
+                    <div class="gallery-placeholder">INSERIR_FOTOS_REAIS_AQUI</div>
+                    <div class="gallery-placeholder">INSERIR_FOTOS_REAIS_AQUI</div>
+                    <div class="gallery-placeholder">INSERIR_FOTOS_REAIS_AQUI</div>
+                    <div class="gallery-placeholder">INSERIR_FOTOS_REAIS_AQUI</div>
+
+                    <!-- Duplicatas para o Loop Infinito (-50%) -->
+                    <div class="gallery-placeholder duplicate" aria-hidden="true">INSERIR_FOTOS_REAIS_AQUI</div>
+                    <div class="gallery-placeholder duplicate" aria-hidden="true">INSERIR_FOTOS_REAIS_AQUI</div>
+                    <div class="gallery-placeholder duplicate" aria-hidden="true">INSERIR_FOTOS_REAIS_AQUI</div>
+                    <div class="gallery-placeholder duplicate" aria-hidden="true">INSERIR_FOTOS_REAIS_AQUI</div>
                 </div>
             </div>
 
             <div class="about-content">
                 <h2>Escritório especialista, atuação direcionada.</h2>
-                <p>Nossa fundadora e equipe reúnem <strong>mais de 17 anos de experiência</strong> dedicados quase
-                    exclusivamente à defesa de pacientes contra as seguradoras de saúde. Já superamos centenas de
-                    entraves complexos relacionados a tratamentos de alto custo.</p>
-                <p>Com sede centralizada e atendimento inteiramente online, advogamos para <strong>pacientes de todo o
-                        Brasil</strong>. Não importa a sua localização, a análise inicial dos exames e do protocolo de
-                    negativa é feita com a mesma precisão e velocidade.</p>
+                <ul class="about-bullets"
+                    style="list-style: none; padding-left: 0; margin-bottom: 2rem; color: rgba(245, 237, 232, 0.72); font-size: 1.05rem;">
+                    <li style="margin-bottom: 0.85rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <svg style="color: var(--accent); flex-shrink: 0; margin-top: 5px;" width="18" height="18"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        <span>Nossa fundadora e equipe reúnem <strong>mais de 17 anos de experiência</strong> dedicados
+                            quase exclusivamente à defesa de pacientes contra as seguradoras de saúde.</span>
+                    </li>
+                    <li style="margin-bottom: 0.85rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <svg style="color: var(--accent); flex-shrink: 0; margin-top: 5px;" width="18" height="18"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        <span>Já superamos centenas de entraves complexos relacionados a tratamentos de alto
+                            custo.</span>
+                    </li>
+                    <li style="margin-bottom: 0.85rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <svg style="color: var(--accent); flex-shrink: 0; margin-top: 5px;" width="18" height="18"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        <span>Com sede centralizada e atendimento inteiramente online, advogamos para <strong>pacientes
+                                de todo o Brasil</strong> com precisão e velocidade.</span>
+                    </li>
+                </ul>
+
+                <button class="btn"
+                    style="background: transparent; color: #fff; border: 1px solid rgba(196, 169, 125, 0.5); padding: 0.8rem 1.5rem; transition: var(--transition);"
+                    onclick="click_whatsapp()"
+                    onmouseover="this.style.background='rgba(196, 169, 125, 0.1)';this.style.borderColor='var(--accent)'"
+                    onmouseout="this.style.background='transparent';this.style.borderColor='rgba(196, 169, 125, 0.5)'">
+                    <svg class="waba-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.855L.057 23.492a.75.75 0 00.914.914l5.637-1.476A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 01-4.964-1.36l-.356-.212-3.69.966.983-3.594-.232-.369A9.75 9.75 0 0112 2.25c5.385 0 9.75 4.365 9.75 9.75S17.385 21.75 12 21.75z" />
+                    </svg>
+                    Falar no WhatsApp
+                </button>
 
                 <div style="margin-top: 2rem;">
                     <div
                         style="font-family: 'Outfit', sans-serif; font-size:1.15rem; color:var(--accent); margin-bottom:0.5rem;">
                         Cinthia BarpHoff</div>
-                    <div style="font-size:0.9rem; color:#a8b5c8;">Advogada Especialista em Direito da Saúde | OAB-XX
-                        00000</div>
+                    <div style="font-size:0.9rem; color:#a8b5c8;">Advogada Especialista em Direito da Saúde</div>
                 </div>
             </div>
         </div>
@@ -1787,7 +1923,7 @@
             <p class="section-subtitle">Respostas objetivas sobre os casos mais comuns.</p>
 
             <div class="faq-list">
-                <div class="faq-item">
+                <div class="faq-item reveal">
                     <button class="faq-question" onclick="toggleFaq(this)" id="faq-1" aria-expanded="false">
                         Preciso ter a negativa por escrito?
                         <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -1801,7 +1937,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item reveal">
                     <button class="faq-question" onclick="toggleFaq(this)" id="faq-2" aria-expanded="false">
                         Quais documentos ajudam na análise?
                         <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -1816,7 +1952,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item reveal">
                     <button class="faq-question" onclick="toggleFaq(this)" id="faq-3" aria-expanded="false">
                         Atendem meu estado?
                         <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -1830,7 +1966,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item reveal">
                     <button class="faq-question" onclick="toggleFaq(this)" id="faq-4" aria-expanded="false">
                         O plano pode negar cirurgia indicada pelo médico?
                         <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -1845,7 +1981,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item reveal">
                     <button class="faq-question" onclick="toggleFaq(this)" id="faq-5" aria-expanded="false">
                         Já paguei particular. Ainda vale avaliar?
                         <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
@@ -1861,19 +1997,17 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item reveal">
                     <button class="faq-question" onclick="toggleFaq(this)" id="faq-6" aria-expanded="false">
-                        O que é tutela de urgência?
+                        O que acontece depois que eu envio os documentos?
                         <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
                     <div class="faq-answer-wrap">
-                        <div class="faq-answer">É uma medida jurídica solicitada ao juiz de forma imediata quando a
-                            espera
-                            pelo resultado do processo pode causar dano grave à saúde. Sua aplicação depende da análise
-                            do
-                            caso concreto.</div>
+                        <div class="faq-answer">Nossa equipe realiza a triagem inicial do seu caso e retorna prontamente
+                            pelo WhatsApp com a avaliação técnica sobre as possibilidades e as orientações para a sua
+                            situação.</div>
                     </div>
                 </div>
             </div>
@@ -1925,7 +2059,7 @@
                 <div class="reviews-track" id="reviewsTrack">
 
                     <!-- Card 1 -->
-                    <div class="review-card">
+                    <div class="review-card reveal">
                         <div class="review-stars">★★★★★</div>
                         <p class="review-text">"Recomendo de olhos fechados! Um escritório de advocacia com um time
                             incrível, sempre dedicado e eficiente."</p>
@@ -1939,7 +2073,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="review-card">
+                    <div class="review-card reveal">
                         <div class="review-stars">★★★★★</div>
                         <p class="review-text">"Conheci a Barp Hoff Costa através de um vídeo no TikTok. Fiquei
                             impressionada com a clareza e o profissionalismo. Equipe incrível, atenciosa e altamente
@@ -1954,7 +2088,7 @@
                     </div>
 
                     <!-- Card 3 — placeholder para adicionar mais -->
-                    <div class="review-card">
+                    <div class="review-card reveal">
                         <div class="review-stars">★★★★★</div>
                         <p class="review-text">"Escritório sério, com atendimento humanizado e profissional. Senti que
                             meu caso era tratado com a prioridade que merecia. Equipe extremamente competente."</p>
@@ -1968,7 +2102,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="review-card">
+                    <div class="review-card reveal">
                         <div class="review-stars">★★★★★</div>
                         <p class="review-text">"Fui muito bem atendida em todas as etapas. O escritório demonstrou total
                             domínio sobre o Direito da Saúde e me orientou com segurança desde o início."</p>
@@ -2027,8 +2161,8 @@
                 </svg>
                 Falar no WhatsApp
             </button>
-            <p class="microcopy" style="margin-top:1rem; color:#6b7fa0;">Atendimento de segunda a sexta, das 8h às
-                17h.</p>
+            <p class="microcopy" style="margin-top:1rem; color:#6b7fa0;">Envie: negativa + protocolo + relatório médico.
+            </p>
         </div>
     </section>
 
@@ -2120,15 +2254,41 @@
             };
 
             function startAuto() {
-                autoTimer = setInterval(() => goTo(current + 1), 4500);
+                // autoTimer = setInterval(() => goTo(current + 1), 4500);
             }
 
             buildDots();
             startAuto();
             window.addEventListener('resize', () => { buildDots(); goTo(0); });
         })();
-    </script>
 
+        // IntersectionObserver para Fade-in on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -10% 0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach((el, index) => {
+                if (el.classList.contains('step-card') || el.classList.contains('card') || el.classList.contains('faq-item') || el.classList.contains('review-card')) {
+                    el.style.transitionDelay = `${(index % 4) * 80}ms`;
+                }
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 
 </html>
