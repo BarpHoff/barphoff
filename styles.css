@@ -1308,23 +1308,24 @@ header {
 
 /* Final CTA */
 .final-cta-section {
-    background: linear-gradient(180deg, #2a0a0f 0%, #1a0408 100%);
+    background-color: var(--bg-dark);
+    background-image:
+        linear-gradient(180deg, rgba(42, 10, 15, 0.8) 0%, rgba(26, 4, 8, 1) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.06)' stroke-width='1'/%3E%3Cpath d='M30 10 L50 20 L50 40 L30 50 L10 40 L10 20 Z' fill='none' stroke='rgba(196,169,125,0.04)' stroke-width='1'/%3E%3C/svg%3E");
     color: #ffffff;
     text-align: center;
     padding: 6rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(196, 169, 125, 0.15);
     position: relative;
+    overflow: hidden;
 }
 
-.final-cta-section::before,
-footer::before {
+.final-cta-section::after {
     content: '';
     position: absolute;
     inset: 0;
-    opacity: 0.06;
-    mix-blend-mode: overlay;
+    background: radial-gradient(circle at top, rgba(196, 169, 125, 0.05) 0%, transparent 60%);
     pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .final-cta-section .section-title {
@@ -1380,10 +1381,13 @@ footer::before {
 
 /* Footer */
 footer {
-    background: linear-gradient(180deg, #1a0408 0%, #0d0102 100%);
+    background-color: #0d0102;
+    background-image:
+        linear-gradient(180deg, rgba(26, 4, 8, 0.9) 0%, rgba(13, 1, 2, 1) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.06)' stroke-width='1'/%3E%3Cpath d='M30 10 L50 20 L50 40 L30 50 L10 40 L10 20 Z' fill='none' stroke='rgba(196,169,125,0.04)' stroke-width='1'/%3E%3C/svg%3E");
     color: var(--text-light);
     padding: 3.5rem 0 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(196, 169, 125, 0.08);
     margin-bottom: 70px;
     position: relative;
 }
