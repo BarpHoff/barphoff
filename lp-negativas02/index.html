@@ -382,19 +382,33 @@
         const WA_TEXT = encodeURIComponent('Olá, vim pelo site e gostaria de orientação jurídica sobre negativa de cobertura pelo plano de saúde.');
         const WA_URL = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${WA_TEXT}`;
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function click_whatsapp(e, location) {
+            if (e && e.preventDefault) e.preventDefault();
+            
+            // Standard dataLayer push
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'click_whatsapp',
+                'method': 'whatsapp',
+                'location': location || 'unknown'
+            });
 
-        function trackEvent(eventName, eventParams) {
-            gtag('event', eventName, eventParams);
+            // Fallback tracking via Fetch with keepalive or sendBeacon
+            const endpoint = 'https://www.google-analytics.com/g/collect?v=2'; 
+            try {
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon(endpoint);
+                } else if (window.fetch) {
+                    fetch(endpoint, { keepalive: true, method: 'POST' }).catch(() => {});
+                }
+            } catch(err) {}
+
+            // Delay for tracking guarantee
+            setTimeout(() => {
+                window.open(WA_URL, '_blank');
+            }, 300);
         }
 
-        function click_whatsapp() {
-            trackEvent('click_whatsapp', { method: 'whatsapp' });
-            setTimeout(() => window.open(WA_URL, '_blank'), 200);
-        }
-
-        // ─── FAQ ────────────────────────────────────────────────────────────────
         function toggleFaq(button) {
             const item = button.parentElement;
             const allItems = document.querySelectorAll('.faq-item');
