@@ -456,6 +456,10 @@ header {
         margin-bottom: 12px;
     }
 
+    .hero-text .microcopy {
+        margin-bottom: 20px;
+    }
+
     .hero-text .subtitle {
         font-size: 16px !important;
         line-height: 1.55 !important;
@@ -583,6 +587,12 @@ header {
     .section-subtitle {
         font-size: 15px;
         margin-bottom: 28px;
+    }
+
+    @media (max-width: 480px) {
+        .hero+.section {
+            padding-top: 32px !important;
+        }
     }
 
     /* 9. IMAGEM STORYTELLING / SOBRE — max-height no mobile */
