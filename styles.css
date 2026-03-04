@@ -413,13 +413,7 @@ header {
         line-height: 1.35 !important;
     }
 
-    p,
-    li,
-    span,
-    label {
-        font-size: 16px;
-        line-height: 1.6;
-    }
+    /* body/p/li inherit 16px from body — no generic span rule (breaks badges/eyebrow) */
 
     small,
     .microcopy,
@@ -492,17 +486,17 @@ header {
     }
 
     .hero-img-wrapper img,
-    .hero-img-wrapper source+img {
-        width: 100%;
-        max-height: 280px;
-        height: 280px;
-        object-fit: cover;
-        object-position: center top;
+    .hero-img-wrapper picture img {
+        width: 100% !important;
+        max-height: 280px !important;
+        height: 280px !important;
+        object-fit: cover !important;
+        object-position: center top !important;
         border-radius: 12px;
         display: block;
     }
 
-    /* 7. AUTH CARD — abaixo da imagem, compacto */
+    /* 7. AUTH CARD — abaixo da imagem, compacto, sem overflow */
     .floating-auth-card {
         position: relative;
         margin: 12px 0 0 0;
@@ -510,18 +504,30 @@ header {
         padding: 14px 16px;
         gap: 10px;
         flex-direction: column;
+        overflow: hidden;
     }
 
     .auth-point {
-        gap: 12px;
+        gap: 10px;
+        min-width: 0;
+    }
+
+    .auth-point div {
+        min-width: 0;
     }
 
     .auth-point strong {
         font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .auth-point span {
-        font-size: 13px;
+        font-size: 12px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     /* 8. SEÇÕES GLOBAIS */
