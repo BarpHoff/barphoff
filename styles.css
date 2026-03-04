@@ -157,19 +157,14 @@ header {
     background: rgba(42, 10, 15, 0.95);
     border-bottom: 1px solid rgba(196, 169, 125, .15);
     z-index: 50;
-    padding: 0.75rem 0;
+    padding: 1.15rem 0;
     backdrop-filter: blur(14px);
-    height: 70px;
-    display: flex;
-    align-items: center;
 }
 
 .header-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
-    width: 100%;
 }
 
 .logo {
@@ -178,13 +173,14 @@ header {
 }
 
 .logo img {
-    height: 40px;
-    width: auto;
+    height: auto;
+    width: 250px;
     max-width: 100%;
+    max-height: none;
     opacity: 1;
     transition: opacity 0.2s ease;
     display: block;
-    filter: brightness(0) invert(1);
+    filter: brightness(1.3) contrast(1.2);
 }
 
 .logo img:hover {
@@ -192,6 +188,10 @@ header {
 }
 
 @media (max-width: 767px) {
+    header {
+        padding: 0.75rem 0;
+    }
+
     .logo img {
         width: 200px;
     }
@@ -204,8 +204,6 @@ header {
 @media (min-width: 640px) {
     .btn-header {
         display: inline-flex;
-        position: absolute;
-        right: 0;
     }
 }
 
