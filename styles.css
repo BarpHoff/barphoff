@@ -487,12 +487,14 @@ header {
 
     .hero-img-wrapper img,
     .hero-img-wrapper picture img {
-        width: 100% !important;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
         max-height: 280px !important;
-        height: 280px !important;
-        object-fit: cover !important;
+        object-fit: contain !important;
         object-position: bottom center !important;
         display: block;
+        margin: 0 auto;
     }
 
     /* 7. AUTH CARD — abaixo da imagem, compacto, sem overflow */
