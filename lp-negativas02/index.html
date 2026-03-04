@@ -921,15 +921,31 @@
             }
         }
 
-        // ─── Sticky CTA (Passive Scroll) ─────────────────────────────────────────
+        // ─── Sticky CTA (Pro Logic: No Overlap) ──────────────────────────────────
         function handleStickyCta() {
             const sticky = document.querySelector('.sticky-cta-mobile');
-            if (sticky) {
-                const threshold = 650;
-                sticky.classList.toggle('is-visible', window.scrollY >= threshold);
+            if (!sticky) return;
+
+            const threshold = 650;
+            const scrollThresholdPassed = window.scrollY >= threshold;
+
+            // Checks if any other WhatsApp button is visible on the screen
+            const allButtons = Array.from(document.querySelectorAll('.btn-green:not(.sticky-cta-mobile .btn-green)'));
+            const isAnyButtonVisible = allButtons.some(btn => {
+                const rect = btn.getBoundingClientRect();
+                return rect.top < window.innerHeight && rect.bottom > 0;
+            });
+
+            // Only show sticky if past threshold AND no other button is visible
+            if (scrollThresholdPassed && !isAnyButtonVisible) {
+                sticky.classList.add('is-visible');
+            } else {
+                sticky.classList.remove('is-visible');
             }
         }
+
         window.addEventListener('scroll', handleStickyCta, { passive: true });
+        window.addEventListener('resize', handleStickyCta);
         document.addEventListener('DOMContentLoaded', handleStickyCta);
     </script>
 
