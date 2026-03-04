@@ -246,6 +246,16 @@
             opacity: 1;
         }
 
+        @media (max-width: 767px) {
+            header {
+                padding: 0.75rem 0;
+            }
+
+            .logo img {
+                width: 200px;
+            }
+        }
+
         .btn-header {
             display: none;
         }
@@ -351,10 +361,27 @@
 
         .badges {
             display: flex;
-            flex-wrap: wrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
             gap: 0.75rem;
             margin-top: 2rem;
             align-items: center;
+            padding-bottom: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .badges::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .badges {
+                flex-wrap: wrap;
+                overflow-x: visible;
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
         }
 
         /* Professional Image & Floating Card (Hero) */
@@ -382,20 +409,22 @@
 
         .hero-img-wrapper img {
             width: 100%;
-            height: auto;
+            height: 320px;
             object-fit: cover;
+            object-position: center top;
             display: block;
         }
 
         .floating-auth-card {
             position: relative;
-            margin: 1.5rem 20px 0;
+            margin: 16px auto 0 auto;
+            max-width: 92vw;
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: var(--radius-lg);
-            padding: 1.5rem;
+            padding: 16px;
             display: flex;
             flex-direction: column;
             gap: 1.25rem;
@@ -448,6 +477,16 @@
                 font-size: 3.25rem;
                 line-height: 1.1;
                 max-width: 720px;
+            }
+
+            .hero-img-wrapper img {
+                height: auto;
+                object-fit: cover;
+                object-position: center;
+                transform: scale(1.5);
+                transform-origin: bottom center;
+                position: relative;
+                z-index: 1;
             }
 
             .floating-auth-card {
@@ -1499,13 +1538,7 @@
                 <div class="hero-img-wrapper">
                     <!-- Foto real das advogadas -->
                     <img src="assets/foto_equipe.png"
-                        alt="Advogadas da Barp Hoff Costa - Especialistas em Direito da Saude" loading="eager"
-                        style="transform: scale(1.5); transform-origin: bottom center; position: relative; z-index: 1;">
-
-
-
-
-
+                        alt="Advogadas da Barp Hoff Costa - Especialistas em Direito da Saude" loading="eager">
 
                     <!-- Floating Authority Card -->
                     <div class="floating-auth-card">
