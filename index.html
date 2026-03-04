@@ -290,10 +290,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.5rem;
-            align-items: start;
-            width: 100%;
-            max-width: 100%;
-            overflow: hidden;
+            align-items: flex-end;
         }
 
         .hero-eyebrow {
@@ -324,25 +321,25 @@
 
         .hero-text h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.75rem;
-            line-height: 1.2;
-            margin-bottom: 0.875rem;
+            font-size: 2.25rem;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.02em;
         }
 
         .hero-text .subtitle {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.92);
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.95);
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             line-height: 1.55;
             max-width: 460px;
         }
 
         .cta-wrap {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             position: relative;
             z-index: 2;
         }
@@ -351,9 +348,9 @@
             display: inline-flex;
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 7px 12px;
+            padding: 10px 14px;
             border-radius: 50px;
-            font-size: 12px;
+            font-size: 14px;
             color: var(--text-light);
             font-weight: 500;
             white-space: nowrap;
@@ -361,27 +358,10 @@
 
         .badges {
             display: flex;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
+            flex-wrap: wrap;
             gap: 0.75rem;
             margin-top: 2rem;
             align-items: center;
-            padding-bottom: 5px;
-            margin-bottom: 1rem;
-        }
-
-        .badges::-webkit-scrollbar {
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .badges {
-                flex-wrap: wrap;
-                overflow-x: visible;
-                margin-bottom: 0;
-                padding-bottom: 0;
-            }
         }
 
         /* Professional Image & Floating Card (Hero) */
@@ -408,28 +388,25 @@
         .hero-img-wrapper img {
             width: 100%;
             height: auto;
-            max-width: 100%;
-            margin: 0 auto;
             display: block;
         }
 
         .floating-auth-card {
             position: relative;
-            margin: 12px 0 0 0;
+            margin: 1rem 0 0 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: var(--radius-lg);
-            padding: 14px 16px;
+            padding: 1.25rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1.25rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
             z-index: 10;
             box-sizing: border-box;
-            overflow: hidden;
         }
 
         .auth-point {
@@ -450,17 +427,83 @@
         .auth-point strong {
             display: block;
             font-family: 'Outfit', sans-serif;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             line-height: 1.2;
-            margin-bottom: 1px;
+            margin-bottom: 2px;
         }
 
         .auth-point span {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.825rem;
             color: rgba(255, 255, 255, 0.85);
         }
 
+        /* ===== MOBILE HERO OVERRIDES ===== */
+        @media (max-width: 767px) {
+            .hero {
+                padding: 5rem 0 2rem;
+            }
+
+            .hero-grid {
+                gap: 1.25rem;
+                align-items: start;
+            }
+
+            .hero-text h1 {
+                font-size: 1.65rem;
+                line-height: 1.2;
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.25rem;
+                line-height: 1.5;
+            }
+
+            .cta-wrap {
+                margin-bottom: 1rem;
+            }
+
+            .badge-dark {
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            .badges {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                padding-bottom: 4px;
+                margin-top: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .badges::-webkit-scrollbar {
+                display: none;
+            }
+
+            .hero-img-wrapper img {
+                max-width: 100%;
+            }
+
+            .floating-auth-card {
+                padding: 12px 14px;
+                gap: 0.6rem;
+                margin-top: 0.75rem;
+            }
+
+            .auth-point strong {
+                font-size: 0.85rem;
+            }
+
+            .auth-point span {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* ===== DESKTOP HERO ===== */
         @media (min-width: 768px) {
             .hero {
                 padding: 11rem 0 0;
@@ -484,15 +527,6 @@
                 margin-bottom: 2rem;
             }
 
-            .cta-wrap {
-                margin-bottom: 2rem;
-            }
-
-            .badge-dark {
-                padding: 10px 14px;
-                font-size: 14px;
-            }
-
             .hero-img-wrapper img {
                 height: auto;
                 max-width: none;
@@ -511,19 +545,8 @@
                 left: 0;
                 right: auto;
                 bottom: 20px;
-                padding: 1.25rem 1.5rem;
                 min-width: 280px;
-                flex-direction: column;
-                flex-wrap: nowrap;
-                gap: 1.25rem;
-            }
-
-            .auth-point strong {
-                font-size: 1.1rem;
-            }
-
-            .auth-point span {
-                font-size: 0.825rem;
+                overflow: visible;
             }
         }
 
