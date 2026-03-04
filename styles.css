@@ -188,12 +188,13 @@ header {
 }
 
 @media (max-width: 767px) {
-    header {
-        padding: 0.75rem 0;
+    .header-content {
+        justify-content: center;
     }
 
     .logo img {
         width: 200px;
+        filter: brightness(0) invert(1);
     }
 }
 
