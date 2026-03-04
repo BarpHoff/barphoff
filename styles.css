@@ -491,15 +491,14 @@ header {
         max-height: 280px !important;
         height: 280px !important;
         object-fit: cover !important;
-        object-position: center top !important;
-        border-radius: 12px;
+        object-position: bottom center !important;
         display: block;
     }
 
     /* 7. AUTH CARD — abaixo da imagem, compacto, sem overflow */
     .floating-auth-card {
         position: relative;
-        margin: 12px 0 0 0;
+        margin: 0;
         width: 100%;
         padding: 14px 16px;
         gap: 10px;
