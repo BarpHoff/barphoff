@@ -7,7 +7,15 @@
     <title>Avaliação de Negativa de Plano de Saúde | Barphoff</title>
     <meta name="description"
         content="Teve sua cirurgia ou tratamento negado pelo plano de saúde? Fale agora com nossa equipe para uma orientação jurídica rápida e focada.">
-    <!-- Canonical tag apontando para si mesma para evitar duplicidade genérica -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1HCE19K22"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-V1HCE19K22');
+    </script>
+
     <link rel="canonical" href="https://www.barphoff.com/lp-cirurgia-b" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -277,21 +285,55 @@
 
     </div>
 
-    <!-- Script leve para tracking do evento (Simulando uma Tag) -->
     <script>
-        function trackWhatsappClick(e) {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                'event': this.getAttribute('data-event'),
-                'button_id': this.getAttribute('id')
-            });
-            console.log('Evento de Tracking Disparado: ' + this.getAttribute('data-event'));
+        const WA_NUMBER = '554530273100';
+        const WA_TEXT = encodeURIComponent('Olá, vim pelo site e gostaria de orientação jurídica sobre negativa de cobertura pelo plano de saúde.');
+        const WA_URL = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${WA_TEXT}`;
+
+        function trackWhatsAppConversion(origin) {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'lead_whatsapp', {
+                    'method': 'whatsapp',
+                    'origin': origin || 'unknown',
+                    'page_path': window.location.pathname
+                });
+            }
         }
 
-        document.getElementById('cta-whatsapp').addEventListener('click', trackWhatsappClick);
-        if (document.getElementById('cta-whatsapp-final')) {
-            document.getElementById('cta-whatsapp-final').addEventListener('click', trackWhatsappClick);
+        function click_whatsapp(origin) {
+            trackWhatsAppConversion(origin);
+            window.open(WA_URL, '_blank', 'noopener,noreferrer');
         }
+
+        // Vincular cliques aos botões existentes
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn1 = document.getElementById('cta-whatsapp');
+            const btn2 = document.getElementById('cta-whatsapp-final');
+
+            if (btn1) {
+                btn1.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    click_whatsapp('cta-whatsapp');
+                });
+            }
+            if (btn2) {
+                btn2.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    click_whatsapp('cta-whatsapp-final');
+                });
+            }
+
+            // Global listener fallback
+            document.addEventListener('click', function (e) {
+                const link = e.target.closest('a');
+                if (link && link.href && link.href !== '#') {
+                    const isWhatsApp = /wa\.me|api\.whatsapp\.com|whatsapp/.test(link.href);
+                    if (isWhatsApp) {
+                        trackWhatsAppConversion('link_direct');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 

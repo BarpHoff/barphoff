@@ -8,6 +8,15 @@
     <meta name="description"
         content="Plano de saúde negou cobertura? Atendimento jurídico nacional para negativa de cirurgia, cirurgia robótica, medicamentos oncológicos e doenças autoimunes. Análise individual pelo WhatsApp.">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1HCE19K22"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-V1HCE19K22');
+    </script>
+
     <!-- SEO Técnico -->
     <link rel="canonical" href="https://barphoff.com/">
     <meta property="og:title" content="Barphoff — Advocacia em Direito da Saúde">
@@ -561,7 +570,8 @@
                         <div
                             style="font-family: 'Outfit', sans-serif; font-size:1.15rem; color:var(--accent); margin-bottom:0.5rem;">
                             Dra. Alexandra Barp &nbsp;•&nbsp; Dra. Jessica Hoff</div>
-                        <div style="font-size:0.9rem; color:#a8b5c8;">Fundadoras do Escritório • Advogadas Especialistas em Direito da Saúde</div>
+                        <div style="font-size:0.9rem; color:#a8b5c8;">Fundadoras do Escritório • Advogadas Especialistas
+                            em Direito da Saúde</div>
                     </div>
                 </div>
             </div>
@@ -884,20 +894,23 @@
 
     <!-- Scripts principais -->
     <script>
-        // ─── WhatsApp ───────────────────────────────────────────────────────────
+        // ─── WhatsApp Tracking Logic ───────────────────────────────────────────
         const WA_NUMBER = '554530273100';
         const WA_TEXT = encodeURIComponent('Olá, vim pelo site e gostaria de orientação jurídica sobre negativa de cobertura pelo plano de saúde.');
         const WA_URL = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${WA_TEXT}`;
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-
-        function trackEvent(eventName, eventParams) {
-            gtag('event', eventName, eventParams);
+        function trackWhatsAppConversion(origin) {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', 'lead_whatsapp', {
+                    'method': 'whatsapp',
+                    'origin': origin || 'unknown',
+                    'page_path': window.location.pathname
+                });
+            }
         }
 
-        function click_whatsapp() {
-            trackEvent('click_whatsapp', { method: 'whatsapp' });
+        function click_whatsapp(origin) {
+            trackWhatsAppConversion(origin);
             setTimeout(() => window.open(WA_URL, '_blank'), 200);
         }
 
@@ -928,6 +941,19 @@
                 _ticking = true;
             }
         }, { passive: true });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Global listener for anyway
+            document.addEventListener('click', function (e) {
+                const link = e.target.closest('a');
+                if (link && link.href) {
+                    const isWhatsApp = /wa\.me|api\.whatsapp\.com|whatsapp/.test(link.href);
+                    if (isWhatsApp && (!link.getAttribute('onclick') || !link.getAttribute('onclick').includes('click_whatsapp'))) {
+                        trackWhatsAppConversion('link_direct');
+                    }
+                }
+            });
+        });
     </script>
 
     <!-- Carrossel de Reviews JS -->
@@ -980,12 +1006,8 @@
             buildDots();
             startAuto();
             window.addEventListener('resize', () => { buildDots(); goTo(0); });
-        })();
 
-        // IntersectionObserver para Fade-in on scroll
-        document.addEventListener('DOMContentLoaded', () => {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
+            // IntersectionObserver para Fade-in on scroll
             const observerOptions = {
                 root: null,
                 rootMargin: '0px 0px -10% 0px',
@@ -1007,7 +1029,7 @@
                 }
                 observer.observe(el);
             });
-        });
+        })();
     </script>
 </body>
 
