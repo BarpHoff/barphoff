@@ -18,12 +18,12 @@
     </script>
 
     <!-- SEO Técnico -->
-    <link rel="canonical" href="https://www.barphoff.com/lp-negativa02/">
+    <link rel="canonical" href="https://www.barphoff.com/">
     <meta property="og:title" content="Barphoff — Advocacia em Direito da Saúde">
     <meta property="og:description"
         content="Plano de saúde negou cobertura? Atendimento jurídico nacional especializado. Análise individual pelo WhatsApp.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.barphoff.com/lp-negativa02/">
+    <meta property="og:url" content="https://www.barphoff.com/">
     <meta property="og:image" content="https://barphoff.com/assets/logo-rosa.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Barphoff — Advocacia em Direito da Saúde">
@@ -112,11 +112,11 @@
                                     d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
                                 </path>
                             </svg>
-                            Envie a negativa, o protocolo e o relatório médico.
+                            Envie o pedido médico para análise.
                         </p>
                         <p
                             style="font-size: 0.75rem; color: rgba(255,255,255,0.6); line-height: 1.4; max-width: 400px;">
-                            Cada caso exige análise individual. Conteúdo informativo, sem garantia de resultado.
+                            Cada caso exige análise individual.
                         </p>
                     </div>
                 </div>
@@ -857,8 +857,7 @@
                         style="height:44px; width:auto; filter: brightness(1.25) contrast(1.15); margin-bottom:1rem; display:block;"
                         loading="lazy">
                 </div>
-                <p class="footer-compliance">Conteúdo informativo. Cada caso exige análise individual. Não há garantia
-                    de resultado.</p>
+                <p class="footer-compliance">Cada caso exige análise individual.</p>
             </div>
             <div class="footer-links">
                 <h4>Atuação</h4>
@@ -901,12 +900,14 @@
         const WA_URL = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${WA_TEXT}`;
 
         function trackWhatsAppConversion(origin) {
-            if (typeof window.gtag === 'function') {
-                window.gtag('event', 'lead_whatsapp', {
+            try {
+                gtag('event', 'lead_whatsapp', {
                     'method': 'whatsapp',
                     'origin': origin || 'unknown',
                     'page_path': window.location.pathname
                 });
+            } catch (e) {
+                console.log('GTm not ready');
             }
         }
 
@@ -969,13 +970,26 @@
             });
 
             // Global listener for any other WhatsApp links (security fallback)
-            document.addEventListener('click', function (e) {
-                const link = e.target.closest('a');
-                if (link && link.href) {
-                    const isWhatsApp = /wa\.me|api\.whatsapp\.com|whatsapp/.test(link.href);
+            // Global listener fallback requested by user
+            document.addEventListener("click", function (e) {
+                const link = e.target.closest("a");
+                if (!link) return;
+
+                const href = link.getAttribute("href") || "";
+
+                if (
+                    href.includes("wa.me") ||
+                    href.includes("whatsapp") ||
+                    href.includes("api.whatsapp.com")
+                ) {
                     // Only track if not already handled by onclick="click_whatsapp()"
-                    if (isWhatsApp && (!link.getAttribute('onclick') || !link.getAttribute('onclick').includes('click_whatsapp'))) {
-                        trackWhatsAppConversion('link_direct');
+                    if (!link.getAttribute('onclick') || !link.getAttribute('onclick').includes('click_whatsapp')) {
+                        try {
+                            gtag('event', 'lead_whatsapp', {
+                                method: 'whatsapp',
+                                page_path: location.pathname
+                            });
+                        } catch (err) { }
                     }
                 }
             });
