@@ -84,13 +84,14 @@
                         <span class="hero-eyebrow-dot"></span>
                         ADVOCACIA ESPECIALIZADA EM DIREITO DA SAÚDE
                     </div>
-                    <h1>Plano de Saúde Negou Sua Cirurgia?<br>Saiba Como Conseguir a Autorização Pela Justiça.</h1>
-                    <p class="subtitle">Se o médico indicou a cirurgia e o plano recusou a cobertura, a negativa pode ser abusiva.<br>Em muitos casos é possível conseguir <strong>uma liminar judicial para liberar a cirurgia rapidamente</strong>, garantindo o tratamento necessário.</p>
-                    <p
-                        style="font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-top: 1rem; line-height: 1.5; font-weight: 500;">
-                        +17 anos de atuação em Direito da Saúde<br>
-                        5.137 casos atendidos em todo o Brasil
-                    </p>
+                    <h1>Plano de Saúde Negou Sua Cirurgia?</h1>
+                    <p class="subtitle">Veja como conseguir a autorização pela Justiça.</p>
+                    
+                    <ul style="list-style:none; padding:0; margin: 1rem 0 0 0; font-size: 0.95rem; color: rgba(255,255,255,0.9); display:flex; flex-direction:column; gap:0.5rem; font-weight: 500;">
+                        <li style="display:flex; align-items:flex-start; gap:0.5rem;"><svg width="16" height="16" fill="none" stroke="var(--wa)" stroke-width="3" viewBox="0 0 24 24" style="flex-shrink:0; margin-top:2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Liminar para liberar a cirurgia rapidamente</li>
+                        <li style="display:flex; align-items:flex-start; gap:0.5rem;"><svg width="16" height="16" fill="none" stroke="var(--wa)" stroke-width="3" viewBox="0 0 24 24" style="flex-shrink:0; margin-top:2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> +17 anos de atuação em Direito da Saúde</li>
+                        <li style="display:flex; align-items:flex-start; gap:0.5rem;"><svg width="16" height="16" fill="none" stroke="var(--wa)" stroke-width="3" viewBox="0 0 24 24" style="flex-shrink:0; margin-top:2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> 5.137 casos atendidos em todo o Brasil</li>
+                    </ul>
 
                     <div class="badges" style="margin-top: 1.5rem; margin-bottom: 2rem;">
                         <span class="badge-dark">Cirurgia Bariátrica</span>
@@ -119,6 +120,11 @@
                             </svg>
                             Envie o pedido médico ou a negativa do plano para análise do advogado.
                         </p>
+                        <ul style="list-style:none; padding:0; margin: 0.5rem 0 0 0; font-size: 0.8rem; color: rgba(255,255,255,0.8); display:flex; flex-direction:column; gap:0.25rem;">
+                            <li style="display:flex; align-items:center; gap:0.4rem;"><svg width="12" height="12" fill="none" stroke="var(--accent)" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Atendimento rápido</li>
+                            <li style="display:flex; align-items:center; gap:0.4rem;"><svg width="12" height="12" fill="none" stroke="var(--accent)" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Conversa direta com advogado</li>
+                            <li style="display:flex; align-items:center; gap:0.4rem;"><svg width="12" height="12" fill="none" stroke="var(--accent)" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Envio de documentos pelo WhatsApp</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -781,7 +787,7 @@
     <script>
         // ─── WhatsApp ───────────────────────────────────────────────────────────
         const WA_NUMBER = '554530273100';
-        const WA_TEXT = encodeURIComponent('Olá, vim pelo site e gostaria de orientação jurídica sobre negativa de cobertura pelo plano de saúde.');
+        const WA_TEXT = encodeURIComponent('Olá, vim pelo site e preciso de orientação urgente sobre uma CIRURGIA NEGADA pelo plano de saúde.');
         const WA_URL = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${WA_TEXT}`;
 
         function trackWhatsAppConversion(origin) {
