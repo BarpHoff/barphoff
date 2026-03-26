@@ -119,17 +119,8 @@ export default function HomePage() {
       {/* 1. HERO SECTION — Two-column with team photo                 */}
       {/* ============================================================ */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-hero">
-        {/* Background image */}
-        <Image
-          src="/assets/images/bg-hero-1.webp"
-          alt="Equipe Barp.Hoff. Advogados"
-          fill
-          className="object-cover object-top"
-          priority
-          sizes="100vw"
-        />
-        {/* Dark overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-hero/95 via-hero/85 to-hero/60" />
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url(/assets/images/pattern.png)', backgroundRepeat: 'repeat' }} />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-24 md:py-32">
           <div className="grid items-center gap-8 md:grid-cols-2 lg:gap-12">
@@ -162,15 +153,15 @@ export default function HomePage() {
             </div>
 
             {/* Right column: team photo */}
-            <div className="hidden md:flex items-end justify-center">
+            <div className="hidden md:flex items-end justify-end self-end">
               <Image
                 src="/assets/foto_equipe.png"
                 alt="Dra. Alexandra Barp e Dra. Jessica Hoff — advogadas especialistas em Direito da Saúde"
                 width={600}
                 height={700}
-                className="h-auto w-full max-w-md lg:max-w-lg xl:max-w-xl drop-shadow-2xl"
+                className="h-auto w-full max-w-lg lg:max-w-xl xl:max-w-2xl translate-y-8 drop-shadow-2xl"
                 priority
-                sizes="(max-width: 1024px) 400px, 550px"
+                sizes="(max-width: 1024px) 450px, 600px"
               />
             </div>
           </div>
