@@ -334,7 +334,7 @@ export default function HomePage() {
                   <p className="mt-2 text-sm leading-relaxed text-gray-600">
                     {area.description}
                   </p>
-                  <Link
+                  <a
                     href={area.href}
                     className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand transition-colors hover:text-brand-dark"
                   >
@@ -353,7 +353,7 @@ export default function HomePage() {
                         d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
                       />
                     </svg>
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}
