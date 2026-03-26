@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* MozaicGEO — custom brand font */
+@font-face {
+  font-family: 'MozaicGEO';
+  src: url('/assets/fonts/MozaicGEO-Light.woff2') format('woff2'),
+       url('/assets/fonts/MozaicGEO-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MozaicGEO';
+  src: url('/assets/fonts/MozaicGEO-Regular.woff2') format('woff2'),
+       url('/assets/fonts/MozaicGEO-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MozaicGEO';
+  src: url('/assets/fonts/MozaicGEO-Medium.woff2') format('woff2'),
+       url('/assets/fonts/MozaicGEO-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MozaicGEO';
+  src: url('/assets/fonts/MozaicGEO-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MozaicGEO';
+  src: url('/assets/fonts/MozaicGEO-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(79.05deg, #994B4B -10%, #EFBF78 20.71%, #994B4B 99%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-2 {
+    background: linear-gradient(79.05deg, #994B4B -10%, #AF9879 20.71%, #994B4B 99%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-3 rounded-lg px-10 py-5 text-lg font-bold text-white transition-all hover:scale-105 hover:shadow-lg;
+    background: linear-gradient(90deg, #348011 0%, #6DC246 50%, #348011 100%);
+  }
+  .btn-brand {
+    @apply inline-flex items-center justify-center rounded px-10 py-4 text-base font-bold uppercase text-white transition-all hover:opacity-90;
+    background-color: #994B4B;
+  }
+  .section-label {
+    @apply text-sm font-normal uppercase tracking-widest text-brand;
+  }
+  .section-title {
+    @apply font-heading text-3xl font-bold text-gray-900 md:text-4xl;
+  }
+  .animate-on-scroll {
+    @apply opacity-0;
+  }
+  .animate-on-scroll.is-visible {
+    @apply animate-fade-in-up;
+  }
+}

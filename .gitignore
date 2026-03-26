@@ -1,4 +1,11 @@
 node_modules/
-package-lock.json
-package.json
-*.js
+.next/
+out/
+.env
+.env.local
+.env.production.local
+.env.development.local
+*.tsbuildinfo
+next-env.d.ts
+temp-extract*.ps1
+.claude/
