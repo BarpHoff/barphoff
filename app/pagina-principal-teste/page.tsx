@@ -118,15 +118,24 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* 1. HERO SECTION — Two-column with team photo                 */}
       {/* ============================================================ */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-hero">
+      <section
+        className="relative bg-hero"
+        style={{ minHeight: 'calc(100vh - 7.125rem)', backgroundColor: '#1A1A1A' }}
+      >
         {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url(/assets/images/pattern.png)', backgroundRepeat: 'repeat' }} />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'url(/assets/images/pattern.png)', backgroundRepeat: 'repeat' }}
+        />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-24 md:py-32">
-          <div className="grid items-center gap-8 md:grid-cols-2 lg:gap-12">
-            {/* Left column: text content */}
-            <div className="text-center md:text-left">
-              <h1 className="font-heading text-[28px] font-bold leading-[1.15] sm:text-[36px] md:text-[42px] lg:text-[47px]">
+        {/* Text block — vertically centered, left half */}
+        <div className="relative z-10 flex min-h-full items-center" style={{ minHeight: 'calc(100vh - 7.125rem)' }}>
+          <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+            <div className="max-w-xl py-32 text-center md:text-left">
+              <h1
+                className="font-heading text-[28px] font-bold leading-[1.15] sm:text-[36px] md:text-[42px] lg:text-[47px]"
+                style={{ WebkitFontSmoothing: 'antialiased' }}
+              >
                 <span className="gradient-text">
                   Advogados especialistas em Direito da Saúde
                 </span>
@@ -151,20 +160,21 @@ export default function HomePage() {
                 Fale agora com nossos advogados
               </a>
             </div>
-
-            {/* Right column: team photo */}
-            <div className="hidden md:flex items-end justify-end self-end">
-              <Image
-                src="/assets/foto_equipe.png"
-                alt="Dra. Alexandra Barp e Dra. Jessica Hoff — advogadas especialistas em Direito da Saúde"
-                width={600}
-                height={700}
-                className="h-auto w-full max-w-lg lg:max-w-xl xl:max-w-2xl translate-y-8 drop-shadow-2xl"
-                priority
-                sizes="(max-width: 1024px) 450px, 600px"
-              />
-            </div>
           </div>
+        </div>
+
+        {/* Team photo — absolute bottom-right, aligned to section bottom */}
+        <div className="absolute bottom-0 right-0 hidden md:block w-[46%] lg:w-[50%] xl:w-[52%] pointer-events-none">
+          <Image
+            src="/assets/foto_equipe.png"
+            alt="Dra. Alexandra Barp e Dra. Jessica Hoff — advogadas especialistas em Direito da Saúde"
+            width={720}
+            height={860}
+            className="w-full h-auto object-contain object-bottom drop-shadow-2xl"
+            style={{ display: 'block' }}
+            priority
+            sizes="(max-width: 1024px) 46vw, 52vw"
+          />
         </div>
       </section>
 
