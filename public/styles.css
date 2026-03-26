@@ -268,6 +268,12 @@ header {
 .hero-text {
     position: relative;
     z-index: 5;
+    padding-right: 2rem;
+}
+@media (max-width: 767px) {
+    .hero-text {
+        padding-right: 0;
+    }
 }
 
 .hero-text h1 {
@@ -661,25 +667,26 @@ header {
 /* ===== DESKTOP HERO ===== */
 @media (min-width: 768px) {
     .hero {
-        padding: 11rem 0 0;
+        padding: 6rem 0 0;
     }
 
     .hero-grid {
         grid-template-columns: 1fr 1fr;
         min-height: 600px;
-        gap: 3rem;
+        gap: 4rem;
         align-items: flex-end;
     }
 
     .hero-text h1 {
         font-size: 3.25rem;
         line-height: 1.1;
-        max-width: 720px;
+        max-width: 520px;
     }
 
     .hero-text .subtitle {
         font-size: 1.25rem;
         margin-bottom: 2rem;
+        max-width: 480px;
     }
 
     .hero-img-wrapper img {
@@ -687,7 +694,7 @@ header {
         max-width: none;
         object-fit: cover;
         object-position: center;
-        transform: scale(1.5);
+        transform: scale(1.55);
         transform-origin: bottom center;
         position: relative;
         z-index: 1;
