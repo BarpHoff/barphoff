@@ -20,7 +20,7 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/554530273100"
+      href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Fale conosco pelo WhatsApp"

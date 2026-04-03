@@ -132,7 +132,7 @@ export default function ContatoPage() {
 
                   {/* WhatsApp */}
                   <a
-                    href="https://wa.me/554530273100"
+                    href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-gray-700 transition-colors hover:text-brand"

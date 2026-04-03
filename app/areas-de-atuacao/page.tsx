@@ -26,35 +26,35 @@ const practiceAreas = [
     title: 'Negativa de Planos de Saúde',
     description:
       'Revertemos negativas de cobertura de tratamentos, cirurgias, internações e medicamentos essenciais, garantindo que seu plano cumpra com as obrigações contratuais. Atuamos contra negativas de home care, tratamentos, cirurgias, internações, exames e medicamentos fora da lista da ANS.',
-    href: '/negativas-de-plano-de-saude',
+    href: '/negativa-plano-de-saude',
     image: '/assets/areas/plano-de-saude.jpg',
   },
   {
     title: 'Tratamentos Home Care',
     description:
       'Ajudamos a garantir que pacientes que necessitam de atendimento domiciliar tenham esse direito respeitado, seja pelo SUS ou pelos planos de saúde. Isso inclui enfermagem, fisioterapia, medicação, equipamentos, suporte ventilatório e mais.',
-    href: '/tratamento-home-care',
+    href: '/home-care',
     image: '/assets/areas/home-care.jpg',
   },
   {
     title: 'Tratamento de Câncer',
     description:
       'Apoiamos pacientes que enfrentam negativas de quimioterapia, radioterapia, imunoterapia e medicamentos essenciais, agindo rapidamente para garantir o tratamento necessário. Cada dia conta na luta contra o câncer.',
-    href: '/tratamento-de-cancer',
+    href: '/tratamento-oncologico',
     image: '/assets/areas/tratamento-cancer.jpg',
   },
   {
     title: 'Cirurgias Reparadoras',
     description:
       'Através da nossa assessoria jurídica notificamos planos de saúde ou SUS para resolver o problema rapidamente e, se necessário, entramos com ação judicial com pedido de liminar. Atuamos em casos pós-mastectomia, queimaduras, traumas, defeitos congênitos e pós-bariátrica.',
-    href: '/cirurgias-reparadoras',
+    href: '/negativa-cirurgia',
     image: '/assets/areas/cirurgia-reparadora.jpg',
   },
   {
-    title: 'Revisão e Restituição de Valores Pagos Indevidamente',
+    title: 'Medicamentos de Alto Custo',
     description:
-      'Pagou por procedimentos, exames ou internações que deveriam ser cobertos pelo SUS ou seu plano de saúde? Recupere esses valores agora. Através da nossa assessoria jurídica recuperamos valores pagos indevidamente.',
-    href: '/revisao-e-restituicao-de-valores-pagos-indevidamente',
+      'Garantimos seu acesso a medicamentos caros e de alto custo negados pelo SUS ou plano de saúde. Através da nossa assessoria jurídica notificamos e, se necessário, entramos com ação judicial com pedido de liminar.',
+    href: '/medicamento-alto-custo',
     image: '/assets/areas/revisao-valores.jpg',
   },
 ]
@@ -202,7 +202,7 @@ export default function AreasDeAtuacaoPage() {
             Não aceite negativas injustas! Fale com nossos especialistas.
           </p>
           <a
-            href="https://wa.me/554530273100"
+            href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp mt-8 inline-flex"

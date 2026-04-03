@@ -34,6 +34,10 @@ const nextConfig = {
         source: '/tratamento-oncologico',
         destination: '/tratamento-oncologico/index.html',
       },
+      {
+        source: '/negativa-do-sus',
+        destination: '/negativa-do-sus/index.html',
+      },
     ]
   },
 }

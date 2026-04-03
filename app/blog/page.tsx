@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { blogPosts } from '@/lib/blog-data'
+import { blogPostsMeta as blogPosts } from '@/lib/blog-meta'
 import { getBlogThumbnail } from '@/lib/blog-thumbnails'
 
 export const metadata: Metadata = {
@@ -50,55 +50,103 @@ export default function BlogPage() {
   return (
     <>
       {/* ============================================================ */}
-      {/* 1. HERO BANNER                                               */}
+      {/* 1. HERO — Real image background + layered overlays            */}
       {/* ============================================================ */}
-      <section className="relative flex h-[350px] items-center justify-center overflow-hidden bg-brand">
-        {/* Subtle dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+      <section className="relative flex min-h-[420px] items-center justify-center overflow-hidden">
+        {/* Background image — stethoscope */}
+        <Image
+          src="/assets/images/stethoscope-bg.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A]/85 via-[#1A1A1A]/75 to-[#2a0a0f]/90" />
+        {/* Hexagon pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.3)' stroke-width='1'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
+        />
+        {/* Gold radial glow */}
+        <div className="hero-glow" />
+        {/* Bottom vignette */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#2a0a0f]/60 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
-          <h1 className="font-heading text-4xl font-extrabold uppercase tracking-wider text-white md:text-5xl">
-            Artigos e Noticias
+          <span className="mb-4 inline-block rounded-full border border-[#D5BE9F]/30 bg-[#D5BE9F]/10 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#D5BE9F] backdrop-blur-sm">
+            Blog
+          </span>
+          <h1 className="font-heading text-4xl font-extrabold uppercase tracking-wider md:text-5xl lg:text-6xl">
+            <span className="gradient-text-hero">Artigos e Notícias</span>
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-white/80">
-            Acompanhe nosso blog e fique por dentro dos seus direitos de saude
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/70">
+            Acompanhe nosso blog e fique por dentro dos seus direitos de saúde
           </p>
+          {/* Decorative gold line */}
+          <div className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D5BE9F] to-transparent" />
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* 2. BLOG POSTS GRID                                           */}
+      {/* 2. BLOG GRID — Textured background with depth                */}
       {/* ============================================================ */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="relative overflow-hidden py-20">
+        {/* Paper texture background */}
+        <div className="absolute inset-0">
+          <Image
+            src="/assets/images/paper-texture.png"
+            alt=""
+            fill
+            className="object-cover opacity-[0.04]"
+            sizes="100vw"
+          />
+        </div>
+        {/* Subtle warm gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-gray-50" />
+        {/* Hexagon pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(153,75,75,0.5)' stroke-width='1'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
+        />
+        {/* Top gold accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#D5BE9F]/60 to-transparent" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4">
+          {/* Section header */}
+          <div className="mb-14 text-center">
+            <span className="section-label">Todos os artigos</span>
+            <h2 className="section-title mt-2">
+              Conheça seus direitos em{' '}
+              <span className="gradient-text-2">Direito da Saúde</span>
+            </h2>
+          </div>
+
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post, i) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="animate-on-scroll group overflow-hidden rounded-xl bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                className="animate-on-scroll group relative overflow-hidden rounded-2xl border border-gray-200/60 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D5BE9F]/50 hover:shadow-[0_16px_48px_rgba(61,16,23,0.18)]"
                 data-delay={String((i % 6) * 100)}
               >
-                {/* Post thumbnail with category badges */}
-                <div className="relative flex h-44 items-end overflow-hidden p-4">
+                {/* Post thumbnail — full image, no crop, card adapts */}
+                <div className="overflow-hidden">
                   <Image
                     src={getBlogThumbnail(post.slug, post.categories)}
                     alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    width={600}
+                    height={600}
+                    className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="relative z-10 flex flex-wrap gap-2">
-                    {post.categories.map((cat) => (
-                      <span
-                        key={cat}
-                        className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm"
-                      >
-                        {cat}
-                      </span>
-                    ))}
-                  </div>
                 </div>
 
                 {/* Card body */}
@@ -106,13 +154,35 @@ export default function BlogPage() {
                   <h2 className="font-heading text-lg font-bold leading-snug text-gray-900 transition-colors group-hover:text-brand">
                     {post.title}
                   </h2>
-                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-gray-600">
+                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-gray-500">
                     {post.excerpt}
                   </p>
-                  <p className="mt-4 text-xs text-gray-400">
-                    {formatDate(post.date)}
-                  </p>
+                  <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-4">
+                    <p className="text-xs font-medium text-gray-400">
+                      {formatDate(post.date)}
+                    </p>
+                    <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-brand transition-colors group-hover:text-brand-dark">
+                      Leia mais
+                      <svg
+                        className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
+
+                {/* Top accent bar on hover */}
+                <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand via-[#D5BE9F] to-brand opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </Link>
             ))}
           </div>
@@ -120,18 +190,54 @@ export default function BlogPage() {
       </section>
 
       {/* ============================================================ */}
-      {/* 3. WHATSAPP CTA                                              */}
+      {/* 3. CTA — Rich layered dark section                            */}
       {/* ============================================================ */}
-      <section className="bg-brand py-12">
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="font-heading text-2xl font-bold text-white md:text-3xl">
-            Tem duvidas sobre seus direitos? Fale conosco!
+      <section className="relative overflow-hidden py-20">
+        {/* Background image — waves texture */}
+        <Image
+          src="/assets/images/hero-waves.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        {/* Dark maroon overlay */}
+        <div className="absolute inset-0 bg-[#2a0a0f]/88" />
+        {/* Hexagon SVG pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.12]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.4)' stroke-width='1'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
+        />
+        {/* Radial glow — bottom left */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(circle at bottom left, rgba(153,75,75,0.4) 0%, transparent 60%)' }}
+        />
+        {/* Radial glow — top right (gold) */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(circle at top right, rgba(196,169,125,0.12) 0%, transparent 50%)' }}
+        />
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-[#D5BE9F]/50 to-transparent" />
+
+        <div className="relative z-10 mx-auto max-w-3xl px-4 text-center">
+          <h2 className="font-heading text-2xl font-bold leading-snug text-white md:text-3xl lg:text-4xl">
+            Tem dúvidas sobre seus direitos?{' '}
+            <span className="gradient-text">Fale conosco!</span>
           </h2>
+          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-white/60">
+            Nossa equipe de advogados especialistas está pronta para ajudar você.
+            Atendimento personalizado e humanizado em todo o Brasil.
+          </p>
           <a
-            href="https://wa.me/554530273100"
+            href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-whatsapp mt-8 inline-flex"
+            className="btn-whatsapp btn-pulse mt-10 inline-flex"
           >
             <WhatsAppIcon />
             Fale agora com nossos advogados

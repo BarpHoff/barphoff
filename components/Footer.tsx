@@ -9,11 +9,11 @@ const menuLinks = [
 ]
 
 const areaLinks = [
-  { label: 'Negativa do SUS', href: '/negativa-sus' },
-  { label: 'Negativa de Planos de Saúde', href: '/negativa-plano-de-saude' },
-  { label: 'Tratamentos Home Care', href: '/tratamentos-home-care' },
-  { label: 'Tratamento de Câncer', href: '/tratamento-de-cancer' },
-  { label: 'Cirurgias Reparadoras', href: '/cirurgias-reparadoras' },
+  { label: 'Tratamento Home Care', href: '/home-care' },
+  { label: 'Tratamento de Câncer', href: '/tratamento-oncologico' },
+  { label: 'Cirurgias Reparadoras', href: '/negativa-cirurgia' },
+  { label: 'Negativa de Plano de Saúde', href: '/negativa-plano-de-saude' },
+  { label: 'Negativa do SUS', href: '/negativa-do-sus' },
 ]
 
 function CheckIcon() {
@@ -99,16 +99,16 @@ function PinIcon() {
 
 const socialLinks = [
   { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61550826945465', icon: FacebookIcon },
-  { label: 'Instagram', href: 'https://www.instagram.com/barphoff/', icon: InstagramIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/saudebhc/', icon: InstagramIcon },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/barp-hoff-costa-advocacia-especializada/', icon: LinkedInIcon },
   { label: 'YouTube', href: 'https://www.youtube.com/@Barphoffcosta.advocacia', icon: YouTubeIcon },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-brand text-white">
+    <footer className="relative bg-brand text-white">
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Column 1 - Brand */}
           <div className="space-y-5">
@@ -120,11 +120,8 @@ export function Footer() {
                 height={60}
               />
             </div>
-            <p className="text-lg font-bold">BARP.HOFF.</p>
             <p className="text-sm leading-relaxed text-white/90">
-              Advogados especialistas em Direito da Saúde! Há 17 anos garantindo
-              o seu acesso a tratamentos, medicamentos e procedimentos negados
-              pelo SUS ou plano de saúde.
+              Advogados especialistas em Direito da Saúde com mais de 17 anos de experiência, o BARP. HOFF. tem uma equipe dedicada a oferecer um atendimento personalizado e humanizado em todo o Brasil.
             </p>
             <div className="flex items-center gap-3 pt-1">
               {socialLinks.map(({ label, href, icon: Icon }) => (
@@ -193,7 +190,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/554530273100"
+                  href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 text-sm text-white/90 hover:text-white transition-colors"
@@ -226,15 +223,17 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="bg-black/20">
+      <div className="relative z-10 bg-black/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-white/80">
-          <p>&copy; {new Date().getFullYear()} Barp.Hoff. Todos os direitos reservados.</p>
-          <Link
-            href="/politica-de-privacidade"
+          <p>&copy; BARP.HOFF Advocacia Especializada | Todos os direitos reservados.</p>
+          <a
+            href="https://api.whatsapp.com/send?phone=5521977266062"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-white transition-colors"
           >
-            Política de Privacidade
-          </Link>
+            Feito por &quot;Edu Santana Soluções Web e Marketing LTDA&quot;
+          </a>
         </div>
       </div>
     </footer>

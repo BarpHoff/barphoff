@@ -233,7 +233,7 @@ export default function SobrePage() {
                 </p>
                 <div className="mt-4 flex items-center gap-3">
                   <a
-                    href="https://www.instagram.com/barphoff/"
+                    href="https://www.instagram.com/saudebhc/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-9 w-9 items-center justify-center rounded-full bg-brand/10 text-brand transition-colors hover:bg-brand hover:text-white"
@@ -242,7 +242,7 @@ export default function SobrePage() {
                     <InstagramIcon className="h-4 w-4" />
                   </a>
                   <a
-                    href="https://wa.me/554530273100"
+                    href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-9 w-9 items-center justify-center rounded-full bg-cta/10 text-cta transition-colors hover:bg-cta hover:text-white"
@@ -280,7 +280,7 @@ export default function SobrePage() {
                 </p>
                 <div className="mt-4 flex items-center gap-3">
                   <a
-                    href="https://www.instagram.com/barphoff/"
+                    href="https://www.instagram.com/saudebhc/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-9 w-9 items-center justify-center rounded-full bg-brand/10 text-brand transition-colors hover:bg-brand hover:text-white"
@@ -289,7 +289,7 @@ export default function SobrePage() {
                     <InstagramIcon className="h-4 w-4" />
                   </a>
                   <a
-                    href="https://wa.me/554530273100"
+                    href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex h-9 w-9 items-center justify-center rounded-full bg-cta/10 text-cta transition-colors hover:bg-cta hover:text-white"
@@ -414,7 +414,7 @@ export default function SobrePage() {
             Precisa de ajuda? Fale conosco agora!
           </p>
           <a
-            href="https://wa.me/554530273100"
+            href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp mt-8 inline-flex"

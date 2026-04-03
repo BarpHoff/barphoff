@@ -1,45 +1,36 @@
-// Blog post thumbnail mapping — slug → image path
+// Blog post thumbnail mapping — slug → original WordPress featured image
 const thumbnailMap: Record<string, string> = {
-  'como-processar-um-plano-de-saude': '/assets/areas/plano-de-saude.jpg',
-  'processar-o-plano-de-saude-2': '/assets/areas/garanta.jpg',
-  'negativa-de-plano-de-saude': '/assets/areas/negado.jpg',
-  'tratamento-home-care-pelo-sus': '/assets/areas/home-care.jpg',
-  'tratamento-home-care-pelo-plano-de-saude': '/assets/areas/home-care.jpg',
-  'cirurgia-reparadora-pelo-plano-de-saude': '/assets/areas/cirurgia-reparadora.jpg',
-  'tratamento-de-atrofia-muscular-espinhal': '/assets/areas/remedio-mais-caro.jpg',
-  'tratamento-com-canabidiol': '/assets/areas/enoxaparina.jpg',
-  'medicamento-pelo-sus-saiba-seus-direitos': '/assets/blog/medicamento-sus.webp',
-  'tratamento-de-trombofilia-pelo-plano-de-saude': '/assets/blog/thumb-trombofilia.webp',
-  'direito-a-cirurgia-bariatrica': '/assets/areas/bariatrica.jpg',
-  'tratamento-de-cancer-pelo-plano-de-saude': '/assets/areas/tratamento-cancer.jpg',
-  'tratamento-de-cancer-pelo-sus': '/assets/areas/tratamento-cancer.jpg',
-  'cancer-de-mama-e-direitos-das-mulheres': '/assets/blog/cancer-de-mama.jpg',
-  'negativa-do-sus': '/assets/areas/negado.jpg',
-  'como-conseguir-internacao-pelo-sus': '/assets/areas/internacao.jpg',
-  'imunoterapia-pelo-plano-de-saude': '/assets/areas/imunoterapia.jpg',
-  'erro-medico': '/assets/areas/erro-medico.jpg',
-  'enoxaparina-pelo-sus-seus-direitos': '/assets/areas/enoxaparina.jpg',
-  'tratamento-de-diabetes-pelo-plano-de-saude': '/assets/areas/diabetes.jpg',
-  'autismo-e-plano-de-saude': '/assets/blog/thumb-autismo.webp',
-  'revisao-e-restituicao-de-valores-pagos-indevidamente': '/assets/areas/revisao-valores.jpg',
+  'como-processar-um-plano-de-saude': '/assets/blog/processar-plano-3.jpg',
+  'processar-o-plano-de-saude-2': '/assets/blog/processar-plano-14.jpg',
+  'negativa-de-plano-de-saude': '/assets/blog/negativa-plano-13.jpg',
+  'tratamento-home-care-pelo-sus': '/assets/blog/home-care-sus-16.jpg',
+  'tratamento-home-care-pelo-plano-de-saude': '/assets/blog/home-care-plano-15.jpg',
+  'cirurgia-reparadora-pelo-plano-de-saude': '/assets/blog/cirurgia-reparadora-10.jpg',
+  'imunoterapia-pelo-plano-de-saude': '/assets/blog/imunoterapia-plano-12.jpg',
+  'imunoterapia-pelo-sus': '/assets/blog/imunoterapia-sus-11.jpg',
+  'doencas-autoimunes': '/assets/blog/doencas-autoimunes-20.jpg',
+  'negativa-de-home-care': '/assets/blog/negativa-home-care-21.jpg',
+  'cobertura-de-medicamentos-de-alto-custo-pelo-plano-de-saude': '/assets/blog/medicamentos-alto-custo-19.jpg',
+  'home-care-pelo-plano-de-saude': '/assets/blog/home-care-plano-18.jpg',
+  'tratamento-para-trombofilia': '/assets/blog/trombofilia-enox.jpg',
+  'imunoterapia': '/assets/blog/imunoterapia.jpg',
+  'tratamento-com-canabidiol': '/assets/blog/canabidiol-qualidade.jpg',
+  'tratamento-de-atrofia-muscular-espinhal': '/assets/blog/atrofia-muscular-remedio.jpg',
+  'negativa-de-plano-de-saude-para-tratamento-de-cancer-de-mama': '/assets/blog/cancer-mama-plano.jpg',
+  'tratamento-para-cancer-de-mama': '/assets/blog/cancer-mama-tratamento.jpg',
+  'processar-o-plano-de-saude': '/assets/blog/processar-plano-indenizacao.jpg',
+  'garanta-sua-saude-sem-gastar-nada-descubra-como-obter-seu-medicamento-gratuitamente-pelo-sus': '/assets/blog/medicamento-sus-garanta.jpg',
+  'realize-a-cirurgia-bariatrica-tendo-todo-o-apoio-do-seu-plano-de-saude': '/assets/blog/bariatrica.jpg',
+  'como-gerenciar-os-desafios-da-diabetes-tipo-1-estrategias-completas-e-apoio': '/assets/blog/diabetes.jpg',
+  'defenda-os-seus-direitos-apos-uma-negativa-indevida-dos-planos': '/assets/blog/negado.jpg',
+  'tratamento-para-cancer-entenda-seus-direitos': '/assets/blog/tratamento-cancer.jpg',
+  'transforme-erros-medicos-em-indenizacoes': '/assets/blog/erro-medico.jpg',
+  'medico-e-hospital-terao-que-indenizar-paciente-por-cirurgia-malsucedida': '/assets/blog/cirurgia-malsucedida.jpg',
 }
 
-// Default fallback images for categories
-const categoryFallback: Record<string, string> = {
-  'Planos de Saúde': '/assets/areas/plano-de-saude.jpg',
-  'SUS': '/assets/areas/negado.jpg',
-  'Blog': '/assets/areas/garanta.jpg',
-  'Câncer': '/assets/areas/tratamento-cancer.jpg',
-}
-
-const defaultThumbnail = '/assets/areas/garanta.jpg'
+const defaultThumbnail = '/assets/blog/negado.jpg'
 
 export function getBlogThumbnail(slug: string, categories?: string[]): string {
   if (thumbnailMap[slug]) return thumbnailMap[slug]
-  if (categories?.length) {
-    for (const cat of categories) {
-      if (categoryFallback[cat]) return categoryFallback[cat]
-    }
-  }
   return defaultThumbnail
 }
