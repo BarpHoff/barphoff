@@ -2,9 +2,15 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'Quem Somos',
+  title: 'Quem Somos | Barp.Hoff.Costa Advogados',
   description:
-    'Com mais de 17 anos de experiência em direito especializado à saúde, o BARP.HOFF. tem uma equipe dedicada a oferecer um atendimento personalizado e humanizado em todo o Brasil.',
+    'Com mais de 17 anos de experiência em Direito da Saúde, o Barp.Hoff.Costa tem uma equipe dedicada a oferecer atendimento personalizado e humanizado em todo o Brasil. Avaliado com 5 estrelas pelos clientes.',
+  openGraph: {
+    title: 'Quem Somos | Barp.Hoff.Costa Advogados',
+    description: 'Conheça o escritório referência em Direito da Saúde com mais de 17 anos de experiência.',
+    url: 'https://barphoff.com/sobre',
+  },
+  alternates: { canonical: 'https://barphoff.com/sobre' },
 }
 
 /* ------------------------------------------------------------------ */
@@ -245,7 +251,7 @@ export default function SobrePage() {
                     href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-cta/10 text-cta transition-colors hover:bg-cta hover:text-white"
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white"
                     aria-label="WhatsApp de Dra. Alexandra Barp"
                   >
                     <WhatsAppIcon className="h-4 w-4" />
@@ -292,7 +298,7 @@ export default function SobrePage() {
                     href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-cta/10 text-cta transition-colors hover:bg-cta hover:text-white"
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-[#25D366]/10 text-[#25D366] transition-colors hover:bg-[#25D366] hover:text-white"
                     aria-label="WhatsApp de Dra. Jessica Hoff"
                   >
                     <WhatsAppIcon className="h-4 w-4" />

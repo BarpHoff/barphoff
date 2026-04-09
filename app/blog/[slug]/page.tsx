@@ -26,14 +26,35 @@ export function generateMetadata({
     return { title: 'Post nao encontrado' }
   }
 
+  const thumbnail = getBlogThumbnail(post.slug, post.categories)
+
   return {
     title: post.title,
     description: post.excerpt,
+    authors: [{ name: 'Barp.Hoff.Costa Advogados' }],
+    keywords: post.categories.join(', ') + ', Direito da Saúde, advogado saúde',
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
       locale: 'pt_BR',
+      publishedTime: post.date,
+      authors: ['Barp.Hoff.Costa Advogados'],
+      section: post.categories[0],
+      images: [
+        {
+          url: thumbnail,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [thumbnail],
     },
   }
 }
@@ -187,8 +208,108 @@ export default function BlogPostPage({
     })
     .slice(0, 3)
 
+  /* ---------------------------------------------------------------- */
+  /*  Extract FAQ from H3 headings that are questions                 */
+  /* ---------------------------------------------------------------- */
+  const faqItems: { question: string; answer: string }[] = []
+  const h3Regex = /<h3[^>]*>(.*?)<\/h3>/gi
+  const parts = post.content.split(h3Regex)
+  for (let i = 1; i < parts.length; i += 2) {
+    const heading = parts[i].replace(/<[^>]+>/g, '').trim()
+    const body = (parts[i + 1] || '').replace(/<[^>]+>/g, '').trim()
+    if (heading.includes('?') && body.length > 30) {
+      faqItems.push({ question: heading, answer: body.slice(0, 500) })
+    }
+  }
+
+  /* ---------------------------------------------------------------- */
+  /*  JSON-LD: Article + BreadcrumbList + FAQ                         */
+  /* ---------------------------------------------------------------- */
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    image: `https://barphoff.com${getBlogThumbnail(post.slug, post.categories)}`,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Organization',
+      name: 'Barp.Hoff.Costa Advogados',
+      url: 'https://barphoff.com',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Barp.Hoff.Costa Advogados',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://barphoff.com/assets/images/logo-branco-full.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://barphoff.com/blog/${post.slug}`,
+    },
+    articleSection: post.categories[0] || 'Direito da Saúde',
+    keywords: post.categories.join(', '),
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Início',
+        item: 'https://barphoff.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: 'https://barphoff.com/blog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `https://barphoff.com/blog/${post.slug}`,
+      },
+    ],
+  }
+
   return (
     <>
+      {/* Structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {faqItems.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqItems.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: faq.answer,
+                },
+              })),
+            }),
+          }}
+        />
+      )}
+
       {/* Scoped styles for blog HTML content */}
       <style dangerouslySetInnerHTML={{ __html: blogContentStyles }} />
 

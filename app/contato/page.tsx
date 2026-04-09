@@ -3,9 +3,15 @@ import Image from 'next/image'
 import { ContactForm } from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contato',
+  title: 'Contato | Fale com Advogados Especialistas em Saúde',
   description:
-    'Entre em contato com o escritório BARP.HOFF. Atendimento online em todo o Brasil. Telefone: (45) 3027-3100. Email: advogados.bhc@gmail.com',
+    'Entre em contato com o Barp.Hoff.Costa Advogados. Atendimento online em todo o Brasil. Telefone: (45) 3027-3100. Email: advogados.bhc@gmail.com. Especialistas em Direito da Saúde.',
+  openGraph: {
+    title: 'Contato | Barp.Hoff. Advogados',
+    description: 'Fale com advogados especialistas em Direito da Saúde. Atendimento em todo o Brasil.',
+    url: 'https://barphoff.com/contato',
+  },
+  alternates: { canonical: 'https://barphoff.com/contato' },
 }
 
 /* ================================================================== */

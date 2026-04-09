@@ -6,9 +6,16 @@ import Link from 'next/link'
 /*  Metadata                                                          */
 /* ------------------------------------------------------------------ */
 export const metadata: Metadata = {
-  title: 'Áreas de Atuação',
+  title: 'Áreas de Atuação em Direito da Saúde',
   description:
-    'Conheça as áreas de atuação do escritório BARP.HOFF. em Direito da Saúde: negativas do SUS e planos de saúde, tratamento home care, oncologia, cirurgias reparadoras e restituição de valores.',
+    'Áreas de atuação do Barp.Hoff.Costa em Direito da Saúde: negativas de plano de saúde, negativas do SUS, tratamento home care, tratamento oncológico, cirurgias reparadoras e medicamentos de alto custo.',
+  keywords: ['negativa plano de saúde', 'negativa SUS', 'home care', 'tratamento oncológico', 'cirurgia reparadora', 'medicamento alto custo'],
+  openGraph: {
+    title: 'Áreas de Atuação | Barp.Hoff. Advogados — Direito da Saúde',
+    description: 'Negativas de plano de saúde e SUS, home care, oncologia, cirurgias e medicamentos de alto custo.',
+    url: 'https://barphoff.com/areas-de-atuacao',
+  },
+  alternates: { canonical: 'https://barphoff.com/areas-de-atuacao' },
 }
 
 /* ------------------------------------------------------------------ */
@@ -111,7 +118,7 @@ export default function AreasDeAtuacaoPage() {
       {/* ============================================================ */}
       {/* 1. HERO BANNER                                               */}
       {/* ============================================================ */}
-      <section className="relative flex h-[400px] items-center overflow-hidden bg-hero">
+      <section className="relative flex h-[400px] items-center overflow-hidden bg-brand">
         <Image
           src="/assets/images/banner-areas.jpg"
           alt="Áreas de Atuação do escritório Barp.Hoff."

@@ -195,7 +195,7 @@ export function Header() {
                 >
                   <Link
                     href={link.href}
-                    className="inline-flex items-center gap-1 px-3 xl:px-4 py-2 text-[14px] font-semibold uppercase tracking-[0.05em] text-[#1D1D1D] hover:text-brand transition-colors"
+                    className="inline-flex items-center gap-1 px-3 xl:px-4 py-2 text-[14px] font-semibold uppercase tracking-[0.05em] text-[#000000] hover:text-brand transition-colors"
                   >
                     {link.label}
                     <svg
@@ -224,7 +224,7 @@ export function Header() {
                         <li key={sub.href}>
                           <Link
                             href={sub.href}
-                            className="block px-5 py-3 text-[13.5px] font-medium text-[#1D1D1D] hover:bg-brand hover:text-white transition-colors"
+                            className="block px-5 py-3 text-[13.5px] font-medium text-[#000000] hover:bg-brand hover:text-white transition-colors"
                             onClick={() => setDropdownOpen(false)}
                           >
                             {sub.label}
@@ -238,7 +238,7 @@ export function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="inline-block px-3 xl:px-4 py-2 text-[14px] font-semibold uppercase tracking-[0.05em] text-[#1D1D1D] hover:text-brand transition-colors"
+                    className="inline-block px-3 xl:px-4 py-2 text-[14px] font-semibold uppercase tracking-[0.05em] text-[#000000] hover:text-brand transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -282,7 +282,7 @@ export function Header() {
                 <li key={link.href}>
                   <button
                     type="button"
-                    className="w-full flex items-center justify-between px-3 py-3 text-[14px] font-semibold uppercase tracking-[0.05em] text-[#1D1D1D] hover:text-brand transition-colors rounded-md"
+                    className="w-full flex items-center justify-between px-3 py-3 text-[14px] font-semibold uppercase tracking-[0.05em] text-[#000000] hover:text-brand transition-colors rounded-md"
                     onClick={() => setMobileDropdownOpen((prev) => !prev)}
                   >
                     {link.label}
@@ -308,7 +308,7 @@ export function Header() {
                       <li>
                         <Link
                           href={link.href}
-                          className="block px-3 py-2.5 text-[13.5px] font-medium text-[#1D1D1D] hover:bg-brand hover:text-white rounded-md transition-colors"
+                          className="block px-3 py-2.5 text-[13.5px] font-medium text-[#000000] hover:bg-brand hover:text-white rounded-md transition-colors"
                           onClick={() => {
                             setMobileOpen(false)
                             setMobileDropdownOpen(false)
@@ -321,7 +321,7 @@ export function Header() {
                         <li key={sub.href}>
                           <Link
                             href={sub.href}
-                            className="block px-3 py-2.5 text-[13.5px] font-medium text-[#1D1D1D] hover:bg-brand hover:text-white rounded-md transition-colors"
+                            className="block px-3 py-2.5 text-[13.5px] font-medium text-[#000000] hover:bg-brand hover:text-white rounded-md transition-colors"
                             onClick={() => {
                               setMobileOpen(false)
                               setMobileDropdownOpen(false)
@@ -338,7 +338,7 @@ export function Header() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block px-3 py-3 text-[14px] font-semibold uppercase tracking-[0.05em] text-[#1D1D1D] hover:text-brand transition-colors rounded-md"
+                    className="block px-3 py-3 text-[14px] font-semibold uppercase tracking-[0.05em] text-[#000000] hover:text-brand transition-colors rounded-md"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}

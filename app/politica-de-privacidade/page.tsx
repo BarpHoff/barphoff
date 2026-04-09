@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Pol\u00edtica de Privacidade',
-  description: 'Pol\u00edtica de privacidade do site barphoff.com.br',
+  title: 'Política de Privacidade',
+  description: 'Política de privacidade do site Barp.Hoff.Costa Advogados (barphoff.com). Saiba como tratamos seus dados pessoais conforme a LGPD.',
+  robots: { index: false, follow: true },
+  alternates: { canonical: 'https://barphoff.com/politica-de-privacidade' },
 }
 
 /* ================================================================== */
@@ -32,10 +34,10 @@ export default function PoliticaDePrivacidadePage() {
           <p className="mb-4 leading-relaxed text-gray-700">
             O nosso endere&ccedil;o do site &eacute;:{' '}
             <a
-              href="https://barphoff.com.br"
+              href="https://barphoff.com"
               className="text-brand underline hover:text-brand-dark"
             >
-              https://barphoff.com.br
+              https://barphoff.com
             </a>
             .
           </p>

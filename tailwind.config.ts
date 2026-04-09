@@ -15,11 +15,7 @@ const config: Config = {
         },
         gold: '#D5BE9F',
         taupe: '#AF9879',
-        cta: {
-          DEFAULT: '#348011',
-          light: '#6DC246',
-        },
-        hero: '#1A1A1A',
+        text: '#000000',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

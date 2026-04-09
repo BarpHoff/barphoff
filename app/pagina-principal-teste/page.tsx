@@ -1,9 +1,42 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { blogPostsMeta as blogPosts } from '@/lib/blog-meta'
 import { ReviewsCarousel } from '@/components/ReviewsCarousel'
 import { getBlogThumbnail } from '@/lib/blog-thumbnails'
 import { FooterWatermark } from '@/components/FooterWatermark'
+
+export const metadata: Metadata = {
+  title: 'Advogados Especialistas em Direito da Saúde | Barp.Hoff.',
+  description:
+    'Advogados especialistas em Direito da Saúde há 17 anos. Revertemos negativas de plano de saúde e SUS, garantimos acesso a medicamentos, home care, imunoterapia e tratamentos negados. Atendemos todo o Brasil.',
+  keywords: [
+    'advogado direito da saúde',
+    'negativa plano de saúde advogado',
+    'negativa SUS advogado',
+    'medicamento alto custo SUS',
+    'home care plano de saúde',
+    'advogado saúde Foz do Iguaçu',
+    'advogado plano de saúde',
+    'erro médico advogado',
+  ],
+  openGraph: {
+    title: 'Barp.Hoff.Costa Advogados — Especialistas em Direito da Saúde',
+    description: 'Há 17 anos revertendo negativas de plano de saúde e SUS. Medicamentos, tratamentos, home care e cirurgias. Atendemos todo o Brasil.',
+    type: 'website',
+    url: 'https://barphoff.com/pagina-principal-teste',
+    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Barp.Hoff. | Advogados Especialistas em Direito da Saúde',
+    description: 'Há 17 anos garantindo seu acesso a tratamentos negados pelo SUS e planos de saúde.',
+    images: ['/assets/images/og-cover.jpg'],
+  },
+  alternates: {
+    canonical: 'https://barphoff.com/pagina-principal-teste',
+  },
+}
 
 /* ------------------------------------------------------------------ */
 /*  Practice area card data                                           */
@@ -87,12 +120,12 @@ export default function HomePage() {
       {/* 1. HERO SECTION — Two-column with team photo                 */}
       {/* ============================================================ */}
       {/* ---- MOBILE HERO (visible < md) ---- */}
-      <section className="md:hidden" style={{ backgroundColor: '#1A1A1A' }}>
+      <section className="md:hidden" style={{ backgroundColor: '#994B4B' }}>
         {/* Team photo at the top — normal flow, not absolute */}
         <div className="relative w-full">
           <Image
-            src="/assets/foto_equipe.png"
-            alt="Dra. Alexandra Barp e Dra. Jessica Hoff"
+            src="/assets/images/banner-mob.jpg"
+            alt="Barp.Hoff. Advogados — especialistas em Direito da Saúde"
             width={800}
             height={600}
             className="w-full h-auto object-cover"
@@ -100,7 +133,7 @@ export default function HomePage() {
             sizes="100vw"
           />
           {/* Gradient fade at bottom of image into dark bg */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1A1A1A] to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#994B4B] to-transparent" />
         </div>
 
         {/* Text block below the photo */}
@@ -109,7 +142,7 @@ export default function HomePage() {
             className="font-heading text-[28px] font-bold leading-[1.15] sm:text-[36px]"
             style={{ WebkitFontSmoothing: 'antialiased' }}
           >
-            <span className="gradient-text-hero">
+            <span className="gradient-text-gold">
               Advogados especialistas em Direito da Saúde
             </span>
           </h1>
@@ -137,8 +170,8 @@ export default function HomePage() {
 
       {/* ---- DESKTOP HERO (visible >= md) ---- */}
       <section
-        className="relative hidden md:block bg-hero"
-        style={{ minHeight: 'calc(100vh - 7.125rem)', backgroundColor: '#1A1A1A' }}
+        className="relative hidden md:block bg-brand"
+        style={{ minHeight: 'calc(100vh - 7.125rem)', backgroundColor: '#994B4B' }}
       >
         {/* Hexagon background image */}
         <Image
@@ -269,20 +302,20 @@ export default function HomePage() {
       <section
         className="relative py-20 overflow-hidden"
         style={{
-          backgroundColor: '#2a0a0f',
-          backgroundImage: `linear-gradient(135deg, rgba(42,10,15,0.1) 0%, rgba(90,26,34,0.4) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.06)' stroke-width='1'/%3E%3Cpath d='M30 10 L50 20 L50 40 L30 50 L10 40 L10 20 Z' fill='none' stroke='rgba(196,169,125,0.04)' stroke-width='1'/%3E%3C/svg%3E")`,
+          backgroundColor: '#994B4B',
+          backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.15) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.06)' stroke-width='1'/%3E%3Cpath d='M30 10 L50 20 L50 40 L30 50 L10 40 L10 20 Z' fill='none' stroke='rgba(196,169,125,0.04)' stroke-width='1'/%3E%3C/svg%3E")`,
         }}
       >
         {/* Radial glow — bottom left, same as LP hero */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(circle at bottom left, rgba(90,26,34,0.5) 0%, transparent 65%)' }}
+          style={{ background: 'radial-gradient(circle at bottom left, rgba(0,0,0,0.2) 0%, transparent 65%)' }}
         />
         <div className="relative z-10 mx-auto max-w-7xl px-4">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <h2 className="font-heading text-3xl font-bold leading-tight text-white md:text-4xl">
               Principais áreas de atuação em{' '}
-              <span className="gradient-text">Direito da Saúde</span>
+              <span className="gradient-text-gold">Direito da Saúde</span>
             </h2>
           </div>
 
@@ -291,8 +324,8 @@ export default function HomePage() {
               <a
                 key={i}
                 href={area.href}
-                className="animate-on-scroll group overflow-hidden rounded-2xl border border-[#D5BE9F]/60 transition-all duration-300 hover:-translate-y-2 hover:border-[#D5BE9F] hover:shadow-[0_12px_36px_rgba(61,16,23,0.25)]"
-                style={{ background: 'rgba(90, 30, 30, 0.55)' }}
+                className="animate-on-scroll group overflow-hidden rounded-2xl border border-[#D5BE9F]/60 transition-all duration-300 hover:-translate-y-2 hover:border-[#D5BE9F] hover:shadow-[0_12px_36px_rgba(153,75,75,0.25)]"
+                style={{ background: 'rgba(0, 0, 0, 0.2)' }}
                 data-delay={String(i * 100)}
               >
                 {/* Card image */}
@@ -344,14 +377,14 @@ export default function HomePage() {
       <section
         className="relative overflow-hidden py-16"
         style={{
-          backgroundColor: '#2a0a0f',
-          backgroundImage: `linear-gradient(135deg, rgba(42,10,15,0.1) 0%, rgba(90,26,34,0.4) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.06)' stroke-width='1'/%3E%3Cpath d='M30 10 L50 20 L50 40 L30 50 L10 40 L10 20 Z' fill='none' stroke='rgba(196,169,125,0.04)' stroke-width='1'/%3E%3C/svg%3E")`,
+          backgroundColor: '#994B4B',
+          backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.15) 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.06)' stroke-width='1'/%3E%3Cpath d='M30 10 L50 20 L50 40 L30 50 L10 40 L10 20 Z' fill='none' stroke='rgba(196,169,125,0.04)' stroke-width='1'/%3E%3C/svg%3E")`,
         }}
       >
         {/* Radial glow */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(circle at bottom left, rgba(90,26,34,0.5) 0%, transparent 65%)' }}
+          style={{ background: 'radial-gradient(circle at bottom left, rgba(0,0,0,0.2) 0%, transparent 65%)' }}
         />
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
           <p className="font-heading text-xl font-bold uppercase leading-snug tracking-wide text-white md:text-2xl lg:text-3xl">
@@ -501,7 +534,7 @@ export default function HomePage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="animate-on-scroll group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border hover:border-[#D5BE9F]/40 hover:shadow-[0_12px_36px_rgba(61,16,23,0.15)]"
+                className="animate-on-scroll group overflow-hidden rounded-2xl bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border hover:border-[#D5BE9F]/40 hover:shadow-[0_12px_36px_rgba(153,75,75,0.15)]"
                 data-delay={String(i * 100)}
               >
                 {/* Post thumbnail */}

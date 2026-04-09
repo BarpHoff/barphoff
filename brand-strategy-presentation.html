@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Strategy — Barp.Hoff.Costa Advogados</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wine: #994B4B;
+    --wine-mid: #994B4B;
+    --brand: #994B4B;
+    --brand-dark: #994B4B;
+    --gold: #D5BE9F;
+    --gold-dark: #AF9879;
+    --gold-light: #EFBF78;
+    --taupe: #AF9879;
+    --bg: #ffffff;
+    --bg-warm: #ffffff;
+    --text: #000000;
+    --text-secondary: #333333;
+    --text-muted: #CACACA;
+    --green: #25D366;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Outfit', system-ui, sans-serif; letter-spacing: -0.03em; }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(42, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(196, 169, 125, 0.15);
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand {
+    font-family: 'Outfit'; font-weight: 700; font-size: 0.85rem;
+    color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+  .nav-links a {
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 0.4rem 0.65rem; border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); background: rgba(196,169,125,0.08); }
+
+  /* ─── COVER ─── */
+  .cover {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: var(--wine);
+    position: relative; overflow: hidden;
+    text-align: center; padding: 6rem 2rem;
+  }
+  .cover::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(196,169,125,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(90,26,34,0.3) 0%, transparent 50%);
+  }
+  .cover-content { position: relative; z-index: 1; max-width: 800px; }
+  .cover-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 2rem;
+  }
+  .cover h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700;
+    background: linear-gradient(79.05deg, #994B4B -10%, #EFBF78 20.71%, #994B4B 99%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    line-height: 1.15; margin-bottom: 1.5rem;
+  }
+  .cover-sub {
+    font-size: 1.1rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 3rem;
+    font-weight: 300; line-height: 1.8;
+  }
+  .cover-divider {
+    width: 60px; height: 1px; margin: 0 auto 2rem;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .cover-tagline {
+    font-family: 'Prata', Georgia, serif;
+    font-size: 1.25rem; color: rgba(255,255,255,0.5); font-style: italic;
+  }
+
+  /* ─── SECTION ─── */
+  .section {
+    padding: 6rem 2rem;
+    max-width: 900px; margin: 0 auto;
+  }
+  .section-dark {
+    background: var(--wine);
+    max-width: 100%; padding: 6rem 2rem;
+    position: relative;
+  }
+  .section-dark::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 80%, rgba(90,26,34,0.25) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .section-dark .section-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+  .section-warm { background: var(--bg-warm); max-width: 100%; padding: 6rem 2rem; }
+  .section-warm .section-inner { max-width: 900px; margin: 0 auto; }
+
+  .section-number {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--brand); margin-bottom: 0.75rem;
+  }
+  .section-dark .section-number { color: var(--gold); }
+
+  .section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700;
+    color: var(--text); margin-bottom: 1.5rem; line-height: 1.2;
+  }
+  .section-dark h2 {
+    background: linear-gradient(79.05deg, #994B4B -10%, #EFBF78 20.71%, #994B4B 99%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .section p, .section li {
+    font-size: 1rem; color: var(--text-secondary); line-height: 1.85;
+  }
+  .section-dark p, .section-dark li { color: rgba(255,255,255,0.75); }
+
+  .section p + p { margin-top: 1rem; }
+
+  .lead {
+    font-size: 1.15rem; font-weight: 400; color: var(--text);
+    line-height: 1.85; margin-bottom: 2rem;
+  }
+  .section-dark .lead { color: rgba(255,255,255,0.85); }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px; margin: 0;
+    background: linear-gradient(90deg, transparent, rgba(196,169,125,0.25), transparent);
+  }
+
+  /* ─── ESSENCE PILLS ─── */
+  .essence-pills {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-top: 2rem; justify-content: center;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.75rem; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em;
+  }
+  .pill-wine {
+    background: rgba(153, 75, 75, 0.1); color: var(--brand);
+    border: 1px solid rgba(153, 75, 75, 0.2);
+  }
+  .pill-gold {
+    background: rgba(196, 169, 125, 0.12); color: var(--gold-dark);
+    border: 1px solid rgba(196, 169, 125, 0.25);
+  }
+  .pill-dark {
+    background: rgba(196, 169, 125, 0.08); color: var(--gold);
+    border: 1px solid rgba(196, 169, 125, 0.15);
+  }
+
+  /* ─── QUOTE ─── */
+  .quote {
+    font-family: 'Prata', Georgia, serif;
+    font-size: 1.4rem; line-height: 1.7;
+    color: var(--text); text-align: center;
+    padding: 3rem 2rem; margin: 2rem 0;
+    border-top: 1px solid rgba(196,169,125,0.2);
+    border-bottom: 1px solid rgba(196,169,125,0.2);
+    font-style: italic;
+  }
+  .section-dark .quote {
+    color: rgba(255,255,255,0.85);
+    border-color: rgba(196,169,125,0.15);
+  }
+  .quote-attr {
+    display: block; margin-top: 1rem;
+    font-family: 'Inter'; font-style: normal;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--brand);
+  }
+  .section-dark .quote-attr { color: var(--gold); }
+
+  /* ─── HIGHLIGHT BOX ─── */
+  .highlight-box {
+    background: var(--bg-warm);
+    border: 1px solid rgba(196,169,125,0.2);
+    border-radius: 16px; padding: 2rem 2.5rem;
+    margin: 2rem 0;
+  }
+  .highlight-box-dark {
+    background: rgba(196,169,125,0.06);
+    border: 1px solid rgba(196,169,125,0.12);
+    border-radius: 16px; padding: 2rem 2.5rem;
+    margin: 2rem 0;
+  }
+  .highlight-box h4, .highlight-box-dark h4 {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .highlight-box h4 { color: var(--brand); }
+  .highlight-box-dark h4 { color: var(--gold); }
+
+  /* ─── LIST ─── */
+  .brand-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+  .brand-list li {
+    padding: 0.65rem 0; padding-left: 1.75rem;
+    position: relative; border-bottom: 1px solid rgba(196,169,125,0.08);
+  }
+  .brand-list li:last-child { border-bottom: none; }
+  .brand-list li::before {
+    content: ''; position: absolute; left: 0; top: 1.1rem;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold);
+  }
+  .section-dark .brand-list li { border-color: rgba(255,255,255,0.06); }
+  .brand-list strong { color: var(--text); font-weight: 600; }
+  .section-dark .brand-list strong { color: var(--gold); }
+
+  /* ─── GRID ─── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
+  .card {
+    border: 1px solid rgba(196,169,125,0.15); border-radius: 16px;
+    padding: 2rem; transition: all 0.3s;
+  }
+  .card:hover { border-color: rgba(196,169,125,0.35); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(61,16,23,0.08); }
+  .card h4 {
+    font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem;
+  }
+  .card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+  .card-dark {
+    border: 1px solid rgba(196,169,125,0.1); border-radius: 16px;
+    padding: 2rem; background: rgba(196,169,125,0.04);
+  }
+  .card-dark h4 { font-size: 1rem; font-weight: 600; color: var(--gold); margin-bottom: 0.75rem; }
+  .card-dark p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  /* ─── TABLE ─── */
+  .brand-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+  .brand-table th {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; text-align: left;
+    padding: 0.75rem 1rem; color: var(--text-muted);
+    border-bottom: 2px solid rgba(196,169,125,0.2);
+  }
+  .brand-table td {
+    padding: 0.85rem 1rem; font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(196,169,125,0.08);
+    vertical-align: top;
+  }
+  .brand-table td:first-child { font-weight: 600; color: var(--text); }
+  .brand-table .correct { color: var(--green); }
+  .brand-table .wrong { color: var(--brand); opacity: 0.6; text-decoration: line-through; }
+
+  .section-dark .brand-table th { color: var(--gold); border-color: rgba(196,169,125,0.15); }
+  .section-dark .brand-table td { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.05); }
+  .section-dark .brand-table td:first-child { color: var(--gold); }
+
+  /* ─── COLOR SWATCHES ─── */
+  .swatch-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 2rem 0; }
+  .swatch {
+    display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    min-width: 120px;
+  }
+  .swatch-circle {
+    width: 72px; height: 72px; border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.15);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  .swatch-name { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.8); text-align: center; }
+  .swatch-hex { font-size: 0.65rem; color: rgba(255,255,255,0.4); font-family: monospace; }
+
+  /* ─── MANIFESTO ─── */
+  .manifesto {
+    padding: 5rem 2rem; text-align: center;
+    background: var(--wine); position: relative;
+  }
+  .manifesto::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(196,169,125,0.08) 0%, transparent 60%);
+  }
+  .manifesto-inner {
+    max-width: 700px; margin: 0 auto; position: relative; z-index: 1;
+  }
+  .manifesto p {
+    font-family: 'Prata', Georgia, serif;
+    font-size: 1.2rem; line-height: 2;
+    color: rgba(255,255,255,0.75); margin-bottom: 1.5rem;
+  }
+  .manifesto .emphasis {
+    font-family: 'Outfit'; font-weight: 700;
+    font-size: 1.05rem; color: rgba(255,255,255,0.9);
+    font-style: normal;
+  }
+  .manifesto .tagline {
+    font-family: 'Outfit'; font-weight: 700; font-size: 1.6rem;
+    background: linear-gradient(79.05deg, #994B4B -10%, #EFBF78 20.71%, #994B4B 99%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    margin-top: 2.5rem;
+  }
+  .manifesto .tagline-sub {
+    font-family: 'Outfit'; font-weight: 600; font-size: 1rem;
+    color: var(--gold); margin-top: 0.5rem; letter-spacing: 0.05em;
+  }
+
+  /* ─── NUMBERED LIST ─── */
+  .numbered-list { list-style: none; padding: 0; counter-reset: item; margin: 2rem 0; }
+  .numbered-list li {
+    counter-increment: item; padding: 1.25rem 0 1.25rem 3.5rem;
+    position: relative; border-bottom: 1px solid rgba(196,169,125,0.08);
+  }
+  .numbered-list li::before {
+    content: counter(item); position: absolute; left: 0; top: 1.15rem;
+    width: 2rem; height: 2rem; border-radius: 50%;
+    background: rgba(153,75,75,0.1); color: var(--brand);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 700;
+  }
+  .numbered-list strong { color: var(--text); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 3rem 2rem; text-align: center;
+    background: var(--wine); border-top: 1px solid rgba(196,169,125,0.1);
+  }
+  .footer p { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">Barp.Hoff.Costa</div>
+    <div class="nav-links">
+      <a href="#essencia">Essencia</a>
+      <a href="#posicionamento">Posicionamento</a>
+      <a href="#personalidade">Personalidade</a>
+      <a href="#tom">Tom de Voz</a>
+      <a href="#manifesto">Manifesto</a>
+      <a href="#visual">Visual</a>
+      <a href="#pilares">Pilares</a>
+    </div>
+  </div>
+</nav>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-content fade-up">
+    <p class="cover-label">Documento Confidencial de Marca</p>
+    <h1>Barp.Hoff.Costa<br>Advogados</h1>
+    <p class="cover-sub">
+      Direção Estratégica, Criativa e Simbólica da Marca.<br>
+      Guia oficial para decisões de branding, identidade visual, comunicação institucional e posicionamento de mercado.
+    </p>
+    <div class="cover-divider"></div>
+    <p class="cover-tagline">A saúde não espera.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ESSÊNCIA -->
+<section class="section" id="essencia">
+  <div class="fade-up">
+    <p class="section-number">01 — Essência</p>
+    <h2>Essência da Marca</h2>
+    <p class="lead">
+      A Barp.Hoff.Costa nasce de 17 anos de dedicação exclusiva ao Direito da Saúde. Representa a advocacia que existe na interseção entre a urgência humana e o rigor jurídico — onde cada negativa de plano de saúde é um paciente em risco, e cada liminar conquistada é uma vida protegida.
+    </p>
+    <p>
+      A marca se posiciona como <strong>escudo jurídico do paciente</strong>, transformando negativas em autorizações, burocracias em liminares, e desamparo em segurança — com velocidade, técnica e empatia.
+    </p>
+    <div class="essence-pills">
+      <span class="pill pill-wine">Proteção</span>
+      <span class="pill pill-gold">Urgência</span>
+      <span class="pill pill-wine">Humanidade</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- POSICIONAMENTO -->
+<section class="section-dark" id="posicionamento">
+  <div class="section-inner fade-up">
+    <p class="section-number">02 — Posicionamento</p>
+    <h2>Posicionamento</h2>
+    <p class="lead">
+      A Barp.Hoff.Costa é o escritório de referência nacional em Direito da Saúde, especializado na reversão de negativas de planos de saúde e do SUS por meio de estratégia jurídica ágil, técnica consolidada e atendimento humanizado.
+    </p>
+    <p style="color:rgba(255,255,255,0.65)">
+      A marca entrega <strong style="color:var(--gold)">acesso à saúde</strong>, <strong style="color:var(--gold)">velocidade judicial</strong> e <strong style="color:var(--gold)">tranquilidade</strong> para pacientes e famílias que enfrentam a angústia de um tratamento negado.
+    </p>
+
+    <div class="highlight-box-dark" style="margin-top:2.5rem">
+      <h4>Propósito</h4>
+      <p style="color:rgba(255,255,255,0.8); font-size: 1.1rem; font-weight: 400;">
+        Garantir que nenhum paciente fique sem tratamento por uma negativa injusta.
+      </p>
+    </div>
+
+    <div class="highlight-box-dark">
+      <h4>Promessa Central</h4>
+      <p style="color:rgba(255,255,255,0.8); font-size: 1.1rem; font-weight: 400;">
+        Reverter negativas de saúde com agilidade, técnica e cuidado, garantindo que o paciente receba o tratamento que precisa — quando precisa.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAL -->
+<section class="section">
+  <div class="fade-up">
+    <p class="section-number">03 — Diferencial</p>
+    <h2>Diferencial Essencial</h2>
+    <p class="lead">
+      A Barp.Hoff.Costa não é um escritório generalista que atua em saúde.<br>
+      É um escritório que <strong>respira saúde há 17 anos</strong>.
+    </p>
+
+    <ul class="brand-list">
+      <li><strong>Especialização absoluta</strong> — 100% focado em Direito da Saúde, sem dispersão</li>
+      <li><strong>Velocidade de resposta</strong> — triagem via WhatsApp, avaliação em horas, liminar em dias</li>
+      <li><strong>Cobertura nacional</strong> — atendimento online para todo o Brasil, sem deslocamento</li>
+      <li><strong>Histórico comprovado</strong> — mais de 5.000 casos analisados, 5 estrelas no Google</li>
+      <li><strong>Humanização real</strong> — cada caso é um paciente, não um processo</li>
+    </ul>
+
+    <div class="quote">
+      A marca não promete milagres. Entrega liminares.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PERSONALIDADE -->
+<section class="section-warm" id="personalidade">
+  <div class="section-inner fade-up">
+    <p class="section-number">04 — Personalidade</p>
+    <h2>Personalidade da Marca</h2>
+
+    <div class="essence-pills" style="justify-content:flex-start; margin-bottom: 2rem;">
+      <span class="pill pill-wine">Protetora</span>
+      <span class="pill pill-gold">Urgente</span>
+      <span class="pill pill-wine">Técnica</span>
+      <span class="pill pill-gold">Humana</span>
+      <span class="pill pill-wine">Acessível</span>
+      <span class="pill pill-gold">Confiável</span>
+    </div>
+
+    <p>
+      A Barp.Hoff.Costa se comunica com <strong>empatia firme</strong>, clareza técnica e senso de urgência. Não é fria nem distante — é a voz que diz <em>"eu sei o que você está passando, e sei como resolver"</em>.
+    </p>
+    <p>
+      Transmite segurança sem arrogância, urgência sem desespero, empatia sem assistencialismo.
+    </p>
+
+    <div class="grid-2" style="margin-top: 2.5rem">
+      <div class="card">
+        <h4>Arquétipo Primário: O Protetor</h4>
+        <p>Defesa ativa dos direitos do paciente. Escudo contra negativas injustas. Presença forte em momentos de vulnerabilidade. Ação rápida e decisiva.</p>
+      </div>
+      <div class="card">
+        <h4>Arquétipo Secundário: O Sábio</h4>
+        <p>17 anos de conhecimento em Direito da Saúde. Domínio técnico da legislação e ANS. Educação do paciente. Autoridade reconhecida no nicho.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 1.5rem">
+      <h4>Nota sobre o Cuidador</h4>
+      <p style="font-size: 0.9rem; color: var(--text-secondary);">
+        O arquétipo do Cuidador permeia toda a comunicação — traduzido em atendimento humanizado, escuta ativa e compromisso com o bem-estar do paciente — sem cair em tom assistencialista ou emocional em excesso. A marca é empática, mas é sobretudo <strong>eficaz</strong>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TOM DE VOZ -->
+<section class="section" id="tom">
+  <div class="fade-up">
+    <p class="section-number">05 — Tom de Voz</p>
+    <h2>Tom de Voz</h2>
+
+    <ul class="brand-list">
+      <li><strong>Empático e firme</strong> — "Eu entendo. E sei como resolver."</li>
+      <li><strong>Urgente e resolutivo</strong> — "A saúde não espera."</li>
+      <li><strong>Técnico e acessível</strong> — Explica direitos sem juridiquês</li>
+      <li><strong>Direto e humano</strong> — Fala com o paciente, não com o processo</li>
+      <li><strong>Confiante sem arrogância</strong> — Mostra resultados, não promessas vazias</li>
+      <li><strong>Indignado na medida certa</strong> — Negativas injustas não devem ser aceitas</li>
+    </ul>
+
+    <div class="quote">
+      "Você tem direito. Nós vamos garantir."
+    </div>
+
+    <h3 style="font-size: 1.1rem; margin: 2rem 0 1rem; color: var(--text);">Exemplos de Tom</h3>
+    <table class="brand-table">
+      <thead>
+        <tr><th>Contexto</th><th>Tom correto</th><th>Tom errado</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Negativa de cirurgia</td>
+          <td class="correct">"Seu plano negou? A Justiça pode obrigar."</td>
+          <td class="wrong">"Entre em contato para análise."</td>
+        </tr>
+        <tr>
+          <td>Depoimento</td>
+          <td class="correct">"Consegui meu medicamento graças ao escritório."</td>
+          <td class="wrong">"Cliente satisfeito com nossos serviços."</td>
+        </tr>
+        <tr>
+          <td>Blog</td>
+          <td class="correct">"Saiba que você pode processar o plano!"</td>
+          <td class="wrong">"Análise jurídica das hipóteses recursais."</td>
+        </tr>
+        <tr>
+          <td>CTA WhatsApp</td>
+          <td class="correct">"Envie a negativa para análise do advogado"</td>
+          <td class="wrong">"Agende uma consulta jurídica"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-inner fade-up">
+    <p class="section-number" style="color: var(--gold); margin-bottom: 2rem;">06 — Manifesto</p>
+
+    <p>Quando o plano de saúde diz não,<br>quem sofre é o paciente.</p>
+
+    <p>Enquanto a burocracia discute cláusulas, alguém espera por uma cirurgia.<br>
+    Enquanto a operadora alega exceções, alguém precisa de um medicamento para sobreviver.<br>
+    Enquanto o sistema empurra responsabilidades, alguém precisa de home care para voltar a ter dignidade.</p>
+
+    <p class="emphasis">Há 17 anos, escolhemos estar do lado de quem mais precisa.</p>
+
+    <p>Não aceitamos negativas que colocam vidas em risco.<br>
+    Não esperamos prazos que pacientes não têm.<br>
+    Não nos conformamos com um sistema que nega o que a lei garante.</p>
+
+    <p class="emphasis">Para nós, cada caso é uma pessoa.<br>
+    Cada liminar é um tratamento que começa.<br>
+    Cada vitória é uma família que respira aliviada.</p>
+
+    <p style="color: rgba(255,255,255,0.5); margin-top: 2rem;">Porque a saúde não espera. E nós também não.</p>
+
+    <p class="tagline">Barp.Hoff.Costa Advogados.</p>
+    <p class="tagline-sub">A saúde não espera.</p>
+  </div>
+</section>
+
+<!-- TERRITÓRIO SIMBÓLICO -->
+<section class="section">
+  <div class="fade-up">
+    <p class="section-number">07 — Território Simbólico</p>
+    <h2>Território Simbólico</h2>
+
+    <div class="highlight-box" style="text-align: center; margin-bottom: 2rem;">
+      <h4>Referência Emocional</h4>
+      <p style="font-family: 'Prata', serif; font-size: 1.1rem; color: var(--text); font-style: italic;">
+        Como a cruz vermelha da advocacia: urgência controlada, competência técnica, presença quando mais se precisa, compromisso com a vida.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <h3 style="font-size: 1rem; color: var(--brand); margin-bottom: 1rem;">O que a marca representa</h3>
+        <ul class="brand-list">
+          <li>Segurança de que seus direitos serão defendidos</li>
+          <li>Alívio de ter alguém competente ao seu lado</li>
+          <li>Velocidade quando cada dia importa</li>
+          <li>Confiança de 17 anos de resultados</li>
+          <li>Humanidade em um sistema desumanizado</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1rem;">O que a marca NÃO é</h3>
+        <ul class="brand-list" style="opacity: 0.65;">
+          <li>Escritório generalista que "também faz saúde"</li>
+          <li>Escritório de volume que processa em massa</li>
+          <li>Comunicação fria e corporativa</li>
+          <li>Promessas sem respaldo técnico</li>
+          <li>Assistencialismo ou vitimização</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LEMA -->
+<section class="section-dark">
+  <div class="section-inner fade-up">
+    <p class="section-number">08 — Lema</p>
+    <h2>Frase-Chave</h2>
+
+    <div style="text-align: center; margin: 2.5rem 0;">
+      <p style="font-family: 'Outfit'; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-dark)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+        A saúde não espera.
+      </p>
+    </div>
+
+    <table class="brand-table">
+      <thead><tr><th>Contexto</th><th>Variação</th></tr></thead>
+      <tbody>
+        <tr><td>Institucional</td><td>"A saúde não espera."</td></tr>
+        <tr><td>CTA principal</td><td>"Envie a negativa para análise."</td></tr>
+        <tr><td>Blog / Educação</td><td>"Conheça seus direitos."</td></tr>
+        <tr><td>Urgência</td><td>"Seu plano negou? A Justiça pode reverter."</td></tr>
+        <tr><td>Autoridade</td><td>"17 anos revertendo negativas em todo o Brasil."</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- EXPERIÊNCIA 30s -->
+<section class="section-warm">
+  <div class="section-inner fade-up">
+    <p class="section-number">09 — Experiência de Marca</p>
+    <h2>Primeiros 30 Segundos</h2>
+    <p style="margin-bottom: 2rem;">Ao conhecer a Barp.Hoff.Costa, o paciente deve sentir:</p>
+
+    <ol class="numbered-list">
+      <li><strong>Alívio</strong> — "Existe alguém que pode me ajudar."</li>
+      <li><strong>Confiança</strong> — "São especialistas nisso há 17 anos."</li>
+      <li><strong>Urgência resolvida</strong> — "Posso falar com eles agora mesmo pelo WhatsApp."</li>
+      <li><strong>Segurança</strong> — "Já ajudaram milhares de pessoas como eu."</li>
+      <li><strong>Acolhimento</strong> — "Eles entendem o que estou passando."</li>
+    </ol>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- IDENTIDADE VISUAL -->
+<section class="section-dark" id="visual">
+  <div class="section-inner fade-up">
+    <p class="section-number">10 — Identidade Visual</p>
+    <h2>Diretrizes Simbólicas</h2>
+
+    <h3 style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 2.5rem 0 1.5rem;">Paleta de Cores</h3>
+
+    <div class="swatch-row" style="justify-content: center;">
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #994B4B;"></div>
+        <span class="swatch-name">Vinho (Primary)</span>
+        <span class="swatch-hex">#994B4B</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #D5BE9F;"></div>
+        <span class="swatch-name">Dourado (Accent)</span>
+        <span class="swatch-hex">#D5BE9F</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #000000;"></div>
+        <span class="swatch-name">Preto (Text)</span>
+        <span class="swatch-hex">#000000</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #FFFFFF; border-color: rgba(153,75,75,0.3);"></div>
+        <span class="swatch-name">Branco (Secondary)</span>
+        <span class="swatch-hex">#FFFFFF</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #CACACA;"></div>
+        <span class="swatch-name">Cinza</span>
+        <span class="swatch-hex">#CACACA</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: linear-gradient(79.05deg, #994B4B -10%, #EFBF78 20.71%, #994B4B 99%);"></div>
+        <span class="swatch-name">Gradient Principal</span>
+        <span class="swatch-hex">.degradebarp</span>
+      </div>
+    </div>
+
+    <table class="brand-table" style="margin-top: 2rem;">
+      <thead><tr><th>Cor</th><th>Significado Simbólico</th></tr></thead>
+      <tbody>
+        <tr><td style="color: #D5BE9F;">Vinho (#994B4B)</td><td>Saúde e advocacia. O vermelho contido que não grita, mas comunica urgência com elegância. Cor principal da marca.</td></tr>
+        <tr><td style="color: #D5BE9F;">Dourado (#D5BE9F)</td><td>Excelência, confiança, resultado. O dourado não é ostentação — é o selo de qualidade de 17 anos.</td></tr>
+        <tr><td style="color: #D5BE9F;">Preto (#000000)</td><td>Seriedade, leitura, presença. Texto body que transmite firmeza.</td></tr>
+        <tr><td style="color: #D5BE9F;">Branco (#FFFFFF)</td><td>Clareza, respiro, acessibilidade. Texto sobre fundo escuro e backgrounds claros.</td></tr>
+        <tr><td style="color: #D5BE9F;">Cinza (#CACACA)</td><td>Neutralidade, suporte. Elementos de apoio que não competem com a identidade.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 3rem 0 1.5rem;">Tipografia</h3>
+
+    <div class="grid-3">
+      <div class="card-dark">
+        <h4 style="font-family: 'Outfit'; font-size: 1.4rem;">MozaicGEO</h4>
+        <p>Títulos, hero, seções. Geométrica e premium. Modernidade sem perder seriedade.</p>
+      </div>
+      <div class="card-dark">
+        <h4 style="font-family: 'Inter'; font-size: 1.4rem; font-weight: 400;">Inter</h4>
+        <p>Body, interface, forms. Clareza máxima. A fonte que não atrapalha — só comunica.</p>
+      </div>
+      <div class="card-dark">
+        <h4 style="font-family: 'Prata', serif; font-size: 1.4rem; font-weight: 400;">Prata</h4>
+        <p>Citações, depoimentos. Serif elegante. Humaniza os momentos de emoção.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 3rem 0 1.5rem;">Elementos Visuais</h3>
+
+    <div class="grid-2">
+      <div class="card-dark">
+        <h4>Hexagons Pattern</h4>
+        <p>Estrutura, organização, rede de proteção. A forma mais eficiente da natureza — colmeias, moléculas, escudos.</p>
+      </div>
+      <div class="card-dark">
+        <h4>Gradient Dourado</h4>
+        <p>Evolução, caminho percorrido, resultado alcançado. Sugere transformação — de negativa a aprovação.</p>
+      </div>
+      <div class="card-dark">
+        <h4>Glow Radial</h4>
+        <p>Foco, luz, esperança. Indica que há uma saída — um caminho iluminado.</p>
+      </div>
+      <div class="card-dark">
+        <h4>Foto da Equipe</h4>
+        <p>Rostos reais, advogadas reais. Humaniza a marca e transmite confiança pessoal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section class="section" id="pilares">
+  <div class="fade-up">
+    <p class="section-number">11 — Pilares de Comunicação</p>
+    <h2>Pilares de Comunicação</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="color: var(--brand);">1. Educação</h4>
+        <p><strong>"Conheça seus direitos."</strong><br>Blog, artigos, posts. O paciente informado é o paciente empoderado.</p>
+      </div>
+      <div class="card">
+        <h4 style="color: var(--brand);">2. Autoridade</h4>
+        <p><strong>"17 anos revertendo negativas."</strong><br>Resultados, números, reviews. A prova de que funciona.</p>
+      </div>
+      <div class="card">
+        <h4 style="color: var(--brand);">3. Urgência</h4>
+        <p><strong>"A saúde não espera."</strong><br>CTAs diretos, WhatsApp, resposta rápida. O canal mais curto entre problema e solução.</p>
+      </div>
+      <div class="card">
+        <h4 style="color: var(--brand);">4. Empatia</h4>
+        <p><strong>"Sabemos da sua angústia."</strong><br>Depoimentos, atendimento humanizado, linguagem acessível.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ÁREAS -->
+<section class="section-warm">
+  <div class="section-inner fade-up">
+    <p class="section-number">12 — Território de Marca</p>
+    <h2>Áreas de Atuação</h2>
+
+    <table class="brand-table">
+      <thead><tr><th>Área</th><th>Posição</th><th>Keyword Principal</th></tr></thead>
+      <tbody>
+        <tr><td>Negativa de Plano de Saúde</td><td>Core (maior volume)</td><td>"plano de saúde negou"</td></tr>
+        <tr><td>Negativa do SUS</td><td>Core</td><td>"SUS negou tratamento"</td></tr>
+        <tr><td>Home Care</td><td>Especialidade</td><td>"home care plano de saúde"</td></tr>
+        <tr><td>Imunoterapia / Oncologia</td><td>Especialidade</td><td>"imunoterapia plano de saúde"</td></tr>
+        <tr><td>Cirurgias Reparadoras</td><td>Especialidade</td><td>"cirurgia negada plano"</td></tr>
+        <tr><td>Medicamentos de Alto Custo</td><td>Especialidade</td><td>"medicamento alto custo SUS"</td></tr>
+        <tr><td>Erro Médico / Indenizações</td><td>Secundária</td><td>"erro médico indenização"</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CLIENTE IDEAL -->
+<section class="section">
+  <div class="fade-up">
+    <p class="section-number">13 — Cliente Ideal</p>
+    <h2>Posicionamento de Cliente</h2>
+    <p class="lead">A marca é projetada para atrair:</p>
+
+    <ul class="brand-list">
+      <li><strong>Pacientes</strong> que tiveram tratamento, cirurgia ou medicamento negado pelo plano de saúde</li>
+      <li><strong>Familiares</strong> de pacientes que não sabem como agir diante de uma negativa</li>
+      <li><strong>Pessoas</strong> que precisam de medicamentos de alto custo pelo SUS e não conseguem</li>
+      <li><strong>Pacientes oncológicos</strong> que enfrentam barreiras para imunoterapia ou quimioterapia</li>
+      <li><strong>Idosos e cuidadores</strong> que precisam de home care e receberam negativa</li>
+      <li><strong>Qualquer pessoa no Brasil</strong> cujo direito à saúde foi violado</li>
+    </ul>
+
+    <div class="quote">
+      A Barp.Hoff.Costa não é um escritório para empresas.<br>É uma marca para pessoas que precisam de saúde e encontraram uma porta fechada.
+    </div>
+  </div>
+</section>
+
+<!-- DIRETRIZ FINAL -->
+<section class="manifesto" style="padding: 5rem 2rem;">
+  <div class="manifesto-inner fade-up">
+    <p class="section-number" style="color: var(--gold); margin-bottom: 2rem;">14 — Diretriz Final</p>
+
+    <p style="font-size: 1rem; color: rgba(255,255,255,0.5); margin-bottom: 2rem; font-family: 'Inter'; font-style: normal;">
+      A Barp.Hoff.Costa deve se manifestar como uma presença protetora e resolutiva, com urgência controlada, empatia genuína e autoridade técnica construída em 17 anos de especialização.
+    </p>
+
+    <p style="font-size: 1rem; color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; font-family: 'Inter'; font-style: normal;">
+      Toda comunicação, design e experiência devem refletir a premissa central:
+    </p>
+
+    <p class="tagline" style="font-size: clamp(1.5rem, 3.5vw, 2.2rem);">
+      Quando a saúde encontra uma porta fechada,<br>nós abrimos o caminho.
+    </p>
+
+    <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(196,169,125,0.1);">
+      <p style="font-family: 'Inter'; font-size: 0.7rem; color: rgba(255,255,255,0.25); letter-spacing: 0.15em; text-transform: uppercase; font-style: normal;">
+        Documento Confidencial — Barp.Hoff.Costa Advogados — Abril 2026
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Documento de referência da marca Barp.Hoff.Costa Advogados</p>
+</footer>
+
+<script>
+// Intersection Observer for fade-up animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

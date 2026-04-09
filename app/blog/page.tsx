@@ -5,9 +5,18 @@ import { blogPostsMeta as blogPosts } from '@/lib/blog-meta'
 import { getBlogThumbnail } from '@/lib/blog-thumbnails'
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Blog | Artigos sobre Direito da Saúde',
   description:
-    'Artigos e noticias sobre Direito da Saude. Acompanhe nosso blog e fique por dentro dos seus direitos.',
+    'Artigos e notícias sobre Direito da Saúde: negativa de plano de saúde, medicamentos pelo SUS, home care, imunoterapia e mais. Conheça seus direitos com advogados especialistas.',
+  keywords: ['blog direito da saúde', 'artigos plano de saúde', 'negativa plano de saúde', 'direitos do paciente', 'medicamento SUS', 'home care direitos'],
+  openGraph: {
+    title: 'Blog | Barp.Hoff. Advogados — Direito da Saúde',
+    description: 'Artigos e notícias sobre seus direitos em Direito da Saúde.',
+    type: 'website',
+    url: 'https://barphoff.com/blog',
+    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630 }],
+  },
+  alternates: { canonical: 'https://barphoff.com/blog' },
 }
 
 /* ------------------------------------------------------------------ */
@@ -63,7 +72,7 @@ export default function BlogPage() {
           priority
         />
         {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A]/85 via-[#1A1A1A]/75 to-[#2a0a0f]/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#994B4B]/85 via-[#994B4B]/75 to-[#994B4B]/90" />
         {/* Hexagon pattern overlay */}
         <div
           className="absolute inset-0 opacity-[0.15]"
@@ -75,7 +84,7 @@ export default function BlogPage() {
         {/* Gold radial glow */}
         <div className="hero-glow" />
         {/* Bottom vignette */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#2a0a0f]/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#994B4B]/60 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
           <span className="mb-4 inline-block rounded-full border border-[#D5BE9F]/30 bg-[#D5BE9F]/10 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#D5BE9F] backdrop-blur-sm">
@@ -134,7 +143,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="animate-on-scroll group relative overflow-hidden rounded-2xl border border-gray-200/60 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D5BE9F]/50 hover:shadow-[0_16px_48px_rgba(61,16,23,0.18)]"
+                className="animate-on-scroll group relative overflow-hidden rounded-2xl border border-gray-200/60 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D5BE9F]/50 hover:shadow-[0_16px_48px_rgba(153,75,75,0.18)]"
                 data-delay={String((i % 6) * 100)}
               >
                 {/* Post thumbnail — full image, no crop, card adapts */}
@@ -202,7 +211,7 @@ export default function BlogPage() {
           sizes="100vw"
         />
         {/* Dark maroon overlay */}
-        <div className="absolute inset-0 bg-[#2a0a0f]/88" />
+        <div className="absolute inset-0 bg-[#994B4B]/88" />
         {/* Hexagon SVG pattern */}
         <div
           className="absolute inset-0 opacity-[0.12]"

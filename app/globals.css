@@ -52,19 +52,30 @@
 }
 
 @layer components {
+  /* .degradebarp — gradient principal original WordPress */
   .gradient-text {
-    background: linear-gradient(135deg, #C9A96E 0%, #F0DBA8 35%, #D5BE9F 55%, #B8975A 80%, #E8C97A 100%);
+    background: linear-gradient(79.05deg, #994B4B -10%, #EFBF78 20.71%, #994B4B 99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.4);
   }
   .gradient-text-hero {
-    background: linear-gradient(135deg, #C9A96E 0%, #F0DBA8 35%, #D5BE9F 55%, #B8975A 80%, #E8C97A 100%);
+    background: linear-gradient(79.05deg, #994B4B -10%, #EFBF78 20.71%, #994B4B 99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.45)) drop-shadow(0 1px 0px rgba(197,163,100,0.3));
   }
+  /* gradient dourado puro — para usar sobre fundo vinho #994B4B */
+  .gradient-text-gold {
+    background: linear-gradient(135deg, #D5BE9F 0%, #EFBF78 50%, #D5BE9F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+  }
+  /* .degradebarp2 — gradient secundário original WordPress */
   .gradient-text-2 {
     background: linear-gradient(79.05deg, #994B4B -10%, #AF9879 20.71%, #994B4B 99%);
     -webkit-background-clip: text;
