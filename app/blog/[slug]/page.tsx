@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { blogPosts } from '@/lib/blog-data'
 import { getBlogThumbnail } from '@/lib/blog-thumbnails'
+import { categoryToArea } from '@/lib/category-to-area'
 
 /* ------------------------------------------------------------------ */
 /*  Static params for all slugs                                        */
@@ -209,6 +210,17 @@ export default function BlogPostPage({
     .slice(0, 3)
 
   /* ---------------------------------------------------------------- */
+  /*  Optimize <img> tags in HTML content: lazy-load + async decode   */
+  /* ---------------------------------------------------------------- */
+  const optimizedContent = post.content.replace(
+    /<img\s+([^>]*?)\/?>/gi,
+    (match, attrs) => {
+      if (/loading\s*=/i.test(attrs)) return match
+      return `<img ${attrs} loading="lazy" decoding="async" />`
+    },
+  )
+
+  /* ---------------------------------------------------------------- */
   /*  Extract FAQ from H3 headings that are questions                 */
   /* ---------------------------------------------------------------- */
   const faqItems: { question: string; answer: string }[] = []
@@ -318,27 +330,16 @@ export default function BlogPostPage({
       {/* ============================================================ */}
       <section className="bg-gray-50 py-12">
         <div className="mx-auto max-w-3xl px-4">
-          {/* Back link */}
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-medium text-brand transition-colors hover:text-brand-dark"
-          >
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-              />
-            </svg>
-            Voltar para o blog
-          </Link>
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="text-sm text-gray-500">
+            <ol className="flex items-center gap-1.5">
+              <li><Link href="/" className="hover:text-brand transition-colors">Início</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/blog" className="hover:text-brand transition-colors">Blog</Link></li>
+              <li aria-hidden="true">/</li>
+              <li className="truncate max-w-[240px] text-gray-900 font-medium">{post.title}</li>
+            </ol>
+          </nav>
 
           {/* Category badges */}
           <div className="mt-6 flex flex-wrap gap-2">
@@ -369,10 +370,40 @@ export default function BlogPostPage({
         <div className="mx-auto max-w-3xl px-4">
           <div
             className="blog-content"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: optimizedContent }}
           />
         </div>
       </section>
+
+      {/* ============================================================ */}
+      {/* 2b. INTERNAL LINKS — blog → practice areas                   */}
+      {/* ============================================================ */}
+      {(() => {
+        const areas = [...new Set(
+          post.categories
+            .map((cat) => categoryToArea[cat])
+            .filter(Boolean)
+            .map((a) => JSON.stringify(a))
+        )].map((s) => JSON.parse(s) as { label: string; href: string })
+
+        return areas.length > 0 ? (
+          <section className="bg-white pb-8">
+            <div className="mx-auto max-w-3xl px-4">
+              <p className="text-sm text-gray-500">
+                Saiba mais sobre nossos serviços:{' '}
+                {areas.map((area, i) => (
+                  <span key={area.href}>
+                    {i > 0 && ' · '}
+                    <Link href={area.href} className="text-brand font-medium hover:underline">
+                      {area.label}
+                    </Link>
+                  </span>
+                ))}
+              </p>
+            </div>
+          </section>
+        ) : null
+      })()}
 
       {/* ============================================================ */}
       {/* 3. CTA SECTION                                               */}

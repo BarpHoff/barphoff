@@ -8,7 +8,7 @@ const nextConfig = {
       {
         source: '/',
         destination: '/negativa-cirurgia',
-        permanent: false,
+        permanent: true,
       },
     ]
   },

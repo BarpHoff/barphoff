@@ -9,8 +9,16 @@ export const metadata: Metadata = {
     title: 'Quem Somos | Barp.Hoff.Costa Advogados',
     description: 'Conheça o escritório referência em Direito da Saúde com mais de 17 anos de experiência.',
     url: 'https://barphoff.com/sobre',
+    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
   },
   alternates: { canonical: 'https://barphoff.com/sobre' },
+  keywords: [
+    'quem somos Barp Hoff',
+    'advogados direito da saúde Foz do Iguaçu',
+    'escritório advocacia saúde Brasil',
+    'Dra Alexandra Barp',
+    'Dra Jessica Hoff',
+  ],
 }
 
 /* ------------------------------------------------------------------ */

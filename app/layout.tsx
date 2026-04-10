@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 /* ------------------------------------------------------------------ */
 /*  JSON-LD Structured Data — Organization + LegalService              */
 /* ------------------------------------------------------------------ */
-const organizationSchema = {
+const siteSchema = {
   '@context': 'https://schema.org',
   '@type': ['LegalService', 'Organization'],
   '@id': 'https://barphoff.com/#organization',
@@ -119,6 +119,12 @@ const organizationSchema = {
     opens: '08:00',
     closes: '18:00',
   },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '47',
+    bestRating: '5',
+  },
   sameAs: [
     'https://www.instagram.com/saudebhc/',
     'https://www.facebook.com/barphoff',
@@ -151,43 +157,6 @@ const organizationSchema = {
   },
 }
 
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LegalService',
-  '@id': 'https://barphoff.com/#localbusiness',
-  name: 'Barp.Hoff.Costa Advogados',
-  image: 'https://barphoff.com/assets/images/equipe.jpg',
-  telephone: '+55-45-3027-3100',
-  email: 'advogados.bhc@gmail.com',
-  url: 'https://barphoff.com',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'R. Mal. Floriano Peixoto, 1756 - sala 02',
-    addressLocality: 'Foz do Iguaçu',
-    addressRegion: 'PR',
-    postalCode: '85851-020',
-    addressCountry: 'BR',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: -25.5163,
-    longitude: -54.5854,
-  },
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-    opens: '08:00',
-    closes: '18:00',
-  },
-  priceRange: '$$',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '47',
-    bestRating: '5',
-  },
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -199,12 +168,7 @@ export default function RootLayout({
         {/* Organization + LegalService Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        {/* LocalBusiness Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
         />
         <Header />
         <main>{children}</main>

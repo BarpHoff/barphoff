@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { blogPosts } from '@/lib/blog-data'
 
 /* ------------------------------------------------------------------ */
 /*  Metadata                                                          */
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     title: 'Áreas de Atuação | Barp.Hoff. Advogados — Direito da Saúde',
     description: 'Negativas de plano de saúde e SUS, home care, oncologia, cirurgias e medicamentos de alto custo.',
     url: 'https://barphoff.com/areas-de-atuacao',
+    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
   },
   alternates: { canonical: 'https://barphoff.com/areas-de-atuacao' },
 }
@@ -65,6 +67,25 @@ const practiceAreas = [
     image: '/assets/areas/revisao-valores.jpg',
   },
 ]
+
+/* ------------------------------------------------------------------ */
+/*  Area → blog category mapping (for internal links)                 */
+/* ------------------------------------------------------------------ */
+const areaToBlogCategory: Record<string, string[]> = {
+  '/negativa-do-sus': ['SUS'],
+  '/negativa-plano-de-saude': ['Planos de Saúde'],
+  '/home-care': ['Home Care'],
+  '/tratamento-oncologico': ['Tratamentos'],
+  '/negativa-cirurgia': ['Cirurgias'],
+  '/medicamento-alto-custo': ['Medicamentos'],
+}
+
+function getRelatedPosts(areaHref: string) {
+  const cats = areaToBlogCategory[areaHref] || []
+  return blogPosts
+    .filter((p) => p.categories.some((c) => cats.includes(c)))
+    .slice(0, 2)
+}
 
 /* ------------------------------------------------------------------ */
 /*  WhatsApp SVG icon                                                 */
@@ -192,6 +213,28 @@ export default function AreasDeAtuacaoPage() {
                     Saiba mais
                     <span aria-hidden="true">&rarr;</span>
                   </Link>
+
+                  {/* Related blog posts */}
+                  {(() => {
+                    const related = getRelatedPosts(area.href)
+                    return related.length > 0 ? (
+                      <div className="mt-4 border-t border-gray-100 pt-3">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">No blog</p>
+                        <ul className="mt-1.5 space-y-1">
+                          {related.map((rp) => (
+                            <li key={rp.slug}>
+                              <Link
+                                href={`/blog/${rp.slug}`}
+                                className="text-sm text-gray-600 hover:text-brand transition-colors line-clamp-1"
+                              >
+                                {rp.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null
+                  })()}
                 </div>
               </div>
             ))}

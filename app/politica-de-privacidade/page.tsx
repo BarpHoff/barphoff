@@ -4,6 +4,12 @@ export const metadata: Metadata = {
   title: 'Política de Privacidade',
   description: 'Política de privacidade do site Barp.Hoff.Costa Advogados (barphoff.com). Saiba como tratamos seus dados pessoais conforme a LGPD.',
   robots: { index: false, follow: true },
+  openGraph: {
+    title: 'Política de Privacidade | Barp.Hoff.',
+    description: 'Política de privacidade do site Barp.Hoff.Costa Advogados conforme a LGPD.',
+    url: 'https://barphoff.com/politica-de-privacidade',
+    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
+  },
   alternates: { canonical: 'https://barphoff.com/politica-de-privacidade' },
 }
 

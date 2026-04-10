@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     title: 'Contato | Barp.Hoff. Advogados',
     description: 'Fale com advogados especialistas em Direito da Saúde. Atendimento em todo o Brasil.',
     url: 'https://barphoff.com/contato',
+    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
   },
   alternates: { canonical: 'https://barphoff.com/contato' },
 }

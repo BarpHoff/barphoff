@@ -228,7 +228,7 @@ export default function HomePage() {
         {/* Team photo — absolute bottom-right */}
         <div className="absolute bottom-0 right-0 w-[46%] lg:w-[50%] xl:w-[52%] pointer-events-none">
           <Image
-            src="/assets/foto_equipe.png"
+            src="/assets/foto_equipe.webp"
             alt="Dra. Alexandra Barp e Dra. Jessica Hoff — advogadas especialistas em Direito da Saúde"
             width={720}
             height={860}

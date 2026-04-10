@@ -226,6 +226,9 @@ export function Footer() {
       <div className="relative z-10 bg-black/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-white/80">
           <p>&copy; BARP.HOFF Advocacia Especializada | Todos os direitos reservados.</p>
+          <Link href="/politica-de-privacidade" className="hover:text-white transition-colors">
+            Política de Privacidade
+          </Link>
           <a
             href="https://api.whatsapp.com/send?phone=5521977266062"
             target="_blank"
