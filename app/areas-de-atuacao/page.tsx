@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { blogPosts } from '@/lib/blog-data'
+import { blogPostsMeta as blogPosts } from '@/lib/blog-meta'
 
 /* ------------------------------------------------------------------ */
 /*  Metadata                                                          */

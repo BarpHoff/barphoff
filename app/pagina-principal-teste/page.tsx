@@ -120,39 +120,47 @@ export default function HomePage() {
       {/* 1. HERO SECTION — Two-column with team photo                 */}
       {/* ============================================================ */}
       {/* ---- MOBILE HERO (visible < md) ---- */}
-      <section className="md:hidden" style={{ backgroundColor: '#994B4B' }}>
-        {/* Team photo at the top — normal flow, not absolute */}
+      <section className="md:hidden relative" style={{ background: '#1e1010' }}>
+        {/* Team photo fills hero */}
         <div className="relative w-full">
           <Image
-            src="/assets/images/banner-mob.jpg"
-            alt="Barp.Hoff. Advogados — especialistas em Direito da Saúde"
-            width={800}
-            height={600}
-            className="w-full h-auto object-cover"
+            src="/assets/foto_equipe.webp"
+            alt="Dra. Alexandra Barp e Dra. Jessica Hoff — advogadas especialistas em Direito da Saúde"
+            width={720}
+            height={860}
+            className="w-full h-auto object-contain"
             priority
             sizes="100vw"
           />
-          {/* Gradient fade at bottom of image into dark bg */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#994B4B] to-transparent" />
+          {/* Gradient overlay: bottom fades to dark */}
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0"
+            style={{ height: '60%', background: 'linear-gradient(to bottom, transparent 0%, rgba(30,16,16,0.75) 40%, #1e1010 80%)' }}
+          />
+          {/* Pattern overlay (same as desktop hero) */}
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.06]"
+            style={{ backgroundImage: 'url(/assets/images/pattern.png)', backgroundRepeat: 'repeat' }}
+          />
+          {/* Title overlaid lower in photo */}
+          <div className="absolute inset-x-0 bottom-0 px-6 pb-3 text-center">
+            <h1
+              className="gradient-text-gold font-heading text-[28px] font-bold leading-[1.2] sm:text-[36px]"
+              style={{ WebkitFontSmoothing: 'antialiased' }}
+            >
+              Advogados especialistas em Direito da Saúde
+            </h1>
+          </div>
         </div>
 
-        {/* Text block below the photo */}
-        <div className="px-6 pb-10 -mt-8 relative z-10 text-center">
-          <h1
-            className="font-heading text-[28px] font-bold leading-[1.15] sm:text-[36px]"
-            style={{ WebkitFontSmoothing: 'antialiased' }}
-          >
-            <span className="gradient-text-gold">
-              Advogados especialistas em Direito da Saúde
-            </span>
-          </h1>
-
-          <p className="mt-5 text-base leading-relaxed text-white/90 sm:text-lg">
+        {/* Subtitle + CTA below photo */}
+        <div className="px-6 pb-10 pt-4 text-center">
+          <p className="text-base leading-relaxed text-gray-300 sm:text-lg">
             Há 17 anos garantindo o seu acesso a tratamentos, medicamentos e
             procedimentos negados pelo SUS ou plano de saúde.
           </p>
 
-          <p className="mt-3 text-base font-bold text-[#D5BE9F] sm:text-lg">
+          <p className="mt-3 text-base font-bold sm:text-lg" style={{ color: '#EFBF78' }}>
             Atendemos em todo o Brasil.
           </p>
 
@@ -160,7 +168,8 @@ export default function HomePage() {
             href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-whatsapp mt-7 inline-flex"
+            className="btn-whatsapp btn-pulse mt-6 inline-flex"
+            style={{ padding: '12px 24px', fontSize: '15px' }}
           >
             <WhatsAppIcon />
             Fale agora com nossos advogados
@@ -329,7 +338,7 @@ export default function HomePage() {
                 data-delay={String(i * 100)}
               >
                 {/* Card image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 sm:h-48 overflow-hidden">
                   <Image
                     src={area.image}
                     alt={area.title}
