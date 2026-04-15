@@ -69,19 +69,64 @@ const galleryImages = [
   { src: '/assets/01 (5).jpg', alt: 'Interior do escritório Barp.Hoff. - Detalhe' },
   { src: '/assets/01 (6).jpg', alt: 'Interior do escritório Barp.Hoff. - Fachada' },
   { src: '/assets/images/escritorio.jpg', alt: 'Escritório Barp.Hoff.' },
-  { src: '/assets/consulting_image.webp', alt: 'Sala de consultoria do escritório Barp.Hoff.' },
 ]
 
 /* ================================================================== */
 /*  SOBRE (ABOUT) PAGE                                                 */
 /* ================================================================== */
+const sobreBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://barphoff.com' },
+    { '@type': 'ListItem', position: 2, name: 'Quem Somos', item: 'https://barphoff.com/sobre' },
+  ],
+}
+
+const sobreFaqs = [
+  {
+    q: 'Há quanto tempo o escritório atua em Direito da Saúde?',
+    a: 'O Barp.Hoff.Costa Advogados atua há mais de 17 anos com especialização exclusiva em Direito da Saúde, acumulando milhares de casos favoráveis envolvendo negativas de planos de saúde e do SUS em todo o Brasil.',
+  },
+  {
+    q: 'O escritório atende apenas em Foz do Iguaçu?',
+    a: 'Não. A sede física fica em Foz do Iguaçu/PR, mas o atendimento é 100% online e nossos advogados atuam em processos em todos os estados do Brasil.',
+  },
+  {
+    q: 'Quem são as advogadas responsáveis?',
+    a: 'As sócias Dra. Alexandra Barp e Dra. Jessica Hoff, ambas inscritas na OAB/PR, são especialistas em Direito da Saúde e conduzem pessoalmente os casos, com apoio de equipe dedicada.',
+  },
+  {
+    q: 'Quais áreas o escritório domina?',
+    a: 'Negativa de plano de saúde, medicamentos de alto custo pelo SUS, tratamento home care, imunoterapia, cirurgias reparadoras, tratamento oncológico e revisão e restituição de mensalidades de planos.',
+  },
+]
+
+const sobreFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sobreFaqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}
+
 export default function SobrePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sobreBreadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sobreFaqSchema) }}
+      />
       {/* ============================================================ */}
       {/* 1. HERO BANNER                                               */}
       {/* ============================================================ */}
-      <section className="relative flex h-[400px] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[480px] items-center justify-center overflow-hidden">
         <Image
           src="/assets/images/equipe.jpg"
           alt="Equipe Barp.Hoff. Advogados"
@@ -90,16 +135,86 @@ export default function SobrePage() {
           priority
           sizes="100vw"
         />
-        {/* Rose-tinted overlay */}
-        <div className="absolute inset-0 bg-brand/60" />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#994B4B]/85 via-[#994B4B]/75 to-[#994B4B]/90" />
+        {/* Hexagon pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.3)' stroke-width='1'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
+        />
+        {/* Gold radial glow */}
+        <div className="hero-glow" />
+        {/* Bottom vignette */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#994B4B]/60 to-transparent" />
 
-        <div className="relative z-10 text-center">
-          <span className="text-sm font-normal uppercase tracking-[0.25em] text-white/90">
-            CONHE&Ccedil;A
+        <div className="relative z-10 mx-auto max-w-5xl px-4 text-center">
+          {/* Top ornamental divider with diamond */}
+          <div className="flex items-center justify-center gap-4">
+            <span className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#D5BE9F]/60" />
+            <svg className="h-3 w-3 text-[#D5BE9F]" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+              <path d="M6 0l3 6-3 6-3-6z" />
+            </svg>
+            <span className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#D5BE9F]/60" />
+          </div>
+
+          <span className="mt-4 inline-block text-[0.7rem] font-semibold uppercase tracking-[0.4em] text-[#D5BE9F]">
+            Escrit&oacute;rio de Advocacia
           </span>
-          <h1 className="mt-2 font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-            A BARP.HOFF.
+
+          {/* Main title — dramatic split layout */}
+          <h1 className="mt-3 font-heading uppercase leading-[0.95]">
+            <span className="block text-sm font-light tracking-[0.3em] text-white/80 md:text-base">
+              A
+            </span>
+            <span
+              className="gradient-text-hero mt-1 block text-6xl font-extrabold tracking-wide md:text-7xl lg:text-8xl"
+              style={{
+                WebkitTextStroke: '1px rgba(255,255,255,0.85)',
+                paintOrder: 'stroke fill',
+              }}
+            >
+              Barp.Hoff.
+            </span>
           </h1>
+
+          {/* Bottom ornamental divider */}
+          <div className="mt-5 flex items-center justify-center gap-3">
+            <span className="h-[1px] w-24 bg-gradient-to-r from-transparent to-[#D5BE9F]" />
+            <span className="text-xs uppercase tracking-[0.3em] text-[#D5BE9F]">Costa Advogados</span>
+            <span className="h-[1px] w-24 bg-gradient-to-l from-transparent to-[#D5BE9F]" />
+          </div>
+
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
+            Defendemos o seu direito &agrave; sa&uacute;de com empatia,
+            efici&ecirc;ncia e atendimento humanizado em todo o Brasil.
+          </p>
+
+          {/* Stats row */}
+          <div className="mx-auto mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-white/90">
+            <div className="flex items-center gap-2">
+              <span className="font-heading text-2xl font-bold text-[#D5BE9F]">17+</span>
+              <span className="text-xs uppercase tracking-wider">anos de atua&ccedil;&atilde;o</span>
+            </div>
+            <span className="hidden h-6 w-[1px] bg-white/20 md:block" />
+            <div className="flex items-center gap-2">
+              <span className="font-heading text-2xl font-bold text-[#D5BE9F]">5.0</span>
+              <span className="flex text-[#D5BE9F]">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </span>
+            </div>
+            <span className="hidden h-6 w-[1px] bg-white/20 md:block" />
+            <div className="flex items-center gap-2">
+              <span className="font-heading text-2xl font-bold text-[#D5BE9F]">Brasil</span>
+              <span className="text-xs uppercase tracking-wider">atua&ccedil;&atilde;o nacional</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -108,51 +223,102 @@ export default function SobrePage() {
       {/* ============================================================ */}
       <section className="bg-white py-20">
         <div className="mx-auto max-w-7xl px-4">
-          {/* Bold introductory statement */}
-          <p className="animate-on-scroll mx-auto max-w-5xl text-center font-heading text-xl font-bold leading-relaxed text-gray-900 md:text-2xl">
+
+          {/* Intro centrado */}
+          <p className="mx-auto max-w-4xl text-center font-heading text-xl font-bold leading-relaxed text-gray-900 md:text-2xl">
             Com mais de 17 anos de experi&ecirc;ncia em direito especializado
             &agrave; sa&uacute;de, o BARP. HOFF. tem uma equipe dedicada a
             oferecer um atendimento personalizado e humanizado em todo o Brasil.
           </p>
 
-          {/* Two-column body text */}
-          <div className="mt-12 grid gap-10 md:grid-cols-2">
-            <div className="animate-on-scroll">
-              <p className="leading-relaxed text-gray-600">
-                Entendemos que, quando o assunto &eacute; sa&uacute;de, cada
-                caso exige solu&ccedil;&otilde;es espec&iacute;ficas. &Eacute;
-                por isso que nos comprometemos a compreender profundamente a
-                situa&ccedil;&atilde;o de cada cliente, proporcionando
-                orienta&ccedil;&otilde;es claras e acess&iacute;veis, sem
-                juridiqu&ecirc;s. Com respostas r&aacute;pidas e um
-                servi&ccedil;o 100% online, estamos prontos para atender
-                voc&ecirc; de qualquer lugar do Brasil. N&atilde;o &eacute;
-                necess&aacute;rio agendar, basta acessar nosso atendimento para
-                iniciar o processo imediatamente.
+          {/* 3 cards de diferenciais */}
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {/* Card 1 — Linguagem Clara */}
+            <div className="rounded-2xl border border-gray-100 bg-gray-50 p-8 shadow-sm">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand/10">
+                <svg className="h-6 w-6 text-brand" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                </svg>
+              </div>
+              <h3 className="font-heading text-lg font-bold text-gray-900">
+                Linguagem que Voc&ecirc; Entende
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Al&eacute;m de solucionar os seus problemas, n&oacute;s te
+                explicamos a situa&ccedil;&atilde;o usando a linguagem que
+                voc&ecirc; entende — sem juridiqu&ecirc;s.
               </p>
             </div>
-            <div className="animate-on-scroll" data-delay="200">
-              <p className="leading-relaxed text-gray-600">
-                Mais do que profissionais, somos parceiros emp&aacute;ticos que
-                treinam todos os dias para oferecer o melhor servi&ccedil;o
-                poss&iacute;vel. A hist&oacute;ria do Escrit&oacute;rio de
-                Advocacia BARP. HOFF. come&ccedil;ou com uma m&atilde;e que
-                buscava um medicamento de alto custo, para tratamento da filha
-                de apenas dois anos de idade, diagnosticada com Displasia
-                Fibrosa Poliost&oacute;tica, uma doen&ccedil;a rara nos ossos.
-                Isso nos motivou a evoluir e especializar no Direito &agrave;
-                Sa&uacute;de. Ap&oacute;s seis anos da conquista do medicamento,
-                a filha &eacute; uma menina saud&aacute;vel e feliz.
+
+            {/* Card 2 — Atendimento Imediato */}
+            <div className="rounded-2xl border border-gray-100 bg-gray-50 p-8 shadow-sm">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10">
+                <svg className="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                </svg>
+              </div>
+              <h3 className="font-heading text-lg font-bold text-gray-900">
+                Atendimento Imediato
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Reconhecemos a urg&ecirc;ncia. Iniciamos o atendimento online
+                sem agendamento, de qualquer lugar do Brasil. Com prazo real
+                e equipe altamente qualificada.
+              </p>
+            </div>
+
+            {/* Card 3 — Equipe Empática */}
+            <div className="rounded-2xl border border-gray-100 bg-gray-50 p-8 shadow-sm">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-taupe/10">
+                <svg className="h-6 w-6 text-taupe" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+              </div>
+              <h3 className="font-heading text-lg font-bold text-gray-900">
+                Equipe Emp&aacute;tica
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                Nossos advogados se atualizam diariamente e sentem empatia
+                pelos clientes, oferecendo o melhor direcionamento, efic&aacute;cia
+                e solu&ccedil;&atilde;o poss&iacute;vel.
               </p>
             </div>
           </div>
 
-          {/* Closing bold statement */}
-          <p className="animate-on-scroll mt-12 mx-auto max-w-5xl text-center font-heading text-lg font-bold leading-relaxed text-gray-900 md:text-xl">
-            Esse &eacute; o esp&iacute;rito do BARP.HOFF.: um atendimento 100%
-            personalizado, onde cada cliente &eacute; tratado com a mesma
-            dedica&ccedil;&atilde;o e cuidado que ter&iacute;amos com um
-            familiar.
+          {/* Seção da História — fundo escuro com pattern */}
+          <div className="relative mt-16 overflow-hidden rounded-3xl bg-brand-dark">
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.06]"
+              style={{ backgroundImage: 'url(/assets/images/pattern.png)', backgroundRepeat: 'repeat' }}
+            />
+            {/* Gold top accent */}
+            <div className="absolute left-0 right-0 top-0 h-[3px]" style={{ background: 'linear-gradient(90deg, transparent, #D5BE9F, transparent)' }} />
+
+            <div className="relative z-10 px-8 py-12 md:px-16">
+              <span className="text-xs font-normal uppercase tracking-[0.25em] text-gold/70">
+                NOSSA HIST&Oacute;RIA
+              </span>
+              <blockquote className="mt-4 font-heading text-xl leading-relaxed text-white md:text-2xl">
+                &ldquo;A especializa&ccedil;&atilde;o em Direito &agrave; Sa&uacute;de
+                em nosso escrit&oacute;rio surgiu quando uma m&atilde;e nos procurou
+                para obter um medicamento de alto custo para sua filha de apenas dois
+                anos, portadora de Displasia Fibrosa Poliost&oacute;tica — uma
+                doen&ccedil;a rara nos ossos.&rdquo;
+              </blockquote>
+              <p className="mt-5 leading-relaxed text-white/70">
+                Aquela situa&ccedil;&atilde;o nos sensibilizou. Ap&oacute;s seis anos
+                da conquista do medicamento, ver a crian&ccedil;a se desenvolvendo com
+                qualidade de vida &eacute; — e sempre ser&aacute; — nosso maior
+                combust&iacute;vel.
+              </p>
+            </div>
+          </div>
+
+          {/* Closing */}
+          <p className="mx-auto mt-14 max-w-4xl text-center font-heading text-lg font-bold leading-relaxed text-brand md:text-xl">
+            Queremos proporcionar o mesmo para voc&ecirc;! O atendimento &eacute;
+            100% personalizado e tudo o que queremos &eacute; te ver feliz e
+            com qualidade de vida.
           </p>
         </div>
       </section>
@@ -164,7 +330,7 @@ export default function SobrePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
             {/* Missao */}
-            <div className="animate-on-scroll rounded-2xl border-t-4 border-brand bg-white p-8 shadow-md">
+            <div className="rounded-2xl border-t-4 border-brand bg-white p-8 shadow-md">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-brand/10">
                 <svg className="h-6 w-6 text-brand" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -180,7 +346,7 @@ export default function SobrePage() {
             </div>
 
             {/* Visao */}
-            <div className="animate-on-scroll rounded-2xl border-t-4 border-gold bg-white p-8 shadow-md" data-delay="150">
+            <div className="rounded-2xl border-t-4 border-gold bg-white p-8 shadow-md">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gold/10">
                 <svg className="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
@@ -197,7 +363,7 @@ export default function SobrePage() {
             </div>
 
             {/* Valores */}
-            <div className="animate-on-scroll rounded-2xl border-t-4 border-taupe bg-white p-8 shadow-md" data-delay="300">
+            <div className="rounded-2xl border-t-4 border-taupe bg-white p-8 shadow-md">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-taupe/10">
                 <svg className="h-6 w-6 text-taupe" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -225,7 +391,7 @@ export default function SobrePage() {
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:max-w-4xl">
             {/* Card 1 – Dra. Alexandra Barp */}
-            <div className="animate-on-scroll group overflow-hidden rounded-2xl bg-gray-50 shadow-md transition-shadow hover:shadow-xl">
+            <div id="alexandra-barp" className="group overflow-hidden rounded-2xl bg-gray-50 shadow-md transition-shadow hover:shadow-xl">
               <div className="relative h-[400px] overflow-hidden">
                 <Image
                   src="/assets/team/dra-alexandra.jpg"
@@ -270,8 +436,8 @@ export default function SobrePage() {
 
             {/* Card 2 – Dra. Jessica Hoff */}
             <div
-              className="animate-on-scroll group overflow-hidden rounded-2xl bg-gray-50 shadow-md transition-shadow hover:shadow-xl"
-              data-delay="200"
+              id="jessica-hoff"
+              className="group overflow-hidden rounded-2xl bg-gray-50 shadow-md transition-shadow hover:shadow-xl"
             >
               <div className="relative h-[400px] overflow-hidden">
                 <Image
@@ -336,7 +502,7 @@ export default function SobrePage() {
           {/* Masonry-style asymmetric grid */}
           <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
             {/* Row 1 — large left (col-span-2) + standard right */}
-            <div className="animate-on-scroll relative col-span-2 aspect-[16/9] overflow-hidden rounded-xl">
+            <div className="relative col-span-2 aspect-[16/9] overflow-hidden rounded-xl">
               <Image
                 src={galleryImages[0].src}
                 alt={galleryImages[0].alt}
@@ -345,7 +511,7 @@ export default function SobrePage() {
                 sizes="(max-width: 768px) 100vw, 66vw"
               />
             </div>
-            <div className="animate-on-scroll relative aspect-square overflow-hidden rounded-xl" data-delay="100">
+            <div className="relative aspect-square overflow-hidden rounded-xl">
               <Image
                 src={galleryImages[1].src}
                 alt={galleryImages[1].alt}
@@ -356,7 +522,7 @@ export default function SobrePage() {
             </div>
 
             {/* Row 2 — three equal images */}
-            <div className="animate-on-scroll relative aspect-[4/3] overflow-hidden rounded-xl" data-delay="100">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
                 src={galleryImages[2].src}
                 alt={galleryImages[2].alt}
@@ -365,7 +531,7 @@ export default function SobrePage() {
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
             </div>
-            <div className="animate-on-scroll relative aspect-[4/3] overflow-hidden rounded-xl" data-delay="200">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
                 src={galleryImages[3].src}
                 alt={galleryImages[3].alt}
@@ -374,7 +540,7 @@ export default function SobrePage() {
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
             </div>
-            <div className="animate-on-scroll relative aspect-[4/3] overflow-hidden rounded-xl" data-delay="300">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
                 src={galleryImages[4].src}
                 alt={galleryImages[4].alt}
@@ -385,7 +551,7 @@ export default function SobrePage() {
             </div>
 
             {/* Row 3 — standard left + large right (col-span-2) */}
-            <div className="animate-on-scroll relative aspect-square overflow-hidden rounded-xl" data-delay="100">
+            <div className="relative aspect-square overflow-hidden rounded-xl">
               <Image
                 src={galleryImages[5].src}
                 alt={galleryImages[5].alt}
@@ -394,7 +560,7 @@ export default function SobrePage() {
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
             </div>
-            <div className="animate-on-scroll relative col-span-2 aspect-[16/9] overflow-hidden rounded-xl" data-delay="200">
+            <div className="relative col-span-2 aspect-[16/9] overflow-hidden rounded-xl">
               <Image
                 src={galleryImages[6].src}
                 alt={galleryImages[6].alt}
@@ -404,16 +570,29 @@ export default function SobrePage() {
               />
             </div>
 
-            {/* Bonus row — full-width consulting image */}
-            <div className="animate-on-scroll relative col-span-2 aspect-[21/9] overflow-hidden rounded-xl md:col-span-3" data-delay="100">
-              <Image
-                src={galleryImages[7].src}
-                alt={galleryImages[7].alt}
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
-                sizes="100vw"
-              />
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/* 5b. PERGUNTAS FREQUENTES                                     */}
+      {/* ============================================================ */}
+      <section className="bg-white py-20">
+        <div className="mx-auto max-w-3xl px-4">
+          <h2 className="section-title mb-8 text-center">Perguntas frequentes</h2>
+          <div className="space-y-4">
+            {sobreFaqs.map((item) => (
+              <details
+                key={item.q}
+                className="group rounded-xl border border-gray-200 bg-gray-50 p-5 open:bg-white open:shadow-sm"
+              >
+                <summary className="flex cursor-pointer items-center justify-between font-heading text-base font-bold text-gray-900">
+                  {item.q}
+                  <span className="ml-4 text-brand transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-gray-700">{item.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

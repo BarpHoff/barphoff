@@ -1,3 +1,7 @@
+/* === <picture> transparent to layout (fix for AVIF/WebP wrappers) === */
+/* Makes <picture> tags invisible to flex/grid so <img> behaves as if it were a direct child of parent containers. */
+picture { display: contents; }
+
 :root {
     /* === PALETA VINHO PREMIUM === */
     --bg: #ffffff;

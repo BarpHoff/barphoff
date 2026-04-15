@@ -179,6 +179,10 @@ const blogContentStyles = `
     transform: scale(1.03);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
+  .blog-content .wp-block-button__link,
+  .blog-content .wp-block-button__link * {
+    text-decoration: none !important;
+  }
 `
 
 /* ================================================================== */
@@ -239,29 +243,22 @@ export default function BlogPostPage({
   /* ---------------------------------------------------------------- */
   const articleSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': ['Article', 'LegalArticle'],
     headline: post.title,
     description: post.excerpt,
-    image: `https://barphoff.com${getBlogThumbnail(post.slug, post.categories)}`,
+    image: [`https://barphoff.com${getBlogThumbnail(post.slug, post.categories)}`],
     datePublished: post.date,
-    dateModified: post.date,
-    author: {
-      '@type': 'Organization',
-      name: 'Barp.Hoff.Costa Advogados',
-      url: 'https://barphoff.com',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Barp.Hoff.Costa Advogados',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://barphoff.com/assets/images/logo-branco-full.png',
-      },
-    },
+    dateModified: post.lastModified || post.date,
+    author: [
+      { '@id': 'https://barphoff.com/sobre#alexandra-barp' },
+      { '@id': 'https://barphoff.com/sobre#jessica-hoff' },
+    ],
+    publisher: { '@id': 'https://barphoff.com/#organization' },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `https://barphoff.com/blog/${post.slug}`,
     },
+    inLanguage: 'pt-BR',
     articleSection: post.categories[0] || 'Direito da Saúde',
     keywords: post.categories.join(', '),
   }
@@ -360,6 +357,30 @@ export default function BlogPostPage({
 
           {/* Date */}
           <p className="mt-4 text-sm text-gray-500">{formatDate(post.date)}</p>
+
+          {/* Byline */}
+          <p className="mt-1 text-sm text-gray-600">
+            Por{' '}
+            <Link href="/sobre#alexandra-barp" className="font-medium text-brand hover:underline">
+              Dra. Alexandra Barp
+            </Link>
+            {' e '}
+            <Link href="/sobre#jessica-hoff" className="font-medium text-brand hover:underline">
+              Dra. Jessica Hoff
+            </Link>
+          </p>
+
+          {/* Hero cover image */}
+          <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-xl shadow-md">
+            <Image
+              src={getBlogThumbnail(post.slug, post.categories)}
+              alt={post.title}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 

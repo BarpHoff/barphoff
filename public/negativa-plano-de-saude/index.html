@@ -58,6 +58,76 @@
             { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://barphoff.com/" },
             { "@type": "ListItem", "position": 2, "name": "Negativa de Plano de Saúde", "item": "https://barphoff.com/negativa-plano-de-saude" }
           ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://barphoff.com/negativa-plano-de-saude#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Preciso da negativa por escrito?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "É recomendável. Negativas formais facilitam a análise. Ainda assim, protocolos de atendimento, prints ou e-mails do plano também podem ser avaliados conforme o contexto."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quais documentos agilizam a análise?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "O pedido médico é o principal documento para iniciar a análise. Se houver outros documentos, nossa equipe orienta quais podem ajudar no seu caso."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Vocês atendem todo o Brasil?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. A atuação é nacional. O atendimento inicial é feito de forma online, e os casos podem ser protocolados em tribunais de todo o Brasil."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "O plano pode negar com base no rol da ANS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Entende-se que a definição do tratamento cabe ao médico assistente. A negativa pelo plano deve ser fundamentada tecnicamente e pode ser contestada. Cada caso exige análise individual."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Posso pedir reembolso?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Depende das circunstâncias. Em alguns casos, despesas realizadas por conta do paciente em razão de negativa do plano podem ser objeto de análise. É necessário avaliar a documentação específica."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quanto tempo leva a triagem inicial?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nossa equipe realiza a triagem inicial do seu caso e retorna prontamente pelo WhatsApp com a avaliação técnica sobre as possibilidades e as orientações para a sua situação."
+              }
+            }
+          ]
+        }
+,
+        {
+          "@type": "Service",
+          "@id": "https://barphoff.com/negativa-plano-de-saude#offer",
+          "name": "Ação contra negativa de plano de saúde",
+          "description": "Atuação jurídica contra recusa de cobertura de tratamentos, internações, cirurgias e medicamentos pelo plano de saúde.",
+          "serviceType": "Negativa de Plano de Saúde",
+          "provider": {
+            "@id": "https://barphoff.com/#organization"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+          },
+          "url": "https://barphoff.com/negativa-plano-de-saude"
         }
       ]
     }
@@ -88,8 +158,7 @@
         <div class="container header-content">
             <div class="logo">
                 <a href="/">
-                    <img src="/assets/logo-rosa.png" alt="Barphoff Advocacia Especializada" loading="eager"
-                        fetchpriority="high" style="display:block;">
+                    <picture><source srcset="/assets/logo-rosa.avif" type="image/avif"><source srcset="/assets/logo-rosa.webp" type="image/webp"><img alt="Barphoff Advocacia Especializada" loading="eager" fetchpriority="high" style="display:block;" width="300" height="45" decoding="async" src="/assets/logo-rosa.png"></picture>
                 </a>
             </div>
             <button class="btn btn-green btn-header" onclick="click_whatsapp()">
@@ -509,20 +578,20 @@
                 <div class="office-gallery reveal">
                     <div class="track">
                         <!-- Fotos Reais -->
-                        <img src="/assets/01%20(1).jpg" alt="Escritório BarpHoff - Recepção" loading="lazy">
-                        <img src="/assets/01%20(2).jpg" alt="Escritório BarpHoff - Sala de Reunião" loading="lazy">
-                        <img src="/assets/01%20(3).jpg" alt="Escritório BarpHoff - Corredor" loading="lazy">
-                        <img src="/assets/01%20(4).jpg" alt="Escritório BarpHoff - Reunião" loading="lazy">
-                        <img src="/assets/01%20(5).jpg" alt="Escritório BarpHoff - Detalhes" loading="lazy">
-                        <img src="/assets/01%20(6).jpg" alt="Escritório BarpHoff - Decoração" loading="lazy">
+                        <picture><source srcset="/assets/01%20(1).avif" type="image/avif"><source srcset="/assets/01%20(1).webp" type="image/webp"><img alt="Escritório BarpHoff - Recepção" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(1).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(2).avif" type="image/avif"><source srcset="/assets/01%20(2).webp" type="image/webp"><img alt="Escritório BarpHoff - Sala de Reunião" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(2).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(3).avif" type="image/avif"><source srcset="/assets/01%20(3).webp" type="image/webp"><img alt="Escritório BarpHoff - Corredor" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(3).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(4).avif" type="image/avif"><source srcset="/assets/01%20(4).webp" type="image/webp"><img alt="Escritório BarpHoff - Reunião" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(4).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(5).avif" type="image/avif"><source srcset="/assets/01%20(5).webp" type="image/webp"><img alt="Escritório BarpHoff - Detalhes" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(5).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(6).avif" type="image/avif"><source srcset="/assets/01%20(6).webp" type="image/webp"><img alt="Escritório BarpHoff - Decoração" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(6).jpg"></picture>
 
                         <!-- Duplicatas para o Loop Infinito (-50%) -->
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(1).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(2).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(3).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(4).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(5).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(6).jpg" alt="" loading="lazy">
+                        <picture><source srcset="/assets/01%20(1).avif" type="image/avif"><source srcset="/assets/01%20(1).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(1).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(2).avif" type="image/avif"><source srcset="/assets/01%20(2).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(2).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(3).avif" type="image/avif"><source srcset="/assets/01%20(3).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(3).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(4).avif" type="image/avif"><source srcset="/assets/01%20(4).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(4).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(5).avif" type="image/avif"><source srcset="/assets/01%20(5).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(5).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(6).avif" type="image/avif"><source srcset="/assets/01%20(6).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(6).jpg"></picture>
                     </div>
                 </div>
 
@@ -856,9 +925,7 @@
         <div class="container footer-grid" style="position:relative; z-index:2;">
             <div>
                 <div class="footer-brand">
-                    <img src="/assets/logo-rosa.png" alt="Barphoff Advocacia Especializada"
-                        style="height:44px; width:auto; filter: brightness(1.25) contrast(1.15); margin-bottom:1rem; display:block;"
-                        loading="lazy">
+                    <picture><source srcset="/assets/logo-rosa.avif" type="image/avif"><source srcset="/assets/logo-rosa.webp" type="image/webp"><img alt="Barphoff Advocacia Especializada" style="height:44px; width:auto; filter: brightness(1.25) contrast(1.15); margin-bottom:1rem; display:block;" loading="lazy" width="300" height="45" decoding="async" src="/assets/logo-rosa.png"></picture>
                 </div>
 
             </div>

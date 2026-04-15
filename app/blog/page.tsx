@@ -55,9 +55,40 @@ function WhatsAppIcon({ className = 'h-6 w-6' }: { className?: string }) {
 /* ================================================================== */
 /*  BLOG LISTING PAGE                                                  */
 /* ================================================================== */
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://barphoff.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://barphoff.com/blog' },
+  ],
+}
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': 'https://barphoff.com/blog#itemlist',
+  name: 'Artigos do blog Barp.Hoff.',
+  numberOfItems: blogPosts.length,
+  itemListElement: blogPosts.map((post, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `https://barphoff.com/blog/${post.slug}`,
+    name: post.title,
+  })),
+}
+
 export default function BlogPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       {/* ============================================================ */}
       {/* 1. HERO — Real image background + layered overlays            */}
       {/* ============================================================ */}
@@ -140,8 +171,7 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="animate-on-scroll group relative overflow-hidden rounded-2xl border border-gray-200/60 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D5BE9F]/50 hover:shadow-[0_16px_48px_rgba(153,75,75,0.18)]"
-                data-delay={String((i % 6) * 100)}
+                className="group relative overflow-hidden rounded-2xl border border-gray-200/60 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-[#D5BE9F]/50 hover:shadow-[0_16px_48px_rgba(153,75,75,0.18)]"
               >
                 {/* Post thumbnail — full image, no crop, card adapts */}
                 <div className="overflow-hidden">
@@ -152,6 +182,8 @@ export default function BlogPage() {
                     height={600}
                     className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={i < 3}
+                    loading={i < 3 ? 'eager' : 'lazy'}
                   />
                 </div>
 

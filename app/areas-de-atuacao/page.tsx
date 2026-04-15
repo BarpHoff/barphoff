@@ -133,9 +133,22 @@ function MedicalCrossIcon({ className = 'h-8 w-8' }: { className?: string }) {
 /* ================================================================== */
 /*  ÁREAS DE ATUAÇÃO PAGE                                             */
 /* ================================================================== */
+const areasBreadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://barphoff.com' },
+    { '@type': 'ListItem', position: 2, name: 'Áreas de Atuação', item: 'https://barphoff.com/areas-de-atuacao' },
+  ],
+}
+
 export default function AreasDeAtuacaoPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(areasBreadcrumbSchema) }}
+      />
       {/* ============================================================ */}
       {/* 1. HERO BANNER                                               */}
       {/* ============================================================ */}

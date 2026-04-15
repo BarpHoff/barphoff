@@ -18,77 +18,144 @@ export const metadata: Metadata = {
 /* ================================================================== */
 /*  CONTATO (CONTACT) PAGE                                             */
 /* ================================================================== */
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://barphoff.com' },
+    { '@type': 'ListItem', position: 2, name: 'Contato', item: 'https://barphoff.com/contato' },
+  ],
+}
+
+const contatoFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Vocês atendem em todo o Brasil?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sim. Nosso atendimento é 100% online e atende clientes em todos os estados do Brasil. A sede fica em Foz do Iguaçu/PR, mas processos tramitam em qualquer Tribunal do país.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'A consulta inicial é cobrada?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A análise inicial do seu caso é gratuita. Você envia os documentos pelo WhatsApp ou e-mail e um dos advogados avalia a viabilidade sem compromisso.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Qual o prazo para uma resposta?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Respondemos em horário comercial (seg a sex, 8h às 18h). Casos urgentes envolvendo negativa de cirurgia, medicamento ou internação têm prioridade e são respondidos no mesmo dia.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Como funciona o atendimento online?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Todo o contato ocorre por WhatsApp, e-mail e videochamada. Você envia a documentação digitalmente, assina contrato e procuração por link seguro, e acompanha o processo em tempo real.',
+      },
+    },
+  ],
+}
+
 export default function ContatoPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contatoFaqSchema) }}
+      />
       {/* ============================================================ */}
       {/* 1. HERO BANNER                                               */}
       {/* ============================================================ */}
-      <section className="relative flex h-[350px] items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[420px] items-center justify-center overflow-hidden">
         <Image
-          src="/assets/images/banner-barphoff.jpg"
-          alt="Contato Barp.Hoff. Advogados"
+          src="/assets/images/escritorio.jpg"
+          alt="Escritório Barp.Hoff. Advogados em Foz do Iguaçu"
           fill
           className="object-cover object-center"
           priority
           sizes="100vw"
         />
-        {/* Brand overlay */}
-        <div className="absolute inset-0 bg-brand/60" />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#994B4B]/85 via-[#994B4B]/75 to-[#994B4B]/90" />
+        {/* Hexagon pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 0 L60 15 L60 45 L30 60 L0 45 L0 15 Z' fill='none' stroke='rgba(196,169,125,0.3)' stroke-width='1'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
+        />
+        <div className="hero-glow" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#994B4B]/60 to-transparent" />
 
-        <div className="relative z-10 flex flex-col items-center text-center">
-          {/* Contact person icon */}
-          <svg
-            className="mb-4 h-16 w-16 text-white"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={1.5}
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-            />
-          </svg>
-          <h1 className="font-heading text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-            FALE CONOSCO
+        <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
+          <span className="mb-4 inline-block rounded-full border border-[#D5BE9F]/30 bg-[#D5BE9F]/10 px-5 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#D5BE9F] backdrop-blur-sm">
+            Contato
+          </span>
+          <h1 className="font-heading text-4xl font-extrabold uppercase tracking-wider md:text-5xl lg:text-6xl">
+            <span
+              className="gradient-text-hero"
+              style={{
+                WebkitTextStroke: '1px rgba(255,255,255,0.85)',
+                paintOrder: 'stroke fill',
+              }}
+            >
+              Fale Conosco
+            </span>
           </h1>
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/75">
+            Resposta r&aacute;pida em hor&aacute;rio comercial. Atendimento
+            100% online em todo o Brasil.
+          </p>
+          <div className="mx-auto mt-6 h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D5BE9F] to-transparent" />
         </div>
       </section>
 
       {/* ============================================================ */}
-      {/* 2. PHOTO STRIP                                               */}
+      {/* 2. PHOTO STRIP — borderless                                  */}
       {/* ============================================================ */}
       <section className="bg-gray-50 py-10">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md">
+        <div className="mx-auto max-w-5xl px-4">
+          <div className="grid grid-cols-3 gap-6 sm:gap-10">
+            <div className="relative aspect-[4/3]">
               <Image
                 src="/assets/contato/contato-1.png"
                 alt="Equipe Barp.Hoff - Atendimento especializado"
                 fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-contain"
+                sizes="(max-width: 640px) 33vw, 300px"
               />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md">
+            <div className="relative aspect-[4/3]">
               <Image
                 src="/assets/contato/contato-2.png"
                 alt="Consulta jurídica online"
                 fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-contain"
+                sizes="(max-width: 640px) 33vw, 300px"
               />
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md">
+            <div className="relative aspect-[4/3]">
               <Image
                 src="/assets/contato/contato-3.png"
                 alt="Atendimento personalizado"
                 fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-contain"
+                sizes="(max-width: 640px) 33vw, 300px"
               />
             </div>
           </div>
@@ -258,12 +325,52 @@ export default function ContatoPage() {
       </section>
 
       {/* ============================================================ */}
+      {/* 4b. PERGUNTAS FREQUENTES                                     */}
+      {/* ============================================================ */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-3xl px-4">
+          <h2 className="section-title mb-8 text-center">Perguntas frequentes</h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'Vocês atendem em todo o Brasil?',
+                a: 'Sim. Nosso atendimento é 100% online e atende clientes em todos os estados do Brasil. A sede fica em Foz do Iguaçu/PR, mas processos tramitam em qualquer Tribunal do país.',
+              },
+              {
+                q: 'A consulta inicial é cobrada?',
+                a: 'A análise inicial do seu caso é gratuita. Você envia os documentos pelo WhatsApp ou e-mail e um dos advogados avalia a viabilidade sem compromisso.',
+              },
+              {
+                q: 'Qual o prazo para uma resposta?',
+                a: 'Respondemos em horário comercial (seg a sex, 8h às 18h). Casos urgentes envolvendo negativa de cirurgia, medicamento ou internação têm prioridade e são respondidos no mesmo dia.',
+              },
+              {
+                q: 'Como funciona o atendimento online?',
+                a: 'Todo o contato ocorre por WhatsApp, e-mail e videochamada. Você envia a documentação digitalmente, assina contrato e procuração por link seguro, e acompanha o processo em tempo real.',
+              },
+            ].map((item) => (
+              <details
+                key={item.q}
+                className="group rounded-xl border border-gray-200 bg-gray-50 p-5 open:bg-white open:shadow-sm"
+              >
+                <summary className="flex cursor-pointer items-center justify-between font-heading text-base font-bold text-gray-900">
+                  {item.q}
+                  <span className="ml-4 text-brand transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-gray-700">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/* 5. GOOGLE MAPS EMBED                                         */}
       {/* ============================================================ */}
       <section>
         <iframe
-          title="Localização Barp.Hoff. Advogados"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.2!2d-54.588!3d-25.509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f690a7a4e7e6d1%3A0x3baa0f9a2f4e4b84!2sBarp.%20Hoff.%20%7C%20Advogadas%20da%20Sa%C3%BAde!5e0!3m2!1spt-BR!2sbr!4v1"
+          title="Localização Barp.Hoff. Advogados — R. Mal. Floriano Peixoto, 1756, Foz do Iguaçu - PR"
+          src="https://maps.google.com/maps?q=R.%20Mal.%20Floriano%20Peixoto%2C%201756%20-%20Centro%2C%20Foz%20do%20Igua%C3%A7u%20-%20PR%2C%2085851-020&t=m&z=16&output=embed&iwloc=near"
           width="100%"
           height="450"
           style={{ border: 0 }}

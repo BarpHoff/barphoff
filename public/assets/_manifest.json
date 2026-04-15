@@ -1,0 +1,358 @@
+{
+  "/assets/01 (1).jpg": {
+    "w": 600,
+    "h": 800
+  },
+  "/assets/01 (2).jpg": {
+    "w": 600,
+    "h": 800
+  },
+  "/assets/01 (3).jpg": {
+    "w": 600,
+    "h": 800
+  },
+  "/assets/01 (4).jpg": {
+    "w": 600,
+    "h": 800
+  },
+  "/assets/01 (5).jpg": {
+    "w": 600,
+    "h": 800
+  },
+  "/assets/01 (6).jpg": {
+    "w": 600,
+    "h": 800
+  },
+  "/assets/areas/bariatrica.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/cancer-de-mama.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/cirurgia-reparadora-orig.jpg": {
+    "w": 1024,
+    "h": 576
+  },
+  "/assets/areas/cirurgia-reparadora.jpg": {
+    "w": 2370,
+    "h": 1581
+  },
+  "/assets/areas/cirurgia.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/diabetes.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/enoxaparina.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/erro-medico.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/garanta.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/home-care-orig.jpg": {
+    "w": 1024,
+    "h": 576
+  },
+  "/assets/areas/home-care.jpg": {
+    "w": 2345,
+    "h": 1560
+  },
+  "/assets/areas/imunoterapia.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/indenizacoes.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/internacao.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/negado.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/negativa-sus-orig.jpg": {
+    "w": 1024,
+    "h": 576
+  },
+  "/assets/areas/plano-de-saude.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/plano-saude-orig.jpg": {
+    "w": 1024,
+    "h": 576
+  },
+  "/assets/areas/qualidade.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/remedio-mais-caro.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/areas/revisao-valores-orig.jpg": {
+    "w": 1024,
+    "h": 576
+  },
+  "/assets/areas/revisao-valores.jpg": {
+    "w": 1920,
+    "h": 1080
+  },
+  "/assets/areas/tratamento-cancer-orig.jpg": {
+    "w": 1024,
+    "h": 576
+  },
+  "/assets/areas/tratamento-cancer.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/atrofia-muscular-remedio.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/bariatrica.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/canabidiol-qualidade.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/cancer-de-mama.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/cancer-de-mamas.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/cancer-mama-plano.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/cancer-mama-tratamento.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/cirurgia-malsucedida.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/cirurgia-reparadora-10.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/diabetes.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/doencas-autoimunes-20.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/erro-medico.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/home-care-plano-15.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/home-care-plano-18.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/home-care-sus-16.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/imunoterapia-plano-12.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/imunoterapia-sus-11.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/imunoterapia.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/internacao.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/medicamento-sus-garanta.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/medicamentos-alto-custo-19.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/negado.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/negativa-home-care-21.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/negativa-plano-13.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/processar-plano-14.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/processar-plano-3.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/processar-plano-indenizacao.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/tratamento-cancer.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/blog/trombofilia-enox.jpg": {
+    "w": 1000,
+    "h": 1000
+  },
+  "/assets/contato/contato-1.png": {
+    "w": 500,
+    "h": 500
+  },
+  "/assets/contato/contato-2.png": {
+    "w": 500,
+    "h": 500
+  },
+  "/assets/contato/contato-3.png": {
+    "w": 500,
+    "h": 500
+  },
+  "/assets/images/banner-areas.jpg": {
+    "w": 700,
+    "h": 800
+  },
+  "/assets/images/banner-barphoff.jpg": {
+    "w": 1920,
+    "h": 1080
+  },
+  "/assets/images/banner-home.jpg": {
+    "w": 1920,
+    "h": 1080
+  },
+  "/assets/images/banner-home2.jpg": {
+    "w": 1920,
+    "h": 1080
+  },
+  "/assets/images/banner-mob.jpg": {
+    "w": 721,
+    "h": 606
+  },
+  "/assets/images/banner-negat.jpg": {
+    "w": 1920,
+    "h": 1080
+  },
+  "/assets/images/equipe.jpg": {
+    "w": 700,
+    "h": 800
+  },
+  "/assets/images/escritorio.jpg": {
+    "w": 1262,
+    "h": 946
+  },
+  "/assets/images/favicon.jpg": {
+    "w": 400,
+    "h": 400
+  },
+  "/assets/images/hero-hexagons.jpg": {
+    "w": 1920,
+    "h": 1280
+  },
+  "/assets/images/hero-waves.jpg": {
+    "w": 1920,
+    "h": 1120
+  },
+  "/assets/images/icon2.png": {
+    "w": 1200,
+    "h": 984
+  },
+  "/assets/images/logo-bordo.png": {
+    "w": 2973,
+    "h": 462
+  },
+  "/assets/images/logo-branco-full.png": {
+    "w": 2973,
+    "h": 462
+  },
+  "/assets/images/logo-white.png": {
+    "w": 700,
+    "h": 138
+  },
+  "/assets/images/og-cover.jpg": {
+    "w": 700,
+    "h": 800
+  },
+  "/assets/images/pattern-old.png": {
+    "w": 932,
+    "h": 939
+  },
+  "/assets/images/pattern.png": {
+    "w": 932,
+    "h": 939
+  },
+  "/assets/images/stethoscope-bg.jpg": {
+    "w": 1920,
+    "h": 1275
+  },
+  "/assets/images/testimonials-texture.jpg": {
+    "w": 1920,
+    "h": 1280
+  },
+  "/assets/logo-rosa.png": {
+    "w": 300,
+    "h": 45
+  },
+  "/assets/paciente-negativa.jpg": {
+    "w": 1024,
+    "h": 682
+  },
+  "/assets/team/as-socias.jpeg": {
+    "w": 747,
+    "h": 571
+  },
+  "/assets/team/dra-alexandra-min.png": {
+    "w": 310,
+    "h": 450
+  },
+  "/assets/team/dra-alexandra.jpg": {
+    "w": 467,
+    "h": 700
+  },
+  "/assets/team/dra-jessica-min.png": {
+    "w": 310,
+    "h": 450
+  },
+  "/assets/team/dra-jessica.jpg": {
+    "w": 467,
+    "h": 700
+  }
+}

@@ -58,6 +58,52 @@
             { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://barphoff.com/" },
             { "@type": "ListItem", "position": 2, "name": "Negativa do SUS", "item": "https://barphoff.com/negativa-do-sus" }
           ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://barphoff.com/negativa-do-sus#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Preciso ir até o escritório?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não. O atendimento pode ser feito totalmente online."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Vocês atendem fora do meu estado?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. Atuamos em casos de planos de saúde em todo o Brasil."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quanto custa a análise do caso?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A análise inicial é feita diretamente com o advogado."
+              }
+            }
+          ]
+        }
+,
+        {
+          "@type": "Service",
+          "@id": "https://barphoff.com/negativa-do-sus#offer",
+          "name": "Ação contra negativa do SUS",
+          "description": "Ação judicial para garantir medicamentos, exames, cirurgias e tratamentos negados pela rede pública de saúde.",
+          "serviceType": "Negativa do SUS",
+          "provider": {
+            "@id": "https://barphoff.com/#organization"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Brasil"
+          },
+          "url": "https://barphoff.com/negativa-do-sus"
         }
       ]
     }
@@ -88,8 +134,7 @@
         <div class="container header-content">
             <div class="logo">
                 <a href="/">
-                    <img src="/assets/logo-rosa.png" alt="Barphoff Advocacia Especializada" loading="eager"
-                        fetchpriority="high" style="display:block;">
+                    <picture><source srcset="/assets/logo-rosa.avif" type="image/avif"><source srcset="/assets/logo-rosa.webp" type="image/webp"><img alt="Barphoff Advocacia Especializada" loading="eager" fetchpriority="high" style="display:block;" width="300" height="45" decoding="async" src="/assets/logo-rosa.png"></picture>
                 </a>
             </div>
             <button class="btn btn-green btn-header" onclick="click_whatsapp()">
@@ -477,20 +522,20 @@
                 <div class="office-gallery reveal">
                     <div class="track">
                         <!-- Fotos Reais -->
-                        <img src="/assets/01%20(1).jpg" alt="Escritório BarpHoff - Recepção" loading="lazy">
-                        <img src="/assets/01%20(2).jpg" alt="Escritório BarpHoff - Sala de Reunião" loading="lazy">
-                        <img src="/assets/01%20(3).jpg" alt="Escritório BarpHoff - Corredor" loading="lazy">
-                        <img src="/assets/01%20(4).jpg" alt="Escritório BarpHoff - Reunião" loading="lazy">
-                        <img src="/assets/01%20(5).jpg" alt="Escritório BarpHoff - Detalhes" loading="lazy">
-                        <img src="/assets/01%20(6).jpg" alt="Escritório BarpHoff - Decoração" loading="lazy">
+                        <picture><source srcset="/assets/01%20(1).avif" type="image/avif"><source srcset="/assets/01%20(1).webp" type="image/webp"><img alt="Escritório BarpHoff - Recepção" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(1).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(2).avif" type="image/avif"><source srcset="/assets/01%20(2).webp" type="image/webp"><img alt="Escritório BarpHoff - Sala de Reunião" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(2).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(3).avif" type="image/avif"><source srcset="/assets/01%20(3).webp" type="image/webp"><img alt="Escritório BarpHoff - Corredor" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(3).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(4).avif" type="image/avif"><source srcset="/assets/01%20(4).webp" type="image/webp"><img alt="Escritório BarpHoff - Reunião" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(4).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(5).avif" type="image/avif"><source srcset="/assets/01%20(5).webp" type="image/webp"><img alt="Escritório BarpHoff - Detalhes" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(5).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(6).avif" type="image/avif"><source srcset="/assets/01%20(6).webp" type="image/webp"><img alt="Escritório BarpHoff - Decoração" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(6).jpg"></picture>
 
                         <!-- Duplicatas para o Loop Infinito (-50%) -->
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(1).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(2).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(3).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(4).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(5).jpg" alt="" loading="lazy">
-                        <img class="duplicate" aria-hidden="true" src="/assets/01%20(6).jpg" alt="" loading="lazy">
+                        <picture><source srcset="/assets/01%20(1).avif" type="image/avif"><source srcset="/assets/01%20(1).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(1).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(2).avif" type="image/avif"><source srcset="/assets/01%20(2).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(2).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(3).avif" type="image/avif"><source srcset="/assets/01%20(3).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(3).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(4).avif" type="image/avif"><source srcset="/assets/01%20(4).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(4).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(5).avif" type="image/avif"><source srcset="/assets/01%20(5).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(5).jpg"></picture>
+                        <picture><source srcset="/assets/01%20(6).avif" type="image/avif"><source srcset="/assets/01%20(6).webp" type="image/webp"><img class="duplicate" aria-hidden="true" alt="" loading="lazy" width="600" height="800" decoding="async" src="/assets/01%20(6).jpg"></picture>
                     </div>
                 </div>
 
@@ -769,9 +814,7 @@
         <div class="container footer-grid" style="position:relative; z-index:2;">
             <div>
                 <div class="footer-brand">
-                    <img src="/assets/logo-rosa.png" alt="Barphoff Advocacia Especializada"
-                        style="height:44px; width:auto; filter: brightness(1.25) contrast(1.15); margin-bottom:1rem; display:block;"
-                        loading="lazy">
+                    <picture><source srcset="/assets/logo-rosa.avif" type="image/avif"><source srcset="/assets/logo-rosa.webp" type="image/webp"><img alt="Barphoff Advocacia Especializada" style="height:44px; width:auto; filter: brightness(1.25) contrast(1.15); margin-bottom:1rem; display:block;" loading="lazy" width="300" height="45" decoding="async" src="/assets/logo-rosa.png"></picture>
                 </div>
                 <p class="footer-compliance">Cada caso exige análise individual.</p>
             </div>

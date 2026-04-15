@@ -74,6 +74,28 @@ export const metadata: Metadata = {
 }
 
 /* ------------------------------------------------------------------ */
+/*  JSON-LD — WebSite (habilita Sitelinks Searchbox no SERP)           */
+/* ------------------------------------------------------------------ */
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://barphoff.com/#website',
+  url: 'https://barphoff.com',
+  name: 'Barp.Hoff.Costa Advogados',
+  description: 'Advogados especialistas em Direito da Saúde',
+  inLanguage: 'pt-BR',
+  publisher: { '@id': 'https://barphoff.com/#organization' },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: 'https://barphoff.com/blog?q={search_term_string}',
+    },
+    'query-input': 'required name=search_term_string',
+  },
+}
+
+/* ------------------------------------------------------------------ */
 /*  JSON-LD Structured Data — Organization + LegalService              */
 /* ------------------------------------------------------------------ */
 const siteSchema = {
@@ -155,6 +177,103 @@ const siteSchema = {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Medicamentos de Alto Custo', description: 'Acesso a medicamentos de alto custo pelo SUS ou plano de saúde' } },
     ],
   },
+  founder: [
+    { '@id': 'https://barphoff.com/sobre#alexandra-barp' },
+    { '@id': 'https://barphoff.com/sobre#jessica-hoff' },
+  ],
+  employee: [
+    { '@id': 'https://barphoff.com/sobre#alexandra-barp' },
+    { '@id': 'https://barphoff.com/sobre#jessica-hoff' },
+  ],
+}
+
+/* ------------------------------------------------------------------ */
+/*  JSON-LD — Person (advogadas)                                       */
+/* ------------------------------------------------------------------ */
+const alexandraSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://barphoff.com/sobre#alexandra-barp',
+  name: 'Dra. Alexandra Barp',
+  givenName: 'Alexandra',
+  familyName: 'Barp',
+  jobTitle: 'Advogada Especialista em Direito da Saúde',
+  description:
+    'Advogada sócia do escritório Barp.Hoff.Costa, especialista em Direito da Saúde, com atuação em todo o território nacional na defesa de pacientes contra negativas de planos de saúde e do SUS.',
+  image: 'https://barphoff.com/assets/team/dra-alexandra.jpg',
+  url: 'https://barphoff.com/sobre',
+  telephone: '+55-45-3027-3100',
+  email: 'advogados.bhc@gmail.com',
+  knowsAbout: [
+    'Direito da Saúde',
+    'Negativa de Plano de Saúde',
+    'Medicamentos de Alto Custo',
+    'Tratamento Home Care',
+    'Tratamento Oncológico',
+  ],
+  knowsLanguage: ['pt-BR'],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Professional License',
+    recognizedBy: {
+      '@type': 'Organization',
+      name: 'Ordem dos Advogados do Brasil - Seccional Paraná',
+      alternateName: 'OAB/PR',
+    },
+  },
+  worksFor: { '@id': 'https://barphoff.com/#organization' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'R. Mal. Floriano Peixoto, 1756 - sala 02',
+    addressLocality: 'Foz do Iguaçu',
+    addressRegion: 'PR',
+    postalCode: '85851-020',
+    addressCountry: 'BR',
+  },
+  sameAs: ['https://www.instagram.com/saudebhc/'],
+}
+
+const jessicaSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://barphoff.com/sobre#jessica-hoff',
+  name: 'Dra. Jessica Hoff',
+  givenName: 'Jessica',
+  familyName: 'Hoff',
+  jobTitle: 'Advogada Especialista em Direito da Saúde',
+  description:
+    'Advogada sócia do escritório Barp.Hoff.Costa, especialista em Direito da Saúde, com atuação em todo o território nacional na defesa de pacientes contra negativas de planos de saúde e do SUS.',
+  image: 'https://barphoff.com/assets/team/dra-jessica.jpg',
+  url: 'https://barphoff.com/sobre',
+  telephone: '+55-45-3027-3100',
+  email: 'advogados.bhc@gmail.com',
+  knowsAbout: [
+    'Direito da Saúde',
+    'Negativa de Plano de Saúde',
+    'Medicamentos de Alto Custo',
+    'Tratamento Home Care',
+    'Cirurgias Reparadoras',
+  ],
+  knowsLanguage: ['pt-BR'],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'Professional License',
+    recognizedBy: {
+      '@type': 'Organization',
+      name: 'Ordem dos Advogados do Brasil - Seccional Paraná',
+      alternateName: 'OAB/PR',
+    },
+  },
+  worksFor: { '@id': 'https://barphoff.com/#organization' },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'R. Mal. Floriano Peixoto, 1756 - sala 02',
+    addressLocality: 'Foz do Iguaçu',
+    addressRegion: 'PR',
+    postalCode: '85851-020',
+    addressCountry: 'BR',
+  },
+  sameAs: ['https://www.instagram.com/saudebhc/'],
 }
 
 export default function RootLayout({
@@ -164,11 +283,31 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${outfit.variable} ${prata.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://wa.me" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://api.whatsapp.com" />
+      </head>
       <body className={`${inter.className} bg-white`}>
+        {/* WebSite Schema (Sitelinks Searchbox) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         {/* Organization + LegalService Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
+        {/* Person Schema — Dra. Alexandra Barp */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(alexandraSchema) }}
+        />
+        {/* Person Schema — Dra. Jessica Hoff */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jessicaSchema) }}
         />
         <Header />
         <main>{children}</main>

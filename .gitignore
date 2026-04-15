@@ -11,3 +11,9 @@ temp-extract*.ps1
 .claude/
 
 .vercel
+
+# Arquivos internos — não subir
+RELATORIO-SEO.html
+Barphoff/
+DOWNLOADS GERAL/
+RELATÓRIOS/
