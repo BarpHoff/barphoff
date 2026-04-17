@@ -48,6 +48,13 @@ const nextConfig = {
         destination: '/negativa-cirurgia',
         permanent: true,
       },
+      // Redirects 301 de slugs renomeados do WordPress (preservação de SEO)
+      { source: '/quem-somos', destination: '/sobre', permanent: true },
+      { source: '/cirurgias-reparadoras', destination: '/negativa-cirurgia', permanent: true },
+      { source: '/tratamento-home-care', destination: '/home-care', permanent: true },
+      { source: '/negativas-de-plano-de-saude', destination: '/negativa-plano-de-saude', permanent: true },
+      { source: '/tratamento-de-cancer', destination: '/tratamento-oncologico', permanent: true },
+      { source: '/revisao-e-restituicao-de-valores-pagos-indevidamente', destination: '/revisao-restituicao', permanent: true },
     ]
   },
   async rewrites() {
