@@ -58,6 +58,24 @@ export default function PoliticaDePrivacidadePage() {
             al&eacute;m do endere&ccedil;o de IP e do user agent do navegador do
             visitante, para auxiliar na detec&ccedil;&atilde;o de spam.
           </p>
+          <p className="mb-4 leading-relaxed text-gray-700">
+            Uma sequ&ecirc;ncia anonimizada de caracteres criada a partir do seu
+            e-mail (tamb&eacute;m chamada de <em>hash</em>) poder&aacute; ser
+            enviada para o Gravatar para verificar se voc&ecirc; usa o
+            servi&ccedil;o. A pol&iacute;tica de privacidade do Gravatar est&aacute;
+            dispon&iacute;vel em{' '}
+            <a
+              href="https://automattic.com/privacy/"
+              target="_blank"
+              rel="noopener nofollow"
+              className="text-brand underline hover:text-brand-dark"
+            >
+              automattic.com/privacy
+            </a>
+            . Depois da aprova&ccedil;&atilde;o do seu coment&aacute;rio, a foto
+            do seu perfil fica vis&iacute;vel publicamente junto de seu
+            coment&aacute;rio.
+          </p>
 
           {/* M&iacute;dia */}
           <h2 className="mt-10 mb-4 font-heading text-2xl font-bold text-brand">
@@ -87,6 +105,21 @@ export default function PoliticaDePrivacidadePage() {
             cookie tempor&aacute;rio para determinar se seu navegador aceita
             cookies. Este cookie n&atilde;o cont&eacute;m dados pessoais e
             &eacute; descartado quando voc&ecirc; fecha o navegador.
+          </p>
+          <p className="mb-4 leading-relaxed text-gray-700">
+            Quando voc&ecirc; acessa sua conta no site, tamb&eacute;m criamos
+            v&aacute;rios cookies para salvar os dados da sua conta e suas
+            escolhas de exibi&ccedil;&atilde;o de tela. Cookies de login
+            s&atilde;o mantidos por dois dias e cookies de op&ccedil;&otilde;es
+            de tela por um ano. Se voc&ecirc; selecionar &ldquo;Lembrar-me&rdquo;,
+            seu acesso ser&aacute; mantido por duas semanas. Se voc&ecirc; se
+            desconectar da sua conta, os cookies de login ser&atilde;o removidos.
+          </p>
+          <p className="mb-4 leading-relaxed text-gray-700">
+            Se voc&ecirc; editar ou publicar um artigo, um cookie adicional
+            ser&aacute; salvo no seu navegador. Este cookie n&atilde;o inclui
+            nenhum dado pessoal e simplesmente indica o ID do post referente ao
+            artigo que voc&ecirc; acabou de editar. Ele expira depois de 1 dia.
           </p>
 
           {/* Conte&uacute;do incorporado de outros sites */}
@@ -161,6 +194,54 @@ export default function PoliticaDePrivacidadePage() {
             Coment&aacute;rios dos visitantes podem ser verificados por meio de
             um servi&ccedil;o autom&aacute;tico de detec&ccedil;&atilde;o de
             spam.
+          </p>
+
+          {/* Seus direitos sob a LGPD */}
+          <h2 className="mt-10 mb-4 font-heading text-2xl font-bold text-brand">
+            Seus direitos sob a LGPD
+          </h2>
+          <p className="mb-4 leading-relaxed text-gray-700">
+            A Lei Geral de Prote&ccedil;&atilde;o de Dados Pessoais (Lei
+            n&ordm; 13.709/2018) assegura a voc&ecirc;, titular de dados
+            pessoais, o direito de:
+          </p>
+          <ul className="mb-4 ml-6 list-disc space-y-2 leading-relaxed text-gray-700">
+            <li>confirmar a exist&ecirc;ncia de tratamento dos seus dados;</li>
+            <li>acessar os seus dados pessoais;</li>
+            <li>
+              corrigir dados incompletos, inexatos ou desatualizados;
+            </li>
+            <li>
+              anonimizar, bloquear ou eliminar dados desnecess&aacute;rios ou
+              excessivos;
+            </li>
+            <li>solicitar a portabilidade dos seus dados;</li>
+            <li>eliminar dados tratados com base no seu consentimento;</li>
+            <li>
+              obter informa&ccedil;&atilde;o sobre com quem seus dados s&atilde;o
+              compartilhados;
+            </li>
+            <li>revogar o consentimento a qualquer momento.</li>
+          </ul>
+          <p className="mb-4 leading-relaxed text-gray-700">
+            Para exercer qualquer um desses direitos, entre em contato pelo
+            e-mail indicado abaixo.
+          </p>
+
+          {/* Contato para quest&otilde;es de privacidade */}
+          <h2 className="mt-10 mb-4 font-heading text-2xl font-bold text-brand">
+            Contato para quest&otilde;es de privacidade
+          </h2>
+          <p className="mb-4 leading-relaxed text-gray-700">
+            D&uacute;vidas, solicita&ccedil;&otilde;es ou reclama&ccedil;&otilde;es
+            sobre o tratamento de dados pessoais podem ser encaminhadas para{' '}
+            <a
+              href="mailto:advogados.bhc@gmail.com"
+              className="text-brand underline hover:text-brand-dark"
+            >
+              advogados.bhc@gmail.com
+            </a>
+            .
           </p>
         </div>
       </section>
