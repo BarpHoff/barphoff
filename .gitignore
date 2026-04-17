@@ -17,3 +17,9 @@ RELATORIO-SEO.html
 Barphoff/
 DOWNLOADS GERAL/
 RELATÓRIOS/
+
+# Artefatos gerados pelo wp-audit (scripts/wp-audit.mjs)
+scripts/.audit-cache/
+scripts/audit-report.json
+scripts/WP-AUDIT-REPORT.html
+scripts/.dump-*.xml
