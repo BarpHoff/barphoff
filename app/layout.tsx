@@ -141,12 +141,9 @@ const siteSchema = {
     opens: '08:00',
     closes: '18:00',
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '47',
-    bestRating: '5',
-  },
+  // aggregateRating removido: Trustindex foi desativado e não há fonte verificável
+  // de reviews agregados. Reintegrar apenas com dados reais (Google Business Profile
+  // API ou widget Trustindex ativo), nunca com valores estáticos.
   sameAs: [
     'https://www.instagram.com/saudebhc/',
     'https://www.facebook.com/barphoff',
