@@ -4,7 +4,7 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'Quem Somos | Barp.Hoff.Costa Advogados',
   description:
-    'Com mais de 17 anos de experiência em Direito da Saúde, o Barp.Hoff.Costa tem uma equipe dedicada a oferecer atendimento personalizado e humanizado em todo o Brasil. Avaliado com 5 estrelas pelos clientes.',
+    'Com mais de 17 anos de experiência em Direito da Saúde, o Barp.Hoff.Costa tem uma equipe dedicada a oferecer atendimento personalizado e humanizado em todo o Brasil.',
   openGraph: {
     title: 'Quem Somos | Barp.Hoff.Costa Advogados',
     description: 'Conheça o escritório referência em Direito da Saúde com mais de 17 anos de experiência.',

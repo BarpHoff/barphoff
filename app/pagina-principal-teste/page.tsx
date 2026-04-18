@@ -455,7 +455,7 @@ export default function HomePage() {
                 especialistas prestam serviço individualizado, com atendimento
                 rápido,{' '}
                 <strong>
-                  avaliado pelos nossos clientes com 5 estrelas
+                  com foco em resultados concretos
                 </strong>
                 .
               </p>
