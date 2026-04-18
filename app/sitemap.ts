@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'negativa-cirurgia',
     'negativa-plano-de-saude',
     'negativa-do-sus',
+    'negativa-de-tratamento',
     'home-care',
     'tratamento-oncologico',
     'medicamento-alto-custo',

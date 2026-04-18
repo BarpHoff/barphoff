@@ -24,7 +24,7 @@ const nextConfig = {
       },
       {
         // LPs HTML estáticas: revalida no edge, serve rápido
-        source: '/:path((?:home-care|medicamento-alto-custo|negativa-cirurgia|negativa-plano-de-saude|tratamento-oncologico|negativa-do-sus|direito-a-saude|revisao-restituicao))',
+        source: '/:path((?:home-care|medicamento-alto-custo|negativa-cirurgia|negativa-plano-de-saude|tratamento-oncologico|negativa-do-sus|direito-a-saude|revisao-restituicao|negativa-de-tratamento))',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=0, s-maxage=86400, stale-while-revalidate=604800' },
         ],
@@ -90,6 +90,10 @@ const nextConfig = {
       {
         source: '/revisao-restituicao',
         destination: '/revisao-restituicao/index.html',
+      },
+      {
+        source: '/negativa-de-tratamento',
+        destination: '/negativa-de-tratamento/index.html',
       },
     ]
   },
