@@ -23,3 +23,5 @@ scripts/.audit-cache/
 scripts/audit-report.json
 scripts/WP-AUDIT-REPORT.html
 scripts/.dump-*.xml
+scripts/.dump-*.txt
+scripts/.count-tokens.mjs
