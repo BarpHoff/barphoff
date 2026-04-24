@@ -43,11 +43,8 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: '/',
-        destination: '/negativa-cirurgia',
-        permanent: true,
-      },
+      // Promovida: /pagina-principal-teste agora vive na raiz /
+      { source: '/pagina-principal-teste', destination: '/', permanent: true },
       // Redirects 301 de slugs renomeados do WordPress (preservação de SEO)
       { source: '/quem-somos', destination: '/sobre', permanent: true },
       { source: '/cirurgias-reparadoras', destination: '/negativa-cirurgia', permanent: true },

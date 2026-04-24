@@ -19,7 +19,6 @@ const liveStatic = new Set([
   '/contato',
   '/areas-de-atuacao',
   '/politica-de-privacidade',
-  '/pagina-principal-teste',
   '/negativa-cirurgia',
   '/negativa-plano-de-saude',
   '/negativa-do-sus',
@@ -33,6 +32,7 @@ const liveStatic = new Set([
 
 // Redirects 301 que cobrem slugs antigos
 const redirects = new Map([
+  ['/pagina-principal-teste', '/'],
   ['/quem-somos', '/sobre'],
   ['/cirurgias-reparadoras', '/negativa-cirurgia'],
   ['/tratamento-home-care', '/home-care'],

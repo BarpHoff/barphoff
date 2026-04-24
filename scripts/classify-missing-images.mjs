@@ -32,7 +32,6 @@ const LIVE_SLUGS = new Set([
   'contato',
   'blog',
   'politica-de-privacidade',
-  'pagina-principal-teste',
 ]);
 
 const VARIANT_RX = /-\d+x\d+\.(jpg|jpeg|png|webp|avif|gif)$/i;
