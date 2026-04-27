@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/sobre`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/contato`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/politica-de-privacidade`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
+    { url: `${baseUrl}/termos-de-uso`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
   ]
 
   const lpPages: MetadataRoute.Sitemap = landingSlugs.map((slug) => ({

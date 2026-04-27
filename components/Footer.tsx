@@ -240,9 +240,15 @@ export function Footer() {
       <div className="relative z-10 bg-black/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-white/80">
           <p>&copy; BARP.HOFF Advocacia Especializada | Todos os direitos reservados.</p>
-          <Link href="/politica-de-privacidade" className="hover:text-white transition-colors">
-            Política de Privacidade
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <Link href="/politica-de-privacidade" className="hover:text-white transition-colors">
+              Política de Privacidade
+            </Link>
+            <span aria-hidden="true" className="text-white/40">·</span>
+            <Link href="/termos-de-uso" className="hover:text-white transition-colors">
+              Termos de Uso
+            </Link>
+          </div>
           <a
             href="https://api.whatsapp.com/send?phone=5521977266062"
             target="_blank"
