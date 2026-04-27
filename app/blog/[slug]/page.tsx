@@ -28,7 +28,7 @@ export function generateMetadata({
   }
 
   const thumbnail = getBlogThumbnail(post.slug, post.categories)
-  const url = `https://barphoff.com/blog/${post.slug}`
+  const url = `https://www.barphoff.com/blog/${post.slug}`
 
   return {
     title: post.title,
@@ -249,17 +249,17 @@ export default function BlogPostPage({
     '@type': ['Article', 'LegalArticle'],
     headline: post.title,
     description: post.excerpt,
-    image: [`https://barphoff.com${getBlogThumbnail(post.slug, post.categories)}`],
+    image: [`https://www.barphoff.com${getBlogThumbnail(post.slug, post.categories)}`],
     datePublished: post.date,
     dateModified: post.lastModified || post.date,
     author: [
-      { '@id': 'https://barphoff.com/sobre#alexandra-barp' },
-      { '@id': 'https://barphoff.com/sobre#jessica-hoff' },
+      { '@id': 'https://www.barphoff.com/sobre#alexandra-barp' },
+      { '@id': 'https://www.barphoff.com/sobre#jessica-hoff' },
     ],
-    publisher: { '@id': 'https://barphoff.com/#organization' },
+    publisher: { '@id': 'https://www.barphoff.com/#organization' },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://barphoff.com/blog/${post.slug}`,
+      '@id': `https://www.barphoff.com/blog/${post.slug}`,
     },
     inLanguage: 'pt-BR',
     articleSection: post.categories[0] || 'Direito da Saúde',
@@ -274,19 +274,19 @@ export default function BlogPostPage({
         '@type': 'ListItem',
         position: 1,
         name: 'Início',
-        item: 'https://barphoff.com',
+        item: 'https://www.barphoff.com',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Blog',
-        item: 'https://barphoff.com/blog',
+        item: 'https://www.barphoff.com/blog',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: post.title,
-        item: `https://barphoff.com/blog/${post.slug}`,
+        item: `https://www.barphoff.com/blog/${post.slug}`,
       },
     ],
   }

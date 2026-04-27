@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Idempotent: add specific `Service` schema entry to each LP's @graph.
 // LPs already have LegalService (firm-scoped); this adds Service (offering-scoped)
-// with provider: { @id: 'https://barphoff.com/#organization' } to link to the
+// with provider: { @id: 'https://www.barphoff.com/#organization' } to link to the
 // Organization defined in app/layout.tsx.
 
 import fs from 'node:fs'
@@ -74,7 +74,7 @@ for (const [slug, meta] of Object.entries(services)) {
   let html = fs.readFileSync(file, 'utf8')
 
   // Idempotency: skip if Service@id already exists
-  const serviceId = `https://barphoff.com/${slug}#offer`
+  const serviceId = `https://www.barphoff.com/${slug}#offer`
   if (html.includes(serviceId)) {
     console.log(`ok: ${slug} (already has Service)`)
     continue
@@ -86,9 +86,9 @@ for (const [slug, meta] of Object.entries(services)) {
     name: meta.name,
     description: meta.description,
     serviceType: meta.serviceType,
-    provider: { '@id': 'https://barphoff.com/#organization' },
+    provider: { '@id': 'https://www.barphoff.com/#organization' },
     areaServed: { '@type': 'Country', name: 'Brasil' },
-    url: `https://barphoff.com/${slug}`,
+    url: `https://www.barphoff.com/${slug}`,
   }
 
   // Insert before the closing `]` of the @graph (handle CRLF or LF)

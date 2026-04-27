@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contato | Barp.Hoff. Advogados',
     description: 'Fale com advogados especialistas em Direito da Saúde. Atendimento em todo o Brasil.',
-    url: 'https://barphoff.com/contato',
+    url: 'https://www.barphoff.com/contato',
     images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
   },
-  alternates: { canonical: 'https://barphoff.com/contato' },
+  alternates: { canonical: 'https://www.barphoff.com/contato' },
 }
 
 /* ================================================================== */
@@ -22,8 +22,8 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://barphoff.com' },
-    { '@type': 'ListItem', position: 2, name: 'Contato', item: 'https://barphoff.com/contato' },
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.barphoff.com' },
+    { '@type': 'ListItem', position: 2, name: 'Contato', item: 'https://www.barphoff.com/contato' },
   ],
 }
 

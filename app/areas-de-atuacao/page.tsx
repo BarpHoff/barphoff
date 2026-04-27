@@ -14,10 +14,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Áreas de Atuação | Barp.Hoff. Advogados — Direito da Saúde',
     description: 'Negativas de plano de saúde e SUS, home care, oncologia, cirurgias e medicamentos de alto custo.',
-    url: 'https://barphoff.com/areas-de-atuacao',
+    url: 'https://www.barphoff.com/areas-de-atuacao',
     images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
   },
-  alternates: { canonical: 'https://barphoff.com/areas-de-atuacao' },
+  alternates: { canonical: 'https://www.barphoff.com/areas-de-atuacao' },
 }
 
 /* ------------------------------------------------------------------ */
@@ -137,8 +137,8 @@ const areasBreadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://barphoff.com' },
-    { '@type': 'ListItem', position: 2, name: 'Áreas de Atuação', item: 'https://barphoff.com/areas-de-atuacao' },
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.barphoff.com' },
+    { '@type': 'ListItem', position: 2, name: 'Áreas de Atuação', item: 'https://www.barphoff.com/areas-de-atuacao' },
   ],
 }
 

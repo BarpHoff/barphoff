@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   description:
     'Advogados especialistas em Direito da Saúde! Há 17 anos garantindo o seu acesso a tratamentos, medicamentos e procedimentos negados pelo SUS ou plano de saúde. Atendemos em todo o Brasil.',
-  metadataBase: new URL('https://barphoff.com'),
+  metadataBase: new URL('https://www.barphoff.com'),
   keywords: [
     'advogado direito da saúde',
     'negativa plano de saúde',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://barphoff.com',
+    url: 'https://www.barphoff.com',
     siteName: 'Barp.Hoff. Advocacia Especializada',
     title: 'Barp.Hoff. | Advogados Especialistas em Direito da Saúde',
     description: 'Há 17 anos garantindo o seu acesso a tratamentos, medicamentos e procedimentos negados pelo SUS ou plano de saúde. Atendemos em todo o Brasil.',
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     images: ['/assets/images/og-cover.jpg'],
   },
   alternates: {
-    canonical: 'https://barphoff.com',
+    canonical: 'https://www.barphoff.com',
   },
   // Google Search Console verificado via DNS TXT record
 }
@@ -79,17 +79,17 @@ export const metadata: Metadata = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  '@id': 'https://barphoff.com/#website',
-  url: 'https://barphoff.com',
+  '@id': 'https://www.barphoff.com/#website',
+  url: 'https://www.barphoff.com',
   name: 'Barp.Hoff.Costa Advogados',
   description: 'Advogados especialistas em Direito da Saúde',
   inLanguage: 'pt-BR',
-  publisher: { '@id': 'https://barphoff.com/#organization' },
+  publisher: { '@id': 'https://www.barphoff.com/#organization' },
   potentialAction: {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://barphoff.com/blog?q={search_term_string}',
+      urlTemplate: 'https://www.barphoff.com/blog?q={search_term_string}',
     },
     'query-input': 'required name=search_term_string',
   },
@@ -101,17 +101,17 @@ const websiteSchema = {
 const siteSchema = {
   '@context': 'https://schema.org',
   '@type': ['LegalService', 'Organization'],
-  '@id': 'https://barphoff.com/#organization',
+  '@id': 'https://www.barphoff.com/#organization',
   name: 'Barp.Hoff.Costa Advogados',
   alternateName: 'BARP.HOFF.',
-  url: 'https://barphoff.com',
+  url: 'https://www.barphoff.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://barphoff.com/assets/images/logo-branco-full.png',
+    url: 'https://www.barphoff.com/assets/images/logo-branco-full.png',
     width: 300,
     height: 60,
   },
-  image: 'https://barphoff.com/assets/images/equipe.jpg',
+  image: 'https://www.barphoff.com/assets/images/equipe.jpg',
   description:
     'Advogados especialistas em Direito da Saúde. Há 17 anos garantindo acesso a tratamentos, medicamentos e procedimentos negados pelo SUS ou plano de saúde.',
   telephone: '+55-45-3027-3100',
@@ -175,12 +175,12 @@ const siteSchema = {
     ],
   },
   founder: [
-    { '@id': 'https://barphoff.com/sobre#alexandra-barp' },
-    { '@id': 'https://barphoff.com/sobre#jessica-hoff' },
+    { '@id': 'https://www.barphoff.com/sobre#alexandra-barp' },
+    { '@id': 'https://www.barphoff.com/sobre#jessica-hoff' },
   ],
   employee: [
-    { '@id': 'https://barphoff.com/sobre#alexandra-barp' },
-    { '@id': 'https://barphoff.com/sobre#jessica-hoff' },
+    { '@id': 'https://www.barphoff.com/sobre#alexandra-barp' },
+    { '@id': 'https://www.barphoff.com/sobre#jessica-hoff' },
   ],
 }
 
@@ -190,15 +190,15 @@ const siteSchema = {
 const alexandraSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  '@id': 'https://barphoff.com/sobre#alexandra-barp',
+  '@id': 'https://www.barphoff.com/sobre#alexandra-barp',
   name: 'Dra. Alexandra Barp',
   givenName: 'Alexandra',
   familyName: 'Barp',
   jobTitle: 'Advogada Especialista em Direito da Saúde',
   description:
     'Advogada sócia do escritório Barp.Hoff.Costa, especialista em Direito da Saúde, com atuação em todo o território nacional na defesa de pacientes contra negativas de planos de saúde e do SUS.',
-  image: 'https://barphoff.com/assets/team/dra-alexandra.jpg',
-  url: 'https://barphoff.com/sobre',
+  image: 'https://www.barphoff.com/assets/team/dra-alexandra.jpg',
+  url: 'https://www.barphoff.com/sobre',
   telephone: '+55-45-3027-3100',
   email: 'advogados.bhc@gmail.com',
   knowsAbout: [
@@ -218,7 +218,7 @@ const alexandraSchema = {
       alternateName: 'OAB/PR',
     },
   },
-  worksFor: { '@id': 'https://barphoff.com/#organization' },
+  worksFor: { '@id': 'https://www.barphoff.com/#organization' },
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'R. Mal. Floriano Peixoto, 1756 - sala 02',
@@ -233,15 +233,15 @@ const alexandraSchema = {
 const jessicaSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  '@id': 'https://barphoff.com/sobre#jessica-hoff',
+  '@id': 'https://www.barphoff.com/sobre#jessica-hoff',
   name: 'Dra. Jessica Hoff',
   givenName: 'Jessica',
   familyName: 'Hoff',
   jobTitle: 'Advogada Especialista em Direito da Saúde',
   description:
     'Advogada sócia do escritório Barp.Hoff.Costa, especialista em Direito da Saúde, com atuação em todo o território nacional na defesa de pacientes contra negativas de planos de saúde e do SUS.',
-  image: 'https://barphoff.com/assets/team/dra-jessica.jpg',
-  url: 'https://barphoff.com/sobre',
+  image: 'https://www.barphoff.com/assets/team/dra-jessica.jpg',
+  url: 'https://www.barphoff.com/sobre',
   telephone: '+55-45-3027-3100',
   email: 'advogados.bhc@gmail.com',
   knowsAbout: [
@@ -261,7 +261,7 @@ const jessicaSchema = {
       alternateName: 'OAB/PR',
     },
   },
-  worksFor: { '@id': 'https://barphoff.com/#organization' },
+  worksFor: { '@id': 'https://www.barphoff.com/#organization' },
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'R. Mal. Floriano Peixoto, 1756 - sala 02',

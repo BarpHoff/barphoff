@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { blogPostsMeta } from '@/lib/blog-meta'
 
-const baseUrl = 'https://barphoff.com'
+const baseUrl = 'https://www.barphoff.com'
 
 function lpMtime(slug: string): Date {
   try {

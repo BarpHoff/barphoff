@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/', '/DOWNLOADS GERAL/'],
       },
     ],
-    sitemap: 'https://barphoff.com/sitemap.xml',
+    sitemap: 'https://www.barphoff.com/sitemap.xml',
   }
 }

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     title: 'Barp.Hoff.Costa Advogados — Especialistas em Direito da Saúde',
     description: 'Há 17 anos revertendo negativas de plano de saúde e SUS. Medicamentos, tratamentos, home care e cirurgias. Atendemos todo o Brasil.',
     type: 'website',
-    url: 'https://barphoff.com/',
+    url: 'https://www.barphoff.com/',
     images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
   },
   twitter: {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: ['/assets/images/og-cover.jpg'],
   },
   alternates: {
-    canonical: 'https://barphoff.com/',
+    canonical: 'https://www.barphoff.com/',
   },
 }
 

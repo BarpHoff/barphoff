@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Política de Privacidade | Barp.Hoff.',
     description: 'Política de privacidade do site Barp.Hoff.Costa Advogados conforme a LGPD.',
-    url: 'https://barphoff.com/politica-de-privacidade',
+    url: 'https://www.barphoff.com/politica-de-privacidade',
     images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
   },
-  alternates: { canonical: 'https://barphoff.com/politica-de-privacidade' },
+  alternates: { canonical: 'https://www.barphoff.com/politica-de-privacidade' },
 }
 
 /* ================================================================== */
@@ -40,10 +40,10 @@ export default function PoliticaDePrivacidadePage() {
           <p className="mb-4 leading-relaxed text-gray-700">
             O nosso endere&ccedil;o do site &eacute;:{' '}
             <a
-              href="https://barphoff.com"
+              href="https://www.barphoff.com"
               className="text-brand underline hover:text-brand-dark"
             >
-              https://barphoff.com
+              https://www.barphoff.com
             </a>
             .
           </p>

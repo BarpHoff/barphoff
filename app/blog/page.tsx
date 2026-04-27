@@ -13,10 +13,10 @@ export const metadata: Metadata = {
     title: 'Blog | Barp.Hoff. Advogados — Direito da Saúde',
     description: 'Artigos e notícias sobre seus direitos em Direito da Saúde.',
     type: 'website',
-    url: 'https://barphoff.com/blog',
+    url: 'https://www.barphoff.com/blog',
     images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630 }],
   },
-  alternates: { canonical: 'https://barphoff.com/blog' },
+  alternates: { canonical: 'https://www.barphoff.com/blog' },
 }
 
 /* ------------------------------------------------------------------ */
@@ -59,21 +59,21 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://barphoff.com' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://barphoff.com/blog' },
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.barphoff.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.barphoff.com/blog' },
   ],
 }
 
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  '@id': 'https://barphoff.com/blog#itemlist',
+  '@id': 'https://www.barphoff.com/blog#itemlist',
   name: 'Artigos do blog Barp.Hoff.',
   numberOfItems: blogPosts.length,
   itemListElement: blogPosts.map((post, i) => ({
     '@type': 'ListItem',
     position: i + 1,
-    url: `https://barphoff.com/blog/${post.slug}`,
+    url: `https://www.barphoff.com/blog/${post.slug}`,
     name: post.title,
   })),
 }

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Quem Somos | Barp.Hoff.Costa Advogados',
     description: 'Conheça o escritório referência em Direito da Saúde com mais de 17 anos de experiência.',
-    url: 'https://barphoff.com/sobre',
+    url: 'https://www.barphoff.com/sobre',
     images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
   },
-  alternates: { canonical: 'https://barphoff.com/sobre' },
+  alternates: { canonical: 'https://www.barphoff.com/sobre' },
   keywords: [
     'quem somos Barp Hoff',
     'advogados direito da saúde Foz do Iguaçu',
@@ -78,8 +78,8 @@ const sobreBreadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://barphoff.com' },
-    { '@type': 'ListItem', position: 2, name: 'Quem Somos', item: 'https://barphoff.com/sobre' },
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.barphoff.com' },
+    { '@type': 'ListItem', position: 2, name: 'Quem Somos', item: 'https://www.barphoff.com/sobre' },
   ],
 }
 
