@@ -134,4 +134,12 @@
   .btn-pulse {
     animation: pulse-cta 2s ease-in-out infinite;
   }
+  /* Aspect-ratio utilities (CLS stabilization) ─────────────────────────
+     Defensivos: complementam Tailwind aspect-* nativos. Quando aplicado
+     ao container, evita salto de layout antes de imagem carregar mesmo
+     sem width/height explícito no <img>. Usar em conjunto com
+     <picture><img class="...">. */
+  .aspect-16-9 { aspect-ratio: 16 / 9; }
+  .aspect-4-3  { aspect-ratio: 4 / 3; }
+  .aspect-1-1  { aspect-ratio: 1 / 1; }
 }
