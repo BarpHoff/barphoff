@@ -28,15 +28,18 @@ export function generateMetadata({
   }
 
   const thumbnail = getBlogThumbnail(post.slug, post.categories)
+  const url = `https://barphoff.com/blog/${post.slug}`
 
   return {
     title: post.title,
     description: post.excerpt,
     authors: [{ name: 'Barp.Hoff.Costa Advogados' }],
     keywords: post.categories.join(', ') + ', Direito da Saúde, advogado saúde',
+    alternates: { canonical: url },
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      url,
       type: 'article',
       locale: 'pt_BR',
       publishedTime: post.date,
