@@ -11,6 +11,77 @@ schema.org/SEO; **MÉDIO** afeta fachada institucional; **BAIXO** é cosmético.
 
 ---
 
+## 0. BLOQUEIOS PARA PUSH DO PLANO QS/LPE (atualizado 2026-04-27)
+
+> **Quando os 3 itens abaixo estiverem preenchidos**, todos os bloqueios para
+> subir o plano de Quality Score / Landing Page Experience são liberados.
+> Estrutura já está pronta — basta trocar 3 valores `undefined`/flag e
+> remover comentários de 9 arquivos HTML.
+
+### 0.1 Três valores que destravam tudo
+
+| Campo | Onde | Como ativar |
+|---|---|---|
+| `CNPJ_BARPHOFF` | `app/layout.tsx` (topo do arquivo) | trocar `undefined` por `'00.000.000/0001-00'` |
+| `OAB_ALEXANDRA` | `app/layout.tsx` (topo do arquivo) | trocar `undefined` por `'12.345'` (numero OAB Dra. Alexandra) |
+| `OAB_JESSICA` | `app/layout.tsx` (topo do arquivo) | trocar `undefined` por `'67.890'` (numero OAB Dra. Jessica) |
+
+Quando essas constantes virarem string, o JSON-LD ganha automaticamente
+`taxID`, `identifier:CNPJ`, `hasCredential.recognizedBy.identifier:OAB/PR`
+em LegalService + 2× Person schema. Schema já está validado.
+
+### 0.2 Footer institucional visível
+
+| Onde | Como ativar |
+|---|---|
+| `components/Footer.tsx` (linha ~107) | trocar `SHOW_INSTITUTIONAL = false` para `true` |
+| `components/Footer.tsx` (linha ~109-113) | trocar os 3 valores em `INSTITUTIONAL = {...}` (cnpj, oabAlexandra, oabJessica) |
+
+Mostra rodapé do tipo "Dra. Alexandra Barp — OAB/PR XX.XXX · Dra. Jessica
+Hoff — OAB/PR XX.XXX · CNPJ XX.XXX.XXX/0001-XX" abaixo do disclaimer.
+
+### 0.3 9 LPs estáticas — bloco institucional
+
+Em `public/<slug>/index.html` (9 arquivos: negativa-cirurgia, home-care,
+medicamento-alto-custo, negativa-plano-de-saude, negativa-do-sus,
+tratamento-oncologico, direito-a-saude, revisao-restituicao,
+negativa-de-tratamento), procurar:
+
+```html
+<!-- TO-REVIEW: descomentar bloco abaixo apos preenchimento de OAB e CNPJ -->
+<!--
+<div class="container" data-lp-institutional="v1" ...>
+    Dra. Alexandra Barp &mdash; OAB/PR 00.000 ...
+</div>
+-->
+```
+
+E (a) trocar os números 00.000 e CNPJ pelos reais; (b) remover as linhas
+de abertura `<!--` e fechamento `-->` (só do bloco institucional, não do
+disclaimer ético acima dele que tem MARKER `data-lp-disclaimer`).
+
+### 0.4 Outros pontos a revisar antes do push
+
+- [ ] **Revisar texto do disclaimer ético** em `components/Footer.tsx` e nas
+      9 LPs (marker `data-lp-disclaimer`). OAB Provimento 205/2021. Texto
+      atualmente é padrão genérico — passar pela advogada responsável.
+- [ ] **Revisar página `/termos-de-uso`** em `app/termos-de-uso/page.tsx`
+      integralmente. 9 seções (apresentação, caráter informativo,
+      propriedade intelectual, limitação de responsabilidade, atendimento,
+      LGPD, alterações, foro de Foz do Iguaçu, contato). Cada seção
+      marcada TO-REVIEW.
+- [ ] **WhatsApp inconsistência** (já no item 3 abaixo): Footer.tsx tem
+      dois números (Foz 45-3027-3100 e Rio 21-97726-6062). Se ambos forem
+      legítimos, deixar; se for engano, remover o errado.
+- [ ] **Redes sociais** (já no item 4 abaixo): Facebook e LinkedIn divergem
+      entre `app/layout.tsx` e `components/Footer.tsx`. Uniformizar.
+- [ ] **Foto Alexandra/Jessica** em `public/assets/team/dra-*.jpg` —
+      confirmar que existem e que há autorização de uso.
+
+---
+
+---
+
 ## 1. Estatísticas de marca
 
 | Campo | Valor atual no site | Status |
