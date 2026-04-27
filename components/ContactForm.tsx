@@ -46,7 +46,12 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-6"
+      aria-label="Formul&aacute;rio de contato com o escrit&oacute;rio Barp.Hoff.Costa Advogados"
+      noValidate={false}
+    >
       {/* Nome completo */}
       <div>
         <label htmlFor="name" className="sr-only">
@@ -57,9 +62,13 @@ export function ContactForm() {
           name="name"
           type="text"
           required
+          aria-required="true"
+          aria-describedby="name-hint"
+          autoComplete="name"
           placeholder="Nome completo"
           className="w-full border-0 border-b-2 border-gray-300 bg-transparent py-3 text-gray-900 placeholder-gray-400 transition-colors focus:border-brand focus:outline-none focus:ring-0"
         />
+        <span id="name-hint" className="sr-only">Campo obrigat&oacute;rio</span>
       </div>
 
       {/* E-mail */}
@@ -72,9 +81,13 @@ export function ContactForm() {
           name="email"
           type="email"
           required
+          aria-required="true"
+          aria-describedby="email-hint"
+          autoComplete="email"
           placeholder="E-mail"
           className="w-full border-0 border-b-2 border-gray-300 bg-transparent py-3 text-gray-900 placeholder-gray-400 transition-colors focus:border-brand focus:outline-none focus:ring-0"
         />
+        <span id="email-hint" className="sr-only">Campo obrigat&oacute;rio. Informe um endere&ccedil;o de e-mail v&aacute;lido.</span>
       </div>
 
       {/* Telefone */}
@@ -87,9 +100,13 @@ export function ContactForm() {
           name="phone"
           type="tel"
           required
+          aria-required="true"
+          aria-describedby="phone-hint"
+          autoComplete="tel"
           placeholder="Telefone"
           className="w-full border-0 border-b-2 border-gray-300 bg-transparent py-3 text-gray-900 placeholder-gray-400 transition-colors focus:border-brand focus:outline-none focus:ring-0"
         />
+        <span id="phone-hint" className="sr-only">Campo obrigat&oacute;rio. Informe seu telefone com DDD.</span>
       </div>
 
       {/* Mensagem */}
@@ -101,22 +118,26 @@ export function ContactForm() {
           id="message"
           name="message"
           rows={4}
+          aria-describedby="message-hint"
           placeholder="Sua mensagem"
           className="w-full resize-none border-0 border-b-2 border-gray-300 bg-transparent py-3 text-gray-900 placeholder-gray-400 transition-colors focus:border-brand focus:outline-none focus:ring-0"
         />
+        <span id="message-hint" className="sr-only">Campo opcional. Descreva brevemente o seu caso.</span>
       </div>
 
       {/* Submit */}
       <button
         type="submit"
         disabled={status === 'sending'}
+        aria-label={status === 'sending' ? 'Enviando formul\u00E1rio de contato' : 'Enviar formul\u00E1rio de contato'}
+        aria-busy={status === 'sending'}
         className="btn-brand w-full disabled:opacity-60"
       >
         {status === 'sending' ? 'ENVIANDO...' : 'ENVIAR'}
       </button>
 
       {status === 'error' && (
-        <p className="text-center text-sm text-red-600">
+        <p role="alert" aria-live="polite" className="text-center text-sm text-red-600">
           Ocorreu um erro. Por favor, tente novamente.
         </p>
       )}

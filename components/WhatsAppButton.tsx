@@ -23,7 +23,9 @@ export default function WhatsAppButton() {
       href="https://wa.me/554530273100?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20advogado!"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Fale conosco pelo WhatsApp"
+      aria-label="Abrir WhatsApp para falar com advogado especialista em direito da sa\u00FAde"
+      title="Falar pelo WhatsApp"
+      role="button"
       className={`fixed bottom-6 right-6 z-50 flex h-[60px] w-[60px] items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl ${
         isVisible
           ? "translate-y-0 opacity-100"
