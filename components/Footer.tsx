@@ -222,6 +222,20 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Disclaimer etico (OAB Provimento 205/2021) */}
+      {/* TO-REVIEW: revisar texto com advogado responsavel antes do push */}
+      <div className="relative z-10 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-5 text-xs leading-relaxed text-white/70">
+          <p>
+            Este conte&uacute;do tem car&aacute;ter exclusivamente informativo e n&atilde;o
+            constitui aconselhamento jur&iacute;dico. A an&aacute;lise de casos espec&iacute;ficos
+            requer consulta profissional individualizada. Nenhum resultado jur&iacute;dico pode
+            ser garantido previamente; cada caso &eacute; avaliado conforme contrato, laudos
+            m&eacute;dicos e jurisprud&ecirc;ncia aplic&aacute;vel.
+          </p>
+        </div>
+      </div>
+
       {/* Bottom bar */}
       <div className="relative z-10 bg-black/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-white/80">
