@@ -98,10 +98,30 @@ const websiteSchema = {
 /* ------------------------------------------------------------------ */
 /*  JSON-LD Structured Data — Organization + LegalService              */
 /* ------------------------------------------------------------------ */
+/* INSTITUTIONAL CREDENTIALS (TO-REVIEW antes do push)                  */
+/*  Trocar `undefined` pelos valores reais. Enquanto undefined, os      */
+/*  campos sao omitidos do JSON-LD (schema valido sem ruido).           */
+/* ------------------------------------------------------------------ */
+const CNPJ_BARPHOFF: string | undefined = undefined // TO-REVIEW: '00.000.000/0001-00'
+const OAB_ALEXANDRA: string | undefined = undefined // TO-REVIEW: numero OAB/PR Dra. Alexandra
+const OAB_JESSICA: string | undefined = undefined // TO-REVIEW: numero OAB/PR Dra. Jessica
+
+const oabCredential = (oabNumber: string | undefined) => ({
+  '@type': 'EducationalOccupationalCredential',
+  credentialCategory: 'Professional License',
+  recognizedBy: {
+    '@type': 'Organization',
+    name: 'Ordem dos Advogados do Brasil - Seccional Paraná',
+    alternateName: 'OAB/PR',
+    ...(oabNumber ? { identifier: { '@type': 'PropertyValue', propertyID: 'OAB/PR', value: oabNumber } } : {}),
+  },
+})
+
 const siteSchema = {
   '@context': 'https://schema.org',
   '@type': ['LegalService', 'Organization'],
   '@id': 'https://www.barphoff.com/#organization',
+  ...(CNPJ_BARPHOFF ? { taxID: CNPJ_BARPHOFF, identifier: { '@type': 'PropertyValue', propertyID: 'CNPJ', value: CNPJ_BARPHOFF } } : {}),
   name: 'Barp.Hoff.Costa Advogados',
   alternateName: 'BARP.HOFF.',
   url: 'https://www.barphoff.com',
@@ -209,15 +229,7 @@ const alexandraSchema = {
     'Tratamento Oncológico',
   ],
   knowsLanguage: ['pt-BR'],
-  hasCredential: {
-    '@type': 'EducationalOccupationalCredential',
-    credentialCategory: 'Professional License',
-    recognizedBy: {
-      '@type': 'Organization',
-      name: 'Ordem dos Advogados do Brasil - Seccional Paraná',
-      alternateName: 'OAB/PR',
-    },
-  },
+  hasCredential: oabCredential(OAB_ALEXANDRA),
   worksFor: { '@id': 'https://www.barphoff.com/#organization' },
   address: {
     '@type': 'PostalAddress',
@@ -252,15 +264,7 @@ const jessicaSchema = {
     'Cirurgias Reparadoras',
   ],
   knowsLanguage: ['pt-BR'],
-  hasCredential: {
-    '@type': 'EducationalOccupationalCredential',
-    credentialCategory: 'Professional License',
-    recognizedBy: {
-      '@type': 'Organization',
-      name: 'Ordem dos Advogados do Brasil - Seccional Paraná',
-      alternateName: 'OAB/PR',
-    },
-  },
+  hasCredential: oabCredential(OAB_JESSICA),
   worksFor: { '@id': 'https://www.barphoff.com/#organization' },
   address: {
     '@type': 'PostalAddress',

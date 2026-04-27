@@ -104,6 +104,21 @@ const socialLinks = [
   { label: 'YouTube', href: 'https://www.youtube.com/@Barphoffcosta.advocacia', icon: YouTubeIcon },
 ]
 
+// -----------------------------------------------------------------------
+//  Bloco institucional (OAB / CNPJ).
+//  TO-REVIEW: preencher os tres valores abaixo e trocar SHOW_INSTITUTIONAL
+//  para true antes do push. Enquanto false, o bloco nao renderiza --
+//  evita exibir "OAB/PR ___" em producao. Os mesmos dados devem ser
+//  refletidos no JSON-LD em app/layout.tsx (constantes OAB_ALEXANDRA,
+//  OAB_JESSICA, CNPJ_BARPHOFF).
+// -----------------------------------------------------------------------
+const SHOW_INSTITUTIONAL = false
+const INSTITUTIONAL = {
+  cnpj: '00.000.000/0001-00', // TO-REVIEW: trocar pelo CNPJ real
+  oabAlexandra: 'OAB/PR 00.000', // TO-REVIEW: numero OAB Dra. Alexandra
+  oabJessica: 'OAB/PR 00.000', // TO-REVIEW: numero OAB Dra. Jessica
+}
+
 export function Footer() {
   return (
     <footer className="relative bg-brand text-white">
@@ -233,6 +248,15 @@ export function Footer() {
             ser garantido previamente; cada caso &eacute; avaliado conforme contrato, laudos
             m&eacute;dicos e jurisprud&ecirc;ncia aplic&aacute;vel.
           </p>
+          {SHOW_INSTITUTIONAL && (
+            <p className="mt-3 text-white/60">
+              Dra. Alexandra Barp &mdash; {INSTITUTIONAL.oabAlexandra}
+              {' · '}
+              Dra. Jessica Hoff &mdash; {INSTITUTIONAL.oabJessica}
+              {' · '}
+              CNPJ {INSTITUTIONAL.cnpj}
+            </p>
+          )}
         </div>
       </div>
 
