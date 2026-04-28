@@ -102,9 +102,9 @@ const websiteSchema = {
 /*  Trocar `undefined` pelos valores reais. Enquanto undefined, os      */
 /*  campos sao omitidos do JSON-LD (schema valido sem ruido).           */
 /* ------------------------------------------------------------------ */
-const CNPJ_BARPHOFF: string | undefined = undefined // TO-REVIEW: '00.000.000/0001-00'
-const OAB_ALEXANDRA: string | undefined = undefined // TO-REVIEW: numero OAB/PR Dra. Alexandra
-const OAB_JESSICA: string | undefined = undefined // TO-REVIEW: numero OAB/PR Dra. Jessica
+const CNPJ_BARPHOFF: string | undefined = '48.808.073/0001-30'
+const OAB_ALEXANDRA: string | undefined = '56.903-N'
+const OAB_JESSICA: string | undefined = '99.905'
 
 const oabCredential = (oabNumber: string | undefined) => ({
   '@type': 'EducationalOccupationalCredential',
@@ -212,8 +212,9 @@ const alexandraSchema = {
   '@type': 'Person',
   '@id': 'https://www.barphoff.com/sobre#alexandra-barp',
   name: 'Dra. Alexandra Barp',
+  legalName: 'Alexandra Barp Salgado',
   givenName: 'Alexandra',
-  familyName: 'Barp',
+  familyName: 'Barp Salgado',
   jobTitle: 'Advogada Especialista em Direito da Saúde',
   description:
     'Advogada sócia do escritório Barp.Hoff.Costa, especialista em Direito da Saúde, com atuação em todo o território nacional na defesa de pacientes contra negativas de planos de saúde e do SUS.',
@@ -247,8 +248,9 @@ const jessicaSchema = {
   '@type': 'Person',
   '@id': 'https://www.barphoff.com/sobre#jessica-hoff',
   name: 'Dra. Jessica Hoff',
+  legalName: 'Jessica Cristina Hoff Bueno Garcia',
   givenName: 'Jessica',
-  familyName: 'Hoff',
+  familyName: 'Hoff Bueno Garcia',
   jobTitle: 'Advogada Especialista em Direito da Saúde',
   description:
     'Advogada sócia do escritório Barp.Hoff.Costa, especialista em Direito da Saúde, com atuação em todo o território nacional na defesa de pacientes contra negativas de planos de saúde e do SUS.',

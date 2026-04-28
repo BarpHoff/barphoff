@@ -11,54 +11,47 @@ schema.org/SEO; **MÉDIO** afeta fachada institucional; **BAIXO** é cosmético.
 
 ---
 
-## 0. BLOQUEIOS PARA PUSH DO PLANO QS/LPE (atualizado 2026-04-27)
+## 0. BLOQUEIOS PARA PUSH DO PLANO QS/LPE (atualizado 2026-04-28)
 
-> **Quando os 3 itens abaixo estiverem preenchidos**, todos os bloqueios para
-> subir o plano de Quality Score / Landing Page Experience são liberados.
-> Estrutura já está pronta — basta trocar 3 valores `undefined`/flag e
-> remover comentários de 9 arquivos HTML.
+> **STATUS**: 0.1, 0.2 e 0.3 ✅ APLICADOS em 2026-04-28 com dados reais
+> recebidos da cliente: CNPJ 48.808.073/0001-30, Alexandra Barp Salgado
+> OAB/PR 56.903-N, Jessica Cristina Hoff Bueno Garcia OAB/PR 99.905.
+> Resta a seção 0.4 (revisão de textos/inconsistências) antes do push.
 
-### 0.1 Três valores que destravam tudo
+### 0.1 Três valores que destravam tudo ✅ APLICADO 2026-04-28
 
-| Campo | Onde | Como ativar |
+| Campo | Onde | Valor aplicado |
 |---|---|---|
-| `CNPJ_BARPHOFF` | `app/layout.tsx` (topo do arquivo) | trocar `undefined` por `'00.000.000/0001-00'` |
-| `OAB_ALEXANDRA` | `app/layout.tsx` (topo do arquivo) | trocar `undefined` por `'12.345'` (numero OAB Dra. Alexandra) |
-| `OAB_JESSICA` | `app/layout.tsx` (topo do arquivo) | trocar `undefined` por `'67.890'` (numero OAB Dra. Jessica) |
+| `CNPJ_BARPHOFF` | `app/layout.tsx:105` | `'48.808.073/0001-30'` |
+| `OAB_ALEXANDRA` | `app/layout.tsx:106` | `'56.903-N'` |
+| `OAB_JESSICA` | `app/layout.tsx:107` | `'99.905'` |
 
-Quando essas constantes virarem string, o JSON-LD ganha automaticamente
-`taxID`, `identifier:CNPJ`, `hasCredential.recognizedBy.identifier:OAB/PR`
-em LegalService + 2× Person schema. Schema já está validado.
+JSON-LD agora exibe `taxID`, `identifier:CNPJ` em LegalService +
+`hasCredential.recognizedBy.identifier:OAB/PR` em ambos os schemas Person.
+Adicionalmente: `legalName` e `familyName` atualizados com nomes legais
+completos em ambos os Person.
 
-### 0.2 Footer institucional visível
+### 0.2 Footer institucional visível ✅ APLICADO 2026-04-28
 
-| Onde | Como ativar |
+| Onde | Estado |
 |---|---|
-| `components/Footer.tsx` (linha ~107) | trocar `SHOW_INSTITUTIONAL = false` para `true` |
-| `components/Footer.tsx` (linha ~109-113) | trocar os 3 valores em `INSTITUTIONAL = {...}` (cnpj, oabAlexandra, oabJessica) |
+| `components/Footer.tsx:115` | `SHOW_INSTITUTIONAL = true` |
+| `components/Footer.tsx:117-119` | `INSTITUTIONAL` com valores reais |
+| `components/Footer.tsx:251-259` | Texto renderizado com nomes legais completos |
 
-Mostra rodapé do tipo "Dra. Alexandra Barp — OAB/PR XX.XXX · Dra. Jessica
-Hoff — OAB/PR XX.XXX · CNPJ XX.XXX.XXX/0001-XX" abaixo do disclaimer.
+Renderiza "Dra. Alexandra Barp Salgado — OAB/PR 56.903-N · Dra. Jessica
+Cristina Hoff Bueno Garcia — OAB/PR 99.905 · CNPJ 48.808.073/0001-30"
+abaixo do disclaimer.
 
-### 0.3 9 LPs estáticas — bloco institucional
+### 0.3 9 LPs estáticas — bloco institucional ✅ APLICADO 2026-04-28
 
-Em `public/<slug>/index.html` (9 arquivos: negativa-cirurgia, home-care,
-medicamento-alto-custo, negativa-plano-de-saude, negativa-do-sus,
-tratamento-oncologico, direito-a-saude, revisao-restituicao,
-negativa-de-tratamento), procurar:
-
-```html
-<!-- TO-REVIEW: descomentar bloco abaixo apos preenchimento de OAB e CNPJ -->
-<!--
-<div class="container" data-lp-institutional="v1" ...>
-    Dra. Alexandra Barp &mdash; OAB/PR 00.000 ...
-</div>
--->
-```
-
-E (a) trocar os números 00.000 e CNPJ pelos reais; (b) remover as linhas
-de abertura `<!--` e fechamento `-->` (só do bloco institucional, não do
-disclaimer ético acima dele que tem MARKER `data-lp-disclaimer`).
+Aplicado via `scripts/.apply-institutional-data.mjs` (untracked, idempotente).
+Substitui placeholders e descomentariza o bloco com marker
+`data-lp-institutional="v1"` em todos os 9 arquivos `public/<slug>/index.html`
+(negativa-cirurgia, home-care, medicamento-alto-custo, negativa-plano-de-saude,
+negativa-do-sus, tratamento-oncologico, direito-a-saude, revisao-restituicao,
+negativa-de-tratamento). Disclaimer ético `data-lp-disclaimer="v1"` mantido
+intacto.
 
 ### 0.4 Outros pontos a revisar antes do push
 

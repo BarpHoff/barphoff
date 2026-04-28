@@ -112,11 +112,11 @@ const socialLinks = [
 //  refletidos no JSON-LD em app/layout.tsx (constantes OAB_ALEXANDRA,
 //  OAB_JESSICA, CNPJ_BARPHOFF).
 // -----------------------------------------------------------------------
-const SHOW_INSTITUTIONAL = false
+const SHOW_INSTITUTIONAL = true
 const INSTITUTIONAL = {
-  cnpj: '00.000.000/0001-00', // TO-REVIEW: trocar pelo CNPJ real
-  oabAlexandra: 'OAB/PR 00.000', // TO-REVIEW: numero OAB Dra. Alexandra
-  oabJessica: 'OAB/PR 00.000', // TO-REVIEW: numero OAB Dra. Jessica
+  cnpj: '48.808.073/0001-30',
+  oabAlexandra: 'OAB/PR 56.903-N',
+  oabJessica: 'OAB/PR 99.905',
 }
 
 export function Footer() {
@@ -250,9 +250,9 @@ export function Footer() {
           </p>
           {SHOW_INSTITUTIONAL && (
             <p className="mt-3 text-white/60">
-              Dra. Alexandra Barp &mdash; {INSTITUTIONAL.oabAlexandra}
+              Dra. Alexandra Barp Salgado &mdash; {INSTITUTIONAL.oabAlexandra}
               {' · '}
-              Dra. Jessica Hoff &mdash; {INSTITUTIONAL.oabJessica}
+              Dra. Jessica Cristina Hoff Bueno Garcia &mdash; {INSTITUTIONAL.oabJessica}
               {' · '}
               CNPJ {INSTITUTIONAL.cnpj}
             </p>
