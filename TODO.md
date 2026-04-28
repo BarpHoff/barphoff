@@ -63,13 +63,19 @@ intacto.
       propriedade intelectual, limitação de responsabilidade, atendimento,
       LGPD, alterações, foro de Foz do Iguaçu, contato). Cada seção
       marcada TO-REVIEW.
-- [ ] **WhatsApp inconsistência** (já no item 3 abaixo): Footer.tsx tem
-      dois números (Foz 45-3027-3100 e Rio 21-97726-6062). Se ambos forem
-      legítimos, deixar; se for engano, remover o errado.
-- [ ] **Redes sociais** (já no item 4 abaixo): Facebook e LinkedIn divergem
-      entre `app/layout.tsx` e `components/Footer.tsx`. Uniformizar.
-- [ ] **Foto Alexandra/Jessica** em `public/assets/team/dra-*.jpg` —
-      confirmar que existem e que há autorização de uso.
+- [x] **WhatsApp inconsistência** ✅ RESOLVIDO 2026-04-28: o "Rio
+      21-97726-6062" era o WhatsApp do desenvolvedor (Edu Santana,
+      assinatura "Feito por"). Link removido, texto da assinatura mantido.
+      Único WhatsApp clicável agora é o de Foz: 5545-3027-3100.
+- [x] **Redes sociais** ✅ RESOLVIDO 2026-04-28: oficiais confirmadas pela
+      cliente:
+      - Instagram: https://www.instagram.com/advpacientes/ (era saudebhc/)
+      - Facebook: https://www.facebook.com/profile.php?id=61550826945465
+      - LinkedIn e YouTube: REMOVIDOS (não foram confirmados como oficiais).
+        Re-adicionar apenas após confirmação da cliente.
+- [x] **Foto Alexandra/Jessica** ✅ AUTORIZADAS 2026-04-28 (cliente confirmou
+      uso). Verificar se os arquivos `public/assets/team/dra-*.jpg` existem
+      e estão na qualidade desejada antes do push final.
 
 ---
 

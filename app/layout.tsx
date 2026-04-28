@@ -165,10 +165,8 @@ const siteSchema = {
   // de reviews agregados. Reintegrar apenas com dados reais (Google Business Profile
   // API ou widget Trustindex ativo), nunca com valores estáticos.
   sameAs: [
-    'https://www.instagram.com/saudebhc/',
-    'https://www.facebook.com/barphoff',
-    'https://www.linkedin.com/company/barphoff',
-    'https://www.youtube.com/@barphoff',
+    'https://www.instagram.com/advpacientes/',
+    'https://www.facebook.com/profile.php?id=61550826945465',
   ],
   knowsAbout: [
     'Direito da Saúde',
@@ -240,7 +238,7 @@ const alexandraSchema = {
     postalCode: '85851-020',
     addressCountry: 'BR',
   },
-  sameAs: ['https://www.instagram.com/saudebhc/'],
+  sameAs: ['https://www.instagram.com/advpacientes/'],
 }
 
 const jessicaSchema = {
@@ -276,7 +274,7 @@ const jessicaSchema = {
     postalCode: '85851-020',
     addressCountry: 'BR',
   },
-  sameAs: ['https://www.instagram.com/saudebhc/'],
+  sameAs: ['https://www.instagram.com/advpacientes/'],
 }
 
 export default function RootLayout({
