@@ -1051,15 +1051,24 @@
             window.addEventListener('resize', () => { buildDots(); goTo(0); });
         })();
 
-        // IntersectionObserver para Fade-in on scroll
-        document.addEventListener('DOMContentLoaded', () => {
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        // Reveal on scroll (com fix pra bfcache / botao voltar do navegador)
+        (function () {
+            // Reduced motion: torna tudo visivel imediatamente, sem animacao
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+                return;
+            }
 
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -10% 0px',
-                threshold: 0.15
-            };
+            function isInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return rect.top < window.innerHeight && rect.bottom > 0;
+            }
+
+            function sweepVisible() {
+                document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => {
+                    if (isInViewport(el)) el.classList.add('is-visible');
+                });
+            }
 
             const observer = new IntersectionObserver((entries, obs) => {
                 entries.forEach(entry => {
@@ -1068,15 +1077,38 @@
                         obs.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
 
-            document.querySelectorAll('.reveal').forEach((el, index) => {
-                if (el.classList.contains('step-card') || el.classList.contains('card') || el.classList.contains('faq-item') || el.classList.contains('review-card')) {
-                    el.style.transitionDelay = `${(index % 4) * 80}ms`;
+            function setup() {
+                document.querySelectorAll('.reveal:not(.is-visible)').forEach((el, index) => {
+                    if (el.classList.contains('step-card') || el.classList.contains('card') || el.classList.contains('faq-item') || el.classList.contains('review-card')) {
+                        el.style.transitionDelay = `${(index % 4) * 80}ms`;
+                    }
+                    observer.observe(el);
+                });
+                // Sweep imediato pra elementos ja em viewport (carga rapida ou bfcache)
+                sweepVisible();
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setup);
+            } else {
+                setup();
+            }
+
+            // pageshow: dispara em load inicial E em bfcache restore (botao voltar)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    // Restored from bfcache: forca sweep dos elementos ja in viewport
+                    requestAnimationFrame(sweepVisible);
                 }
-                observer.observe(el);
             });
-        });
+
+            // Safety net: apos window.load
+            window.addEventListener('load', function () {
+                setTimeout(sweepVisible, 100);
+            });
+        })();
     </script>
 </body>
 

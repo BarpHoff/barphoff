@@ -93,9 +93,29 @@ export default function ScrollAnimations() {
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
 
+    // bfcache fix: ao voltar do navegador (botao "voltar"), o useEffect nao roda
+    // de novo mas a pagina e restaurada do back-forward cache. Sweep agressivo
+    // pra revelar elementos ja em viewport antes que pareca "pagina vazia".
+    const handlePageshow = (e: PageTransitionEvent) => {
+      if (!e.persisted) return; // so importa em bfcache restore
+      requestAnimationFrame(() => {
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        document.querySelectorAll<HTMLElement>(".animate-on-scroll:not(.is-visible)").forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < vh && rect.bottom > 0) {
+            markVisible(el, false);
+            observer.unobserve(el);
+            observed.delete(el);
+          }
+        });
+      });
+    };
+    window.addEventListener("pageshow", handlePageshow);
+
     return () => {
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
+      window.removeEventListener("pageshow", handlePageshow);
       if (rafId) cancelAnimationFrame(rafId);
       observer.disconnect();
     };
