@@ -134,7 +134,7 @@
     </script>
 
     <!-- Performance: LCP image preload -->
-    <link rel="preload" as="image" href="/assets/foto_equipe.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="/assets/foto_equipe-400.avif 400w, /assets/foto_equipe.avif 800w" imagesizes="(max-width: 768px) 400px, 800px" type="image/avif" fetchpriority="high">
 
     <!-- Fonts: não-bloqueante -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -227,6 +227,9 @@
                     <div class="hero-img-wrapper">
                         <!-- Foto real das advogadas -->
                         <picture>
+                            <source media="(max-width: 768px)" srcset="/assets/foto_equipe-400.avif" type="image/avif">
+                            <source media="(max-width: 768px)" srcset="/assets/foto_equipe-400.webp" type="image/webp">
+                            <source srcset="/assets/foto_equipe.avif" type="image/avif">
                             <source srcset="/assets/foto_equipe.webp" type="image/webp">
                             <img src="/assets/foto_equipe.webp"
                                 alt="Advogadas da Barp Hoff Costa - Especialistas em Direito da Saude" width="800"
@@ -285,11 +288,13 @@
 
                 <div class="video-wrapper"
                     style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-premium);">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/RkTuFa4PDgM?rel=0"
-                        title="Vídeo Explicativo" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                    <div class="yt-facade" data-yt-id="RkTuFa4PDgM" role="button" tabindex="0"
+                        aria-label="Carregar e reproduzir video do YouTube"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; background: #000 url('https://i.ytimg.com/vi/RkTuFa4PDgM/hqdefault.jpg') center/cover no-repeat;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 68px; height: 48px; background: rgba(0,0,0,0.75); border-radius: 12px; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="video-badges">
@@ -365,7 +370,7 @@
                         brechas e agir com estratégia.</p>
 
                     <div class="story-alert-card">
-                        <h4>Erros comuns após a recusa:</h4>
+                        <h3>Erros comuns após a recusa:</h3>
                         <ul>
                             <li>
                                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -958,17 +963,17 @@
                 <p class="footer-compliance">Cada caso exige análise individual.</p>
             </div>
             <div class="footer-links">
-                <h4>Atuação</h4>
+                <h3>Atua&ccedil;&atilde;o</h3>
                 <ul>
                     <li>Atendimento nacional</li>
                     <li>Online — sem deslocamento</li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Legal</h4>
+                <h3>Legal</h3>
                 <ul>
-                    <li><a href="/politica-de-privacidade" style="color:inherit; text-decoration:none;">Política de Privacidade</a></li>
-                    <li><a href="/termos-de-uso" style="color:inherit; text-decoration:none;">Termos de Uso</a></li>
+                    <li><a href="/politica-de-privacidade" style="color:inherit; text-decoration:none; display:inline-block; padding:8px 0;">Política de Privacidade</a></li>
+                    <li><a href="/termos-de-uso" style="color:inherit; text-decoration:none; display:inline-block; padding:8px 0;">Termos de Uso</a></li>
                 </ul>
             </div>
         </div>
@@ -1017,6 +1022,30 @@
                 console.log('GTm not ready');
             }
         }
+
+
+        // YouTube facade: lazy-load do iframe so apos clique
+        function ytFacadeActivate(facade) {
+            const id = facade.dataset.ytId;
+            if (!id) return;
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+            iframe.title = 'Video Explicativo';
+            iframe.frameBorder = '0';
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;';
+            facade.replaceWith(iframe);
+        }
+        document.addEventListener('click', function(e) {
+            const facade = e.target.closest('.yt-facade');
+            if (facade) ytFacadeActivate(facade);
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            const facade = e.target.closest && e.target.closest('.yt-facade');
+            if (facade) { e.preventDefault(); ytFacadeActivate(facade); }
+        });
 
         function click_whatsapp(origin) {
             trackWhatsAppConversion(origin);
@@ -1068,7 +1097,13 @@
             }
         }
 
-        window.addEventListener('scroll', handleStickyCta, { passive: true });
+        let __stickyTicking = false;
+        window.addEventListener('scroll', () => {
+            if (!__stickyTicking) {
+                requestAnimationFrame(() => { handleStickyCta(); __stickyTicking = false; });
+                __stickyTicking = true;
+            }
+        }, { passive: true });
         window.addEventListener('resize', handleStickyCta);
         document.addEventListener('DOMContentLoaded', () => {
             handleStickyCta();

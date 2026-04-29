@@ -738,7 +738,7 @@ header {
 }
 
 .storytelling-content p {
-    color: rgba(245, 237, 232, 0.72);
+    color: rgba(245, 237, 232, 0.92);
     font-size: 1.05rem;
     margin-bottom: 1.5rem;
 }
@@ -1696,7 +1696,7 @@ footer::after {
 
 .footer-compliance {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.88);
     margin-top: 1rem;
     max-width: 360px;
     line-height: 1.75;
@@ -1716,7 +1716,7 @@ footer::after {
     flex-direction: column;
     gap: 0.65rem;
     font-size: 0.875rem;
-    color: rgba(245, 237, 232, 0.5);
+    color: rgba(245, 237, 232, 0.85);
 }
 
 .footer-links a:hover {
@@ -1728,7 +1728,7 @@ footer::after {
     padding-top: 1.75rem;
     text-align: center;
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.75);
     position: relative;
     z-index: 2;
 }
