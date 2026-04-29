@@ -123,8 +123,42 @@
             href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=Prata&display=swap">
     </noscript>
 
-    <!-- CSS externo (cacheável) -->
-    <link rel="stylesheet" href="/styles.css">
+    <!-- Critical CSS inlined (above-the-fold) - resto carrega async -->
+    <style>
+picture{display:contents}
+:root{--bg:#fff;--bg-warm:#faf8f5;--bg-dark:#2a0a0f;--bg-mid:#3d1017;--primary:#3d1017;--primary-light:#5a1a22;--text:#1a0508;--text-light:#f5ede8;--secondary:#5c3a3f;--muted:#9a7a7f;--accent:#c4a97d;--accent-warm:#d4b896;--wa:#10b981;--radius-sm:8px;--radius-md:12px;--radius-lg:18px;--radius-xl:24px;--shadow-sm:0 4px 16px rgba(61,16,23,.08);--shadow-md:0 12px 36px rgba(61,16,23,.15);--shadow-premium:0 24px 56px rgba(0,0,0,.3);--border:rgba(61,16,23,.10);--border-warm:rgba(196,169,125,.20);--border-light:rgba(255,255,255,.12);--transition:all .3s cubic-bezier(.4,0,.2,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background-color:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-wrap:break-word}
+h1,h2,h3{font-family:'Outfit',sans-serif;letter-spacing:-.03em}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;height:auto;display:block;object-fit:cover}
+.container{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:1rem 2rem;min-height:52px;border-radius:var(--radius-md);font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;cursor:pointer;transition:var(--transition);border:none;text-align:center;gap:.5rem;letter-spacing:.01em}
+.btn-green{background-color:var(--wa);color:#fff;box-shadow:0 4px 14px rgba(0,168,89,.25);border:1px solid transparent;padding:1.15rem 2.25rem}
+.btn-block{width:100%}
+@media (max-width:639px){.btn{width:100%}}
+.waba-icon{display:inline-block;width:19px;height:19px;flex-shrink:0}
+header{position:fixed;top:0;left:0;width:100%;background:rgba(42,10,15,.95);border-bottom:1px solid rgba(196,169,125,.15);z-index:100;padding:12px 0;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.header-content{display:flex;justify-content:center;align-items:center;position:relative;width:100%;min-height:64px;overflow:visible}
+.logo{display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:visible}
+.logo img{height:28px;width:auto;max-width:80vw;object-fit:contain;display:block;filter:brightness(0) invert(1);opacity:1}
+@media (max-width:767px){.logo img{height:20px}}
+.btn-header{display:none}
+@media (min-width:640px){.btn-header{display:inline-flex;justify-self:end}}
+.hero{padding:5.5rem 0 0;background-color:var(--bg-dark);background-image:linear-gradient(135deg,rgba(42,10,15,.1) 0%,rgba(90,26,34,.4) 100%);color:var(--text-light);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at bottom left,rgba(90,26,34,.5) 0%,transparent 65%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:flex-end}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.hero-eyebrow-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.hero-text{position:relative;z-index:5;padding-right:2rem}
+@media (max-width:767px){.hero-text{padding-right:0}}
+.hero-text h1{font-family:'Outfit',sans-serif;font-size:2.25rem;line-height:1.15;margin-bottom:1.25rem;font-weight:700;color:#fff;letter-spacing:-.02em}
+.hero-text .subtitle{font-size:1.15rem;color:rgba(255,255,255,.95);text-shadow:0 1px 3px rgba(0,0,0,.15);margin-bottom:2rem;line-height:1.55;max-width:460px}
+.cta-wrap{margin-bottom:2rem;position:relative;z-index:2}
+    </style>
+    <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/styles.css"></noscript>
 </head>
 
 <body>
