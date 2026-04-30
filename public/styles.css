@@ -1218,7 +1218,12 @@ header {
         box-shadow: none;
     }
 
-    .office-gallery img:first-child {
+    /* Mostra apenas a primeira foto em mobile.
+       Fix: <picture> wrappa cada <img>, entao img:first-child nao casa
+       (primeiro filho de <picture> e <source>). Selecionamos via
+       picture:first-child img (ambos pra compat com legacy img direto). */
+    .office-gallery .track > picture:first-child img,
+    .office-gallery .track > img:first-child {
         display: block;
     }
 
@@ -1244,7 +1249,8 @@ header {
         pointer-events: none;
     }
 
-    .office-gallery img:first-child {
+    .office-gallery .track > picture:first-child img,
+    .office-gallery .track > img:first-child {
         position: relative;
         z-index: 1;
     }
