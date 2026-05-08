@@ -42,23 +42,19 @@ export default function ScrollAnimations() {
 
     const sweepAlreadyVisibleOrPast = () => {
       const viewportH = window.innerHeight || document.documentElement.clientHeight;
-      // Reveal anything that is already in/past viewport — covers deep-link, refresh-in-middle,
-      // anchor jumps, fast wheel scrolls, and any case where IO would have missed an intersection.
-      observed.forEach((el) => {
-        if (el.classList.contains("is-visible")) {
-          observer.unobserve(el);
-          observed.delete(el);
-          return;
-        }
+      // FIX-V3: varre TODOS os :not(.is-visible) do DOM (não só os em `observed`),
+      // porque após bfcache o Set `observed` pode estar inconsistente / vazio.
+      // Cobre: deep-link, refresh-em-meio, back-forward com/sem bfcache,
+      // anchor jumps, scroll programático rápido.
+      document.querySelectorAll<HTMLElement>(".animate-on-scroll:not(.is-visible)").forEach((el) => {
         const rect = el.getBoundingClientRect();
-        if (
-          rect.bottom <= 0 ||
-          (rect.top >= 0 && rect.bottom <= viewportH) ||
-          (rect.top < viewportH * 0.9 && rect.bottom > 0)
-        ) {
+        // Reveal se: já passou (above) OR está in viewport
+        if (rect.top < viewportH) {
           markVisible(el, false);
-          observer.unobserve(el);
-          observed.delete(el);
+          if (observed.has(el)) {
+            observer.unobserve(el);
+            observed.delete(el);
+          }
         }
       });
     };
@@ -94,18 +90,27 @@ export default function ScrollAnimations() {
     window.addEventListener("resize", schedule);
 
     // bfcache fix: ao voltar do navegador (botao "voltar"), o useEffect nao roda
-    // de novo mas a pagina e restaurada do back-forward cache. Sweep agressivo
-    // pra revelar elementos ja em viewport antes que pareca "pagina vazia".
+    // de novo. O bfcache invalida o IntersectionObserver, entao alem do sweep
+    // dos in-viewport, precisamos RE-OBSERVAR todos os elementos ainda nao
+    // visiveis — caso contrario, scrollar apos voltar nao revela nada novo.
     const handlePageshow = (e: PageTransitionEvent) => {
       if (!e.persisted) return; // so importa em bfcache restore
       requestAnimationFrame(() => {
         const vh = window.innerHeight || document.documentElement.clientHeight;
         document.querySelectorAll<HTMLElement>(".animate-on-scroll:not(.is-visible)").forEach((el) => {
           const rect = el.getBoundingClientRect();
-          if (rect.top < vh && rect.bottom > 0) {
+          // FIX-V2: marca como visible se ja in viewport OU ja passou (above)
+          // (rect.top < vh inclui ambos os casos)
+          if (rect.top < vh) {
             markVisible(el, false);
             observer.unobserve(el);
             observed.delete(el);
+          } else {
+            // Esta abaixo da fold: re-observa (observer original morreu no bfcache)
+            if (!observed.has(el)) {
+              observer.observe(el);
+              observed.add(el);
+            }
           }
         });
       });

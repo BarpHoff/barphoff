@@ -1204,14 +1204,18 @@ header{position:fixed;top:0;left:0;width:100%;background:rgba(42,10,15,.95);bord
                 return;
             }
 
-            function isInViewport(el) {
+            // FIX-V2-ABOVE-VIEWPORT: inclui elementos JA acima da fold (que ja passaram)
+            // pra cobrir scroll-restoration apos back-forward + deep-links.
+            function shouldRevealNow(el) {
                 const rect = el.getBoundingClientRect();
-                return rect.top < window.innerHeight && rect.bottom > 0;
+                // marca como visible se: (1) ja passou (bottom <= 0)
+                //                     OR (2) esta in viewport (top < vh && bottom > 0)
+                return rect.top < window.innerHeight;
             }
 
             function sweepVisible() {
                 document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => {
-                    if (isInViewport(el)) el.classList.add('is-visible');
+                    if (shouldRevealNow(el)) el.classList.add('is-visible');
                 });
             }
 
@@ -1242,17 +1246,43 @@ header{position:fixed;top:0;left:0;width:100%;background:rgba(42,10,15,.95);bord
             }
 
             // pageshow: dispara em load inicial E em bfcache restore (botao voltar)
+            // FIX-RE-OBSERVE: bfcache invalida o IntersectionObserver original.
+            // Nao basta sweep dos in-viewport — precisa REOBSERVAR os abaixo da
+            // dobra pra que scrollar apos voltar continue revelando elementos.
             window.addEventListener('pageshow', function (e) {
-                if (e.persisted) {
-                    // Restored from bfcache: forca sweep dos elementos ja in viewport
-                    requestAnimationFrame(sweepVisible);
-                }
+                if (!e.persisted) return;
+                requestAnimationFrame(function () {
+                    // 1) Sweep imediato: elementos ja in viewport viram visiveis
+                    sweepVisible();
+                    // 2) Re-observa todos os outros (observer original morreu no bfcache)
+                    document.querySelectorAll('.reveal:not(.is-visible)').forEach(function (el) {
+                        observer.observe(el);
+                    });
+                });
             });
 
             // Safety net: apos window.load
             window.addEventListener('load', function () {
                 setTimeout(sweepVisible, 100);
+                // Sweep adicional 500ms apos load (cobre scroll-restoration tardia)
+                setTimeout(sweepVisible, 500);
+                setTimeout(sweepVisible, 1500);
             });
+
+            // FIX-V3-SCROLL-SWEEP: scroll listener com rAF garante sweep em
+            // qualquer cenario de back-forward/scroll-restoration/deep-link,
+            // mesmo quando IntersectionObserver nao dispara (scroll programatico
+            // pulando elementos, bfcache invalidando observer, etc).
+            let sweepTicking = false;
+            window.addEventListener('scroll', function () {
+                if (!sweepTicking) {
+                    requestAnimationFrame(function () {
+                        sweepVisible();
+                        sweepTicking = false;
+                    });
+                    sweepTicking = true;
+                }
+            }, { passive: true });
         })();
     </script>
 </body>
