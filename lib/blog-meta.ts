@@ -22,7 +22,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     slug: "advogado-especialista-direito-da-saude",
     date: "2026-05-05",
     categories: ["Direito da Sa\u00fade", "Guia"],
-    excerpt: "Como atua um advogado especialista em direito da sa\u00fade, em quais \u00e1reas pode ajudar, quanto custa e quando procurar. Guia completo com Lei 14.454/2022, decis\u00f5es do STJ e dados do CNJ \u2014 tudo o que voc\u00ea precisa saber para defender seus direitos contra plano de sa\u00fade ou SUS."
+    excerpt: "Como atua um advogado especialista em direito da sa\u00fade, em quais \u00e1reas pode ajudar, quanto custa e quando procurar. Guia completo com Lei 14.454/2022, decis\u00f5es do STJ e dados do CNJ. Tudo o que voc\u00ea precisa saber para defender seus direitos contra plano de sa\u00fade ou SUS."
   },
   {
     title: "Como Processar um Plano de Sa\u00fade? Saiba Como Agir!",

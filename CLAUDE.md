@@ -22,3 +22,12 @@ These defaults are optimized for AI coding agents (and humans) working on apps t
   needed. Always curl https://ai-gateway.vercel.sh/v1/models first; never trust model IDs from memory
 - For durable agent loops or untrusted code: use Workflow (pause/resume/state) + Sandbox; use Vercel MCP for secure infra access
 <!-- VERCEL BEST PRACTICES END -->
+
+## Estilo de escrita (regra obrigatória — todo conteúdo público do site)
+
+Vale para artigos de blog, copy de LP, e-mails, qualquer texto que sai pro público.
+
+- **Proibido travessão (— e –)**. Usar vírgula, ponto, dois-pontos ou parênteses no lugar.
+- **Proibida construção em antagonismo**: "não é sobre X, é sobre Y" / "não é X. É Y" / "mais que X, é Y" e variações. Afirmar direto sem opor.
+- Frases curtas, voz ativa, sem floreio retórico.
+- Quando em dúvida entre duas formas, escolher a mais direta.
