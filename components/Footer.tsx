@@ -232,9 +232,9 @@ export function Footer() {
           </p>
           {SHOW_INSTITUTIONAL && (
             <p className="mt-3 text-white/60">
-              Dra. Alexandra Barp Salgado &mdash; {INSTITUTIONAL.oabAlexandra}
+              Dra. Alexandra Barp Salgado, {INSTITUTIONAL.oabAlexandra}
               {' · '}
-              Dra. Jessica Cristina Hoff Bueno Garcia &mdash; {INSTITUTIONAL.oabJessica}
+              Dra. Jessica Cristina Hoff Bueno Garcia, {INSTITUTIONAL.oabJessica}
               {' · '}
               CNPJ {INSTITUTIONAL.cnpj}
             </p>
