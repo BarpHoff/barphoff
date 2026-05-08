@@ -11,6 +11,20 @@ export interface BlogPostMeta {
 
 export const blogPostsMeta: BlogPostMeta[] = [
   {
+    title: "Lei 14.454/2022: O Que Mudou no Rol da ANS e Como Conseguir Cobertura Fora da Lista",
+    slug: "lei-14454-rol-ans-cobertura-fora",
+    date: "2026-05-06",
+    categories: ["Direito da Sa\u00fade", "Planos de Sa\u00fade", "Legisla\u00e7\u00e3o"],
+    excerpt: "A Lei 14.454/2022 mudou o jogo: o Rol da ANS deixou de ser taxativo e passou a ser exemplificativo. Entenda os 4 crit\u00e9rios para conseguir cobertura de tratamentos, medicamentos e cirurgias fora da lista da ANS, com decis\u00f5es do STJ e atualiza\u00e7\u00f5es do Rol em 2025-2026."
+  },
+  {
+    title: "Advogado Especialista em Direito da Sa\u00fade: Guia Completo de Atua\u00e7\u00e3o, \u00c1reas e Quando Procurar (2026)",
+    slug: "advogado-especialista-direito-da-saude",
+    date: "2026-05-05",
+    categories: ["Direito da Sa\u00fade", "Guia"],
+    excerpt: "Como atua um advogado especialista em direito da sa\u00fade, em quais \u00e1reas pode ajudar, quanto custa e quando procurar. Guia completo com Lei 14.454/2022, decis\u00f5es do STJ e dados do CNJ \u2014 tudo o que voc\u00ea precisa saber para defender seus direitos contra plano de sa\u00fade ou SUS."
+  },
+  {
     title: "Como Processar um Plano de Sa\u00fade? Saiba Como Agir!",
     slug: "como-processar-um-plano-de-saude",
     date: "2025-02-14",
