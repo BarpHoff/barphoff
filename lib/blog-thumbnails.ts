@@ -1,10 +1,11 @@
-// Blog post thumbnail mapping — slug → original WordPress featured image
+// Blog post thumbnail mapping: slug -> original WordPress featured image
 const thumbnailMap: Record<string, string> = {
-  // Artigos novos (cluster strategy) — imagens dedicadas geradas via IA
+  // Artigos novos (cluster strategy): imagens dedicadas geradas via IA
   'advogado-especialista-direito-da-saude': '/assets/blog/2026-pillar-direito-saude.jpg',
   'lei-14454-rol-ans-cobertura-fora': '/assets/blog/2026-lei-14454.jpg',
+  'liminar-contra-plano-de-saude': '/assets/blog/2026-liminar.jpg',
 
-  // Posts antigos (migrados do WordPress) — mantém thumbnails originais
+  // Posts antigos (migrados do WordPress): mantém thumbnails originais
   'como-processar-um-plano-de-saude': '/assets/blog/processar-plano-3.jpg',
   'processar-o-plano-de-saude-2': '/assets/blog/processar-plano-14.jpg',
   'negativa-de-plano-de-saude': '/assets/blog/negativa-plano-13.jpg',

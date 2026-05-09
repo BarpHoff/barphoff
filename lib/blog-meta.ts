@@ -11,6 +11,13 @@ export interface BlogPostMeta {
 
 export const blogPostsMeta: BlogPostMeta[] = [
   {
+    title: "Liminar Contra Plano de Saúde: Como Conseguir Decisão Judicial em 24 a 72 Horas",
+    slug: "liminar-contra-plano-de-saude",
+    date: "2026-05-07",
+    categories: ["Direito da Saúde", "Planos de Saúde", "Liminar"],
+    excerpt: "A liminar judicial obriga o plano de saúde a autorizar tratamento, cirurgia ou medicamento em poucas horas. Veja quando cabe, quais documentos juntar, como funciona o processo e os requisitos legais (fumus boni iuris e periculum in mora) na prática."
+  },
+  {
     title: "Lei 14.454/2022: O Que Mudou no Rol da ANS e Como Conseguir Cobertura Fora da Lista",
     slug: "lei-14454-rol-ans-cobertura-fora",
     date: "2026-05-06",
