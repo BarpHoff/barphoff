@@ -4,14 +4,14 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Termos de Uso',
   description:
-    'Termos de uso do site Barp.Hoff.Costa Advogados (barphoff.com). Conteudo informativo, direitos autorais, limitacao de responsabilidade e foro de eleicao.',
+    'Termos de uso do site Barp.Hoff Advogados (barphoff.com). Conteudo informativo, direitos autorais, limitacao de responsabilidade e foro de eleicao.',
   openGraph: {
     title: 'Termos de Uso | Barp.Hoff.',
     description:
-      'Termos de uso do site Barp.Hoff.Costa Advogados: caráter informativo, direitos autorais e responsabilidades.',
+      'Termos de uso do site Barp.Hoff Advogados: caráter informativo, direitos autorais e responsabilidades.',
     url: 'https://www.barphoff.com/termos-de-uso',
     images: [
-      { url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' },
+      { url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff Advogados' },
     ],
   },
   alternates: { canonical: 'https://www.barphoff.com/termos-de-uso' },
@@ -51,7 +51,7 @@ export default function TermosDeUsoPage() {
             >
               https://www.barphoff.com
             </a>
-            ) &eacute; mantido pela <strong>Barp.Hoff.Costa Advocacia Especializada</strong>,
+            ) &eacute; mantido pela <strong>Barp.Hoff Advocacia Especializada</strong>,
             sociedade de advogados regularmente inscrita na Ordem dos Advogados do Brasil
             (OAB/PR). O acesso e a navega&ccedil;&atilde;o no site implicam a aceita&ccedil;&atilde;o
             integral destes Termos de Uso e da{' '}
@@ -93,7 +93,7 @@ export default function TermosDeUsoPage() {
           <p className="mb-4 leading-relaxed text-gray-700">
             Todo o conte&uacute;do deste site &mdash; textos, imagens, v&iacute;deos,
             logotipos, layout, c&oacute;digo-fonte e elementos gr&aacute;ficos &mdash;
-            &eacute; de propriedade da Barp.Hoff.Costa Advocacia Especializada ou
+            &eacute; de propriedade da Barp.Hoff Advocacia Especializada ou
             licenciado a ela e est&aacute; protegido pela Lei n&ordm; 9.610/1998 (Lei de
             Direitos Autorais) e pela Lei n&ordm; 9.279/1996 (Lei da Propriedade Industrial).
           </p>
@@ -111,13 +111,13 @@ export default function TermosDeUsoPage() {
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">
             O site &eacute; disponibilizado &ldquo;como est&aacute;&rdquo;. A
-            Barp.Hoff.Costa empenha-se em manter o conte&uacute;do correto e atualizado,
+            Barp.Hoff empenha-se em manter o conte&uacute;do correto e atualizado,
             mas <strong>n&atilde;o garante</strong> que esteja livre de erros, omiss&otilde;es
             ou desatualiza&ccedil;&otilde;es decorrentes de mudan&ccedil;as legislativas,
             jurisprudenciais ou regulat&oacute;rias posteriores &agrave; publica&ccedil;&atilde;o.
           </p>
           <p className="mb-4 leading-relaxed text-gray-700">
-            A Barp.Hoff.Costa <strong>n&atilde;o se responsabiliza</strong> por:
+            A Barp.Hoff <strong>n&atilde;o se responsabiliza</strong> por:
           </p>
           <ul className="mb-4 ml-6 list-disc space-y-2 leading-relaxed text-gray-700">
             <li>
@@ -178,7 +178,7 @@ export default function TermosDeUsoPage() {
             7. Altera&ccedil;&otilde;es destes Termos
           </h2>
           <p className="mb-4 leading-relaxed text-gray-700">
-            A Barp.Hoff.Costa pode revisar estes Termos de Uso a qualquer tempo, com
+            A Barp.Hoff pode revisar estes Termos de Uso a qualquer tempo, com
             a devida indica&ccedil;&atilde;o da data da &uacute;ltima atualiza&ccedil;&atilde;o.
             A continuidade do uso do site ap&oacute;s a publica&ccedil;&atilde;o de
             altera&ccedil;&otilde;es implica concord&acirc;ncia com a vers&atilde;o

@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'Quem Somos | Barp.Hoff.Costa Advogados',
+  title: 'Quem Somos | Barp.Hoff Advogados',
   description:
-    'Com mais de 17 anos de experiência em Direito da Saúde, o Barp.Hoff.Costa tem uma equipe dedicada a oferecer atendimento personalizado e humanizado em todo o Brasil.',
+    'Com mais de 17 anos de experiência em Direito da Saúde, o Barp.Hoff tem uma equipe dedicada a oferecer atendimento personalizado e humanizado em todo o Brasil.',
   openGraph: {
-    title: 'Quem Somos | Barp.Hoff.Costa Advogados',
+    title: 'Quem Somos | Barp.Hoff Advogados',
     description: 'Conheça o escritório referência em Direito da Saúde com mais de 17 anos de experiência.',
     url: 'https://www.barphoff.com/sobre',
-    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
+    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff Advogados' }],
   },
   alternates: { canonical: 'https://www.barphoff.com/sobre' },
   keywords: [
@@ -86,7 +86,7 @@ const sobreBreadcrumbSchema = {
 const sobreFaqs = [
   {
     q: 'Há quanto tempo o escritório atua em Direito da Saúde?',
-    a: 'O Barp.Hoff.Costa Advogados atua há mais de 17 anos com especialização exclusiva em Direito da Saúde, acumulando milhares de casos favoráveis envolvendo negativas de planos de saúde e do SUS em todo o Brasil.',
+    a: 'O Barp.Hoff Advogados atua há mais de 17 anos com especialização exclusiva em Direito da Saúde, acumulando milhares de casos favoráveis envolvendo negativas de planos de saúde e do SUS em todo o Brasil.',
   },
   {
     q: 'O escritório atende apenas em Foz do Iguaçu?',
@@ -183,7 +183,7 @@ export default function SobrePage() {
           {/* Bottom ornamental divider */}
           <div className="mt-5 flex items-center justify-center gap-3">
             <span className="h-[1px] w-24 bg-gradient-to-r from-transparent to-[#D5BE9F]" />
-            <span className="text-xs uppercase tracking-[0.3em] text-[#D5BE9F]">Costa Advogados</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-[#D5BE9F]">Advogados</span>
             <span className="h-[1px] w-24 bg-gradient-to-l from-transparent to-[#D5BE9F]" />
           </div>
 

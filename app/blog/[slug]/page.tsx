@@ -33,7 +33,7 @@ export function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
-    authors: [{ name: 'Barp.Hoff.Costa Advogados' }],
+    authors: [{ name: 'Barp.Hoff Advogados' }],
     keywords: post.categories.join(', ') + ', Direito da Saúde, advogado saúde',
     alternates: { canonical: url },
     openGraph: {
@@ -43,7 +43,7 @@ export function generateMetadata({
       type: 'article',
       locale: 'pt_BR',
       publishedTime: post.date,
-      authors: ['Barp.Hoff.Costa Advogados'],
+      authors: ['Barp.Hoff Advogados'],
       section: post.categories[0],
       images: [
         {

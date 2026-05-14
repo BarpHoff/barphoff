@@ -1,8 +1,8 @@
-# BARP.HOFF.COSTA ADVOGADOS
+# BARP.HOFF ADVOGADOS
 
 ## Direção Estratégica, Criativa e Simbólica da Marca
 
-Este documento consolida a base estratégica, simbólica e verbal da marca Barp.Hoff.Costa Advogados. Ele serve como guia oficial para decisões de branding, identidade visual, comunicação institucional, posicionamento de mercado e expansão futura.
+Este documento consolida a base estratégica, simbólica e verbal da marca Barp.Hoff Advogados. Ele serve como guia oficial para decisões de branding, identidade visual, comunicação institucional, posicionamento de mercado e expansão futura.
 
 O objetivo é garantir clareza, coerência e consistência, alinhando estratégia de negócio, posicionamento no nicho de Direito da Saúde e expressão visual, para que a marca se manifeste com autoridade e humanidade em todos os pontos de contato.
 
@@ -10,7 +10,7 @@ O objetivo é garantir clareza, coerência e consistência, alinhando estratégi
 
 ## ESSÊNCIA DA MARCA
 
-A Barp.Hoff.Costa nasce de 17 anos de dedicação exclusiva ao Direito da Saúde. Representa a advocacia que existe na interseção entre a urgência humana e o rigor jurídico — onde cada negativa de plano de saúde é um paciente em risco, e cada liminar conquistada é uma vida protegida.
+A Barp.Hoff nasce de 17 anos de dedicação exclusiva ao Direito da Saúde. Representa a advocacia que existe na interseção entre a urgência humana e o rigor jurídico — onde cada negativa de plano de saúde é um paciente em risco, e cada liminar conquistada é uma vida protegida.
 
 A marca se posiciona como escudo jurídico do paciente, transformando negativas em autorizações, burocracias em liminares, e desamparo em segurança — com velocidade, técnica e empatia.
 
@@ -21,7 +21,7 @@ Proteção | Urgência | Humanidade
 
 ## POSICIONAMENTO
 
-A Barp.Hoff.Costa é o escritório de referência nacional em Direito da Saúde, especializado na reversão de negativas de planos de saúde e do SUS por meio de estratégia jurídica ágil, técnica consolidada e atendimento humanizado.
+A Barp.Hoff é o escritório de referência nacional em Direito da Saúde, especializado na reversão de negativas de planos de saúde e do SUS por meio de estratégia jurídica ágil, técnica consolidada e atendimento humanizado.
 
 A marca entrega acesso à saúde, velocidade judicial e tranquilidade para pacientes e famílias que enfrentam a angústia de um tratamento negado.
 
@@ -31,7 +31,7 @@ A marca entrega acesso à saúde, velocidade judicial e tranquilidade para pacie
 
 Garantir que nenhum paciente fique sem tratamento por uma negativa injusta.
 
-A Barp.Hoff.Costa existe porque o sistema de saúde — público e privado — falha. Quando o plano nega, quando o SUS demora, quando o paciente não sabe a quem recorrer, o escritório assume o papel de ponte entre o paciente e o tratamento que lhe é de direito.
+A Barp.Hoff existe porque o sistema de saúde — público e privado — falha. Quando o plano nega, quando o SUS demora, quando o paciente não sabe a quem recorrer, o escritório assume o papel de ponte entre o paciente e o tratamento que lhe é de direito.
 
 A advocacia em saúde não é apenas uma área de atuação — é uma missão.
 
@@ -45,7 +45,7 @@ Reverter negativas de saúde com agilidade, técnica e cuidado, garantindo que o
 
 ## DIFERENCIAL ESSENCIAL
 
-A Barp.Hoff.Costa não é um escritório generalista que atua em saúde. É um escritório que respira saúde há 17 anos. Sua atuação se baseia em:
+A Barp.Hoff não é um escritório generalista que atua em saúde. É um escritório que respira saúde há 17 anos. Sua atuação se baseia em:
 
 - **Especialização absoluta** — 100% focado em Direito da Saúde, sem dispersão
 - **Velocidade de resposta** — triagem via WhatsApp, avaliação em horas, liminar em dias
@@ -61,7 +61,7 @@ A marca não promete milagres. Entrega liminares.
 
 **Protetora | Urgente | Técnica | Humana | Acessível | Confiável**
 
-A Barp.Hoff.Costa se comunica com empatia firme, clareza técnica e senso de urgência. Não é fria nem distante — é a voz que diz "eu sei o que você está passando, e sei como resolver". Transmite segurança sem arrogância, urgência sem desespero, empatia sem assistencialismo.
+A Barp.Hoff se comunica com empatia firme, clareza técnica e senso de urgência. Não é fria nem distante — é a voz que diz "eu sei o que você está passando, e sei como resolver". Transmite segurança sem arrogância, urgência sem desespero, empatia sem assistencialismo.
 
 ---
 
@@ -121,7 +121,7 @@ Para nós, cada caso é uma pessoa. Cada liminar é um tratamento que começa. C
 
 Porque a saúde não espera. E nós também não.
 
-**Barp.Hoff.Costa Advogados.**
+**Barp.Hoff Advogados.**
 **A saúde não espera.**
 
 ---
@@ -177,7 +177,7 @@ Porque a saúde não espera. E nós também não.
 
 ## EXPERIÊNCIA DE MARCA (PRIMEIROS 30 SEGUNDOS)
 
-Ao conhecer a Barp.Hoff.Costa, o paciente deve sentir:
+Ao conhecer a Barp.Hoff, o paciente deve sentir:
 
 1. **Alívio** — "Existe alguém que pode me ajudar."
 2. **Confiança** — "São especialistas nisso há 17 anos."
@@ -198,7 +198,7 @@ A marca é projetada para atrair:
 - **Idosos e cuidadores** que precisam de home care e receberam negativa
 - **Qualquer pessoa no Brasil** cujo direito à saúde foi violado por plano ou SUS
 
-A Barp.Hoff.Costa não é um escritório para empresas ou corporações. É uma marca para pessoas que precisam de saúde e encontraram uma porta fechada.
+A Barp.Hoff não é um escritório para empresas ou corporações. É uma marca para pessoas que precisam de saúde e encontraram uma porta fechada.
 
 ---
 
@@ -285,7 +285,7 @@ Depoimentos, atendimento humanizado, linguagem acessível. O paciente é pessoa,
 
 ## DIRETRIZ FINAL DE MARCA
 
-A Barp.Hoff.Costa deve se manifestar como uma presença protetora e resolutiva, com urgência controlada, empatia genuína e autoridade técnica construída em 17 anos de especialização.
+A Barp.Hoff deve se manifestar como uma presença protetora e resolutiva, com urgência controlada, empatia genuína e autoridade técnica construída em 17 anos de especialização.
 
 Toda comunicação, design e experiência devem refletir a premissa central:
 
@@ -293,5 +293,5 @@ Toda comunicação, design e experiência devem refletir a premissa central:
 
 ---
 
-*Documento de referência da marca Barp.Hoff.Costa Advogados*
+*Documento de referência da marca Barp.Hoff Advogados*
 *Última atualização: 2026-04-06*

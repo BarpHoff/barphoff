@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     'erro médico advogado',
   ],
   openGraph: {
-    title: 'Barp.Hoff.Costa Advogados — Especialistas em Direito da Saúde',
+    title: 'Barp.Hoff Advogados — Especialistas em Direito da Saúde',
     description: 'Há 17 anos revertendo negativas de plano de saúde e SUS. Medicamentos, tratamentos, home care e cirurgias. Atendemos todo o Brasil.',
     type: 'website',
     url: 'https://www.barphoff.com/',
-    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
+    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff Advogados' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -518,7 +518,7 @@ export default function HomePage() {
           <div className="mb-12 text-center">
             <h2 className="section-title">
               O QUE DIZEM SOBRE O{' '}
-              <strong className="gradient-text">BARP.HOFF.COSTA ADVOGADOS</strong>
+              <strong className="gradient-text">BARP.HOFF. ADVOGADOS</strong>
             </h2>
           </div>
 

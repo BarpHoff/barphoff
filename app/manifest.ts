@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Barp.Hoff.Costa Advogados — Direito da Saúde',
+    name: 'Barp.Hoff Advogados — Direito da Saúde',
     short_name: 'Barp.Hoff.',
     description:
       'Advogados especialistas em Direito da Saúde. Atendimento nacional.',

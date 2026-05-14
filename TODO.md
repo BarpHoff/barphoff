@@ -100,10 +100,9 @@ números oficiais. Se forem mantidos os atuais, basta responder "ok".
 | Campo | Status atual | Arquivos |
 |---|---|---|
 | CNPJ | **AUSENTE** em todo o repo | `app/layout.tsx` schema + `components/Footer.tsx` rodapé |
-| Razão social completa | "Barp.Hoff.Costa Advogados" — confirmar se é razão social ou nome fantasia | `app/layout.tsx`, `app/sobre/page.tsx` |
-| OAB nº Dra. Alexandra Barp | Apenas "OAB/PR" (sem número) | `app/sobre/page.tsx:406`, `app/layout.tsx:218` schema Person |
-| OAB nº Dra. Jessica Hoff | Apenas "OAB/PR" (sem número) | `app/sobre/page.tsx:453`, `app/layout.tsx:261` schema Person |
-| OAB nº Dr(a). Costa | **AUSENTE** — o nome consta só no branding | investigar se há terceiro sócio a incluir em Person schema |
+| Razão social completa | "Barp.Hoff Advogados" (Costa saiu da sociedade, removido de todo o site em 2026-05) | `app/layout.tsx`, `app/sobre/page.tsx` |
+| OAB nº Dra. Alexandra Barp | ✅ OAB/PR 56.903-N aplicado | `app/sobre/page.tsx`, `app/layout.tsx` schema Person |
+| OAB nº Dra. Jessica Hoff | ✅ OAB/PR 99.905 aplicado | `app/sobre/page.tsx`, `app/layout.tsx` schema Person |
 | Endereço completo (CEP, logradouro, bairro, cidade, UF) | **AUSENTE** em schema | `app/layout.tsx` (address JSON-LD), `components/Footer.tsx`, `app/contato/page.tsx` |
 
 **Ação**: cliente envia briefing → preencher JSON-LD + rodapé + contato.
@@ -148,7 +147,7 @@ números oficiais. Se forem mantidos os atuais, basta responder "ok".
 |---|---|---|---|
 | Instagram | `instagram.com/saudebhc/` | `instagram.com/saudebhc/` | ✓ consistente |
 | Facebook | `facebook.com/barphoff` | `facebook.com/profile.php?id=61550826945465` | **INCONSISTENTE** |
-| LinkedIn | `linkedin.com/company/barphoff` | `linkedin.com/company/barp-hoff-costa-advocacia-especializada/` | **INCONSISTENTE** |
+| LinkedIn | confirmar URL oficial atual | confirmar URL oficial atual | **A CONFIRMAR** (URL antiga com "costa" não usar) |
 | YouTube | ausente | ausente | confirmar se existe |
 | TikTok | ausente | ausente | confirmar se existe |
 
@@ -171,8 +170,9 @@ Campos faltando em ambas:
 
 **Ação**: briefing deve trazer CV resumido de cada sócia + fotos oficiais.
 
-Também **CONFIRMAR**: há uma terceira sócia/sócio "Costa" (nome da marca
-é Barp.Hoff.Costa) ou é só uma designação comercial herdada?
+✅ **RESOLVIDO**: a sócia "Costa" saiu da sociedade. A marca agora é
+**Barp.Hoff** (sem Costa). Todas as referências textuais e de logo foram
+removidas do site em 2026-05. Não há terceiro sócio a incluir no schema.
 
 ---
 

@@ -9,13 +9,13 @@ import { blogPostsMeta as blogPosts } from '@/lib/blog-meta'
 export const metadata: Metadata = {
   title: 'Áreas de Atuação em Direito da Saúde',
   description:
-    'Áreas de atuação do Barp.Hoff.Costa em Direito da Saúde: negativas de plano de saúde, negativas do SUS, tratamento home care, tratamento oncológico, cirurgias reparadoras e medicamentos de alto custo.',
+    'Áreas de atuação do Barp.Hoff em Direito da Saúde: negativas de plano de saúde, negativas do SUS, tratamento home care, tratamento oncológico, cirurgias reparadoras e medicamentos de alto custo.',
   keywords: ['negativa plano de saúde', 'negativa SUS', 'home care', 'tratamento oncológico', 'cirurgia reparadora', 'medicamento alto custo'],
   openGraph: {
     title: 'Áreas de Atuação | Barp.Hoff. Advogados — Direito da Saúde',
     description: 'Negativas de plano de saúde e SUS, home care, oncologia, cirurgias e medicamentos de alto custo.',
     url: 'https://www.barphoff.com/areas-de-atuacao',
-    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff.Costa Advogados' }],
+    images: [{ url: '/assets/images/og-cover.jpg', width: 1200, height: 630, alt: 'Barp.Hoff Advogados' }],
   },
   alternates: { canonical: 'https://www.barphoff.com/areas-de-atuacao' },
 }

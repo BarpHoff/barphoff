@@ -49,7 +49,7 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit}
       className="space-y-6"
-      aria-label="Formul&aacute;rio de contato com o escrit&oacute;rio Barp.Hoff.Costa Advogados"
+      aria-label="Formul&aacute;rio de contato com o escrit&oacute;rio Barp.Hoff Advogados"
       noValidate={false}
     >
       {/* Nome completo */}
